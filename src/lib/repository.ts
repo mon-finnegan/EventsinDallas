@@ -1,0 +1,71 @@
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+import { SEED_EVENTS } from "@/data/seed";
+import type { CalendarEvent } from "./types";
+import { validateForPublish } from "./validation";
+
+// Storage is behind this small interface so the app stays portable (spec §32):
+// Supabase when configured, otherwise the verified seed dataset bundled with the app.
+
+export interface EventRepository {
+  list(): Promise<CalendarEvent[]>;
+  upsert(events: CalendarEvent[]): Promise<void>;
+}
+
+class SeedRepository implements EventRepository {
+  async list() {
+    return SEED_EVENTS;
+  }
+  async upsert(): Promise<void> {
+    throw new Error("Seed repository is read-only. Configure Supabase to persist pipeline results.");
+  }
+}
+
+/** Postgres returns "HH:MM:SS" for time columns; the app uses "HH:MM". */
+function fromRow(row: Record<string, unknown>): CalendarEvent {
+  const t = (v: unknown) => (typeof v === "string" ? v.slice(0, 5) : null);
+  return {
+    ...(row as unknown as CalendarEvent),
+    start_time: t(row.start_time),
+    end_time: t(row.end_time),
+    activities: (row.activities as string[] | null) ?? [],
+  };
+}
+
+class SupabaseRepository implements EventRepository {
+  constructor(private client: SupabaseClient) {}
+
+  async list() {
+    const { data, error } = await this.client.from("events").select("*");
+    if (error) throw new Error(`Supabase list failed: ${error.message}`);
+    return (data ?? []).map(fromRow);
+  }
+
+  async upsert(events: CalendarEvent[]) {
+    if (events.length === 0) return;
+    const { error } = await this.client.from("events").upsert(events, { onConflict: "id" });
+    if (error) throw new Error(`Supabase upsert failed: ${error.message}`);
+  }
+}
+
+export function getRepository(opts: { write?: boolean } = {}): EventRepository {
+  const url = process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = opts.write
+    ? process.env.SUPABASE_SERVICE_ROLE_KEY
+    : (process.env.SUPABASE_ANON_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+  if (url && key) {
+    return new SupabaseRepository(createClient(url, key, { auth: { persistSession: false } }));
+  }
+  return new SeedRepository();
+}
+
+/** Events that pass the publishing gate; anything invalid is withheld and logged. */
+export async function getPublishedEvents(): Promise<CalendarEvent[]> {
+  const raw = await getRepository().list();
+  const out: CalendarEvent[] = [];
+  for (const e of raw) {
+    const res = validateForPublish(e);
+    if (res.ok) out.push(res.event);
+    else console.warn(`[events] withheld ${e.id}: ${res.errors.join("; ")}`);
+  }
+  return out;
+}
