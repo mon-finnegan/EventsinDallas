@@ -18,7 +18,7 @@ npm run lint && npm run typecheck && npm run build
 
 `npm run build:static` writes `dist/index.html`: a single self-contained page with the same calendar and seed data, which can be hosted anywhere without a server.
 
-Without any environment variables the app serves the bundled seed dataset (`src/data/seed.ts`): 24 real Oct 2026 – Jun 2027 listings, each with its source.
+Without any environment variables the app serves the bundled seed dataset (`src/data/seed.ts`): about 50 real listings from Oct 2026 to Jun 2027, each with its source.
 
 ## Features (P0)
 
@@ -43,25 +43,42 @@ Without any environment variables the app serves the bundled seed dataset (`src/
 - **AI extraction:** for every date or time it extracts, Claude must quote the exact text from the source page. `enforceEvidence` throws away any value whose quote doesn't appear on the page. The prompt also tells the model never to turn phrases like "first Tuesday of October" into a date.
 - **UI:** dates show a "Confirmed" badge or "Date not yet announced". Every detail panel links to the source and shows when it was last verified.
 
-## Data pipeline
+## Data pipeline (feeders)
 
 ```
-SOURCES (src/lib/pipeline/sources.ts)
-  → fetch page → Claude structured extraction (claude-opus-5-5, Zod schema)
-  → evidence check → validation → relevance filter → dedupe against stored rows
-  → upsert to Supabase; past events marked COMPLETED
+SOURCES (~50 feeders: churches, venues, cities, performing arts, aggregators, national)
+  → due today? (sources that keep failing back off: 1, 2, 4, 8, then 14 days)
+  → feeder, cheapest and most trustworthy first:
+      1. WordPress "The Events Calendar" REST API   (structured, exact dates)
+      2. iCal feed (advertised .ics, Squarespace ?format=ical, or a configured feed_url)
+      3. schema.org JSON-LD Event markup on the page
+      4. Claude extraction of the page + linked event detail pages (every date quote-checked)
+  → validation → relevance → dedupe against stored rows (official source wins)
+  → venue review counts (optional, Google Places) → weekly curation cap (20/week; signup alerts never cut)
+  → Supabase; past events marked COMPLETED; run summary saved to pipeline_runs
 ```
 
-- **Vercel:** `vercel.json` calls `GET /api/cron/refresh` every day at 11:00 UTC (6 AM in Dallas). The route requires `Authorization: Bearer $CRON_SECRET`.
-- **Anywhere else** (GitHub Actions, local): `npm run refresh` runs every source, or `npm run refresh -- klyde-warren dallas-zoo` runs just those.
-- Each run returns a summary: sources that failed, fields dropped for missing evidence, records rejected with reasons, and how many were published.
+**How it holds up as sources grow:**
 
-To add coverage, add official pages to `SOURCES` (church calendars, the Diocese of Dallas, venue calendars, national ticket pages). Don't hard-code events.
+- **Polite, resilient HTTP** (`src/lib/pipeline/http.ts`). Retries with backoff on 429/5xx and network errors, honors `Retry-After`, has timeouts and a size cap, respects robots.txt, and spaces out requests to the same host.
+- **Change detection.** Conditional GETs (ETag / Last-Modified) plus a content hash. When a page hasn't changed, Claude isn't called again and the page's events are marked re-confirmed.
+- **Failure isolation.** One broken source never stops the run. Failures are recorded per source, with consecutive-failure counts and the last error.
+- **Structured first.** Feeds with real calendar data skip AI entirely, so they cost nothing and can't hallucinate. AI is the fallback, and every date it returns must quote the page.
+- **Volume control.** `curateByWeek` keeps the calendar near the spec's 5–20 good events per week by internal score. Well-reviewed venues rank higher when review data is available.
+- **Observability.** Each run reports the sources that failed, were unchanged, or came back empty (often a site redesign), the feeders used, rejections with reasons, events cut for volume, and stale events (not re-verified in 14 days).
+
+**Running it:**
+
+- **Vercel Cron:** `vercel.json` calls `GET /api/cron/refresh` daily at 11:00 UTC. The route needs `Authorization: Bearer $CRON_SECRET`.
+- **GitHub Actions:** `.github/workflows/refresh.yml` runs daily and can be triggered by hand. It needs repo secrets and skips the run if they're missing.
+- **CLI:** `npm run refresh` with `-- --dry-run`, `-- --force`, `-- --group church`, or `-- klyde-warren perot`.
+
+**Adding a feeder:** run `npm run discover -- https://some-church.org/events` to see what the pipeline can read there (WordPress API, iCal, JSON-LD, or AI only). Then paste the printed entry into `SOURCES` in `src/lib/pipeline/sources.ts`. Don't hard-code events.
 
 ## Supabase setup
 
-1. Create a project and run `supabase/migrations/0001_init.sql`.
-2. Copy `.env.example` to `.env.local` and fill in `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `ANTHROPIC_API_KEY` and `CRON_SECRET`.
+1. Create a project and run `supabase/migrations/0001_init.sql`, then `0002_feeders.sql`.
+2. Copy `.env.example` to `.env.local` and fill in `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `ANTHROPIC_API_KEY`, `CRON_SECRET` and optionally `GOOGLE_PLACES_API_KEY`.
 3. `npm run seed` loads the verified seed data. After that, the daily pipeline keeps it current.
 
 The app reads with the anon key (row-level security allows public `select` only). Only the pipeline writes, using the service-role key.

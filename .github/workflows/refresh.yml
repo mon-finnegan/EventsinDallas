@@ -1,0 +1,48 @@
+name: Daily refresh
+
+# Alternative to Vercel Cron: runs the feeder pipeline every morning (6:23 AM Dallas, CDT).
+# Requires repository secrets SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY; ANTHROPIC_API_KEY and
+# GOOGLE_PLACES_API_KEY are optional. Skips cleanly when Supabase is not configured.
+on:
+  schedule:
+    - cron: "23 11 * * *"
+  workflow_dispatch:
+    inputs:
+      args:
+        description: "Extra args, e.g. --force or --group church"
+        required: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+    steps:
+      - name: Check configuration
+        id: cfg
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_SERVICE_ROLE_KEY" ]; then
+            echo "Supabase secrets not set; skipping refresh."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/checkout@v4
+        if: steps.cfg.outputs.skip != 'true'
+      - uses: actions/setup-node@v4
+        if: steps.cfg.outputs.skip != 'true'
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+        if: steps.cfg.outputs.skip != 'true'
+      - name: Run pipeline
+        if: steps.cfg.outputs.skip != 'true'
+        run: npm run refresh -- ${{ github.event.inputs.args }} > summary.json
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.cfg.outputs.skip != 'true'
+        with:
+          name: refresh-summary
+          path: summary.json

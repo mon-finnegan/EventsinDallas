@@ -1,46 +1,117 @@
 import type { SourceType } from "../types";
 
+export type FeederKind = "auto" | "ical" | "jsonld" | "tribe" | "html_ai";
+
+export type SourceGroup =
+  | "church"
+  | "venue"
+  | "civic"
+  | "performing_arts"
+  | "seasonal"
+  | "aggregator"
+  | "national";
+
 export interface Source {
   id: string;
   name: string;
   url: string;
   source_type: SourceType;
+  group: SourceGroup;
   /** Church/religious community institution (spec §20). */
   is_church: boolean;
   /** National coveted-experience source (spec §8). */
   is_national: boolean;
+  /** How to read the source. "auto" tries structured feeds first and falls back to AI. */
+  feeder?: FeederKind;
+  /** Explicit feed endpoint for `ical` / `tribe` feeders. */
+  feed_url?: string;
+  /** City to assume when a structured feed omits it (the source's own location). */
+  default_city?: string;
+  /** Event detail pages to follow from a listing page (AI path). */
+  max_detail_pages?: number;
 }
 
+type Def = Omit<Source, "is_church" | "is_national"> & Partial<Pick<Source, "is_church" | "is_national">>;
+
+const def = (d: Def): Source => ({
+  is_church: d.group === "church",
+  is_national: d.group === "national",
+  ...d,
+});
+
 /**
- * Starting source registry. The pipeline fetches each page daily and lets the extractor find
- * dated events; add sources here (or in the `sources` table) rather than hard-coding events.
- * Prefer official pages (spec §26).
+ * Feeder registry. Each source is an official page (spec §26) unless marked `local_calendar`.
+ * Add sources here — or rows in the `sources` table — rather than hard-coding events. With
+ * `feeder: "auto"` the pipeline detects WordPress calendars, iCal feeds and schema.org markup
+ * on its own, so most new sources need only a URL.
  */
 export const SOURCES: Source[] = [
-  // Churches & religious community institutions
-  { id: "prestoncrest", name: "Prestoncrest Church of Christ", url: "https://prestoncrest.org/events/pumpkinfest/", source_type: "official_organization", is_church: true, is_national: false },
-  { id: "first-dallas", name: "First Baptist Dallas", url: "https://firstdallas.org/", source_type: "official_organization", is_church: true, is_national: false },
-  { id: "greek-fest", name: "Greek Food Festival of Dallas", url: "https://greekfestivalofdallas.com/", source_type: "official_event", is_church: true, is_national: false },
-  { id: "lebanese-fest", name: "DFW Lebanese Food Festival", url: "https://dfwlebanesefoodfest.com/", source_type: "official_event", is_church: true, is_national: false },
-  { id: "cathdal", name: "Catholic Diocese of Dallas — Events", url: "https://www.cathdal.org/events", source_type: "official_organization", is_church: true, is_national: false },
+  // ── Churches & religious community institutions ──────────────────────────────
+  def({ id: "prestoncrest", name: "Prestoncrest Church of Christ", url: "https://prestoncrest.org/events/pumpkinfest/", source_type: "official_organization", group: "church", default_city: "Dallas" }),
+  def({ id: "first-dallas", name: "First Baptist Dallas", url: "https://firstdallas.org/", source_type: "official_organization", group: "church", default_city: "Dallas" }),
+  def({ id: "first-umc-dallas", name: "First United Methodist Church Dallas", url: "https://dallasfirstumc.org/", source_type: "official_organization", group: "church", default_city: "Dallas" }),
+  def({ id: "hpumc", name: "Highland Park United Methodist Church", url: "https://www.hpumc.org/christmas", source_type: "official_organization", group: "church", default_city: "Dallas" }),
+  def({ id: "prestonwood", name: "Prestonwood Baptist Church — Christmas", url: "https://prestonwood.org/christmas/", source_type: "official_organization", group: "church", default_city: "Plano" }),
+  def({ id: "prestonwood-goc", name: "The Gift of Christmas (Prestonwood)", url: "https://prestonwoodgoc.org/", source_type: "official_event", group: "church", default_city: "Plano" }),
+  def({ id: "greek-fest", name: "Greek Food Festival of Dallas", url: "https://greekfestivalofdallas.com/", source_type: "official_event", group: "church", default_city: "Dallas" }),
+  def({ id: "lebanese-fest", name: "DFW Lebanese Food Festival", url: "https://dfwlebanesefoodfest.com/", source_type: "official_event", group: "church", default_city: "Lewisville" }),
+  def({ id: "cathdal", name: "Catholic Diocese of Dallas — Events", url: "https://www.cathdal.org/events", source_type: "official_organization", group: "church", max_detail_pages: 10 }),
 
-  // Dallas venues
-  { id: "klyde-warren", name: "Klyde Warren Park", url: "https://www.klydewarrenpark.org/events-programming", source_type: "official_venue", is_church: false, is_national: false },
-  { id: "arboretum", name: "Dallas Arboretum", url: "https://www.dallasarboretum.org/events-activities/calendar/", source_type: "official_venue", is_church: false, is_national: false },
-  { id: "dallas-zoo", name: "Dallas Zoo", url: "https://www.dallaszoo.com/dallas-zoo-events/", source_type: "official_venue", is_church: false, is_national: false },
-  { id: "fort-worth-zoo", name: "Fort Worth Zoo", url: "https://www.fortworthzoo.org/boo-at-the-zoo", source_type: "official_venue", is_church: false, is_national: false },
-  { id: "perot", name: "Perot Museum of Nature and Science", url: "https://www.perotmuseum.org/", source_type: "official_venue", is_church: false, is_national: false },
-  { id: "adolphus-tea", name: "The Adolphus — Tea", url: "https://www.adolphus.com/restaurants-bars/tea-at-the-adolphus", source_type: "official_venue", is_church: false, is_national: false },
-  { id: "galleria", name: "Galleria Dallas", url: "https://galleriadallas.com/holiday-2026", source_type: "official_venue", is_church: false, is_national: false },
-  { id: "rmh-trains", name: "The Trains at NorthPark", url: "https://rmhdallas.org/event/the-trains-at-northpark/", source_type: "official_organization", is_church: false, is_national: false },
-  { id: "big-tex", name: "State Fair of Texas", url: "https://bigtex.com/", source_type: "official_event", is_church: false, is_national: false },
-  { id: "visit-dallas", name: "Visit Dallas — Annual Events", url: "https://www.visitdallas.com/events/annual-events/", source_type: "official_municipal", is_church: false, is_national: false },
+  // ── Venues: zoos, gardens, museums, parks ───────────────────────────────────
+  def({ id: "klyde-warren", name: "Klyde Warren Park", url: "https://www.klydewarrenpark.org/events-programming", source_type: "official_venue", group: "venue", default_city: "Dallas" }),
+  def({ id: "klyde-warren-signature", name: "Klyde Warren Park — Signature Events", url: "https://www.klydewarrenpark.org/signature-events", source_type: "official_venue", group: "venue", default_city: "Dallas" }),
+  def({ id: "arboretum", name: "Dallas Arboretum", url: "https://www.dallasarboretum.org/events-activities/calendar/", source_type: "official_venue", group: "venue", default_city: "Dallas", max_detail_pages: 10 }),
+  def({ id: "arboretum-holiday", name: "Dallas Arboretum — Holiday", url: "https://www.dallasarboretum.org/events-activities/holiday-at-the-arboretum/", source_type: "official_venue", group: "venue", default_city: "Dallas" }),
+  def({ id: "arboretum-autumn", name: "Dallas Arboretum — Autumn", url: "https://www.dallasarboretum.org/autumn-at-the-arboretum/", source_type: "official_venue", group: "venue", default_city: "Dallas" }),
+  def({ id: "dallas-zoo", name: "Dallas Zoo — Events", url: "https://www.dallaszoo.com/dallas-zoo-events/", source_type: "official_venue", group: "venue", default_city: "Dallas" }),
+  def({ id: "dallas-zoo-lights", name: "Dallas Zoo Lights", url: "https://www.dallaszoo.com/zoo-lights/", source_type: "official_venue", group: "venue", default_city: "Dallas" }),
+  def({ id: "fort-worth-zoo", name: "Fort Worth Zoo", url: "https://www.fortworthzoo.org/boo-at-the-zoo", source_type: "official_venue", group: "venue", default_city: "Fort Worth" }),
+  def({ id: "perot", name: "Perot Museum of Nature and Science", url: "https://www.perotmuseum.org/events/", source_type: "official_venue", group: "venue", default_city: "Dallas" }),
+  def({ id: "heritage-village", name: "Dallas Heritage Village — Candlelight", url: "http://www.dallasheritagevillage.org/candlelight", source_type: "official_venue", group: "venue", default_city: "Dallas" }),
+  def({ id: "farmers-market", name: "Dallas Farmers Market", url: "https://dallasfarmersmarket.org/dfm-events/", source_type: "official_venue", group: "venue", feeder: "auto", default_city: "Dallas" }),
+  def({ id: "fair-park", name: "State Fair of Texas", url: "https://bigtex.com/", source_type: "official_event", group: "venue", default_city: "Dallas" }),
+  def({ id: "northpark-trains", name: "The Trains at NorthPark", url: "https://rmhdallas.org/event/the-trains-at-northpark/", source_type: "official_organization", group: "seasonal", default_city: "Dallas" }),
+  def({ id: "galleria", name: "Galleria Dallas — Holiday", url: "https://galleriadallas.com/holiday-2026", source_type: "official_venue", group: "seasonal", default_city: "Dallas" }),
+  def({ id: "gaylord-ice", name: "Gaylord Texan — ICE!", url: "https://www.christmasatgaylordtexan.com/ice", source_type: "official_venue", group: "seasonal", default_city: "Grapevine" }),
+  def({ id: "north-pole-express", name: "Grapevine — Santa's North Pole Express", url: "https://www.grapevinetexasusa.com/christmas-capital-of-texas/north-pole-express/faq/", source_type: "official_municipal", group: "seasonal", default_city: "Grapevine" }),
+  def({ id: "adolphus-tea", name: "The Adolphus — Tea", url: "https://www.adolphus.com/restaurants-bars/tea-at-the-adolphus", source_type: "official_venue", group: "seasonal", default_city: "Dallas" }),
 
-  // National coveted experiences
-  { id: "masters", name: "The Masters — Tickets", url: "https://www.masters.com/en_US/tournament/tickets.html", source_type: "official_event", is_church: false, is_national: true },
-  { id: "us-open", name: "U.S. Open — Tickets", url: "https://www.usopen.com/2027/tickets.html", source_type: "official_event", is_church: false, is_national: true },
-  { id: "pga-championship", name: "PGA Championship", url: "https://www.pgachampionship.com/tickets", source_type: "official_event", is_church: false, is_national: true },
-  { id: "ryder-cup", name: "Ryder Cup — Tickets", url: "https://www.rydercup.com/tickets", source_type: "official_event", is_church: false, is_national: true },
-  { id: "la28", name: "LA28 Tickets", url: "https://la28.org/en/tickets.html", source_type: "official_event", is_church: false, is_national: true },
-  { id: "banana-ball", name: "Savannah Bananas — Tickets", url: "https://thesavannahbananas.com/tickets/", source_type: "official_ticketing", is_church: false, is_national: true },
+  // ── Cities & civic calendars ────────────────────────────────────────────────
+  def({ id: "visit-dallas", name: "Visit Dallas — Annual Events", url: "https://www.visitdallas.com/events/annual-events/", source_type: "official_municipal", group: "civic", default_city: "Dallas", max_detail_pages: 10 }),
+  def({ id: "dallas-library", name: "Dallas Public Library — Events", url: "https://dallaslibrary.librarymarket.com/events/upcoming", source_type: "official_municipal", group: "civic", default_city: "Dallas" }),
+  def({ id: "university-park", name: "University Park — Special Events", url: "https://www.uptexas.org/378/Special-Events", source_type: "official_municipal", group: "civic", default_city: "University Park" }),
+  def({ id: "richardson-santa", name: "Richardson — Santa's Village", url: "https://www.cor.net/departments/parks-recreation/community-events/santa-s-village-at-huffhines-park", source_type: "official_municipal", group: "civic", default_city: "Richardson" }),
+  def({ id: "addison-events", name: "Town of Addison — Events", url: "https://www.addisontx.gov/Events-directory", source_type: "official_municipal", group: "civic", default_city: "Addison" }),
+  def({ id: "visit-plano", name: "Visit Plano — Events", url: "https://events.visitplano.com/", source_type: "official_municipal", group: "civic", default_city: "Plano" }),
+  def({ id: "frisco-merry", name: "Frisco — Merry Main Street", url: "https://www.friscotexas.gov/916/Merry-Main-Street", source_type: "official_municipal", group: "civic", default_city: "Frisco" }),
+  def({ id: "old-lake-highlands", name: "Old Lake Highlands Neighborhood Association", url: "https://www.oldlakehighlands.com/event-calendar", source_type: "official_organization", group: "civic", default_city: "Dallas" }),
+  def({ id: "ymca-turkey-trot", name: "Dallas YMCA Turkey Trot", url: "https://ymcadallas.org/turkeytrot", source_type: "official_event", group: "civic", default_city: "Dallas" }),
+
+  // ── Performing arts for little ones ─────────────────────────────────────────
+  def({ id: "dct", name: "Dallas Children's Theater", url: "https://www.dct.org/performances", source_type: "official_venue", group: "performing_arts", default_city: "Dallas" }),
+  def({ id: "attpac", name: "AT&T Performing Arts Center", url: "https://attpac.org/", source_type: "official_venue", group: "performing_arts", default_city: "Dallas" }),
+  def({ id: "dso-family", name: "Dallas Symphony — Family Holidays", url: "https://www.dallassymphony.org/productions/family-holidays-2026/", source_type: "official_venue", group: "performing_arts", default_city: "Dallas" }),
+
+  // ── Aggregators (lower trust; used for discovery, official sources win on dedupe) ──
+  def({ id: "dfwchild-calendar", name: "DFWChild — Calendar", url: "https://dfwchild.com/calendar/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0 }),
+  def({ id: "dfwchild-trunk", name: "DFWChild — Trunk-or-Treat Guide", url: "https://dfwchild.com/trunk-or-treat-dfw/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0 }),
+  def({ id: "kids-out-about", name: "Kids Out and About — Dallas", url: "https://dallas.kidsoutandabout.com/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0 }),
+  def({ id: "dallas-moms", name: "Dallas Moms — Monthly Guide", url: "https://dallasmoms.com/dallas-moms-need-to-know-a-guide-to-the-month-of-october/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0 }),
+  def({ id: "live-love-local", name: "Live Love Local — Dallas Fall Events", url: "https://livelovelocalblog.com/the-ultimate-guide-to-dallas-fall-events-2026/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0 }),
+  def({ id: "visit-dallas-dia", name: "Visit Dallas — Día de los Muertos", url: "https://www.visitdallas.com/blog/dia-de-los-muertos-dallas/", source_type: "official_municipal", group: "aggregator", default_city: "Dallas", max_detail_pages: 0 }),
+
+  // ── National coveted experiences ────────────────────────────────────────────
+  def({ id: "masters", name: "The Masters — Tickets", url: "https://www.masters.com/en_US/tournament/tickets.html", source_type: "official_event", group: "national" }),
+  def({ id: "us-open", name: "U.S. Open — Tickets", url: "https://www.usopen.com/2027/tickets.html", source_type: "official_event", group: "national" }),
+  def({ id: "pga-championship", name: "PGA Championship — Tickets", url: "https://www.pgachampionship.com/tickets", source_type: "official_event", group: "national" }),
+  def({ id: "pga-registry", name: "PGA Championship — Ticket Registry FAQ", url: "https://www.pgachampionship.com/ticket-registry-faqs-2027", source_type: "official_event", group: "national" }),
+  def({ id: "the-open", name: "The Open — Tickets", url: "https://www.theopen.com/latest/ticket-ballot-st-andrews-2027-open", source_type: "official_event", group: "national" }),
+  def({ id: "ryder-cup", name: "Ryder Cup — Tickets", url: "https://www.rydercup.com/news-media/tickets-to-go-on-sale-for-the-2027-ryder-cup", source_type: "official_event", group: "national" }),
+  def({ id: "la28", name: "LA28 Tickets", url: "https://la28.org/en/faqs/how-can-I-buy-tickets-to-the-la28-olympic-and-paralympic-games.html", source_type: "official_event", group: "national" }),
+  def({ id: "wimbledon", name: "Wimbledon Ballot (LTA)", url: "https://www.lta.org.uk/fan-zone/grand-slam/wimbledon-championships/ballots/", source_type: "official_organization", group: "national" }),
+  def({ id: "banana-ball", name: "Savannah Bananas — Tickets", url: "https://thesavannahbananas.com/tickets/", source_type: "official_ticketing", group: "national" }),
 ];
+
+export function sourceById(id: string): Source | undefined {
+  return SOURCES.find((s) => s.id === id);
+}

@@ -1,85 +1,15 @@
 import { describe, expect, it } from "vitest";
-import { enforceEvidence, type ExtractedEvent, type Extractor } from "@/lib/pipeline/extract";
+import { enforceEvidence, type Extractor } from "@/lib/pipeline/extract";
 import { htmlToText } from "@/lib/pipeline/fetch";
 import { runPipeline } from "@/lib/pipeline/run";
-import type { Source } from "@/lib/pipeline/sources";
-import type { EventRepository } from "@/lib/repository";
-import type { CalendarEvent } from "@/lib/types";
+import { MemoryStateStore } from "@/lib/pipeline/state";
+import { churchSource, extracted, FakeHttp, FALL_PAGE, MemoryRepo } from "./helpers";
 
-const source: Source = {
-  id: "test-church",
-  name: "Test Church",
-  url: "https://example.org/fall",
-  source_type: "official_organization",
-  is_church: true,
-  is_national: false,
-};
-
-const PAGE = `<html><body><h1>Fall Festival</h1>
-<p>Join us Saturday, October 24, 2026 from 4:00 PM – 7:00 PM for our free community Fall Festival:
-trunk-or-treat, petting zoo, games and food trucks.</p>
-<p>Wednesday Bible Study meets weekly.</p></body></html>`;
-
-function extracted(patch: Partial<ExtractedEvent>): ExtractedEvent {
-  return {
-    title: "Fall Festival",
-    description: "Free community fall festival.",
-    kind: "toddler_family_event",
-    subcategory: "church_community",
-    national_interest: null,
-    event_date: "2026-10-24",
-    end_date: null,
-    start_time: "16:00",
-    end_time: "19:00",
-    venue: "Test Church",
-    address: null,
-    city: "Dallas",
-    state: "TX",
-    age_min: null,
-    age_max: null,
-    age_label: null,
-    cost: "Free",
-    activities: ["Trunk-or-treat", "Petting zoo", "Games", "Food trucks"],
-    is_toddler_relevant: true,
-    is_family_relevant: true,
-    is_church_hosted: true,
-    is_public_event: true,
-    is_seasonal: true,
-    signup_required: false,
-    signup_type: null,
-    signup_open_at: null,
-    signup_close_at: null,
-    lottery_open_at: null,
-    lottery_close_at: null,
-    ticket_release_at: null,
-    action_note: null,
-    event_url: null,
-    registration_url: null,
-    ticket_url: null,
-    evidence: [
-      { field: "event_date", quote: "Saturday, October 24, 2026" },
-      { field: "start_time", quote: "4:00 PM – 7:00 PM" },
-      { field: "end_time", quote: "4:00 PM – 7:00 PM" },
-    ],
-    ...patch,
-  };
-}
-
-class MemoryRepo implements EventRepository {
-  rows: CalendarEvent[] = [];
-  async list() {
-    return this.rows;
-  }
-  async upsert(events: CalendarEvent[]) {
-    const byId = new Map(this.rows.map((r) => [r.id, r]));
-    for (const e of events) byId.set(e.id, e);
-    this.rows = [...byId.values()];
-  }
-}
+const NOW = new Date("2026-10-03T12:00:00Z");
 
 describe("evidence check", () => {
   it("nulls any date the page does not literally support", () => {
-    const text = htmlToText(PAGE);
+    const text = htmlToText(FALL_PAGE);
     const { event, dropped } = enforceEvidence(
       extracted({
         signup_type: "REGISTRATION",
@@ -100,59 +30,197 @@ describe("evidence check", () => {
 });
 
 describe("runPipeline", () => {
-  it("publishes a verified church festival, rejects Bible study, and is idempotent", async () => {
+  const bibleStudy = extracted({
+    title: "Wednesday Bible Study",
+    description: null,
+    activities: [],
+    event_date: null,
+    start_time: null,
+    end_time: null,
+    evidence: [],
+  });
+
+  it("publishes a verified church festival via AI, rejects Bible study, and is idempotent", async () => {
     const repo = new MemoryRepo();
-    const extract: Extractor = async () => [
-      extracted({}),
-      extracted({
-        title: "Wednesday Bible Study",
-        description: null,
-        activities: [],
-        event_date: null,
-        start_time: null,
-        end_time: null,
-        evidence: [],
-      }),
-    ];
-    const run = () =>
-      runPipeline({
-        sources: [source],
-        extract,
-        repo,
-        fetchText: async () => htmlToText(PAGE),
-        now: new Date("2026-10-03T12:00:00Z"),
-      });
+    const state = new MemoryStateStore();
+    const extract: Extractor = async () => [extracted({}), bibleStudy];
+    const run = (http = new FakeHttp({ [churchSource.url]: FALL_PAGE })) =>
+      runPipeline({ sources: [churchSource], extract, repo, state, http, now: NOW });
 
     const first = await run();
     expect(first.sources_ok).toBe(1);
     expect(first.published).toBe(1);
+    expect(first.feeders_used).toEqual({ html_ai: 1 });
     expect(first.rejected_validation.map((r) => r.title)).toContain("Wednesday Bible Study");
     expect(repo.rows).toHaveLength(1);
     expect(repo.rows[0]).toMatchObject({ event_date: "2026-10-24", start_time: "16:00", is_church_hosted: true });
+    expect(repo.runs).toHaveLength(1);
 
-    await run();
+    // Second run: the page is unchanged (same content hash) → no AI call, event re-confirmed.
+    let aiCalls = 0;
+    const counting: Extractor = async (a) => {
+      aiCalls++;
+      return extract(a);
+    };
+    const second = await runPipeline({
+      sources: [churchSource],
+      extract: counting,
+      repo,
+      state,
+      http: new FakeHttp({ [churchSource.url]: FALL_PAGE }),
+      now: new Date("2026-10-04T12:00:00Z"),
+    });
+    expect(aiCalls).toBe(0);
+    expect(second.sources_unchanged).toEqual(["test-church"]);
+    expect(second.reconfirmed).toBe(1);
     expect(repo.rows).toHaveLength(1);
+    expect(repo.rows[0].last_verified_at.startsWith("2026-10-04")).toBe(true);
   });
 
-  it("records failing sources without aborting the run", async () => {
+  it("sends conditional GET validators and treats 304 as unchanged", async () => {
+    const state = new MemoryStateStore();
+    const repo = new MemoryRepo();
+    await runPipeline({
+      sources: [churchSource],
+      extract: async () => [extracted({})],
+      repo,
+      state,
+      http: new FakeHttp({ [churchSource.url]: FALL_PAGE }),
+      now: NOW,
+    });
+    const http = new FakeHttp({ [churchSource.url]: { status: 304 } });
+    const summary = await runPipeline({ sources: [churchSource], extract: null, repo, state, http, now: NOW });
+    expect(http.calls[0].opts?.etag).toBe(`"etag-${churchSource.url}"`);
+    expect(summary.sources_unchanged).toEqual(["test-church"]);
+  });
+
+  it("isolates failures, records them, and backs off the failing source", async () => {
+    const repo = new MemoryRepo();
+    const state = new MemoryStateStore();
+    const healthy = { ...churchSource, id: "healthy", url: "https://ok.example.org/" };
+    const http = new FakeHttp({ [healthy.url]: FALL_PAGE, [churchSource.url]: { status: 503 } });
+    const summary = await runPipeline({
+      sources: [churchSource, healthy],
+      extract: async () => [extracted({})],
+      repo,
+      state,
+      http,
+      now: NOW,
+    });
+    expect(summary.sources_failed).toEqual([{ id: "test-church", error: expect.stringContaining("503"), consecutive_failures: 1 }]);
+    expect(summary.sources_ok).toBe(1);
+    expect(repo.rows).toHaveLength(1);
+
+    // Next day the failing source is still in backoff (1 day after 1 failure → due again);
+    // after a second failure it waits 2 days.
+    await runPipeline({ sources: [churchSource], extract: null, repo, state, http, now: new Date("2026-10-04T12:00:00Z") });
+    const third = await runPipeline({ sources: [churchSource], extract: null, repo, state, http, now: new Date("2026-10-05T12:00:00Z") });
+    expect(third.sources_skipped_backoff).toEqual(["test-church"]);
+  });
+
+  it("uses structured feeds without calling AI", async () => {
+    const page = `<html><head><script type="application/ld+json">${JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Event",
+      name: "Toddler Storytime: Pumpkins",
+      startDate: "2026-10-17T10:00:00-05:00",
+      endDate: "2026-10-17T10:30:00-05:00",
+      location: { "@type": "Place", name: "Lakewood Library", address: { streetAddress: "6121 Worth St", addressLocality: "Dallas", addressRegion: "TX" } },
+      isAccessibleForFree: true,
+    })}</script></head><body>Storytime</body></html>`;
+    let aiCalls = 0;
     const repo = new MemoryRepo();
     const summary = await runPipeline({
-      sources: [source],
-      extract: async () => [],
-      repo,
-      fetchText: async () => {
-        throw new Error("HTTP 503");
+      sources: [{ ...churchSource, is_church: false, group: "civic" }],
+      extract: async () => {
+        aiCalls++;
+        return [];
       },
+      repo,
+      http: new FakeHttp({ [churchSource.url]: page }),
+      now: NOW,
     });
-    expect(summary.sources_failed).toEqual([{ id: "test-church", error: "HTTP 503" }]);
+    expect(aiCalls).toBe(0);
+    expect(summary.feeders_used).toEqual({ jsonld: 1 });
+    expect(repo.rows[0]).toMatchObject({
+      title: "Toddler Storytime: Pumpkins",
+      category: "TODDLER_EVENT",
+      subcategory: "storytime",
+      event_date: "2026-10-17",
+      start_time: "10:00",
+      end_time: "10:30",
+      venue: "Lakewood Library",
+      cost: "Free",
+    });
+  });
+
+  it("caps volume per week but never cuts signup alerts", async () => {
+    const repo = new MemoryRepo();
+    const many = Array.from({ length: 6 }, (_, i) =>
+      extracted({ title: `Festival ${String.fromCharCode(65 + i)}`, evidence: [{ field: "event_date", quote: "Saturday, October 24, 2026" }], start_time: null, end_time: null }),
+    );
+    const alert = extracted({
+      title: "Holiday Train Tickets",
+      kind: "signup_alert",
+      signup_required: true,
+      signup_type: "TICKET_RELEASE",
+      evidence: [{ field: "event_date", quote: "Saturday, October 24, 2026" }],
+      start_time: null,
+      end_time: null,
+    });
+    const summary = await runPipeline({
+      sources: [churchSource],
+      extract: async () => [...many, alert],
+      repo,
+      http: new FakeHttp({ [churchSource.url]: FALL_PAGE }),
+      now: NOW,
+      maxPerWeek: 4,
+    });
+    expect(summary.cut_for_volume).toHaveLength(2);
+    expect(repo.rows.some((r) => r.title === "Holiday Train Tickets")).toBe(true);
+    expect(repo.rows).toHaveLength(5);
+  });
+
+  it("writes nothing on a dry run", async () => {
+    const repo = new MemoryRepo();
+    const state = new MemoryStateStore();
+    const summary = await runPipeline({
+      sources: [churchSource],
+      extract: async () => [extracted({})],
+      repo,
+      state,
+      http: new FakeHttp({ [churchSource.url]: FALL_PAGE }),
+      now: NOW,
+      dryRun: true,
+    });
+    expect(summary.published).toBe(1);
+    expect(repo.rows).toHaveLength(0);
+    expect((await state.getAll()).size).toBe(0);
   });
 
   it("marks stored events completed once they pass", async () => {
     const repo = new MemoryRepo();
-    const opts = { sources: [source], extract: async () => [extracted({})], repo, fetchText: async () => htmlToText(PAGE) };
-    await runPipeline({ ...opts, now: new Date("2026-10-03T12:00:00Z") });
-    const later = await runPipeline({ ...opts, extract: async () => [], now: new Date("2026-10-26T12:00:00Z") });
+    const http = new FakeHttp({ [churchSource.url]: FALL_PAGE });
+    await runPipeline({ sources: [churchSource], extract: async () => [extracted({})], repo, http, now: NOW });
+    const later = await runPipeline({
+      sources: [churchSource],
+      extract: async () => [],
+      repo,
+      http: new FakeHttp({ [churchSource.url]: FALL_PAGE + " " }),
+      now: new Date("2026-10-26T12:00:00Z"),
+    });
     expect(later.marked_completed).toBe(1);
     expect(repo.rows[0].status).toBe("COMPLETED");
+  });
+
+  it("reports when AI is needed but unavailable", async () => {
+    const summary = await runPipeline({
+      sources: [churchSource],
+      extract: null,
+      repo: new MemoryRepo(),
+      http: new FakeHttp({ [churchSource.url]: FALL_PAGE }),
+      now: NOW,
+    });
+    expect(summary.notes).toEqual([{ source: "test-church", note: expect.stringContaining("ANTHROPIC_API_KEY") }]);
   });
 });

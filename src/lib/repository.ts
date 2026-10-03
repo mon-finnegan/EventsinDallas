@@ -9,6 +9,8 @@ import { validateForPublish } from "./validation";
 export interface EventRepository {
   list(): Promise<CalendarEvent[]>;
   upsert(events: CalendarEvent[]): Promise<void>;
+  /** Persist a pipeline run summary for auditing (optional). */
+  logRun?(summary: unknown): Promise<void>;
 }
 
 class SeedRepository implements EventRepository {
@@ -41,10 +43,27 @@ class SupabaseRepository implements EventRepository {
   }
 
   async upsert(events: CalendarEvent[]) {
-    if (events.length === 0) return;
-    const { error } = await this.client.from("events").upsert(events, { onConflict: "id" });
-    if (error) throw new Error(`Supabase upsert failed: ${error.message}`);
+    // Batches keep each request small as feeders multiply.
+    for (let i = 0; i < events.length; i += 500) {
+      const { error } = await this.client.from("events").upsert(events.slice(i, i + 500), { onConflict: "id" });
+      if (error) throw new Error(`Supabase upsert failed: ${error.message}`);
+    }
   }
+
+  async logRun(summary: unknown) {
+    const s = summary as { started_at: string; finished_at: string };
+    const { error } = await this.client
+      .from("pipeline_runs")
+      .insert({ started_at: s.started_at, finished_at: s.finished_at, summary });
+    if (error) console.warn(`[pipeline] run log failed: ${error.message}`);
+  }
+}
+
+/** Supabase client with the service-role key, or null when not configured. */
+export function getServiceClient(): SupabaseClient | null {
+  const url = process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  return url && key ? createClient(url, key, { auth: { persistSession: false } }) : null;
 }
 
 export function getRepository(opts: { write?: boolean } = {}): EventRepository {

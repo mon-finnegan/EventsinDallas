@@ -134,6 +134,18 @@ export function DetailPanel({ selection, onClose }: { selection: Selection; onCl
           )}
           {ageText(e) && <Row label="Age">{ageText(e)}</Row>}
           {e.cost && <Row label="Cost">{e.cost}</Row>}
+          {e.review_rating !== null && e.review_count !== null && (
+            <Row label="Venue reviews">
+              <span className="font-semibold">{e.review_rating.toFixed(1)}★</span> ·{" "}
+              {e.review_url ? (
+                <a href={e.review_url} target="_blank" rel="noopener noreferrer" className="underline">
+                  {e.review_count.toLocaleString("en-US")} {e.review_source} reviews
+                </a>
+              ) : (
+                `${e.review_count.toLocaleString("en-US")} ${e.review_source} reviews`
+              )}
+            </Row>
+          )}
 
           {e.signup_required && (
             <Row label="Action">

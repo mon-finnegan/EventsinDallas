@@ -126,10 +126,64 @@ export function assessRelevance(e: CalendarEvent): RelevanceResult {
   if (e.is_seasonal) score += 0.5;
   if (e.subcategory === "special_experience") score += 1;
 
+  // Well-reviewed venues are tried-and-true (only when a verified review lookup exists).
+  if (e.review_count !== null && e.review_rating !== null) {
+    if (e.review_count >= 5000 && e.review_rating >= 4.5) {
+      score += 1;
+      reasons.push("highly reviewed venue");
+    } else if (e.review_count >= 500 && e.review_rating >= 4.3) {
+      score += 0.5;
+    } else if (e.review_rating < 3.8) {
+      score -= 1;
+      reasons.push("poorly reviewed venue");
+    }
+  }
+
   // Source reliability
   if (e.source_type === "local_calendar") score -= 0.5;
   else score += 0.5;
 
   const include = score >= 3;
   return { include, score, reasons };
+}
+
+/** Spec target: roughly 5–20 genuinely useful events per week (§24). */
+export const MAX_EVENTS_PER_WEEK = 20;
+
+/**
+ * Keep the calendar curated as feeders multiply: per Monday-start week, keep the highest
+ * scoring events. Signup alerts and events with action dates are never cut — missing an
+ * action date is the costliest failure.
+ */
+export function curateByWeek(
+  events: CalendarEvent[],
+  score: (e: CalendarEvent) => number,
+  maxPerWeek = MAX_EVENTS_PER_WEEK,
+): { kept: CalendarEvent[]; cut: CalendarEvent[] } {
+  const keep: CalendarEvent[] = [];
+  const byWeek = new Map<string, CalendarEvent[]>();
+  for (const e of events) {
+    const hasAction = e.category === "SIGNUP_ALERT" || e.signup_required;
+    if (hasAction || !e.event_date) {
+      keep.push(e);
+      continue;
+    }
+    const wk = weekStart(e.event_date);
+    const list = byWeek.get(wk);
+    if (list) list.push(e);
+    else byWeek.set(wk, [e]);
+  }
+  const cut: CalendarEvent[] = [];
+  for (const list of byWeek.values()) {
+    list.sort((a, b) => score(b) - score(a) || a.title.localeCompare(b.title));
+    keep.push(...list.slice(0, maxPerWeek));
+    cut.push(...list.slice(maxPerWeek));
+  }
+  return { kept: keep, cut };
+}
+
+function weekStart(date: string): string {
+  const d = new Date(`${date}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() - ((d.getUTCDay() + 6) % 7));
+  return d.toISOString().slice(0, 10);
 }

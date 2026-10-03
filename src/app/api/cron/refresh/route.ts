@@ -1,7 +1,5 @@
-import { createClaudeExtractor } from "@/lib/pipeline/extract";
 import { runPipeline } from "@/lib/pipeline/run";
-import { SOURCES } from "@/lib/pipeline/sources";
-import { getRepository } from "@/lib/repository";
+import { productionOptions } from "@/lib/pipeline/setup";
 
 // Daily discovery + verification run (spec §27). Scheduled by vercel.json; Vercel Cron sends
 // `Authorization: Bearer $CRON_SECRET`.
@@ -15,11 +13,6 @@ export async function GET(request: Request) {
   if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
     return Response.json({ error: "SUPABASE_SERVICE_ROLE_KEY is not configured" }, { status: 500 });
   }
-
-  const summary = await runPipeline({
-    sources: SOURCES,
-    extract: createClaudeExtractor(),
-    repo: getRepository({ write: true }),
-  });
+  const summary = await runPipeline(productionOptions());
   return Response.json(summary);
 }

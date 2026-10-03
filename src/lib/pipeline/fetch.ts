@@ -1,14 +1,4 @@
-/** Fetch a page and reduce it to readable text for extraction. */
-export async function fetchPageText(url: string, timeoutMs = 20_000): Promise<string> {
-  const res = await fetch(url, {
-    headers: { "user-agent": "DallasFamilyCalendarBot/1.0 (+daily event verification)" },
-    signal: AbortSignal.timeout(timeoutMs),
-    redirect: "follow",
-  });
-  if (!res.ok) throw new Error(`HTTP ${res.status} fetching ${url}`);
-  return htmlToText(await res.text());
-}
-
+/** Reduce an HTML page to readable text for extraction and evidence checks. */
 export function htmlToText(html: string): string {
   return html
     .replace(/<script[\s\S]*?<\/script>/gi, " ")

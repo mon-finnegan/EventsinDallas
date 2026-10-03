@@ -75,6 +75,11 @@ export const CalendarEventSchema = z
     source_type: z.enum(SOURCE_TYPES),
     verification_note: z.string().nullable(),
 
+    review_rating: z.number().min(0).max(5).nullable(),
+    review_count: z.number().int().min(0).nullable(),
+    review_source: z.string().nullable(),
+    review_url: url.nullable(),
+
     status: z.enum(STATUSES),
     last_verified_at: z.iso.datetime({ offset: true }),
     created_at: z.iso.datetime({ offset: true }),
@@ -137,6 +142,10 @@ export function validateForPublish(input: unknown): ValidationResult {
   }
   if (e.signup_type && !e.signup_required) {
     errors.push("signup_required: must be true when signup_type is set");
+  }
+
+  if ((e.review_rating === null) !== (e.review_count === null) || (e.review_count !== null && !e.review_source)) {
+    errors.push("review_*: rating, count and source must be set together");
   }
 
   // Church events must be public-facing (spec §6).

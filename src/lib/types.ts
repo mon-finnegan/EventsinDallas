@@ -131,6 +131,12 @@ export interface CalendarEvent {
   source_type: SourceType;
   verification_note: string | null;
 
+  /** Venue reputation from a review platform (e.g. Google). Only set from a verified lookup. */
+  review_rating: number | null;
+  review_count: number | null;
+  review_source: string | null;
+  review_url: string | null;
+
   status: EventStatus;
   last_verified_at: string;
   created_at: string;

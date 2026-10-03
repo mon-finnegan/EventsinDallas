@@ -11,7 +11,8 @@
     "typecheck": "next typegen && tsc --noEmit",
     "refresh": "tsx scripts/refresh.ts",
     "seed": "tsx scripts/seed-supabase.ts",
-    "build:static": "node scripts/build-static.mjs"
+    "build:static": "node scripts/build-static.mjs",
+    "discover": "tsx scripts/discover.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.131.0",
