@@ -16,6 +16,8 @@ npm test           # vitest: validation, reverse calendar, dedupe, relevance, pi
 npm run lint && npm run typecheck && npm run build
 ```
 
+`npm run build:static` writes `dist/index.html`: a single self-contained page with the same calendar and seed data, which can be hosted anywhere without a server.
+
 Without any environment variables the app serves the bundled seed dataset (`src/data/seed.ts`): 24 real Oct 2026 – Jun 2027 listings, each with its source.
 
 ## Features (P0)
