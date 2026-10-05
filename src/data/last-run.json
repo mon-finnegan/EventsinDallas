@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-10-05T02:45:32.840Z",
-  "finished_at": "2026-10-05T02:47:58.217Z",
-  "duration_ms": 145377,
+  "started_at": "2026-10-05T02:49:53.463Z",
+  "finished_at": "2026-10-05T02:52:17.309Z",
+  "duration_ms": 143846,
   "dry_run": false,
   "sources_total": 99,
   "sources_attempted": 99,
@@ -15,9 +15,9 @@
     "klyde-warren",
     "klyde-warren-signature",
     "arboretum-holiday",
+    "fort-worth-zoo",
     "dallas-zoo",
     "dallas-zoo-lights",
-    "fort-worth-zoo",
     "perot",
     "fair-park",
     "northpark-trains",
@@ -38,17 +38,17 @@
     "kids-out-about",
     "live-love-local",
     "dallasites101-blog",
-    "dallasites101-hanukkah",
     "dallasites101-holiday",
+    "dallasites101-hanukkah",
     "visit-dallas-month",
     "resident-dallas",
     "culturemap-dallas",
     "visit-dallas-winter",
     "dfwchild-annual",
+    "planomoms-winter",
     "dfwchild-nye",
     "dallas-chamber",
     "venture-dallas",
-    "mavs-schedule",
     "cowboys-schedule",
     "stars-schedule",
     "ig-dallasites101",
@@ -69,7 +69,7 @@
     "reddit-fortworth",
     "reddit-plano",
     "dallas-sports-commission",
-    "planomoms-winter",
+    "mavs-schedule",
     "pga-registry",
     "pga-championship",
     "ryder-cup",
@@ -83,77 +83,77 @@
     {
       "id": "hpumc",
       "error": "HTTP 404 fetching https://www.hpumc.org/christmas",
-      "consecutive_failures": 3
+      "consecutive_failures": 4
     },
     {
       "id": "gaylord-ice",
       "error": "HTTP 403 fetching https://www.christmasatgaylordtexan.com/ice",
-      "consecutive_failures": 3
+      "consecutive_failures": 4
     },
     {
       "id": "richardson-santa",
       "error": "HTTP 403 fetching https://www.cor.net/departments/parks-recreation/community-events/santa-s-village-at-huffhines-park",
-      "consecutive_failures": 3
+      "consecutive_failures": 4
     },
     {
       "id": "heritage-village",
       "error": "fetch failed fetching http://www.dallasheritagevillage.org/candlelight",
-      "consecutive_failures": 3
+      "consecutive_failures": 4
     },
     {
       "id": "dallas-moms",
       "error": "HTTP 403 fetching https://dallasmoms.com/dallas-moms-need-to-know-a-guide-to-the-month-of-october/",
-      "consecutive_failures": 3
+      "consecutive_failures": 4
     },
     {
       "id": "scout-guide-dallas",
       "error": "HTTP 403 fetching https://thescoutguide.com/dallas/editorial/the-best-things-to-do-in-dallas-this-october-2026/",
-      "consecutive_failures": 3
+      "consecutive_failures": 4
     },
     {
       "id": "do214",
       "error": "HTTP 403 fetching https://do214.com/",
-      "consecutive_failures": 3
+      "consecutive_failures": 4
     },
     {
       "id": "eventbrite-dallas-month",
       "error": "HTTP 405 fetching https://www.eventbrite.com/d/tx--dallas/october/",
-      "consecutive_failures": 3
+      "consecutive_failures": 4
     },
     {
       "id": "eventbrite-dallas-month+1",
       "error": "HTTP 405 fetching https://www.eventbrite.com/d/tx--dallas/november/",
-      "consecutive_failures": 3
+      "consecutive_failures": 4
     },
     {
       "id": "dallas-innovates",
       "error": "HTTP 403 fetching https://dallasinnovates.com/calendar/",
-      "consecutive_failures": 3
-    },
-    {
-      "id": "small-business-expo",
-      "error": "HTTP 403 fetching https://www.thesmallbusinessexpo.com/city/dallas/",
-      "consecutive_failures": 3
+      "consecutive_failures": 4
     },
     {
       "id": "eventbrite-networking",
       "error": "HTTP 405 fetching https://www.eventbrite.com/d/tx--dallas/networking/",
-      "consecutive_failures": 3
+      "consecutive_failures": 4
+    },
+    {
+      "id": "small-business-expo",
+      "error": "HTTP 403 fetching https://www.thesmallbusinessexpo.com/city/dallas/",
+      "consecutive_failures": 4
     },
     {
       "id": "us-open",
       "error": "HTTP 403 fetching https://www.usopen.com/2027/tickets.html",
-      "consecutive_failures": 3
+      "consecutive_failures": 4
     },
     {
       "id": "prestonwood-goc",
       "error": "fetch failed fetching https://prestonwoodgoc.org/",
-      "consecutive_failures": 3
+      "consecutive_failures": 4
     },
     {
       "id": "masters",
       "error": "The operation was aborted due to timeout fetching https://www.masters.com/en_US/tournament/tickets.html",
-      "consecutive_failures": 3
+      "consecutive_failures": 4
     }
   ],
   "feeders_used": {
@@ -292,7 +292,7 @@
       "title": "Band-Led Cowboys Watch Party",
       "source": "first-dallas",
       "reasons": [
-        "ordinary church programming"
+        "watch party"
       ]
     },
     {
@@ -2319,10 +2319,31 @@
       ]
     },
     {
+      "title": "Dallas Cowboys Watch Party: Cowboys vs Texans",
+      "source": "visit-plano",
+      "reasons": [
+        "watch party"
+      ]
+    },
+    {
+      "title": "Dallas Cowboys Watch Party: Buccaneers vs Cowboys",
+      "source": "visit-plano",
+      "reasons": [
+        "watch party"
+      ]
+    },
+    {
       "title": "Poolside Brunch Sundays",
       "source": "visit-plano",
       "reasons": [
         "out of scope"
+      ]
+    },
+    {
+      "title": "Dallas Cowboys Watch Party: Cowboys vs Texans",
+      "source": "visit-plano",
+      "reasons": [
+        "watch party"
       ]
     },
     {
@@ -2441,17 +2462,100 @@
       "reasons": [
         "DFW metro"
       ]
+    },
+    {
+      "title": "Texas Longhorns at Oklahoma Sooners Football",
+      "source": "allevents-dallas-month",
+      "reasons": [
+        "regular-season game"
+      ]
+    },
+    {
+      "title": "NBA Preseason: Dallas Mavericks vs. Atlanta Hawks",
+      "source": "allevents-dallas-month",
+      "reasons": [
+        "regular-season game"
+      ]
+    },
+    {
+      "title": "Texas Longhorns vs Oklahoma Sooners Football Tickets",
+      "source": "allevents-dallas-month",
+      "reasons": [
+        "regular-season game"
+      ]
+    },
+    {
+      "title": "San Jose Sharks at Dallas Stars at American Airlines Center - TX",
+      "source": "allevents-dallas-month+1",
+      "reasons": [
+        "regular-season game"
+      ]
+    },
+    {
+      "title": "San Jose Sharks at Dallas Stars",
+      "source": "allevents-dallas-month+1",
+      "reasons": [
+        "regular-season game"
+      ]
+    },
+    {
+      "title": "The Pope vs Bloody Mary vs Dracula Dallas",
+      "source": "allevents-dallas-month+1",
+      "reasons": [
+        "regular-season game"
+      ]
+    },
+    {
+      "title": "Texas Longhorns at Oklahoma Sooners Football",
+      "source": "allevents-dallas-all",
+      "reasons": [
+        "regular-season game"
+      ]
+    },
+    {
+      "title": "NBA Preseason: Dallas Mavericks vs. Atlanta Hawks",
+      "source": "allevents-dallas-all",
+      "reasons": [
+        "regular-season game"
+      ]
+    },
+    {
+      "title": "Texas Longhorns vs Oklahoma Sooners Football Tickets",
+      "source": "allevents-dallas-all",
+      "reasons": [
+        "regular-season game"
+      ]
+    },
+    {
+      "title": "THE Official OU/TX Watch Party hosted by OU National Black Alumni Society",
+      "source": "allevents-dallas-all",
+      "reasons": [
+        "watch party"
+      ]
+    },
+    {
+      "title": "Candlelight: Queen vs. ABBA",
+      "source": "allevents-dallas-all",
+      "reasons": [
+        "regular-season game"
+      ]
+    },
+    {
+      "title": "Dallas Stars vs. Colorado Avalanche",
+      "source": "allevents-dallas-all",
+      "reasons": [
+        "regular-season game"
+      ]
+    },
+    {
+      "title": "Dallas Mavericks vs. San Antonio Spurs",
+      "source": "allevents-dallas-all",
+      "reasons": [
+        "regular-season game"
+      ]
     }
   ],
   "cut_for_volume": [
-    {
-      "title": "Let's Go... Somewhere Spooky!",
-      "event_date": "2026-10-04"
-    },
-    {
-      "title": "Live Music",
-      "event_date": "2026-10-09"
-    },
     {
       "title": "Lotería Night at Taqueria La Ventana",
       "event_date": "2026-10-07"
@@ -2513,10 +2617,6 @@
       "event_date": "2026-10-05"
     },
     {
-      "title": "State Fair of Texas 2026",
-      "event_date": "2026-10-04"
-    },
-    {
       "title": "Hands-On: Tagliatelle with Fall Ragu",
       "event_date": "2026-10-05"
     },
@@ -2527,10 +2627,6 @@
     {
       "title": "The Mahjong Lunch Club: Fall, Friends & Mahj at 55 Seventy.",
       "event_date": "2026-10-05"
-    },
-    {
-      "title": "2026 TX/OU Texas Sized Tailgate @ State Fair Grounds",
-      "event_date": "2026-10-10"
     },
     {
       "title": "40th Annual Día de Muertos Exhibition",
@@ -2559,10 +2655,6 @@
     {
       "title": "Beethoven",
       "event_date": "2026-10-05"
-    },
-    {
-      "title": "Candlelight: Queen vs. ABBA",
-      "event_date": "2026-10-04"
     },
     {
       "title": "Candlelight: The Best of Joe Hisaishi",
@@ -2598,10 +2690,6 @@
     },
     {
       "title": "Homeschool Day: Charlotte’s Web",
-      "event_date": "2026-10-07"
-    },
-    {
-      "title": "Jack White at The Bomb Factory",
       "event_date": "2026-10-07"
     },
     {
@@ -2653,15 +2741,7 @@
       "event_date": "2026-10-10"
     },
     {
-      "title": "San Jose Sharks at Dallas Stars at American Airlines Center - TX",
-      "event_date": "2026-10-05"
-    },
-    {
       "title": "SMART Recovery Oak Cliff",
-      "event_date": "2026-10-05"
-    },
-    {
-      "title": "State Fair Of Texas 2026 in Dallas",
       "event_date": "2026-10-05"
     },
     {
@@ -2689,14 +2769,6 @@
       "event_date": "2026-10-10"
     },
     {
-      "title": "THE Official OU/TX Watch Party hosted by OU National Black Alumni Society",
-      "event_date": "2026-10-10"
-    },
-    {
-      "title": "The Pope vs Bloody Mary vs Dracula Dallas",
-      "event_date": "2026-10-05"
-    },
-    {
       "title": "Yo Dallas ... Hit the MTB Trails With Us!",
       "event_date": "2026-10-05"
     },
@@ -2713,28 +2785,20 @@
       "event_date": "2026-10-04"
     },
     {
-      "title": "Bob Moses",
-      "event_date": "2026-10-16"
+      "title": "Día de los Muertos Festival & Exhibition",
+      "event_date": "2026-10-20"
     },
     {
-      "title": "Carlos Mencia",
-      "event_date": "2026-10-16"
+      "title": "26th Annual Nash Farm Fall Roundup",
+      "event_date": "2026-10-24"
     },
     {
-      "title": "Cavetown",
-      "event_date": "2026-10-11"
+      "title": "Do Good Fest Texas!",
+      "event_date": "2026-10-24"
     },
     {
-      "title": "Cavetown Tickets",
-      "event_date": "2026-10-12"
-    },
-    {
-      "title": "Concert",
-      "event_date": "2026-10-11"
-    },
-    {
-      "title": "Dallas Stars vs. Colorado Avalanche",
-      "event_date": "2026-10-13"
+      "title": "Grand Prairie Main Street Fest",
+      "event_date": "2026-10-23"
     },
     {
       "title": "Frost Irving State Fair Celebration",
@@ -2743,10 +2807,6 @@
     {
       "title": "Kacey Musgraves Ticket",
       "event_date": "2026-10-11"
-    },
-    {
-      "title": "NBA Preseason: Dallas Mavericks vs. Atlanta Hawks",
-      "event_date": "2026-10-16"
     },
     {
       "title": "Randy Travis",
@@ -2769,6 +2829,10 @@
       "event_date": "2026-10-17"
     },
     {
+      "title": "25th Annual Oktoberfest Southlake",
+      "event_date": "2026-10-16"
+    },
+    {
       "title": "DFW Fall Fest",
       "event_date": "2026-10-17"
     },
@@ -2779,30 +2843,10 @@
     {
       "title": "Steve O - Stephen Gilchrist Glover at Hyenas Comedy Night Club - Dallas",
       "event_date": "2026-10-16"
-    },
-    {
-      "title": "PlantCon Dallas 2026",
-      "event_date": "2026-10-24"
-    },
-    {
-      "title": "Día de los Muertos Festival & Exhibition",
-      "event_date": "2026-10-20"
-    },
-    {
-      "title": "26th Annual Nash Farm Fall Roundup",
-      "event_date": "2026-10-24"
-    },
-    {
-      "title": "Do Good Fest Texas!",
-      "event_date": "2026-10-24"
-    },
-    {
-      "title": "Grand Prairie Main Street Fest",
-      "event_date": "2026-10-23"
     }
   ],
   "cancelled": [],
-  "published": 156,
+  "published": 163,
   "reconfirmed": 0,
   "marked_completed": 0,
   "stale": [],
@@ -2838,15 +2882,15 @@
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
+      "source": "fort-worth-zoo",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
       "source": "dallas-zoo",
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
       "source": "dallas-zoo-lights",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "fort-worth-zoo",
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
@@ -2934,11 +2978,11 @@
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
-      "source": "dallasites101-hanukkah",
+      "source": "dallasites101-holiday",
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
-      "source": "dallasites101-holiday",
+      "source": "dallasites101-hanukkah",
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
@@ -2962,6 +3006,10 @@
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
+      "source": "planomoms-winter",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
       "source": "dfwchild-nye",
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
@@ -2971,10 +3019,6 @@
     },
     {
       "source": "venture-dallas",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "mavs-schedule",
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
@@ -3058,7 +3102,7 @@
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
-      "source": "planomoms-winter",
+      "source": "mavs-schedule",
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
@@ -3100,7 +3144,7 @@
     "2026-11-02"
   ],
   "pruned": [],
-  "replaced": 30,
+  "replaced": 22,
   "collapsed_series": [
     {
       "title": "The Dallas Opera: The Cunning Little Vixen",
