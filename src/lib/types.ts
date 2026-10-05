@@ -95,7 +95,8 @@ export interface CalendarEvent {
   end_date: string | null;
   /**
    * True only when the source confirms the run is open every day between event_date and
-   * end_date (minus closed_dates). Lets the calendar show it as "ongoing" on each of those days.
+   * end_date (minus closed_dates). Shown in the event details; the calendar itself lists a
+   * run once, on its first day.
    */
   open_daily: boolean;
   /** Days inside the run when it is confirmed closed. */
@@ -170,10 +171,13 @@ export interface CalendarItem {
   label: string;
   event: CalendarEvent;
   action: ActionKind | null;
-  /** True when this occurrence is the first day of a long run (spec §25). */
+  /** True when this is the first day of a multi-day event; later days are not listed. */
   isOpeningDay: boolean;
-  /** A later day of a confirmed daily run; shown quietly as "also running". */
-  isOngoing: boolean;
+  /**
+   * When the same event is listed on several dates (weekly storytime, a run of performances),
+   * the calendar shows one occurrence and keeps the others here for the details panel.
+   */
+  otherDates: string[];
   /** Internal relevance score — orders each day best-first. Never shown. */
   score: number;
 }

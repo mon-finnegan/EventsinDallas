@@ -1,9 +1,6 @@
-import { addDays, daysBetween, splitActionAt } from "./dates";
+import { addDays, splitActionAt } from "./dates";
 import { assessRelevance } from "./relevance";
 import type { ActionKind, CalendarEvent, CalendarItem, ItemColor, SignupType } from "./types";
-
-/** Runs longer than this are shown only on their opening day (spec §25). */
-export const MAX_DAILY_SPAN_DAYS = 4;
 
 const ACTION_VERB: Record<SignupType, string> = {
   RESERVATION: "Reservations",
@@ -63,8 +60,10 @@ export function actionDates(event: CalendarEvent): { kind: ActionKind; at: strin
 }
 
 /**
- * Expand events into calendar items:
- *  - one blue/green item per day for short events, opening day only for long runs;
+ * Expand events into calendar items. Every event appears once:
+ *  - single-day events on their date;
+ *  - multi-day events and long runs on their first day only ("First day: …"); the range,
+ *    daily hours and closures live in the details panel;
  *  - one red item per confirmed action date (the reverse calendar).
  * SIGNUP_ALERT records themselves only appear via their action dates.
  */
@@ -76,33 +75,19 @@ export function buildCalendarItems(events: CalendarEvent[]): CalendarItem[] {
     const score = assessRelevance(event).score;
 
     if (event.event_date && event.category !== "SIGNUP_ALERT") {
-      const color = eventColor(event);
-      const end = event.end_date ?? event.event_date;
-      const span = daysBetween(event.event_date, end) + 1;
-      const longRun = span > MAX_DAILY_SPAN_DAYS;
-      const closed = new Set(event.closed_dates);
-      // Short events appear every day. Long runs appear on their first day, and — only when the
-      // source confirms they are open daily — as quiet "ongoing" entries on the following days.
-      const days =
-        !longRun || event.open_daily
-          ? Array.from({ length: span }, (_, i) => addDays(event.event_date!, i))
-          : [event.event_date];
-      for (const date of days) {
-        if (closed.has(date)) continue;
-        const first = date === event.event_date;
-        items.push({
-          key: `${event.id}:event:${date}`,
-          date,
-          time: first ? event.start_time : null,
-          color,
-          label: longRun && first ? `First day: ${event.title}` : event.title,
-          event,
-          action: null,
-          isOpeningDay: longRun && first,
-          isOngoing: longRun && !first,
-          score,
-        });
-      }
+      const multiDay = Boolean(event.end_date && event.end_date !== event.event_date);
+      items.push({
+        key: `${event.id}:event`,
+        date: event.event_date,
+        time: event.start_time,
+        color: eventColor(event),
+        label: multiDay ? `First day: ${event.title}` : event.title,
+        event,
+        action: null,
+        isOpeningDay: multiDay,
+        otherDates: [],
+        score,
+      });
     }
 
     for (const { kind, at } of actionDates(event)) {
@@ -116,7 +101,7 @@ export function buildCalendarItems(events: CalendarEvent[]): CalendarItem[] {
         event,
         action: kind,
         isOpeningDay: false,
-        isOngoing: false,
+        otherDates: [],
         score,
       });
     }
@@ -125,27 +110,62 @@ export function buildCalendarItems(events: CalendarEvent[]): CalendarItem[] {
   return items.sort(compareItems);
 }
 
+/** Events that are separate games, not repeats, even when the title matches (e.g. same opponent). */
+const NEVER_COLLAPSE = new Set(["sports"]);
+
+function seriesKey(item: CalendarItem): string {
+  const e = item.event;
+  const title = e.title.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  return `${title}|${(e.venue ?? e.city ?? "").toLowerCase()}`;
+}
+
 /**
- * Best-first ordering for a single day: actions, then specific events by score, then ongoing
- * runs. Used where space is tight (month cells).
+ * Omit repeats: when the same event is listed on several dates, keep a single entry — the next
+ * upcoming date (or the first date, if all have passed) — and record the other dates on it.
+ * Action items (red) are never collapsed.
  */
+export function collapseRepeats(items: CalendarItem[], today: string): CalendarItem[] {
+  const groups = new Map<string, CalendarItem[]>();
+  const out: CalendarItem[] = [];
+  for (const it of items) {
+    if (it.action || NEVER_COLLAPSE.has(it.event.subcategory ?? "")) {
+      out.push(it);
+      continue;
+    }
+    const key = seriesKey(it);
+    const list = groups.get(key);
+    if (list) list.push(it);
+    else groups.set(key, [it]);
+  }
+  for (const list of groups.values()) {
+    if (list.length === 1) {
+      out.push(list[0]);
+      continue;
+    }
+    list.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+    const shown = list.find((i) => i.date >= today) ?? list[0];
+    out.push({ ...shown, otherDates: list.filter((i) => i !== shown).map((i) => i.date) });
+  }
+  return out.sort(compareItems);
+}
+
+/** Best-first ordering for a single day: actions, then events by score. Used in month cells. */
 export function compareBestFirst(a: CalendarItem, b: CalendarItem): number {
   if ((a.color === "red") !== (b.color === "red")) return a.color === "red" ? -1 : 1;
-  if (a.isOngoing !== b.isOngoing) return a.isOngoing ? 1 : -1;
   if (a.score !== b.score) return b.score - a.score;
   return compareItems(a, b);
 }
 
-/** The single best non-action, non-ongoing item for a day ("Top pick"). */
+/** The single best non-action item for a day ("Top pick"). */
 export function topPick(dayItems: CalendarItem[]): CalendarItem | null {
-  const candidates = dayItems.filter((i) => i.color !== "red" && !i.isOngoing);
+  const candidates = dayItems.filter((i) => i.color !== "red");
   if (candidates.length < 2) return null;
   return [...candidates].sort(compareBestFirst)[0];
 }
 
-/** Days in [from, to] with no specific (non-ongoing) item — the rolling coverage check. */
+/** Days in [from, to] with nothing starting or scheduled — the rolling coverage check. */
 export function emptyDays(items: CalendarItem[], from: string, to: string): string[] {
-  const have = new Set(items.filter((i) => !i.isOngoing).map((i) => i.date));
+  const have = new Set(items.map((i) => i.date));
   const out: string[] = [];
   for (let d = from; d <= to; d = addDays(d, 1)) if (!have.has(d)) out.push(d);
   return out;
@@ -155,7 +175,6 @@ export function compareItems(a: CalendarItem, b: CalendarItem): number {
   if (a.date !== b.date) return a.date < b.date ? -1 : 1;
   // Red (action) items first within a day, then by time (unknown times last).
   if ((a.color === "red") !== (b.color === "red")) return a.color === "red" ? -1 : 1;
-  if (a.isOngoing !== b.isOngoing) return a.isOngoing ? 1 : -1;
   const ta = a.time ?? "99:99";
   const tb = b.time ?? "99:99";
   if (ta !== tb) return ta < tb ? -1 : 1;

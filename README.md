@@ -26,7 +26,7 @@ Without any environment variables the app serves the bundled seed dataset (`src/
 | --- | --- |
 | Month / Week / List / Don't Miss views (§13, §16, §17). Weeks run Sunday to Saturday. Each day lists its best events first, and the top pick gets a ★. | `src/components/views.tsx`, `CalendarApp.tsx` |
 | Click an event to open a detail panel; the calendar stays visible (§14, §15) | `src/components/DetailPanel.tsx` (side panel on desktop, bottom sheet on phones) |
-| Multi-week runs: shown as "First day: …" with the end date in the details. If the source confirms the run is open daily (`open_daily`, minus `closed_dates`), it also appears as "ongoing" on each later day. |  `buildCalendarItems` in `src/lib/calendar.ts` |
+| No repeats: each event appears once. Multi-day events and long runs show only on their first day ("First day: …"); the date range, daily hours and closures are in the details. If the same event is listed on several dates (weekly storytime, a run of performances), only its next date is shown and the details list the others. Separate games and signup dates are never merged. | `buildCalendarItems`, `collapseRepeats` in `src/lib/calendar.ts` |
 | Reverse calendar: event date and action date tracked separately (§10, §11) | `buildCalendarItems` in `src/lib/calendar.ts` |
 | No guessing: unknown values are `null` and shown as "Date not yet announced" (§12) | `src/lib/validation.ts`, evidence check in `src/lib/pipeline/extract.ts` |
 | Church event filter: festivals in, Bible studies out (§5–7, §21) | `src/lib/relevance.ts` |

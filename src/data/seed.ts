@@ -376,7 +376,7 @@ export const SEED_EVENTS: CalendarEvent[] = [
     id: "state-fair-of-texas-2026",
     title: "State Fair of Texas",
     description:
-      "24-day run at Fair Park. Gates 10am–9pm Sun–Thu, 10am–10pm Fri–Sat. Kids 3–12 are $10 every day; $10 for everyone after 5pm on weekdays.",
+      "24-day run at Fair Park, Sept 25 – Oct 18 (closing day Sunday, Oct 18). Gates 10am–9pm Sun–Thu, 10am–10pm Fri–Sat. Kids 3–12 are $10 every day; $10 for everyone after 5pm on weekdays. Weekly deals: Thrilling Tuesdays (kiddie rides 3 coupons), Feed the Need Wednesdays ($7 with five canned goods), Thrifty Thursdays (Oct 8 & 15: discounted food; seniors 60+ $7).",
     category: "DALLAS_EVENT",
     subcategory: "seasonal",
     event_date: "2026-09-25",
@@ -392,21 +392,6 @@ export const SEED_EVENTS: CalendarEvent[] = [
     source_name: "State Fair of Texas",
     source_url:
       "https://bigtex.com/state-fair-of-texas-announces-10-kids-admission-every-day-lower-admission-and-parking-prices-for-2026-new-pricing-and-expanded-value-opportunities-give-texans-more-ways-to-experience-the-state-fair/",
-    source_type: "official_event",
-  }),
-  ev({
-    id: "state-fair-of-texas-closing-day-2026",
-    title: "State Fair of Texas — Closing Day",
-    description: "Last day of the 24-day State Fair of Texas run (Sept 25 – Oct 18) at Fair Park.",
-    category: "DALLAS_EVENT",
-    subcategory: "seasonal",
-    event_date: "2026-10-18",
-    venue: "Fair Park",
-    city: "Dallas",
-    is_seasonal: true,
-    event_url: "https://bigtex.com/faqs/when-is-the-2026-state-fair-of-texas/",
-    source_name: "State Fair of Texas",
-    source_url: "https://bigtex.com/faqs/when-is-the-2026-state-fair-of-texas/",
     source_type: "official_event",
   }),
   ev({
@@ -1001,35 +986,6 @@ export const SEED_EVENTS: CalendarEvent[] = [
       verification_note: "Weekly Monday/Tuesday program on the Arboretum calendar; confirm the day on the calendar before going.",
     });
   }),
-  ...(
-    [
-      ["2026-10-06", "Thrilling Tuesday", "Most Midway rides 5 coupons; kiddie rides discounted to 3 coupons.", true],
-      ["2026-10-13", "Thrilling Tuesday", "Most Midway rides 5 coupons; kiddie rides discounted to 3 coupons.", true],
-      ["2026-10-07", "Feed the Need Wednesday", "$7 admission with five canned food items for the North Texas Food Bank.", false],
-      ["2026-10-14", "Feed the Need Wednesday", "$7 admission with five canned food items for the North Texas Food Bank.", false],
-      ["2026-10-08", "Thrifty Thursday", "Discounted prices on dozens of foods across the fairgrounds; seniors 60+ get $7 admission.", false],
-      ["2026-10-15", "Thrifty Thursday", "Discounted prices on dozens of foods across the fairgrounds; seniors 60+ get $7 admission.", false],
-    ] as const
-  ).map(([date, name, desc, kiddie]) =>
-    ev({
-      id: `state-fair-${name.toLowerCase().replace(/\s+/g, "-")}-${date}`,
-      title: `State Fair: ${name}`,
-      description: desc,
-      category: kiddie ? "TODDLER_EVENT" : "DALLAS_EVENT",
-      subcategory: "seasonal",
-      event_date: date,
-      start_time: "10:00",
-      end_time: "21:00",
-      venue: "Fair Park",
-      city: "Dallas",
-      is_toddler_relevant: kiddie,
-      is_seasonal: true,
-      event_url: "https://bigtex.com/",
-      source_name: "NBC DFW — State Fair deals and discounts",
-      source_url: "https://www.nbcdfw.com/news/local/state-fair-of-texas/state-fair-of-texas-deals-and-discounts-savings-2026/4080277/",
-      source_type: "local_calendar",
-    }),
-  ),
   ev({
     id: "red-river-rivalry-2026",
     title: "Red River Rivalry: Texas vs. Oklahoma",

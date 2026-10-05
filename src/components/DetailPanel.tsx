@@ -113,19 +113,17 @@ export function DetailPanel({ selection, onClose }: { selection: Selection; onCl
           </div>
         )}
 
-        {item && (item.isOpeningDay || item.isOngoing) && e.end_date && (
+        {item?.isOpeningDay && e.end_date && (
           <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-3 text-sm dark:border-zinc-800 dark:bg-zinc-950">
-            {item.isOpeningDay ? (
-              <>
-                <span className="font-semibold">First day.</span> Runs through {formatLongDate(e.end_date)}
-                {e.open_daily ? ", open daily" : " — see the source for which days it's open"}.
-              </>
-            ) : (
-              <>
-                <span className="font-semibold">Ongoing</span> ({formatShortDate(e.event_date!)} – {formatShortDate(e.end_date)}). The source
-                confirms it&apos;s open daily{e.closed_dates.length ? ` except ${e.closed_dates.map(formatShortDate).join(", ")}` : ""}.
-              </>
-            )}
+            <span className="font-semibold">First day.</span> Runs {formatShortDate(e.event_date!)} – {formatLongDate(e.end_date)}
+            {e.open_daily
+              ? `, open daily${e.closed_dates.length ? ` except ${e.closed_dates.map(formatShortDate).join(", ")}` : ""}.`
+              : ". See the details below or the source for which days it's open."}
+          </div>
+        )}
+        {item && item.otherDates.length > 0 && (
+          <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-3 text-sm dark:border-zinc-800 dark:bg-zinc-950">
+            <span className="font-semibold">Also on:</span> {item.otherDates.map(formatShortDate).join(", ")}
           </div>
         )}
 

@@ -38,21 +38,6 @@ function ItemPill({
   selected: boolean;
   pick?: boolean;
 }) {
-  if (item.isOngoing) {
-    return (
-      <button
-        onClick={(ev) => {
-          ev.stopPropagation();
-          onSelect(item);
-        }}
-        title={`Ongoing: ${item.event.title}`}
-        className="flex w-full items-center gap-1 truncate rounded border border-dashed border-zinc-300 px-1.5 py-0.5 text-left text-[11px] leading-tight text-zinc-600 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-400 dark:hover:bg-zinc-900"
-      >
-        <span aria-hidden className={`h-1.5 w-1.5 shrink-0 rounded-full ${COLOR_CLASSES[item.color].dot}`} />
-        <span className="truncate">{item.event.title}</span>
-      </button>
-    );
-  }
   return (
     <button
       onClick={(ev) => {
@@ -102,9 +87,7 @@ export function MonthView({
         {weeks.flat().map((date) => {
           const inMonth = monthKey(date) === month;
           const all = [...(byDate.get(date) ?? [])].sort(compareBestFirst);
-          const specific = all.filter((it) => !it.isOngoing);
-          // Ongoing runs fill a cell only when nothing specific is scheduled that day.
-          const dayItems = specific.length ? specific : all;
+          const dayItems = all;
           const pick = topPick(all);
           const isToday = date === today;
           const isPast = date < today;
@@ -176,8 +159,7 @@ export function WeekView({
     <div className="grid gap-2 md:grid-cols-7">
       {days.map((date, i) => {
         const all = byDate.get(date) ?? [];
-        const dayItems = all.filter((it) => !it.isOngoing);
-        const ongoing = all.filter((it) => it.isOngoing);
+        const dayItems = all;
         const pick = topPick(all);
         return (
           <section
@@ -203,30 +185,10 @@ export function WeekView({
                   {it.event.venue && !it.action && <div className="mt-0.5 truncate opacity-75">{it.event.venue}</div>}
                 </button>
               ))}
-              {ongoing.length > 0 && <AlsoRunning items={ongoing} onSelect={onSelect} />}
             </div>
           </section>
         );
       })}
-    </div>
-  );
-}
-
-/** Compact list of confirmed daily runs, under the day's specific events. */
-function AlsoRunning({ items, onSelect }: { items: CalendarItem[]; onSelect: OnSelect }) {
-  return (
-    <div className="pt-1">
-      <div className="text-[10px] font-bold uppercase tracking-wide text-zinc-400">Also running</div>
-      <ul className="mt-0.5 space-y-0.5">
-        {items.map((it) => (
-          <li key={it.key}>
-            <button onClick={() => onSelect(it)} className="flex items-center gap-1.5 text-left text-xs text-zinc-600 hover:underline dark:text-zinc-400">
-              <span aria-hidden className={`h-1.5 w-1.5 shrink-0 rounded-full ${COLOR_CLASSES[it.color].dot}`} />
-              {it.event.title}
-            </button>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }
@@ -250,8 +212,7 @@ export function ListView({
   return (
     <div className="space-y-5">
       {[...byDate.entries()].map(([date, all]) => {
-        const dayItems = all.filter((it) => !it.isOngoing);
-        const ongoing = all.filter((it) => it.isOngoing);
+        const dayItems = all;
         const pick = topPick(all);
         return (
         <section key={date}>
@@ -284,11 +245,6 @@ export function ListView({
               </li>
             ))}
           </ul>
-          )}
-          {ongoing.length > 0 && (
-            <div className="mt-2 px-1">
-              <AlsoRunning items={ongoing} onSelect={onSelect} />
-            </div>
           )}
         </section>
         );

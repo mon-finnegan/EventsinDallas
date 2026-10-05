@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { SEED_EVENTS } from "@/data/seed";
-import { buildCalendarItems, emptyDays, isExpired, pendingActions, topPick } from "@/lib/calendar";
+import { buildCalendarItems, collapseRepeats, emptyDays, isExpired, pendingActions, topPick } from "@/lib/calendar";
 import { monthGrid, splitActionAt, todayInDallas } from "@/lib/dates";
 import { dedupe, normalizeTitle } from "@/lib/dedupe";
 import { DEFAULT_PREFERENCES, matchesPreferences } from "@/lib/filters";
@@ -81,9 +81,10 @@ describe("reverse calendar", () => {
     expect(red).toMatchObject({ date: "2026-10-15", time: null });
   });
 
-  it("shows short events every day and long runs on opening day only", () => {
+  it("shows every multi-day event once, on its first day", () => {
     const greek = SEED_EVENTS.find((e) => e.id === "greek-food-festival-dallas-2026")!;
-    expect(buildCalendarItems([greek]).map((i) => i.date)).toEqual(["2026-11-06", "2026-11-07", "2026-11-08"]);
+    const g = buildCalendarItems([greek]);
+    expect(g.map((i) => [i.date, i.label])).toEqual([["2026-11-06", "First day: Greek Food Festival of Dallas"]]);
     const rudolph = SEED_EVENTS.find((e) => e.id === "dct-rudolph-2026")!;
     const t = buildCalendarItems([rudolph]);
     expect(t).toHaveLength(1);
@@ -170,30 +171,43 @@ describe("don't miss lists", () => {
   });
 });
 
-describe("daily runs and best-first", () => {
-  const trains = SEED_EVENTS.find((e) => e.id === "trains-at-northpark-2026")!;
-
-  it("shows a confirmed daily run as first day + ongoing, skipping closed dates", () => {
-    const items = buildCalendarItems([trains]);
-    expect(items[0]).toMatchObject({ date: "2026-11-14", isOpeningDay: true, label: "First day: The Trains at NorthPark" });
-    expect(items.some((i) => i.date === "2026-11-20" && i.isOngoing)).toBe(true);
-    expect(items.some((i) => i.date === "2026-11-26")).toBe(false); // Thanksgiving
-    expect(items.some((i) => i.date === "2026-12-25")).toBe(false);
+describe("no repeats and best-first", () => {
+  it("lists a long daily run once, on its start day only", () => {
+    const fair = SEED_EVENTS.find((e) => e.id === "state-fair-of-texas-2026")!;
+    const items = buildCalendarItems([fair]);
+    expect(items).toHaveLength(1);
+    expect(items[0]).toMatchObject({ date: "2026-09-25", isOpeningDay: true, label: "First day: State Fair of Texas" });
   });
 
-  it("does not invent ongoing days for runs without confirmed daily hours", () => {
-    const rudolph = SEED_EVENTS.find((e) => e.id === "dct-rudolph-2026")!;
-    expect(buildCalendarItems([rudolph])).toHaveLength(1);
+  it("collapses a repeated event to its next date and keeps the other dates", () => {
+    const storytimes = SEED_EVENTS.filter((e) => e.title === "Storytime at the NorthPark Pumpkin Patch");
+    expect(storytimes.length).toBe(5);
+    const items = collapseRepeats(buildCalendarItems(storytimes), "2026-10-05");
+    expect(items).toHaveLength(1);
+    expect(items[0].date).toBe("2026-10-10");
+    expect(items[0].otherDates).toEqual(["2026-10-03", "2026-10-17", "2026-10-24", "2026-10-31"]);
   });
 
-  it("picks a top event per day and ignores ongoing runs", () => {
+  it("never collapses separate games or action dates", () => {
+    const sharks = SEED_EVENTS.filter((e) => e.title === "Stars vs. San Jose Sharks");
+    expect(collapseRepeats(buildCalendarItems(sharks), "2026-10-05")).toHaveLength(2);
+  });
+
+  it("shows no event title twice in a month", () => {
+    const items = collapseRepeats(buildCalendarItems(SEED_EVENTS), "2026-10-05").filter(
+      (i) => !i.action && i.event.subcategory !== "sports" && i.date.startsWith("2026-10"),
+    );
+    const titles = items.map((i) => i.event.title);
+    expect(new Set(titles).size).toBe(titles.length);
+  });
+
+  it("picks a top event per day", () => {
     const items = buildCalendarItems(SEED_EVENTS).filter((i) => i.date === "2026-12-05");
     const pick = topPick(items)!;
-    expect(pick.isOngoing).toBe(false);
     expect(pick.color).not.toBe("red");
   });
 
-  it("schedules every remaining day of October with something specific", () => {
-    expect(emptyDays(buildCalendarItems(SEED_EVENTS), "2026-10-05", "2026-10-31")).toEqual([]);
+  it("reports empty days for the rolling coverage check", () => {
+    expect(emptyDays(buildCalendarItems([]), "2026-10-05", "2026-10-06")).toEqual(["2026-10-05", "2026-10-06"]);
   });
 });

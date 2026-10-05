@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { buildCalendarItems, isExpired, pendingActions } from "@/lib/calendar";
+import { buildCalendarItems, collapseRepeats, isExpired, pendingActions } from "@/lib/calendar";
 import { addDays, addMonths, formatMonthTitle, formatShortDate, monthKey, startOfWeek } from "@/lib/dates";
 import { DEFAULT_PREFERENCES, matchesPreferences, type Preferences } from "@/lib/filters";
 import type { CalendarEvent, CalendarItem, NationalInterest } from "@/lib/types";
@@ -70,9 +70,9 @@ export function CalendarApp({ events, today }: { events: CalendarEvent[]; today:
     [events, today, prefs],
   );
   const items = useMemo(() => {
-    const all = buildCalendarItems(visibleEvents);
+    const all = collapseRepeats(buildCalendarItems(visibleEvents), today);
     return prefs.signup ? all : all.filter((it) => it.color !== "red");
-  }, [visibleEvents, prefs.signup]);
+  }, [visibleEvents, prefs.signup, today]);
   const pending = useMemo(() => (prefs.signup ? pendingActions(visibleEvents, today) : []), [visibleEvents, today, prefs.signup]);
   const openNow = useMemo(
     () => (prefs.signup ? visibleEvents.filter((e) => e.signup_required && e.status === "REGISTRATION_OPEN") : []),
