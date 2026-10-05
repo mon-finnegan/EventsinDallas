@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-10-05T02:40:58.187Z",
-  "finished_at": "2026-10-05T02:43:21.707Z",
-  "duration_ms": 143520,
+  "started_at": "2026-10-05T02:45:32.840Z",
+  "finished_at": "2026-10-05T02:47:58.217Z",
+  "duration_ms": 145377,
   "dry_run": false,
   "sources_total": 99,
   "sources_attempted": 99,
@@ -25,32 +25,32 @@
     "north-pole-express",
     "adolphus-tea",
     "dallas-library",
-    "university-park",
     "visit-dallas",
+    "university-park",
     "addison-events",
     "frisco-merry",
     "old-lake-highlands",
-    "dct",
     "ymca-turkey-trot",
+    "dct",
     "attpac",
     "dfwchild-calendar",
     "dfwchild-trunk",
     "kids-out-about",
     "live-love-local",
     "dallasites101-blog",
-    "dallasites101-holiday",
     "dallasites101-hanukkah",
+    "dallasites101-holiday",
     "visit-dallas-month",
     "resident-dallas",
     "culturemap-dallas",
     "visit-dallas-winter",
     "dfwchild-annual",
-    "planomoms-winter",
     "dfwchild-nye",
     "dallas-chamber",
     "venture-dallas",
     "mavs-schedule",
     "cowboys-schedule",
+    "stars-schedule",
     "ig-dallasites101",
     "ig-dallasmoms",
     "ig-dfwchild",
@@ -68,8 +68,8 @@
     "reddit-dfw",
     "reddit-fortworth",
     "reddit-plano",
-    "stars-schedule",
     "dallas-sports-commission",
+    "planomoms-winter",
     "pga-registry",
     "pga-championship",
     "ryder-cup",
@@ -83,77 +83,77 @@
     {
       "id": "hpumc",
       "error": "HTTP 404 fetching https://www.hpumc.org/christmas",
-      "consecutive_failures": 2
+      "consecutive_failures": 3
     },
     {
       "id": "gaylord-ice",
       "error": "HTTP 403 fetching https://www.christmasatgaylordtexan.com/ice",
-      "consecutive_failures": 2
+      "consecutive_failures": 3
     },
     {
       "id": "richardson-santa",
       "error": "HTTP 403 fetching https://www.cor.net/departments/parks-recreation/community-events/santa-s-village-at-huffhines-park",
-      "consecutive_failures": 2
+      "consecutive_failures": 3
     },
     {
       "id": "heritage-village",
       "error": "fetch failed fetching http://www.dallasheritagevillage.org/candlelight",
-      "consecutive_failures": 2
+      "consecutive_failures": 3
     },
     {
       "id": "dallas-moms",
       "error": "HTTP 403 fetching https://dallasmoms.com/dallas-moms-need-to-know-a-guide-to-the-month-of-october/",
-      "consecutive_failures": 2
+      "consecutive_failures": 3
     },
     {
       "id": "scout-guide-dallas",
       "error": "HTTP 403 fetching https://thescoutguide.com/dallas/editorial/the-best-things-to-do-in-dallas-this-october-2026/",
-      "consecutive_failures": 2
+      "consecutive_failures": 3
     },
     {
       "id": "do214",
       "error": "HTTP 403 fetching https://do214.com/",
-      "consecutive_failures": 2
+      "consecutive_failures": 3
     },
     {
       "id": "eventbrite-dallas-month",
       "error": "HTTP 405 fetching https://www.eventbrite.com/d/tx--dallas/october/",
-      "consecutive_failures": 2
+      "consecutive_failures": 3
     },
     {
       "id": "eventbrite-dallas-month+1",
       "error": "HTTP 405 fetching https://www.eventbrite.com/d/tx--dallas/november/",
-      "consecutive_failures": 2
+      "consecutive_failures": 3
     },
     {
       "id": "dallas-innovates",
       "error": "HTTP 403 fetching https://dallasinnovates.com/calendar/",
-      "consecutive_failures": 2
-    },
-    {
-      "id": "eventbrite-networking",
-      "error": "HTTP 405 fetching https://www.eventbrite.com/d/tx--dallas/networking/",
-      "consecutive_failures": 2
+      "consecutive_failures": 3
     },
     {
       "id": "small-business-expo",
       "error": "HTTP 403 fetching https://www.thesmallbusinessexpo.com/city/dallas/",
-      "consecutive_failures": 2
+      "consecutive_failures": 3
+    },
+    {
+      "id": "eventbrite-networking",
+      "error": "HTTP 405 fetching https://www.eventbrite.com/d/tx--dallas/networking/",
+      "consecutive_failures": 3
     },
     {
       "id": "us-open",
       "error": "HTTP 403 fetching https://www.usopen.com/2027/tickets.html",
-      "consecutive_failures": 2
+      "consecutive_failures": 3
     },
     {
       "id": "prestonwood-goc",
       "error": "fetch failed fetching https://prestonwoodgoc.org/",
-      "consecutive_failures": 2
+      "consecutive_failures": 3
     },
     {
       "id": "masters",
       "error": "The operation was aborted due to timeout fetching https://www.masters.com/en_US/tournament/tickets.html",
-      "consecutive_failures": 2
+      "consecutive_failures": 3
     }
   ],
   "feeders_used": {
@@ -2434,13 +2434,16 @@
       "reasons": [
         "outside default radius"
       ]
+    },
+    {
+      "title": "River Legacy Nature Center Fall Festival",
+      "source": "mommypoppins-fall",
+      "reasons": [
+        "DFW metro"
+      ]
     }
   ],
   "cut_for_volume": [
-    {
-      "title": "Kelly Willis",
-      "event_date": "2026-10-04"
-    },
     {
       "title": "Let's Go... Somewhere Spooky!",
       "event_date": "2026-10-04"
@@ -2586,10 +2589,6 @@
       "event_date": "2026-10-05"
     },
     {
-      "title": "DFW Italian Festival",
-      "event_date": "2026-10-09"
-    },
-    {
       "title": "DMA FREE First Sundays: Access for All",
       "event_date": "2026-10-04"
     },
@@ -2599,6 +2598,10 @@
     },
     {
       "title": "Homeschool Day: Charlotte’s Web",
+      "event_date": "2026-10-07"
+    },
+    {
+      "title": "Jack White at The Bomb Factory",
       "event_date": "2026-10-07"
     },
     {
@@ -2702,56 +2705,12 @@
       "event_date": "2026-10-05"
     },
     {
-      "title": "Celebra Grapevine",
-      "event_date": "2026-10-04"
-    },
-    {
-      "title": "River Legacy Nature Center Fall Festival",
+      "title": "DFW Italian Festival",
       "event_date": "2026-10-10"
     },
     {
-      "title": "ArmeniaFest 2026 – Oct 16, 17 & 18",
-      "event_date": "2026-10-18"
-    },
-    {
-      "title": "Dying Fetus with Sanguisugabogg at The Bomb Factory",
-      "event_date": "2026-10-18"
-    },
-    {
-      "title": "INVASION #18 Car Show",
-      "event_date": "2026-10-24"
-    },
-    {
-      "title": "26th Annual Nash Farm Fall Roundup",
-      "event_date": "2026-10-24"
-    },
-    {
-      "title": "Día de los Muertos Festival & Exhibition",
-      "event_date": "2026-10-20"
-    },
-    {
-      "title": "Grand Prairie Main Street Fest",
-      "event_date": "2026-10-22"
-    },
-    {
-      "title": "Do Good Fest Texas!",
-      "event_date": "2026-10-24"
-    },
-    {
-      "title": "Rockwall Philharmonic at Rockwall Concert By the Lake",
-      "event_date": "2026-10-29"
-    },
-    {
-      "title": "Arch Enemy & The Black Dahlia Murder Tickets",
-      "event_date": "2026-10-11"
-    },
-    {
-      "title": "ArmeniaFest 2026 – Oct 16, 17 & 18",
-      "event_date": "2026-10-17"
-    },
-    {
-      "title": "ArmeniaFest 2026 – Oct 16, 17 & 18",
-      "event_date": "2026-10-16"
+      "title": "Celebra Grapevine",
+      "event_date": "2026-10-04"
     },
     {
       "title": "Bob Moses",
@@ -2776,10 +2735,6 @@
     {
       "title": "Dallas Stars vs. Colorado Avalanche",
       "event_date": "2026-10-13"
-    },
-    {
-      "title": "DFW Fall Fest",
-      "event_date": "2026-10-17"
     },
     {
       "title": "Frost Irving State Fair Celebration",
@@ -2814,16 +2769,40 @@
       "event_date": "2026-10-17"
     },
     {
+      "title": "DFW Fall Fest",
+      "event_date": "2026-10-17"
+    },
+    {
       "title": "McKinney's Día de los Muertos",
       "event_date": "2026-10-17"
     },
     {
       "title": "Steve O - Stephen Gilchrist Glover at Hyenas Comedy Night Club - Dallas",
       "event_date": "2026-10-16"
+    },
+    {
+      "title": "PlantCon Dallas 2026",
+      "event_date": "2026-10-24"
+    },
+    {
+      "title": "Día de los Muertos Festival & Exhibition",
+      "event_date": "2026-10-20"
+    },
+    {
+      "title": "26th Annual Nash Farm Fall Roundup",
+      "event_date": "2026-10-24"
+    },
+    {
+      "title": "Do Good Fest Texas!",
+      "event_date": "2026-10-24"
+    },
+    {
+      "title": "Grand Prairie Main Street Fest",
+      "event_date": "2026-10-23"
     }
   ],
   "cancelled": [],
-  "published": 150,
+  "published": 156,
   "reconfirmed": 0,
   "marked_completed": 0,
   "stale": [],
@@ -2899,11 +2878,11 @@
       "note": "blocked by robots.txt"
     },
     {
-      "source": "university-park",
+      "source": "visit-dallas",
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
-      "source": "visit-dallas",
+      "source": "university-park",
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
@@ -2915,11 +2894,11 @@
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
-      "source": "visit-plano",
-      "note": "tribe api: HTTP 404 fetching https://events.visitplano.com/wp-json/tribe/events/v1/events?start_date=2026-10-04&per_page=50&status=publish"
+      "source": "old-lake-highlands",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
-      "source": "old-lake-highlands",
+      "source": "ymca-turkey-trot",
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
@@ -2927,8 +2906,8 @@
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
-      "source": "ymca-turkey-trot",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+      "source": "visit-plano",
+      "note": "tribe api: HTTP 404 fetching https://events.visitplano.com/wp-json/tribe/events/v1/events?start_date=2026-10-04&per_page=50&status=publish"
     },
     {
       "source": "attpac",
@@ -2955,11 +2934,11 @@
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
-      "source": "dallasites101-holiday",
+      "source": "dallasites101-hanukkah",
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
-      "source": "dallasites101-hanukkah",
+      "source": "dallasites101-holiday",
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
@@ -2983,10 +2962,6 @@
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
-      "source": "planomoms-winter",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
       "source": "dfwchild-nye",
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
@@ -3004,6 +2979,10 @@
     },
     {
       "source": "cowboys-schedule",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "stars-schedule",
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
@@ -3075,11 +3054,11 @@
       "note": "reddit not configured (REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET)"
     },
     {
-      "source": "stars-schedule",
+      "source": "dallas-sports-commission",
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
-      "source": "dallas-sports-commission",
+      "source": "planomoms-winter",
       "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
@@ -3117,628 +3096,11 @@
   ],
   "coverage_days": 30,
   "empty_days": [
+    "2026-10-26",
     "2026-11-02"
   ],
-  "pruned": [
-    {
-      "title": "Discipleship University",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Early Morning Member Walks",
-      "reasons": [
-        "members only"
-      ]
-    },
-    {
-      "title": "Discipleship University",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Early Morning Member Walks",
-      "reasons": [
-        "members only"
-      ]
-    },
-    {
-      "title": "AWANA",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Discipleship University",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Invite A Friend Sunday",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "AWANA",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Estudio Bíblico del libro de Éxodo para Mujeres | WBS",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "First Dallas Business Meeting",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Breakfast with the Bishop",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Encuentro de Escatología",
-      "reasons": [
-        "no community-event signal"
-      ]
-    },
-    {
-      "title": "Discipleship University",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Sunday Night Date Night",
-      "reasons": [
-        "no community-event signal"
-      ]
-    },
-    {
-      "title": "GriefShare: Surviving The Holidays",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Sunday Evening Pickleball",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Costume Party @ The Avenue",
-      "reasons": [
-        "no community-event signal"
-      ]
-    },
-    {
-      "title": "The Avenue",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "AWANA",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Life Recovery Group",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Estudio Bíblico del libro de Éxodo para Mujeres | WBS",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Dinner With The Pastor",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Men's Softball",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Kids Worship",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Pastor's Prayer Partners | Women",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Sunday Evening Pickleball",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Discipleship University",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Kids Worship Night of Praise",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "St. Andrew's Dinner",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Estudio Bíblico del libro de Éxodo para Mujeres | WBS",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "AWANA",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "The Avenue",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Life Recovery Group",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Sunday Night Date Night",
-      "reasons": [
-        "no community-event signal"
-      ]
-    },
-    {
-      "title": "Pray Worship Pray – Wednesday Night Prayer",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "John Paul II High School Open House 2026",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Upward Volleyball",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Students United Sunday",
-      "reasons": [
-        "no community-event signal"
-      ]
-    },
-    {
-      "title": "Kids Worship",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "The Avenue",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Life Recovery Group",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Estudio Bíblico del libro de Éxodo para Mujeres | WBS",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "AWANA",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Pray Worship Pray – Wednesday Night Prayer",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Kids Worship",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Life Recovery Group",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "First Dallas Business Meeting",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Estudio Bíblico del libro de Éxodo para Mujeres | WBS",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "AWANA",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "The Avenue",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Ecce Adsum \"Behold, Here I am.\"",
-      "reasons": [
-        "no community-event signal"
-      ]
-    },
-    {
-      "title": "Pray Worship Pray – Wednesday Night Prayer",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "SMC Speaker Series 2027",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Kids Worship",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Thanksgiving Dinner",
-      "reasons": [
-        "no community-event signal"
-      ]
-    },
-    {
-      "title": "Estudio Bíblico del libro de Éxodo para Mujeres | WBS",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Life Recovery Group",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Pray Worship Pray – Wednesday Night Prayer",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "The Avenue",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Kids Worship",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "The Avenue",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Estudio Bíblico del libro de Éxodo para Mujeres | WBS",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Life Recovery Group",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Pray Worship Pray – Wednesday Night Prayer",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Kids Worship",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Estudio Bíblico del libro de Éxodo para Mujeres | WBS",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Pray Worship Pray – Wednesday Night Prayer",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "The Avenue",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Life Recovery Group",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Celebrate Christmas",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Celebrate Christmas",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Kids Worship",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Pray Worship Pray – Wednesday Night Prayer",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "The Avenue",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Life Recovery Group",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "First Dallas Business Meeting",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Estudio Bíblico del libro de Éxodo para Mujeres | WBS",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Estudio Bíblico del libro de Éxodo para Mujeres | WBS",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "The Avenue",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Life Recovery Group",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Pray Worship Pray – Wednesday Night Prayer",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Pastor's Prayer Partners | Women",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Senior Students Passion 2026",
-      "reasons": [
-        "no community-event signal"
-      ]
-    },
-    {
-      "title": "Estudio Bíblico del libro de Éxodo para Mujeres | WBS",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Pray Worship Pray – Wednesday Night Prayer",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Life Recovery Group",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "The Avenue",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Life Recovery Group",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Estudio Bíblico del libro de Éxodo para Mujeres | WBS",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Pray Worship Pray – Wednesday Night Prayer",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Pray Worship Pray – Wednesday Night Prayer",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Estudio Bíblico del libro de Éxodo para Mujeres | WBS",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Life Recovery Group",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Bishop’s Gala",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Pray Worship Pray – Wednesday Night Prayer",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Life Recovery Group",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Estudio Bíblico del libro de Éxodo para Mujeres | WBS",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Life Recovery Group",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Pray Worship Pray – Wednesday Night Prayer",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Estudio Bíblico del libro de Éxodo para Mujeres | WBS",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Professionals Power Lunch",
-      "reasons": [
-        "no community-event signal"
-      ]
-    },
-    {
-      "title": "Life Recovery Group",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Pray Worship Pray – Wednesday Night Prayer",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    }
-  ],
+  "pruned": [],
+  "replaced": 30,
   "collapsed_series": [
     {
       "title": "The Dallas Opera: The Cunning Little Vixen",
