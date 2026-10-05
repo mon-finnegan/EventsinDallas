@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { classifyStructured, parseAgeRange } from "@/lib/pipeline/feeders/classify";
+import { classifyStructured, parseAgeRange, statedAdmission } from "@/lib/pipeline/feeders/classify";
 import { normalizeDateTime } from "@/lib/pipeline/feeders/datetime";
 import { parseICal } from "@/lib/pipeline/feeders/ical";
 import { discoverEventLinks, findICalUrl, runFeeder, chunkText } from "@/lib/pipeline/feeders";
@@ -394,5 +394,15 @@ describe("reddit feeder", () => {
     const source = SOURCES.find((s) => s.id === "reddit-dallas")!;
     const res = await runFeeder(source, { http: new FakeHttp({}), extract: null, today: "2026-10-05" });
     expect(res.notes[0]).toContain("reddit not configured");
+  });
+});
+
+describe("stated admission", () => {
+  it("reads explicit prices and free-admission phrases from feed text", () => {
+    expect(statedAdmission("Join us! Admission: $15 at the door.")).toBe("$15");
+    expect(statedAdmission("Tickets start at $25.")).toBe("From $25");
+    expect(statedAdmission("Tickets $10 - $20")).toBe("$10–$20");
+    expect(statedAdmission("Free and open to the public.")).toBe("Free");
+    expect(statedAdmission("Bring the whole family for games and food trucks.")).toBeNull();
   });
 });

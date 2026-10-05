@@ -265,3 +265,13 @@ describe("source reconciliation", () => {
     expect(repo.rows.map((r) => r.event_date)).toEqual(["2026-10-31"]);
   });
 });
+
+describe("cost evidence", () => {
+  it("drops a price that is not on the page", () => {
+    const page = "Fall Festival Saturday, October 24, 2026 from 4:00 PM – 7:00 PM. Admission $5.";
+    expect(enforceEvidence(extracted({ cost: "$5" }), page).event.cost).toBe("$5");
+    const { event, dropped } = enforceEvidence(extracted({ cost: "$12 per person" }), page);
+    expect(event.cost).toBeNull();
+    expect(dropped).toContain("cost");
+  });
+});

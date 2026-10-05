@@ -194,3 +194,18 @@ export function pendingActions(events: CalendarEvent[], today: string): Calendar
       !isExpired(e, today),
   );
 }
+
+/**
+ * A short admission label for list rows: "Free", "$11.25" or "From $17.95". Derived only from
+ * the stated cost text — returns null when the source didn't give a price.
+ */
+export function admissionChip(cost: string | null): string | null {
+  if (!cost) return null;
+  const text = cost.trim();
+  if (/^free\b/i.test(text)) return "Free";
+  const amounts = [...text.matchAll(/\$\s?(\d+(?:\.\d{2})?)/g)].map((m) => Number(m[1]));
+  if (amounts.length === 0) return /\bfree\b/i.test(text) ? "Free" : null;
+  const min = Math.min(...amounts);
+  const fmt = (n: number) => `$${Number.isInteger(n) ? n : n.toFixed(2)}`;
+  return new Set(amounts).size > 1 ? `From ${fmt(min)}` : fmt(min);
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import { compareBestFirst, topPick } from "@/lib/calendar";
+import { admissionChip, compareBestFirst, topPick } from "@/lib/calendar";
 import { addDays, formatLongDate, formatShortDate, formatTime, monthGrid, monthKey } from "@/lib/dates";
 import type { CalendarEvent, CalendarItem } from "@/lib/types";
 import { COLOR_CLASSES, Dot, UnknownBadge, churchTag, nationalTag } from "./ui";
@@ -237,6 +237,11 @@ export function ListView({
                       <span>{it.time ? formatTime(it.time) : it.action ? "Time TBA" : "Time not listed"}</span>
                       {it.event.venue && <span>· {it.event.venue}</span>}
                       {it.event.city && !it.event.venue && <span>· {it.event.city}</span>}
+                      {admissionChip(it.event.cost) && (
+                        <span className="rounded bg-zinc-100 px-1.5 py-0.5 font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
+                          {admissionChip(it.event.cost)}
+                        </span>
+                      )}
                       {churchTag(it.event)}
                       {nationalTag(it.event)}
                     </div>

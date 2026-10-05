@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { SEED_EVENTS } from "@/data/seed";
-import { buildCalendarItems, collapseRepeats, emptyDays, isExpired, pendingActions, topPick } from "@/lib/calendar";
+import { admissionChip, buildCalendarItems, collapseRepeats, emptyDays, isExpired, pendingActions, topPick } from "@/lib/calendar";
 import { monthGrid, splitActionAt, todayInDallas } from "@/lib/dates";
 import { dedupe, normalizeTitle } from "@/lib/dedupe";
 import { DEFAULT_PREFERENCES, matchesPreferences } from "@/lib/filters";
@@ -285,5 +285,16 @@ describe("cross-source matching", () => {
     const tnf = SEED_EVENTS.find((e) => e.id === "cowboys-2026-10-08")!;
     expect(assessRelevance({ ...tnf, subcategory: "sports", title: "NBA Cup: Dallas Mavericks vs. Houston Rockets" }).include).toBe(true);
     expect(assessRelevance({ ...tnf, subcategory: null, title: "Dallas Cowboys Watch Party: Cowboys vs Texans" }).include).toBe(false);
+  });
+});
+
+describe("admission chip", () => {
+  it("summarizes stated prices and never invents one", () => {
+    expect(admissionChip(null)).toBeNull();
+    expect(admissionChip("Free")).toBe("Free");
+    expect(admissionChip("Free admission and parking; food for purchase")).toBe("Free");
+    expect(admissionChip("$11.25; kids under 10 free")).toBe("$11.25");
+    expect(admissionChip("Adults $15 weekdays / $25 weekends; kids 3–12 $10")).toBe("From $10");
+    expect(admissionChip("Varies by night; combo day+night tickets available")).toBeNull();
   });
 });

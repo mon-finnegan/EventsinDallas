@@ -97,6 +97,8 @@ Accuracy rules — these matter more than coverage:
 - Do not resolve relative phrases ("first Tuesday of October", "this Saturday") into dates; leave the
   date null and put the phrase in action_note.
 - For every non-null date or time field, add an evidence entry quoting the exact page text.
+- cost is the admission price exactly as the page states it (e.g. "$15 adults, $10 kids, under 2
+  free" or "Free"). Use null when the page gives no price, even if tickets are mentioned.
 - Prefer one record per specific day or performance over one record spanning weeks.
 - Use kind "signup_alert" for records whose main value is a reservation/registration/ticket/lottery
   window; otherwise put the action dates on the event itself.`;
@@ -144,17 +146,26 @@ const squash = (s: string) => s.toLowerCase().replace(/\s+/g, " ").trim();
 export function enforceEvidence(
   event: ExtractedEvent,
   pageText: string,
-): { event: ExtractedEvent; dropped: DateField[] } {
+): { event: ExtractedEvent; dropped: (DateField | "cost")[] } {
   const page = squash(pageText);
   const supported = new Set(
     event.evidence.filter((e) => e.quote.trim().length >= 3 && page.includes(squash(e.quote))).map((e) => e.field),
   );
-  const dropped: DateField[] = [];
+  const dropped: (DateField | "cost")[] = [];
   const out = { ...event };
   for (const f of DATE_FIELDS) {
     if (out[f] !== null && !supported.has(f)) {
       out[f] = null;
       dropped.push(f);
+    }
+  }
+  // A price must come from the page: every dollar amount in cost has to appear in the text.
+  if (out.cost !== null) {
+    const amounts = out.cost.match(/\$\s?\d+(?:\.\d{2})?/g) ?? [];
+    const raw = pageText.replace(/\s+/g, "");
+    if (amounts.some((a) => !raw.includes(a.replace(/\s+/g, "")))) {
+      out.cost = null;
+      dropped.push("cost");
     }
   }
   return { event: out, dropped };

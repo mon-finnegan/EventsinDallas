@@ -97,7 +97,7 @@ export function classifyStructured(input: StructuredInput, source: Source): Extr
     age_min: ages.age_min,
     age_max: ages.age_max,
     age_label: null,
-    cost: input.cost,
+    cost: input.cost ? cleanText(input.cost) : statedAdmission(text),
     activities: [],
     is_toddler_relevant: toddler,
     is_family_relevant: family,
@@ -119,6 +119,23 @@ export function classifyStructured(input: StructuredInput, source: Source): Extr
     evidence: [],
     cancelled: Boolean(input.cancelled),
   };
+}
+
+const FREE_ADMISSION =
+  /\b(free admission|admission is free|free (and|&) open to the public|free to attend|free event|free entry|no admission (fee|charge)|free for all ages)\b/i;
+const PRICE_PHRASE =
+  /\b(?:admission|tickets?|entry|cover|cost|price)s?\s*(?:is|are|:|-|–|(start(?:s|ing)? at|from))?\s*(\$\d+(?:\.\d{2})?(?:\s*(?:-|–|to)\s*\$\d+(?:\.\d{2})?)?)/i;
+
+/**
+ * Admission when a feed has no price field but the description states one outright
+ * ("Admission: $15", "free and open to the public"). Returns null otherwise — never a guess.
+ */
+export function statedAdmission(text: string): string | null {
+  const clean = cleanText(text);
+  const price = clean.match(PRICE_PHRASE);
+  if (price) return `${price[1] ? "From " : ""}${price[2].replace(/\s*(?:-|to)\s*/, "–")}`;
+  if (FREE_ADMISSION.test(clean)) return "Free";
+  return null;
 }
 
 /** Decode leftover HTML entities and strip invisible characters some feeds include. */

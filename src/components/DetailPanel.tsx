@@ -147,7 +147,13 @@ export function DetailPanel({ selection, onClose }: { selection: Selection; onCl
             </Row>
           )}
           {ageText(e) && <Row label="Age">{ageText(e)}</Row>}
-          {e.cost && <Row label="Cost">{e.cost}</Row>}
+          <Row label="Admission">
+            {e.cost ? (
+              e.cost
+            ) : (
+              <span className="text-zinc-500">Not listed by the source — check the official site before you go.</span>
+            )}
+          </Row>
           {e.review_rating !== null && e.review_count !== null && (
             <Row label="Venue reviews">
               <span className="font-semibold">{e.review_rating.toFixed(1)}★</span> ·{" "}
