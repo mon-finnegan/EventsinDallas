@@ -53,6 +53,21 @@ export const CHURCH_SIGNALS =
 /** Generic concert/nightlife content is out of scope (spec §8, §35). */
 const OUT_OF_SCOPE = /\b(concert tour|nightclub|bar crawl|pub crawl|happy hour|21\+|brunch reservations?)\b/i;
 
+/** Signals that a game is a major event rather than one of dozens of regular-season dates. */
+export const MAJOR_SPORTS =
+  /\b(home opener|season opener|opening night|rivalry|thanksgiving|christmas|new year'?s|playoffs?|championship|bowl|finals?|all-star|thursday night football|sunday night football|monday night football|national tv|espn|tnt|abc|derby|classic|world series|stanley cup)\b/i;
+
+/** Outings aimed at adults (a couple in their 30s): food & drink, live music, culture nights. */
+export function isGrownUpOuting(e: CalendarEvent): boolean {
+  return (
+    !e.is_family_relevant &&
+    !e.is_toddler_relevant &&
+    e.subcategory !== "sports" &&
+    e.subcategory !== "networking" &&
+    e.scope === "DALLAS"
+  );
+}
+
 export interface RelevanceResult {
   include: boolean;
   score: number;
@@ -99,9 +114,23 @@ export function assessRelevance(e: CalendarEvent): RelevanceResult {
   } else if (e.is_family_relevant) {
     score += 1;
   }
-  if (e.age_min !== null && e.age_min > 5) {
+  // Kid programming aimed at older children (6–17) is out; adults-only outings are not.
+  if (e.age_min !== null && e.age_min > 5 && e.age_min < 18) {
     score -= 3;
     reasons.push("designed for older children");
+  }
+  if (isGrownUpOuting(e)) {
+    score += 1.5;
+    reasons.push("grown-up outing");
+  }
+
+  // Sports: only major games (openers, rivalries, holiday and national-TV games, bowls, finals).
+  if (e.subcategory === "sports") {
+    if (!MAJOR_SPORTS.test(`${e.title} ${e.description ?? ""}`)) {
+      return { include: false, score: 0, reasons: ["regular-season game"] };
+    }
+    score += 1;
+    reasons.push("major game");
   }
 
   // Specificity (spec §25)

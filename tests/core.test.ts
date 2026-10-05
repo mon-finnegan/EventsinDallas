@@ -4,7 +4,7 @@ import { buildCalendarItems, collapseRepeats, emptyDays, isExpired, pendingActio
 import { monthGrid, splitActionAt, todayInDallas } from "@/lib/dates";
 import { dedupe, normalizeTitle } from "@/lib/dedupe";
 import { DEFAULT_PREFERENCES, matchesPreferences } from "@/lib/filters";
-import { assessRelevance } from "@/lib/relevance";
+import { assessRelevance, isGrownUpOuting } from "@/lib/relevance";
 import type { CalendarEvent } from "@/lib/types";
 import { validateForPublish } from "@/lib/validation";
 
@@ -189,8 +189,9 @@ describe("no repeats and best-first", () => {
   });
 
   it("never collapses separate games or action dates", () => {
-    const sharks = SEED_EVENTS.filter((e) => e.title === "Stars vs. San Jose Sharks");
-    expect(collapseRepeats(buildCalendarItems(sharks), "2026-10-05")).toHaveLength(2);
+    const game = SEED_EVENTS.find((e) => e.id === "cowboys-2026-10-08")!;
+    const rematch = { ...game, id: "rematch", event_date: "2026-12-06" };
+    expect(collapseRepeats(buildCalendarItems([game, rematch]), "2026-10-05")).toHaveLength(2);
   });
 
   it("shows no event title twice in a month", () => {
@@ -209,5 +210,27 @@ describe("no repeats and best-first", () => {
 
   it("reports empty days for the rolling coverage check", () => {
     expect(emptyDays(buildCalendarItems([]), "2026-10-05", "2026-10-06")).toEqual(["2026-10-05", "2026-10-06"]);
+  });
+});
+
+describe("audience and sports", () => {
+  it("keeps only major games", () => {
+    const tnf = SEED_EVENTS.find((e) => e.id === "cowboys-2026-10-08")!;
+    expect(assessRelevance(tnf).include).toBe(true);
+    expect(assessRelevance({ ...tnf, title: "Cowboys vs. Arizona Cardinals" }).include).toBe(false);
+    expect(SEED_EVENTS.filter((e) => e.subcategory === "sports").length).toBeLessThanOrEqual(12);
+  });
+
+  it("treats adults-only food and music nights as grown-up outings, not kids' events", () => {
+    const whiskey = SEED_EVENTS.find((e) => e.id === "whiskey-washback-dallas-2026")!;
+    expect(isGrownUpOuting(whiskey)).toBe(true);
+    const r = assessRelevance(whiskey);
+    expect(r.include).toBe(true);
+    expect(r.reasons).not.toContain("designed for older children");
+    expect(matchesPreferences(whiskey, { ...DEFAULT_PREFERENCES, grownup: false })).toBe(false);
+  });
+
+  it("still excludes programs for older kids", () => {
+    expect(assessRelevance(make({ age_min: 8, is_toddler_relevant: false, is_church_hosted: false })).include).toBe(false);
   });
 });

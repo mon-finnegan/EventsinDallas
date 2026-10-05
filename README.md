@@ -71,11 +71,17 @@ SOURCES (~50 feeders: churches, venues, cities, performing arts, aggregators, na
 **Rolling coverage.** Monthly guides (Dallas Moms, Eventbrite's month pages) use `{monthName}` URL templates that are read for this month and the next. Each run reports `empty_days`: days in the next 30 with nothing specific scheduled, so gaps show up before the month arrives.
 
 **Event guides and Instagram.** Running guides (Dallasites101, Resident, The Scout Guide, Visit Dallas, CultureMap, Do214, Mommy Poppins, Plano Moms, DFWChild) are read as lower-trust discovery sources. When the same event also appears on its official page, the official version wins.
-- Instagram accounts (@dallasites101, @dallasmoms, @dfwchild, @visitdallas, @klydewarrenpark, @dallasarboretum, @dallaszoo, @perotmuseum, @do214) are read through Instagram's official Graph API (Business Discovery). Scraping instagram.com is against Instagram's terms and blocked for bots.
+- Instagram accounts (@dallasites101, @dallasmoms, @dfwchild, @visitdallas, @klydewarrenpark, @dallasarboretum, @dallaszoo, @perotmuseum, @do214, @dallasobserver, @dmagazine, @culturemapdallas) are read through Instagram's official Graph API (Business Discovery). Scraping instagram.com is against Instagram's terms and blocked for bots.
 - The API needs `IG_USER_ID` and `IG_ACCESS_TOKEN` from an Instagram Business or Creator account.
 - Only recent posts that mention a date are sent to Claude. Every extracted date must quote the caption.
 
+**Reddit and Facebook.**
+- **Reddit:** r/Dallas, r/askdfw, r/dfw, r/FortWorth and r/Plano are read through Reddit's official API (application-only OAuth; `REDDIT_CLIENT_ID` / `REDDIT_CLIENT_SECRET`). Only posts from the last week that name a date and have a few upvotes go to Claude, and events found there are labeled as coming from a community post.
+- **Facebook:** Facebook groups can't be read programmatically. The Groups API was retired, most groups are private, and scraping is against Facebook's terms. Public Facebook events reach the calendar through AllEvents, which indexes them, as a rolling monthly source.
 
+**Audience.** Besides family picks, the calendar includes grown-up outings for a couple in their 30s: food and wine festivals, whiskey tastings, headline concerts, opera and Halloween bar crawls. They have their own filter. Sports are limited to major games (home openers, rivalries, holiday and national-TV games, bowls), and the relevance filter drops regular-season games from every feed.
+
+**Running it:**
 
 - **Vercel Cron:** `vercel.json` calls `GET /api/cron/refresh` daily at 11:00 UTC. The route needs `Authorization: Bearer $CRON_SECRET`.
 - **GitHub Actions:** `.github/workflows/refresh.yml` runs daily and can be triggered by hand. It needs repo secrets and skips the run if they're missing.
@@ -85,7 +91,7 @@ SOURCES (~50 feeders: churches, venues, cities, performing arts, aggregators, na
 
 ## Supabase setup
 
-1. Create a project and run `supabase/migrations/0001_init.sql`, then `0002_feeders.sql`.
+1. Create a project and run `supabase/migrations/0001_init.sql`, then `0002_feeders.sql` and `0003_daily_runs.sql`.
 2. Copy `.env.example` to `.env.local` and fill in `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `ANTHROPIC_API_KEY`, `CRON_SECRET` and optionally `GOOGLE_PLACES_API_KEY`.
 3. `npm run seed` loads the verified seed data. After that, the daily pipeline keeps it current.
 

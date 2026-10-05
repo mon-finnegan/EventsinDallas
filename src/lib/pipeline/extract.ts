@@ -86,7 +86,10 @@ nightlife and generic ticket sales; ordinary restaurant reservations; undated or
 
 Favor the best and most distinctive options: signature annual events, top venues, well-loved
 traditions, and things a family would plan a day around. Business networking events from major
-organizations (chambers, innovation groups, large expos) and pro or college home games also qualify.
+organizations (chambers, innovation groups, large expos) also qualify, and so do outings a couple in
+their 30s would enjoy on their own: food and wine festivals, whiskey or beer tastings, notable concerts
+and live music, comedy, opera and theater nights, art openings, markets. For sports, include only
+major games: home openers, rivalry games, holiday or national-TV games, bowls, playoffs and finals.
 
 Accuracy rules — these matter more than coverage:
 - Never infer, estimate or carry forward dates, times, prices, ages or URLs. If the page does not

@@ -11,6 +11,7 @@ import { backoffDays, isDue } from "@/lib/pipeline/state";
 import { SEED_EVENTS } from "@/data/seed";
 import { expandRollingSources, SOURCES } from "@/lib/pipeline/sources";
 import { businessDiscoveryUrl, eventLikePosts, fetchInstagramPosts } from "@/lib/pipeline/feeders/instagram";
+import { eventLikeRedditPosts, subredditSearchUrl } from "@/lib/pipeline/feeders/reddit";
 import { churchSource, FakeHttp } from "./helpers";
 
 const TODAY = "2026-10-03";
@@ -336,5 +337,57 @@ describe("instagram feeder", () => {
     const source = SOURCES.find((s) => s.id === "ig-dallasites101")!;
     const res = await runFeeder(source, { http: new FakeHttp({}), extract: null, today: "2026-10-05" });
     expect(res.notes[0]).toContain("instagram not configured");
+  });
+});
+
+describe("reddit feeder", () => {
+  const listing = (posts: { title: string; selftext?: string; score: number; over_18?: boolean }[]) =>
+    JSON.stringify({
+      data: {
+        children: posts.map((p, i) => ({
+          data: { ...p, permalink: `/r/Dallas/comments/${i}/x/`, created_utc: Date.parse("2026-10-04T12:00:00Z") / 1000 },
+        })),
+      },
+    });
+
+  it("reads subreddit search with the bearer token and keeps upvoted posts that name a date", async () => {
+    const url = subredditSearchUrl("Dallas");
+    const http = new FakeHttp({
+      [url]: listing([
+        { title: "Free outdoor movie Oct 17 at Main Street Garden", selftext: "Bring blankets", score: 25 },
+        { title: "Best tacos?", score: 80 },
+        { title: "My band plays Oct 9", score: 1 },
+        { title: "Party Oct 10", score: 50, over_18: true },
+      ]),
+    });
+    const seen: string[] = [];
+    const source = SOURCES.find((s) => s.id === "reddit-dallas")!;
+    const res = await runFeeder(source, {
+      http,
+      today: "2026-10-05",
+      redditToken: async () => "tok",
+      extract: async ({ text }) => {
+        seen.push(text);
+        return [];
+      },
+    });
+    expect(http.calls[0].opts?.authorization).toBe("Bearer tok");
+    expect(seen).toHaveLength(1);
+    expect(seen[0]).toContain("Free outdoor movie Oct 17");
+    expect(res.feedersUsed).toEqual(["reddit"]);
+  });
+
+  it("filters low-signal posts", () => {
+    const posts = [
+      { title: "this weekend: Deep Ellum art walk", text: "", permalink: "p1", createdUtc: 0, score: 5 },
+      { title: "Moving to Dallas, advice?", text: "", permalink: "p2", createdUtc: 0, score: 100 },
+    ];
+    expect(eventLikeRedditPosts(posts).map((p) => p.permalink)).toEqual(["p1"]);
+  });
+
+  it("skips quietly when not configured", async () => {
+    const source = SOURCES.find((s) => s.id === "reddit-dallas")!;
+    const res = await runFeeder(source, { http: new FakeHttp({}), extract: null, today: "2026-10-05" });
+    expect(res.notes[0]).toContain("reddit not configured");
   });
 });

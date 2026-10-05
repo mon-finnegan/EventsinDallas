@@ -295,7 +295,8 @@ function FilterBar({ prefs, onChange }: { prefs: Preferences; onChange: (p: Pref
         <Toggle checked={prefs.church} onChange={(v) => set({ church: v })}>Church & community events</Toggle>
         <Toggle checked={prefs.signup} onChange={(v) => set({ signup: v })}>Signup alerts</Toggle>
         <Toggle checked={prefs.national} onChange={(v) => set({ national: v })}>National coveted experiences</Toggle>
-        <Toggle checked={prefs.sports} onChange={(v) => set({ sports: v })}>Pro &amp; college sports</Toggle>
+        <Toggle checked={prefs.grownup} onChange={(v) => set({ grownup: v })}>Grown-up outings (food, drinks, live music)</Toggle>
+        <Toggle checked={prefs.sports} onChange={(v) => set({ sports: v })}>Major sports games</Toggle>
         <Toggle checked={prefs.networking} onChange={(v) => set({ networking: v })}>Networking &amp; business</Toggle>
       </fieldset>
       <fieldset className="space-y-2" disabled={!prefs.national}>

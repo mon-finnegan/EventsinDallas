@@ -6,6 +6,7 @@ import type { FeederKind, Source } from "../sources";
 import { classifyStructured, type StructuredInput } from "./classify";
 import { parseICal } from "./ical";
 import { eventLikePosts, fetchInstagramPosts, postText, type InstagramCredentials } from "./instagram";
+import { eventLikeRedditPosts, fetchRedditPosts, redditFetcher, redditPostText } from "./reddit";
 import { parseJsonLdEvents } from "./jsonld";
 import { parseTribePage, tribeEndpoint, type TribePage } from "./tribe";
 
@@ -42,6 +43,8 @@ export interface FeederContext {
   today: string;
   /** Instagram Graph API credentials; Instagram feeders are skipped without them. */
   instagram?: InstagramCredentials | null;
+  /** Returns a Reddit OAuth bearer token; Reddit feeders are skipped without it. */
+  redditToken?: (() => Promise<string>) | null;
   /** Previously stored conditional-GET validators and content hash for the source page. */
   prior?: { etag: string | null; lastModified: string | null; contentHash: string | null; fresh: boolean };
 }
@@ -93,6 +96,29 @@ export async function runFeeder(source: Source, ctx: FeederContext): Promise<Fee
     }
     for (const post of fresh) await extractWithAi(source, postText(post), post.permalink, ctx, result);
     if (result.feedersUsed.includes("html_ai")) result.feedersUsed = ["instagram"];
+    return result;
+  }
+
+  if (feeder === "reddit") {
+    if (!ctx.redditToken || !source.subreddit) {
+      result.notes.push("reddit not configured (REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET)");
+      return result;
+    }
+    if (!ctx.extract) {
+      result.notes.push("needs AI extraction (ANTHROPIC_API_KEY not set)");
+      return result;
+    }
+    const posts = await fetchRedditPosts(redditFetcher(ctx.http, await ctx.redditToken()), source.subreddit);
+    result.pagesFetched++;
+    const fresh = eventLikeRedditPosts(posts);
+    const hash = sha1(fresh.map((p) => p.permalink).join("|"));
+    result.contentHash = hash;
+    if (ctx.prior?.fresh && ctx.prior.contentHash === hash) {
+      result.unchanged = true;
+      return result;
+    }
+    for (const post of fresh) await extractWithAi(source, redditPostText(post), post.permalink, ctx, result);
+    if (result.feedersUsed.includes("html_ai")) result.feedersUsed = ["reddit"];
     return result;
   }
 

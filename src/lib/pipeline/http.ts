@@ -15,6 +15,8 @@ export interface FetchOptions {
   etag?: string | null;
   lastModified?: string | null;
   accept?: string;
+  /** Authorization header value for authenticated APIs (e.g. "Bearer …"). */
+  authorization?: string;
   /** Skip the robots.txt check (only for endpoints like robots.txt itself). */
   ignoreRobots?: boolean;
 }
@@ -92,6 +94,7 @@ export function createHttpClient(deps: { fetch?: typeof fetch; sleep?: (ms: numb
           "user-agent": USER_AGENT,
           accept: opts.accept ?? "text/html,application/xhtml+xml,application/json,text/calendar;q=0.9,*/*;q=0.8",
         };
+        if (opts.authorization) headers.authorization = opts.authorization;
         if (opts.etag) headers["if-none-match"] = opts.etag;
         if (opts.lastModified) headers["if-modified-since"] = opts.lastModified;
 

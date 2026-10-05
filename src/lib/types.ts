@@ -33,6 +33,7 @@ export const SUBCATEGORIES = [
   "olympics",
   "special_experience",
   "networking",
+  "food_drink",
 ] as const;
 export type Subcategory = (typeof SUBCATEGORIES)[number];
 

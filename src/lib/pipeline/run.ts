@@ -63,6 +63,7 @@ export interface PipelineOptions {
   http?: HttpClient;
   reviews?: ReviewLookup | null;
   instagram?: InstagramCredentials | null;
+  redditToken?: (() => Promise<string>) | null;
   now?: Date;
   concurrency?: number;
   dryRun?: boolean;
@@ -109,7 +110,10 @@ export function toCalendarEvent(
     source_name: source.name,
     source_url: opts.pageUrl ?? source.url,
     source_type: source.source_type,
-    verification_note: null,
+    verification_note:
+      source.group === "social"
+        ? "Found in a community or social post (see source link). Confirm details with the organizer before going."
+        : null,
     review_rating: null,
     review_count: null,
     review_source: null,
@@ -186,6 +190,7 @@ export async function runPipeline(opts: PipelineOptions): Promise<RunSummary> {
         http,
         extract: opts.extract,
         instagram: opts.instagram ?? null,
+        redditToken: opts.redditToken ?? null,
         today,
         prior: { etag: prior.etag, lastModified: prior.last_modified, contentHash: prior.content_hash, fresh },
       });

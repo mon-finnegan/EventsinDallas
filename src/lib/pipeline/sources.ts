@@ -1,6 +1,6 @@
 import type { SourceType } from "../types";
 
-export type FeederKind = "auto" | "ical" | "jsonld" | "tribe" | "html_ai" | "instagram";
+export type FeederKind = "auto" | "ical" | "jsonld" | "tribe" | "html_ai" | "instagram" | "reddit";
 
 export type SourceGroup =
   | "church"
@@ -39,6 +39,8 @@ export interface Source {
   rolling_months?: number;
   /** For `instagram` feeders: the public Business/Creator account to read. */
   instagram_username?: string;
+  /** For `reddit` feeders: the subreddit to search for event posts. */
+  subreddit?: string;
 }
 
 type Def = Omit<Source, "is_church" | "is_national"> & Partial<Pick<Source, "is_church" | "is_national">>;
@@ -141,7 +143,20 @@ export const SOURCES: Source[] = [
   def({ id: "dallas-sports-commission", name: "Dallas Sports Commission — Events", url: "https://www.dallassports.org/events/", source_type: "official_organization", group: "sports", default_city: "Dallas" }),
 
   // ── Instagram (official Graph API Business Discovery; needs IG_USER_ID + IG_ACCESS_TOKEN) ──
-  ...["dallasites101", "dallasmoms", "dfwchild", "visitdallas", "klydewarrenpark", "dallasarboretum", "dallaszoo", "perotmuseum", "do214"].map((username) =>
+  ...[
+    "dallasites101",
+    "dallasmoms",
+    "dfwchild",
+    "visitdallas",
+    "klydewarrenpark",
+    "dallasarboretum",
+    "dallaszoo",
+    "perotmuseum",
+    "do214",
+    "dallasobserver",
+    "dmagazine",
+    "culturemapdallas",
+  ].map((username) =>
     def({
       id: `ig-${username}`,
       name: `Instagram @${username}`,
@@ -153,6 +168,24 @@ export const SOURCES: Source[] = [
       max_detail_pages: 0,
     }),
   ),
+
+  // ── Reddit communities (official OAuth API; needs REDDIT_CLIENT_ID + REDDIT_CLIENT_SECRET) ──
+  ...["Dallas", "askdfw", "dfw", "FortWorth", "Plano"].map((subreddit) =>
+    def({
+      id: `reddit-${subreddit.toLowerCase()}`,
+      name: `Reddit r/${subreddit}`,
+      url: `https://www.reddit.com/r/${subreddit}/`,
+      source_type: "local_calendar",
+      group: "social",
+      feeder: "reddit",
+      subreddit,
+      max_detail_pages: 0,
+    }),
+  ),
+
+  // ── Public Facebook events (via AllEvents, which indexes public Facebook event pages) ──
+  def({ id: "allevents-dallas-month", name: "AllEvents — Dallas this month", url: "https://allevents.in/dallas/{monthName}", source_type: "local_calendar", group: "social", max_detail_pages: 0, rolling_months: 2 }),
+  def({ id: "allevents-dallas-all", name: "AllEvents — Dallas", url: "https://allevents.in/dallas/all", source_type: "local_calendar", group: "social", max_detail_pages: 0 }),
 
   // ── National coveted experiences ────────────────────────────────────────────
   def({ id: "masters", name: "The Masters — Tickets", url: "https://www.masters.com/en_US/tournament/tickets.html", source_type: "official_event", group: "national" }),
