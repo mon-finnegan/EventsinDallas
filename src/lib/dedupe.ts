@@ -57,7 +57,59 @@ function merge(winner: CalendarEvent, other: CalendarEvent): CalendarEvent {
   return out as unknown as CalendarEvent;
 }
 
+const tokens = (s: string) => new Set(normalizeTitle(s).split(" ").filter((w) => w.length > 2));
+
+/**
+ * Two listings of the same day that name the same thing: one title contains the other
+ * ("Fall Fest" ⊂ "First Baptist Dallas Fall Fest"), or they share most of their words.
+ */
+export function sameEvent(a: CalendarEvent, b: CalendarEvent): boolean {
+  if (!a.event_date || a.event_date !== b.event_date) return false;
+  const na = normalizeTitle(a.title);
+  const nb = normalizeTitle(b.title);
+  if (!na || !nb) return false;
+  const placeA = normalizePlace(a.venue ?? a.city);
+  const placeB = normalizePlace(b.venue ?? b.city);
+  const samePlace = !placeA || !placeB || placeA.includes(placeB) || placeB.includes(placeA) || sharedRatio(tokens(placeA), tokens(placeB)) >= 0.5;
+  const contained = (na.length >= 6 && nb.includes(na)) || (nb.length >= 6 && na.includes(nb));
+  const ta = tokens(a.title);
+  const tb = tokens(b.title);
+  const overlap = Math.min(ta.size, tb.size) >= 2 && sharedRatio(ta, tb) >= 0.75;
+  return samePlace && (contained || overlap);
+}
+
+function sharedRatio(x: Set<string>, y: Set<string>): number {
+  if (x.size === 0 || y.size === 0) return 0;
+  let shared = 0;
+  for (const t of x) if (y.has(t)) shared++;
+  return shared / Math.min(x.size, y.size);
+}
+
 export function dedupe(events: CalendarEvent[]): CalendarEvent[] {
+  const exact = dedupeExact(events);
+  // Fuzzy pass within each day.
+  const byDay = new Map<string, CalendarEvent[]>();
+  const out: CalendarEvent[] = [];
+  for (const e of exact) {
+    if (!e.event_date) {
+      out.push(e);
+      continue;
+    }
+    const list = byDay.get(e.event_date) ?? [];
+    const match = list.findIndex((x) => sameEvent(x, e));
+    if (match >= 0) {
+      const win = preferred(list[match], e);
+      list[match] = merge(win, win === list[match] ? e : list[match]);
+    } else {
+      list.push(e);
+    }
+    byDay.set(e.event_date, list);
+  }
+  for (const list of byDay.values()) out.push(...list);
+  return out;
+}
+
+function dedupeExact(events: CalendarEvent[]): CalendarEvent[] {
   const byKey = new Map<string, CalendarEvent>();
   for (const e of events) {
     const key = dedupeKey(e);

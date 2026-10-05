@@ -80,7 +80,7 @@ export function classifyStructured(input: StructuredInput, source: Source): Extr
   const family = !olderOnly && (toddler || FAMILY.test(text));
 
   return {
-    title: input.title.trim(),
+    title: cleanText(input.title),
     description: input.description ? truncate(input.description, 600) : null,
     kind: toddler ? "toddler_family_event" : "dallas_event",
     subcategory: guessSubcategory(text, source.is_church),
@@ -120,7 +120,20 @@ export function classifyStructured(input: StructuredInput, source: Source): Extr
   };
 }
 
+/** Decode leftover HTML entities and strip invisible characters some feeds include. */
+export function cleanText(s: string): string {
+  return s
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#?39;|&apos;/g, "'")
+    .replace(/[\u200B-\u200D\uFEFF]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function truncate(s: string, n: number): string {
-  const clean = s.replace(/\s+/g, " ").trim();
+  const clean = cleanText(s);
   return clean.length > n ? `${clean.slice(0, n - 1).trimEnd()}…` : clean;
 }

@@ -40,18 +40,29 @@ export const METRO_CITIES = [
   "highland village",
   "sachse",
   "wylie",
+  "southlake",
+  "keller",
+  "colleyville",
+  "euless",
+  "bedford",
+  "hurst",
+  "denton",
+  "murphy",
 ];
 
 /** Ordinary church programming that must never appear (spec §6). */
 const CHURCH_EXCLUDE =
-  /\b(sunday service|worship service|bible study|prayer (group|meeting)|small group|sermon|mass schedule|ministry meeting|vbs registration|confirmation class|catechism|youth group meeting|choir rehearsal)\b/i;
+  /\b(sunday service|worship|bible study|bible class|estudio b[ií]blico|prayer|small group|community group|sermon|mass\b|rosary|ministry meeting|business meeting|vbs registration|confirmation class|catechism|youth group|student ministry|choir rehearsal|recovery group|griefshare|divorcecare|awana|discipleship|deacons?|elders|membership class|retreat|softball|pickleball|volleyball|basketball league|upward|bishop|pastor|speaker series|gala|open house|newcomers)\b/i;
 
 /** Discovery signals for church/community events (spec §21). */
 export const CHURCH_SIGNALS =
-  /\b(festival|fall ?fest|family festival|pumpkin|trunk[- ]or[- ]treat|easter|egg hunt|christmas|tree lighting|holiday|harvest|community day|open house|food festival|cultural festival|living nativity|santa|block party)\b/i;
+  /\b(festival|fall ?fest|family festival|pumpkin|trunk[- ]or[- ]treat|easter|egg hunt|christmas|tree lighting|holiday|harvest|community day|food festival|cultural festival|living nativity|santa|block party|carnival|fair)\b/i;
 
 /** Generic concert/nightlife content is out of scope (spec §8, §35). */
-const OUT_OF_SCOPE = /\b(concert tour|nightclub|bar crawl|pub crawl|happy hour|21\+|brunch reservations?)\b/i;
+const OUT_OF_SCOPE = /\b(nightclub|strip club|happy hour specials?|brunch reservations?|bottle service)\b/i;
+
+/** Members-only programming isn't something the public can attend. */
+const MEMBERS_ONLY = /\b(members?[- ]only|member walks?|member night|member after hours)\b/i;
 
 /** Signals that a game is a major event rather than one of dozens of regular-season dates. */
 export const MAJOR_SPORTS =
@@ -80,16 +91,19 @@ export function assessRelevance(e: CalendarEvent): RelevanceResult {
   let score = 0;
 
   if (OUT_OF_SCOPE.test(text)) return { include: false, score: 0, reasons: ["out of scope"] };
+  if (MEMBERS_ONLY.test(text)) return { include: false, score: 0, reasons: ["members only"] };
 
   if (e.is_church_hosted) {
     if (CHURCH_EXCLUDE.test(text)) {
       return { include: false, score: 0, reasons: ["ordinary church programming"] };
     }
     if (!e.is_public_event) return { include: false, score: 0, reasons: ["not public"] };
-    if (CHURCH_SIGNALS.test(text) || e.activities.length >= 3) {
-      score += 2;
-      reasons.push("community-facing church event");
+    // Church calendars are mostly internal programming; only clear community events qualify.
+    if (!CHURCH_SIGNALS.test(text) && e.activities.length < 3) {
+      return { include: false, score: 0, reasons: ["no community-event signal"] };
     }
+    score += 2;
+    reasons.push("community-facing church event");
   }
 
   // Geography
@@ -119,6 +133,11 @@ export function assessRelevance(e: CalendarEvent): RelevanceResult {
     score -= 3;
     reasons.push("designed for older children");
   }
+  if (e.subcategory === "networking") {
+    score += 1;
+    reasons.push("major networking event");
+  }
+  if (e.subcategory === "festival" || e.subcategory === "parade") score += 0.5;
   if (isGrownUpOuting(e)) {
     score += 1.5;
     reasons.push("grown-up outing");
@@ -129,7 +148,7 @@ export function assessRelevance(e: CalendarEvent): RelevanceResult {
     if (!MAJOR_SPORTS.test(`${e.title} ${e.description ?? ""}`)) {
       return { include: false, score: 0, reasons: ["regular-season game"] };
     }
-    score += 1;
+    score += 1.5;
     reasons.push("major game");
   }
 

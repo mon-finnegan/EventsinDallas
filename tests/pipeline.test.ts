@@ -157,7 +157,7 @@ describe("runPipeline", () => {
   it("caps volume per week but never cuts signup alerts", async () => {
     const repo = new MemoryRepo();
     const many = Array.from({ length: 6 }, (_, i) =>
-      extracted({ title: `Festival ${String.fromCharCode(65 + i)}`, evidence: [{ field: "event_date", quote: "Saturday, October 24, 2026" }], start_time: null, end_time: null }),
+      extracted({ title: ["Harvest Festival", "Pumpkin Carnival", "Trunk or Treat", "Hayride Night", "Fall Fair", "Costume Parade"][i], evidence: [{ field: "event_date", quote: "Saturday, October 24, 2026" }], start_time: null, end_time: null }),
     );
     const alert = extracted({
       title: "Holiday Train Tickets",
@@ -222,5 +222,25 @@ describe("runPipeline", () => {
       now: NOW,
     });
     expect(summary.notes).toEqual([{ source: "test-church", note: expect.stringContaining("ANTHROPIC_API_KEY") }]);
+  });
+});
+
+describe("standing programs", () => {
+  it("folds a program listed every day into its next occurrence", async () => {
+    const { collapseLongSeries } = await import("@/lib/pipeline/run");
+    const { SEED_EVENTS } = await import("@/data/seed");
+    const base = SEED_EVENTS.find((e) => e.id === "prestoncrest-pumpkinfest-2026")!;
+    const daily = ["2026-10-03", "2026-10-04", "2026-10-05", "2026-10-06", "2026-10-07"].map((d, i) => ({
+      ...base,
+      id: `patch-${i}`,
+      title: "Daily Pumpkin Patch",
+      event_date: d,
+    }));
+    const summary = { collapsed_series: [] as { title: string; occurrences: number }[] };
+    const out = collapseLongSeries(daily, "2026-10-05", summary);
+    expect(out).toHaveLength(1);
+    expect(out[0].event_date).toBe("2026-10-05");
+    expect(out[0].description).toContain("listed on 5 dates");
+    expect(summary.collapsed_series).toEqual([{ title: "Daily Pumpkin Patch", occurrences: 5 }]);
   });
 });

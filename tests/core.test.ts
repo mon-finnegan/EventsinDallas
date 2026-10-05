@@ -234,3 +234,32 @@ describe("audience and sports", () => {
     expect(assessRelevance(make({ age_min: 8, is_toddler_relevant: false, is_church_hosted: false })).include).toBe(false);
   });
 });
+
+describe("collection quality", () => {
+  it("rejects church calendar filler but keeps community events", () => {
+    const filler = ["Women's Bible Study", "AWANA", "Life Recovery Group", "Kids Worship", "Pray Worship Pray – Wednesday Night Prayer", "Estudio Bíblico del libro de Éxodo", "Discipleship University", "First Dallas Business Meeting", "Men's Softball"];
+    for (const title of filler) {
+      expect(assessRelevance(make({ title, description: null, activities: [] })).include, title).toBe(false);
+    }
+    expect(assessRelevance(make({ title: "Fall Fest", description: null, activities: [] })).include).toBe(true);
+    expect(assessRelevance(make({ title: "OLPH Fall Festival", description: null, activities: [] })).include).toBe(true);
+  });
+
+  it("drops members-only programming", () => {
+    expect(assessRelevance(make({ title: "Early Morning Member Walks", is_church_hosted: false })).include).toBe(false);
+  });
+
+  it("merges same-day listings of one event under different names", () => {
+    const seed = SEED_EVENTS.find((e) => e.id === "first-baptist-dallas-fall-fest-2026")!;
+    const fromFeed = { ...seed, id: "feed", title: "Fall Fest", source_type: "official_organization" as const, venue: "First Baptist Dallas" };
+    expect(dedupe([seed, fromFeed])).toHaveLength(1);
+    const other = { ...seed, id: "other", title: "Trunk or Treat Night" };
+    expect(dedupe([seed, other])).toHaveLength(2);
+  });
+
+  it("keeps the researched adult picks", () => {
+    for (const id of ["whiskey-washback-dallas-2026", "fright-crawl-dallas-2026", "grandscape-diwali-2026", "oktoberfest-southlake-2026"]) {
+      expect(assessRelevance(SEED_EVENTS.find((e) => e.id === id)!).include, id).toBe(true);
+    }
+  });
+});

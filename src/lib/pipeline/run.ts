@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 import { isExpired } from "../calendar";
 import { daysBetween, todayInDallas } from "../dates";
-import { dedupe, dedupeKey } from "../dedupe";
+import { dedupe, dedupeKey, normalizeTitle, sameEvent } from "../dedupe";
 import { assessRelevance, curateByWeek, MAX_EVENTS_PER_WEEK } from "../relevance";
 import type { EventRepository } from "../repository";
 import type { CalendarEvent, Category } from "../types";
@@ -53,6 +53,10 @@ export interface RunSummary {
   /** Rolling coverage: days in the next `coverage_days` with nothing specific scheduled. */
   coverage_days: number;
   empty_days: string[];
+  /** Stored events dropped because they fail the current relevance rules. */
+  pruned: { title: string; reasons: string[] }[];
+  /** Daily/weekly programs folded into a single upcoming entry. */
+  collapsed_series: { title: string; occurrences: number }[];
 }
 
 export interface PipelineOptions {
@@ -167,6 +171,8 @@ export async function runPipeline(opts: PipelineOptions): Promise<RunSummary> {
     notes: [],
     coverage_days: opts.coverageDays ?? 30,
     empty_days: [],
+    pruned: [],
+    collapsed_series: [],
   };
 
   const sources = expandRollingSources(opts.sources, today);
@@ -253,11 +259,19 @@ export async function runPipeline(opts: PipelineOptions): Promise<RunSummary> {
   }
 
   // ── 3. Merge with stored events; a re-sighting updates the stored row, never twins it
-  const existing = await opts.repo.list();
+  // Stored events are re-checked against today's rules, so tightening a filter also cleans
+  // out anything it would now reject (signup alerts and cancellations are always kept).
+  const stored = await opts.repo.list();
+  const existing = stored.filter((e) => {
+    if (e.category === "SIGNUP_ALERT" || e.status === "CANCELLED" || e.signup_required) return true;
+    const r = assessRelevance(e);
+    if (!r.include) summary.pruned.push({ title: e.title, reasons: r.reasons });
+    return r.include;
+  });
   const existingByKey = new Map(existing.map((e) => [dedupeKey(e), e]));
   const existingIds = new Set(existing.map((e) => e.id));
-  let merged = dedupe([...accepted, ...existing]).map((e) => {
-    const prior = existingByKey.get(dedupeKey(e));
+  let merged = collapseLongSeries(dedupe([...accepted, ...existing]), today, summary).map((e) => {
+    const prior = existingByKey.get(dedupeKey(e)) ?? existing.find((x) => sameEvent(x, e));
     if (!prior) return e;
     return { ...e, id: prior.id, created_at: prior.created_at };
   });
@@ -322,4 +336,45 @@ export async function runPipeline(opts: PipelineOptions): Promise<RunSummary> {
 
 function candidateToEvent(c: FeedCandidate, source: Source, now: string): CalendarEvent {
   return toCalendarEvent(c.event, source, now, { cancelled: c.cancelled, pageUrl: c.pageUrl });
+}
+
+/** A title repeated on this many dates is a standing program (daily patch hours, weekly classes). */
+const SERIES_THRESHOLD = 4;
+
+/**
+ * Feeds often list a standing program once per day. Keep only its next upcoming occurrence and
+ * note how often it repeats, so the calendar shows it once and weekly curation isn't flooded.
+ * Short runs (a few performance dates) are left alone; the UI groups those itself.
+ */
+export function collapseLongSeries(
+  events: CalendarEvent[],
+  today: string,
+  summary?: Pick<RunSummary, "collapsed_series">,
+): CalendarEvent[] {
+  const groups = new Map<string, CalendarEvent[]>();
+  const out: CalendarEvent[] = [];
+  for (const e of events) {
+    if (!e.event_date || e.category === "SIGNUP_ALERT" || e.subcategory === "sports") {
+      out.push(e);
+      continue;
+    }
+    const key = `${normalizeTitle(e.title)}|${e.source_name}`;
+    const list = groups.get(key);
+    if (list) list.push(e);
+    else groups.set(key, [e]);
+  }
+  for (const list of groups.values()) {
+    if (list.length < SERIES_THRESHOLD) {
+      out.push(...list);
+      continue;
+    }
+    list.sort((a, b) => a.event_date!.localeCompare(b.event_date!));
+    const upcoming = list.filter((e) => (e.end_date ?? e.event_date)! >= today);
+    const keep = upcoming[0] ?? list[list.length - 1];
+    const last = list[list.length - 1].event_date!;
+    const note = `Recurring: listed on ${list.length} dates through ${last}.`;
+    out.push({ ...keep, description: keep.description ? `${keep.description} ${note}` : note });
+    summary?.collapsed_series.push({ title: keep.title, occurrences: list.length });
+  }
+  return out;
 }
