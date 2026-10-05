@@ -48,6 +48,9 @@ export function preferred(a: CalendarEvent, b: CalendarEvent): CalendarEvent {
  * from the other record. Filling nulls never invents data — the other record verified it.
  */
 function merge(winner: CalendarEvent, other: CalendarEvent): CalendarEvent {
+  // A newer read of the same source replaces the old one outright: filling its gaps from the
+  // stale copy would resurrect values the source has since corrected or removed.
+  if (winner.source_name === other.source_name) return winner;
   const out = { ...winner } as Record<string, unknown>;
   const o = other as unknown as Record<string, unknown>;
   for (const [k, v] of Object.entries(out)) {
@@ -63,6 +66,24 @@ const tokens = (s: string) => new Set(normalizeTitle(s).split(" ").filter((w) =>
  * Two listings of the same day that name the same thing: one title contains the other
  * ("Fall Fest" ⊂ "First Baptist Dallas Fall Fest"), or they share most of their words.
  */
+/** Drop trailing date/venue segments guides append: "ArmeniaFest 2026 – Oct 16, 17 & 18". */
+function coreTitle(title: string): string {
+  return title.split(/\s+[|–—]\s+/)[0].replace(/:\s.*$/, (m) => (/\d/.test(m) ? "" : m));
+}
+
+const squash = (s: string) => normalizeTitle(s).replace(/\s+/g, "");
+
+/** Same name, allowing word-spacing differences ("ArmeniaFest" = "Armenia Fest") and appended dates. */
+export function sameTitle(a: string, b: string): boolean {
+  const sa = squash(coreTitle(a));
+  const sb = squash(coreTitle(b));
+  if (sa.length < 6 || sb.length < 6) return sa === sb && sa.length > 0;
+  if (sa.includes(sb) || sb.includes(sa)) return true;
+  const ta = tokens(coreTitle(a));
+  const tb = tokens(coreTitle(b));
+  return Math.min(ta.size, tb.size) >= 2 && sharedRatio(ta, tb) >= 0.75;
+}
+
 export function sameEvent(a: CalendarEvent, b: CalendarEvent): boolean {
   if (!a.event_date || a.event_date !== b.event_date) return false;
   const na = normalizeTitle(a.title);
@@ -71,11 +92,7 @@ export function sameEvent(a: CalendarEvent, b: CalendarEvent): boolean {
   const placeA = normalizePlace(a.venue ?? a.city);
   const placeB = normalizePlace(b.venue ?? b.city);
   const samePlace = !placeA || !placeB || placeA.includes(placeB) || placeB.includes(placeA) || sharedRatio(tokens(placeA), tokens(placeB)) >= 0.5;
-  const contained = (na.length >= 6 && nb.includes(na)) || (nb.length >= 6 && na.includes(nb));
-  const ta = tokens(a.title);
-  const tb = tokens(b.title);
-  const overlap = Math.min(ta.size, tb.size) >= 2 && sharedRatio(ta, tb) >= 0.75;
-  return samePlace && (contained || overlap);
+  return samePlace && sameTitle(a.title, b.title);
 }
 
 function sharedRatio(x: Set<string>, y: Set<string>): number {
@@ -106,7 +123,15 @@ export function dedupe(events: CalendarEvent[]): CalendarEvent[] {
     byDay.set(e.event_date, list);
   }
   for (const list of byDay.values()) out.push(...list);
-  return out;
+
+  // A single day of a multi-day event, listed separately by a guide, belongs to that event.
+  const runs = out.filter((e) => e.event_date && e.end_date && e.end_date > e.event_date);
+  return out.filter((e) => {
+    if (!e.event_date || e.end_date) return true;
+    return !runs.some(
+      (r) => r !== e && r.event_date! <= e.event_date! && e.event_date! <= r.end_date! && sameTitle(r.title, e.title),
+    );
+  });
 }
 
 function dedupeExact(events: CalendarEvent[]): CalendarEvent[] {

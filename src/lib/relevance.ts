@@ -64,9 +64,12 @@ const OUT_OF_SCOPE = /\b(nightclub|strip club|happy hour specials?|brunch reserv
 /** Members-only programming isn't something the public can attend. */
 const MEMBERS_ONLY = /\b(members?[- ]only|member walks?|member night|member after hours)\b/i;
 
+/** Viewing parties for games are not the game. */
+const WATCH_PARTY = /\bwatch party\b/i;
+
 /** Signals that a game is a major event rather than one of dozens of regular-season dates. */
 export const MAJOR_SPORTS =
-  /\b(home opener|season opener|opening night|rivalry|thanksgiving|christmas|new year'?s|playoffs?|championship|bowl|finals?|all-star|thursday night football|sunday night football|monday night football|national tv|espn|tnt|abc|derby|classic|world series|stanley cup)\b/i;
+  /\b(home opener|season opener|opening night|rivalry|thanksgiving|christmas|new year'?s|playoffs?|championship|bowl|finals?|all-star|thursday night football|sunday night football|monday night football|national tv|espn|tnt|abc|derby|classic|world series|stanley cup|nba cup|in-season tournament)\b/i;
 
 /** Outings aimed at adults (a couple in their 30s): food & drink, live music, culture nights. */
 export function isGrownUpOuting(e: CalendarEvent): boolean {
@@ -92,6 +95,7 @@ export function assessRelevance(e: CalendarEvent): RelevanceResult {
 
   if (OUT_OF_SCOPE.test(text)) return { include: false, score: 0, reasons: ["out of scope"] };
   if (MEMBERS_ONLY.test(text)) return { include: false, score: 0, reasons: ["members only"] };
+  if (WATCH_PARTY.test(e.title)) return { include: false, score: 0, reasons: ["watch party"] };
 
   if (e.is_church_hosted) {
     if (CHURCH_EXCLUDE.test(text)) {

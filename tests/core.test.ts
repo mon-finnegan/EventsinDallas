@@ -112,7 +112,7 @@ describe("dedupe", () => {
 
   it("collapses duplicates and prefers the official source", () => {
     const official = make({ id: "a", source_type: "official_organization", cost: null });
-    const calendar = make({ id: "b", title: "Pumpkinfest 2026", source_type: "local_calendar", cost: "Free!" });
+    const calendar = make({ id: "b", title: "Pumpkinfest 2026", source_type: "local_calendar", source_name: "DFW Child", cost: "Free!" });
     const out = dedupe([calendar, official]);
     expect(out).toHaveLength(1);
     expect(out[0].id).toBe("a");
@@ -261,5 +261,29 @@ describe("collection quality", () => {
     for (const id of ["whiskey-washback-dallas-2026", "fright-crawl-dallas-2026", "grandscape-diwali-2026", "oktoberfest-southlake-2026"]) {
       expect(assessRelevance(SEED_EVENTS.find((e) => e.id === id)!).include, id).toBe(true);
     }
+  });
+});
+
+describe("cross-source matching", () => {
+  const armenia = SEED_EVENTS.find((e) => e.id === "armenia-fest-2026")!;
+  it("matches spacing variants and guide-appended dates", async () => {
+    const { sameTitle } = await import("@/lib/dedupe");
+    expect(sameTitle("ArmeniaFest 2026 – Oct 16, 17 & 18", "Armenia Fest")).toBe(true);
+    expect(sameTitle("31st Annual Armenia Fest", "Armenia Fest")).toBe(true);
+    expect(sameTitle("Pumpkin Day", "Pumpkin Patch")).toBe(false);
+  });
+  it("folds single-day guide listings into the multi-day event", () => {
+    const day2 = { ...armenia, id: "guide-day2", title: "ArmeniaFest 2026 – Oct 16, 17 & 18", event_date: "2026-10-17", end_date: null, source_name: "Dallas Moms" };
+    expect(dedupe([armenia, day2]).map((e) => e.id)).toEqual([armenia.id]);
+  });
+  it("a newer read of the same source does not inherit stale values", () => {
+    const old = { ...armenia, start_time: "05:00", last_verified_at: "2026-10-04T00:00:00Z" };
+    const fresh = { ...armenia, start_time: null, last_verified_at: "2026-10-05T00:00:00Z" };
+    expect(dedupe([fresh, old])[0].start_time).toBeNull();
+  });
+  it("gates games from any feed and skips watch parties", () => {
+    const tnf = SEED_EVENTS.find((e) => e.id === "cowboys-2026-10-08")!;
+    expect(assessRelevance({ ...tnf, subcategory: "sports", title: "NBA Cup: Dallas Mavericks vs. Houston Rockets" }).include).toBe(true);
+    expect(assessRelevance({ ...tnf, subcategory: null, title: "Dallas Cowboys Watch Party: Cowboys vs Texans" }).include).toBe(false);
   });
 });

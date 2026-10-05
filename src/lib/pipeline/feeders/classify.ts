@@ -14,6 +14,7 @@ const SIGNUP = /\b(registration (is )?required|register (now|here|today)|rsvp re
 
 // Format beats theme: a "Pumpkin Storytime" is a storytime first.
 const SUBCATEGORY_RULES: [RegExp, Subcategory][] = [
+  [/\b(mavericks|mavs|dallas stars|cowboys|texas rangers|fc dallas|dallas wings|longhorns|sooners|smu mustangs|tcu horned frogs)\b|\bvs\.?\s/i, "sports"],
   [/\b(story ?time|storytelling|read(ing)? aloud)/i, "storytime"],
   [/\b(trunk[- ]or[- ]treat|halloween|costume|boo\b|spooky)/i, "halloween"],
   [/\b(christmas|santa|nativity|tree lighting|holiday lights|nutcracker|carol)/i, "christmas"],
