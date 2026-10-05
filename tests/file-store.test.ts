@@ -6,7 +6,8 @@ import { mergeCollected } from "@/data/collected";
 import { SEED_EVENTS } from "@/data/seed";
 import { FileRepository, FileStateStore } from "@/lib/pipeline/file-store";
 import { runPipeline } from "@/lib/pipeline/run";
-import { withBudget } from "@/lib/pipeline/setup";
+import { AiBudgetExhausted } from "@/lib/pipeline/extract";
+import { aiCallBudget, withBudget } from "@/lib/pipeline/setup";
 import { emptyState } from "@/lib/pipeline/state";
 import { churchSource, extracted, FakeHttp, FALL_PAGE } from "./helpers";
 
@@ -66,8 +67,22 @@ describe("AI call budget", () => {
       2,
       () => exhausted++,
     );
-    for (let i = 0; i < 5; i++) await capped({ source: churchSource, text: "", today: "2026-10-05" });
+    for (let i = 0; i < 5; i++) {
+      await capped({ source: churchSource, text: "", today: "2026-10-05" }).catch((e) => {
+        expect(e).toBeInstanceOf(AiBudgetExhausted);
+      });
+    }
     expect(calls).toBe(2);
     expect(exhausted).toBe(1);
+  });
+});
+
+describe("AI call budget", () => {
+  it("treats an unset or blank repository variable as the default", () => {
+    expect(aiCallBudget(undefined)).toBe(150);
+    expect(aiCallBudget("")).toBe(150);
+    expect(aiCallBudget("abc")).toBe(150);
+    expect(aiCallBudget("40")).toBe(40);
+    expect(aiCallBudget("0")).toBe(0);
   });
 });

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { enforceEvidence, type Extractor } from "@/lib/pipeline/extract";
+import { AiBudgetExhausted, enforceEvidence, type Extractor } from "@/lib/pipeline/extract";
 import { htmlToText } from "@/lib/pipeline/fetch";
 import { redactUrl } from "@/lib/pipeline/http";
 import { runPipeline } from "@/lib/pipeline/run";
@@ -306,5 +306,28 @@ describe("credential redaction", () => {
       "https://graph.facebook.com/v21.0/123?fields=x&access_token=REDACTED",
     );
     expect(redactUrl("https://example.com/events?page=2")).toBe("https://example.com/events?page=2");
+  });
+});
+
+describe("AI budget", () => {
+  it("leaves pages un-cached when the budget runs out so the next run reads them", async () => {
+    const state = new MemoryStateStore();
+    const repo = new MemoryRepo();
+    const http = () => new FakeHttp({ [churchSource.url]: FALL_PAGE });
+    const spent: Extractor = async () => {
+      throw new AiBudgetExhausted();
+    };
+    const first = await runPipeline({ sources: [churchSource], extract: spent, repo, state, http: http(), now: NOW });
+    expect(first.sources_failed).toEqual([]);
+    expect((await state.getAll()).get("test-church")?.content_hash).toBeNull();
+    const second = await runPipeline({
+      sources: [churchSource],
+      extract: async () => [extracted({})],
+      repo,
+      state,
+      http: http(),
+      now: new Date("2026-10-04T12:00:00Z"),
+    });
+    expect(second.published).toBe(1);
   });
 });

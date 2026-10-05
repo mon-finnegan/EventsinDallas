@@ -70,6 +70,13 @@ export type ExtractedEvent = z.infer<typeof ExtractedEventSchema>;
 
 const ExtractionSchema = z.object({ events: z.array(ExtractedEventSchema) });
 
+/** Thrown when the per-run AI budget is spent; the page is left for the next run. */
+export class AiBudgetExhausted extends Error {
+  constructor() {
+    super("AI call budget reached");
+  }
+}
+
 export type Extractor = (args: { source: Source; text: string; today: string }) => Promise<ExtractedEvent[]>;
 
 const SYSTEM = `You extract events for a curated Dallas family calendar for parents of 1–3 year olds.

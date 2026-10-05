@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { enforceEvidence, type ExtractedEvent, type Extractor } from "../extract";
+import { AiBudgetExhausted, enforceEvidence, type ExtractedEvent, type Extractor } from "../extract";
 import { htmlToText } from "../fetch";
 import type { HttpClient } from "../http";
 import type { FeederKind, Source } from "../sources";
@@ -249,7 +249,15 @@ async function extractWithAi(
   noteEmpty = true,
 ) {
   for (const chunk of chunkText(text, CHUNK_CHARS).slice(0, MAX_CHUNKS)) {
-    const extracted = await ctx.extract!({ source, text: chunk, today: ctx.today });
+    let extracted: ExtractedEvent[];
+    try {
+      extracted = await ctx.extract!({ source, text: chunk, today: ctx.today });
+    } catch (err) {
+      if (!(err instanceof AiBudgetExhausted)) throw err;
+      if (!result.skippedAi) result.notes.push("AI call budget reached; page left for the next run");
+      result.skippedAi = true;
+      return;
+    }
     if (noteEmpty && extracted.length === 0) result.notes.push(`AI found no events in ${chunk.length} chars of ${pageUrl}`);
     for (const raw of extracted) {
       const { event, dropped } = enforceEvidence(raw, chunk);

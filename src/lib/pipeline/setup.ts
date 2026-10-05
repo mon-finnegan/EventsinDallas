@@ -1,5 +1,5 @@
 import { getRepository, getServiceClient } from "../repository";
-import { createClaudeExtractor, type Extractor } from "./extract";
+import { AiBudgetExhausted, createClaudeExtractor, type Extractor } from "./extract";
 import { FileRepository, FileStateStore } from "./file-store";
 import { redditToken } from "./feeders/reddit";
 import { createGooglePlacesLookup } from "./reviews";
@@ -8,8 +8,8 @@ import { SOURCES, type Source } from "./sources";
 import { MemoryStateStore, SupabaseStateStore } from "./state";
 
 /**
- * Cap AI extraction calls per run so a large crawl can't run up the API bill. Further calls are
- * skipped (the source is retried on the next day's run, when unchanged pages cost nothing).
+ * Cap AI extraction calls per run so a large crawl can't run up the API bill. Further calls throw
+ * AiBudgetExhausted; the feeder leaves those pages un-cached so the next run reads them.
  */
 export function withBudget(extract: Extractor, maxCalls: number, onExhausted: () => void): Extractor {
   let calls = 0;
@@ -18,11 +18,17 @@ export function withBudget(extract: Extractor, maxCalls: number, onExhausted: ()
     if (calls >= maxCalls) {
       if (!warned) onExhausted();
       warned = true;
-      return [];
+      throw new AiBudgetExhausted();
     }
     calls++;
     return extract(args);
   };
+}
+
+/** AI_CALL_BUDGET from the environment; unset, blank or invalid means the default of 150. */
+export function aiCallBudget(raw: string | undefined): number {
+  const n = Number(raw);
+  return raw?.trim() && Number.isFinite(n) && n >= 0 ? n : 150;
 }
 
 /**
@@ -35,7 +41,7 @@ export function productionOptions(
 ): PipelineOptions {
   const client = getServiceClient();
   const store = overrides.store ?? (client ? "supabase" : "file");
-  const budget = Number(process.env.AI_CALL_BUDGET ?? 150);
+  const budget = aiCallBudget(process.env.AI_CALL_BUDGET);
   const extract = process.env.ANTHROPIC_API_KEY
     ? withBudget(createClaudeExtractor(), budget, () =>
         console.error(`[pipeline] AI call budget of ${budget} reached; remaining AI sources wait for tomorrow.`),
