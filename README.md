@@ -81,11 +81,15 @@ SOURCES (~50 feeders: churches, venues, cities, performing arts, aggregators, na
 
 **Audience.** Besides family picks, the calendar includes grown-up outings for a couple in their 30s: food and wine festivals, whiskey tastings, headline concerts, opera and Halloween bar crawls. They have their own filter. Sports are limited to major games (home openers, rivalries, holiday and national-TV games, bowls), and the relevance filter drops regular-season games from every feed.
 
-**Running it:**
+**Running it (the daily batch):**
 
-- **Vercel Cron:** `vercel.json` calls `GET /api/cron/refresh` daily at 11:00 UTC. The route needs `Authorization: Bearer $CRON_SECRET`.
-- **GitHub Actions:** `.github/workflows/refresh.yml` runs daily and can be triggered by hand. It needs repo secrets and skips the run if they're missing.
-- **CLI:** `npm run refresh` with `-- --dry-run`, `-- --force`, `-- --group church`, or `-- klyde-warren perot`.
+- **GitHub Actions (primary):** `.github/workflows/refresh.yml` runs every morning at 6:23 AM Dallas time, and you can also start it by hand from the Actions tab. It runs `npm run refresh -- --store file`, which writes `src/data/collected.json`, `source-state.json` and `last-run.json`, then commits them. Vercel sees the push and redeploys the site. No database is needed.
+  - With no secrets it still collects from structured feeds (WordPress event calendars, iCal feeds, schema.org event data).
+  - Repository secrets unlock more: `ANTHROPIC_API_KEY` (AI extraction for pages, Instagram and Reddit), `REDDIT_CLIENT_ID`/`REDDIT_CLIENT_SECRET`, `IG_USER_ID`/`IG_ACCESS_TOKEN` and `GOOGLE_PLACES_API_KEY`.
+  - The repository variable `AI_CALL_BUDGET` caps AI calls per run (default 150).
+  - Each run writes a summary to the run's page.
+- **Supabase (optional):** if `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` are set, the same pipeline writes to Postgres instead. `GET /api/cron/refresh` (with `Authorization: Bearer $CRON_SECRET`) can then trigger it from a scheduler.
+- **CLI:** `npm run refresh` with `-- --dry-run`, `-- --force`, `-- --group church`, `-- --store file`, or specific source ids such as `-- klyde-warren perot`.
 
 **Adding a feeder:** run `npm run discover -- https://some-church.org/events` to see what the pipeline can read there (WordPress API, iCal, JSON-LD, or AI only). Then paste the printed entry into `SOURCES` in `src/lib/pipeline/sources.ts`. Don't hard-code events.
 

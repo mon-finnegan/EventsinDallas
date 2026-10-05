@@ -2,11 +2,11 @@
 // CalendarApp with the bundled, verified seed data; "today" is computed in the browser.
 import { createRoot } from "react-dom/client";
 import { CalendarApp } from "@/components/CalendarApp";
-import { SEED_EVENTS } from "@/data/seed";
+import { allBundledEvents } from "@/data/collected";
 import { todayInDallas } from "@/lib/dates";
 import { validateForPublish } from "@/lib/validation";
 
-const events = SEED_EVENTS.flatMap((e) => {
+const events = allBundledEvents().flatMap((e) => {
   const res = validateForPublish(e);
   return res.ok ? [res.event] : [];
 });

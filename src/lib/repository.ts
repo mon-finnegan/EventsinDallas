@@ -1,10 +1,11 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
-import { SEED_EVENTS } from "@/data/seed";
+import { allBundledEvents } from "@/data/collected";
 import type { CalendarEvent } from "./types";
 import { validateForPublish } from "./validation";
 
 // Storage is behind this small interface so the app stays portable (spec §32):
-// Supabase when configured, otherwise the verified seed dataset bundled with the app.
+// Supabase when configured; otherwise the bundled data — the hand-researched seed plus whatever
+// the daily GitHub Actions batch collected (src/data/collected.json).
 
 export interface EventRepository {
   list(): Promise<CalendarEvent[]>;
@@ -15,7 +16,7 @@ export interface EventRepository {
 
 class SeedRepository implements EventRepository {
   async list() {
-    return SEED_EVENTS;
+    return allBundledEvents();
   }
   async upsert(): Promise<void> {
     throw new Error("Seed repository is read-only. Configure Supabase to persist pipeline results.");

@@ -5,18 +5,25 @@
 //   npm run refresh -- --group church       one group (church, venue, civic, …)
 //   npm run refresh -- --dry-run            fetch + extract, write nothing
 //   npm run refresh -- --force              ignore backoff and cached validators
+//   npm run refresh -- --store file         save to src/data/*.json (the GitHub Actions default)
 //
-// Needs SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY to persist; ANTHROPIC_API_KEY enables AI
-// extraction for sources without structured feeds; GOOGLE_PLACES_API_KEY enables review counts.
+// Storage: Supabase when SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY are set, otherwise the JSON
+// files in src/data (committed by the daily workflow). Optional keys: ANTHROPIC_API_KEY (AI
+// extraction), REDDIT_CLIENT_ID/SECRET, IG_USER_ID/IG_ACCESS_TOKEN, GOOGLE_PLACES_API_KEY.
 import { runPipeline } from "../src/lib/pipeline/run";
 import { productionOptions } from "../src/lib/pipeline/setup";
 import { SOURCES } from "../src/lib/pipeline/sources";
 
 const args = process.argv.slice(2);
 const flag = (name: string) => args.includes(name);
-const groupIdx = args.indexOf("--group");
-const group = groupIdx >= 0 ? args[groupIdx + 1] : null;
-const ids = args.filter((a, i) => !a.startsWith("--") && i !== groupIdx + 1);
+const valueOf = (name: string) => {
+  const i = args.indexOf(name);
+  return i >= 0 ? args[i + 1] : null;
+};
+const group = valueOf("--group");
+const storeArg = valueOf("--store");
+const valueIdx = new Set(["--group", "--store"].map((f) => args.indexOf(f) + 1).filter((i) => i > 0));
+const ids = args.filter((a, i) => !a.startsWith("--") && !valueIdx.has(i));
 
 let sources = SOURCES;
 if (group) sources = sources.filter((s) => s.group === group);
@@ -27,12 +34,9 @@ if (sources.length === 0) {
 }
 
 const dryRun = flag("--dry-run");
-if (!dryRun && !process.env.SUPABASE_SERVICE_ROLE_KEY) {
-  console.error("Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY, or pass --dry-run.");
-  process.exit(1);
-}
+const store = dryRun ? "memory" : storeArg === "file" || storeArg === "supabase" ? storeArg : undefined;
 
-runPipeline(productionOptions({ sources, dryRun, force: flag("--force"), log: (m) => console.error(m) }))
+runPipeline(productionOptions({ sources, dryRun, store, force: flag("--force"), log: (m) => console.error(m) }))
   .then((summary) => {
     console.log(JSON.stringify(summary, null, 2));
     if (summary.sources_attempted > 0 && summary.sources_ok === 0) process.exit(1);

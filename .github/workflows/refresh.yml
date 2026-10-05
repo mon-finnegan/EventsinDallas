@@ -1,8 +1,16 @@
 name: Daily refresh
 
-# Alternative to Vercel Cron: runs the feeder pipeline every morning (6:23 AM Dallas, CDT).
-# Requires repository secrets SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY; ANTHROPIC_API_KEY and
-# GOOGLE_PLACES_API_KEY are optional. Skips cleanly when Supabase is not configured.
+# The daily batch. Every morning (6:23 AM Dallas, CDT) it reads every feeder — venue and church
+# calendars, city sites, event guides, Reddit, Instagram, AllEvents (public Facebook events) —
+# and commits what it found to src/data/*.json. Vercel redeploys the site on that push.
+#
+# Works with no secrets at all for structured sources (WordPress calendars, iCal feeds, schema.org
+# event data). Optional repository secrets unlock more:
+#   ANTHROPIC_API_KEY                     AI extraction for pages, Instagram captions, Reddit posts
+#   REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET   Reddit feeders
+#   IG_USER_ID / IG_ACCESS_TOKEN          Instagram feeders
+#   GOOGLE_PLACES_API_KEY                 venue review counts
+#   AI_CALL_BUDGET (variable, default 150) cap on AI calls per run
 on:
   schedule:
     - cron: "23 11 * * *"
@@ -12,37 +20,71 @@ on:
         description: "Extra args, e.g. --force or --group church"
         required: false
 
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-refresh
+  cancel-in-progress: false
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     env:
-      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+      REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
       GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+      AI_CALL_BUDGET: ${{ vars.AI_CALL_BUDGET }}
     steps:
-      - name: Check configuration
-        id: cfg
-        run: |
-          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_SERVICE_ROLE_KEY" ]; then
-            echo "Supabase secrets not set; skipping refresh."
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-          fi
       - uses: actions/checkout@v4
-        if: steps.cfg.outputs.skip != 'true'
       - uses: actions/setup-node@v4
-        if: steps.cfg.outputs.skip != 'true'
         with:
           node-version: 22
           cache: npm
       - run: npm ci
-        if: steps.cfg.outputs.skip != 'true'
-      - name: Run pipeline
-        if: steps.cfg.outputs.skip != 'true'
-        run: npm run refresh -- ${{ github.event.inputs.args }} > summary.json
+
+      - name: Run the daily batch
+        run: npm run refresh -- --store file ${{ github.event.inputs.args }} > summary.json
+
+      - name: Summarize
+        if: always()
+        run: |
+          node -e '
+            const s = require("./summary.json");
+            const lines = [
+              `### Daily refresh`,
+              `- Sources: ${s.sources_ok} ok / ${s.sources_attempted} attempted, ${s.sources_failed.length} failed, ${s.sources_unchanged.length} unchanged, ${s.sources_skipped_backoff.length} backing off`,
+              `- Feeders used: ${JSON.stringify(s.feeders_used)}`,
+              `- Events extracted: ${s.extracted} (${s.extracted_structured} structured, ${s.extracted_ai} AI)`,
+              `- Published: ${s.published} · rejected (validation): ${s.rejected_validation.length} · rejected (relevance): ${s.rejected_relevance.length}`,
+              `- Empty days in the next ${s.coverage_days}: ${s.empty_days.join(", ") || "none"}`,
+              ...[...new Set(s.notes.map((n) => n.note))].slice(0, 8).map((n) => `- Note: ${n}`),
+            ];
+            require("fs").appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join("\n") + "\n");
+          ' || true
+
       - uses: actions/upload-artifact@v4
-        if: always() && steps.cfg.outputs.skip != 'true'
+        if: always()
         with:
           name: refresh-summary
           path: summary.json
+
+      - name: Commit collected events
+        run: |
+          git config user.name "dallas-calendar-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/collected.json src/data/source-state.json src/data/last-run.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "Daily refresh: $(date -u +%Y-%m-%d)"
+          for i in 1 2 3; do
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
