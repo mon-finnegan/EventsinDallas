@@ -1,66 +1,62 @@
 {
-  "started_at": "2026-10-05T03:07:14.472Z",
-  "finished_at": "2026-10-05T03:07:45.449Z",
-  "duration_ms": 30977,
+  "started_at": "2026-10-05T03:09:57.058Z",
+  "finished_at": "2026-10-05T03:10:50.612Z",
+  "duration_ms": 53554,
   "dry_run": false,
   "sources_total": 99,
-  "sources_attempted": 84,
+  "sources_attempted": 66,
   "sources_ok": 66,
   "sources_unchanged": [
+    "farmers-market",
+    "fair-park",
+    "visit-plano",
+    "kids-out-about",
+    "mavs-schedule"
+  ],
+  "sources_empty": [
+    "prestonwood",
     "first-umc-dallas",
     "greek-fest",
     "lebanese-fest",
-    "klyde-warren",
-    "prestonwood",
     "klyde-warren-signature",
-    "arboretum-holiday",
+    "klyde-warren",
     "fort-worth-zoo",
-    "dallas-zoo",
-    "perot",
-    "dallas-zoo-lights",
     "northpark-trains",
-    "galleria",
-    "north-pole-express",
     "adolphus-tea",
-    "visit-dallas",
+    "galleria",
+    "dallas-library",
+    "north-pole-express",
     "university-park",
+    "perot",
     "addison-events",
     "frisco-merry",
-    "old-lake-highlands",
-    "ymca-turkey-trot",
     "dct",
+    "ymca-turkey-trot",
     "dfwchild-calendar",
     "dfwchild-trunk",
+    "live-love-local",
     "dallasites101-holiday",
-    "dallasites101-blog",
-    "visit-dallas-month",
     "dallasites101-hanukkah",
+    "visit-dallas-month",
+    "attpac",
     "resident-dallas",
     "culturemap-dallas",
-    "dfwchild-annual",
     "visit-dallas-winter",
+    "dfwchild-annual",
+    "planomoms-winter",
     "dfwchild-nye",
-    "dallas-chamber",
     "venture-dallas",
+    "dallas-chamber",
     "cowboys-schedule",
-    "stars-schedule",
     "dallas-sports-commission",
     "pga-championship",
     "pga-registry",
+    "stars-schedule",
     "la28",
     "ryder-cup",
-    "the-open",
     "wimbledon",
-    "banana-ball"
-  ],
-  "sources_empty": [
-    "dallas-library",
-    "fair-park",
-    "kids-out-about",
-    "live-love-local",
-    "planomoms-winter",
-    "attpac",
-    "mavs-schedule"
+    "banana-ball",
+    "the-open"
   ],
   "sources_skipped_backoff": [
     "hpumc",
@@ -69,6 +65,7 @@
     "gaylord-ice",
     "richardson-santa",
     "dallas-moms",
+    "dallas-moms+1",
     "scout-guide-dallas",
     "do214",
     "eventbrite-dallas-month",
@@ -76,110 +73,36 @@
     "dallas-innovates",
     "small-business-expo",
     "eventbrite-networking",
+    "ig-dallasites101",
+    "ig-dallasmoms",
+    "ig-dfwchild",
+    "ig-visitdallas",
+    "ig-klydewarrenpark",
+    "ig-dallasarboretum",
+    "ig-dallaszoo",
+    "ig-perotmuseum",
+    "ig-do214",
+    "ig-dallasobserver",
+    "ig-dmagazine",
+    "ig-culturemapdallas",
+    "reddit-dallas",
+    "reddit-askdfw",
+    "reddit-dfw",
+    "reddit-fortworth",
+    "reddit-plano",
     "masters",
     "us-open"
   ],
-  "sources_failed": [
-    {
-      "id": "dallas-moms+1",
-      "error": "HTTP 403 fetching https://dallasmoms.com/dallas-moms-need-to-know-a-guide-to-the-month-of-november/",
-      "consecutive_failures": 1
-    },
-    {
-      "id": "ig-dallasites101",
-      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(dallasites101)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
-      "consecutive_failures": 1
-    },
-    {
-      "id": "ig-dallasmoms",
-      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(dallasmoms)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
-      "consecutive_failures": 1
-    },
-    {
-      "id": "ig-visitdallas",
-      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(visitdallas)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
-      "consecutive_failures": 1
-    },
-    {
-      "id": "ig-dfwchild",
-      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(dfwchild)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
-      "consecutive_failures": 1
-    },
-    {
-      "id": "ig-dallasarboretum",
-      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(dallasarboretum)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
-      "consecutive_failures": 1
-    },
-    {
-      "id": "ig-klydewarrenpark",
-      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(klydewarrenpark)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
-      "consecutive_failures": 1
-    },
-    {
-      "id": "ig-dallaszoo",
-      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(dallaszoo)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
-      "consecutive_failures": 1
-    },
-    {
-      "id": "ig-perotmuseum",
-      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(perotmuseum)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
-      "consecutive_failures": 1
-    },
-    {
-      "id": "ig-do214",
-      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(do214)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
-      "consecutive_failures": 1
-    },
-    {
-      "id": "ig-dmagazine",
-      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(dmagazine)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
-      "consecutive_failures": 1
-    },
-    {
-      "id": "ig-culturemapdallas",
-      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(culturemapdallas)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
-      "consecutive_failures": 1
-    },
-    {
-      "id": "ig-dallasobserver",
-      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(dallasobserver)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
-      "consecutive_failures": 1
-    },
-    {
-      "id": "reddit-fortworth",
-      "error": "Reddit token HTTP 401",
-      "consecutive_failures": 1
-    },
-    {
-      "id": "reddit-dfw",
-      "error": "Reddit token HTTP 401",
-      "consecutive_failures": 1
-    },
-    {
-      "id": "reddit-askdfw",
-      "error": "Reddit token HTTP 401",
-      "consecutive_failures": 1
-    },
-    {
-      "id": "reddit-dallas",
-      "error": "Reddit token HTTP 401",
-      "consecutive_failures": 1
-    },
-    {
-      "id": "reddit-plano",
-      "error": "Reddit token HTTP 401",
-      "consecutive_failures": 1
-    }
-  ],
+  "sources_failed": [],
   "feeders_used": {
-    "jsonld": 12,
+    "html_ai": 48,
+    "jsonld": 16,
     "ical": 1,
-    "tribe": 2,
-    "html_ai": 6
+    "tribe": 1
   },
-  "pages_fetched": 90,
-  "extracted": 548,
-  "extracted_structured": 548,
+  "pages_fetched": 191,
+  "extracted": 520,
+  "extracted_structured": 520,
   "extracted_ai": 0,
   "dropped_unsupported_fields": [],
   "rejected_validation": [
@@ -224,27 +147,6 @@
       "errors": [
         "city: required for Dallas-scope events"
       ]
-    },
-    {
-      "title": "Robyn & \"Friends\"",
-      "source": "visit-plano",
-      "errors": [
-        "age_min: Too big: expected number to be <=18"
-      ]
-    },
-    {
-      "title": "Psychic Medium Cindy Kaza",
-      "source": "visit-plano",
-      "errors": [
-        "age_min: Too big: expected number to be <=18"
-      ]
-    },
-    {
-      "title": "Paint Your Home 2026",
-      "source": "visit-plano",
-      "errors": [
-        "age_min: Too big: expected number to be <=18"
-      ]
     }
   ],
   "rejected_relevance": [
@@ -253,69 +155,6 @@
       "source": "prestoncrest",
       "reasons": [
         "no community-event signal"
-      ]
-    },
-    {
-      "title": "Early Morning Member Walks",
-      "source": "arboretum",
-      "reasons": [
-        "members only"
-      ]
-    },
-    {
-      "title": "Early Morning Member Walks",
-      "source": "arboretum",
-      "reasons": [
-        "members only"
-      ]
-    },
-    {
-      "title": "Early Morning Member Walks",
-      "source": "arboretum",
-      "reasons": [
-        "members only"
-      ]
-    },
-    {
-      "title": "Early Morning Member Walks",
-      "source": "arboretum",
-      "reasons": [
-        "members only"
-      ]
-    },
-    {
-      "title": "Early Morning Member Walks",
-      "source": "arboretum",
-      "reasons": [
-        "members only"
-      ]
-    },
-    {
-      "title": "Early Morning Member Walks",
-      "source": "arboretum",
-      "reasons": [
-        "members only"
-      ]
-    },
-    {
-      "title": "Early Morning Member Walks",
-      "source": "arboretum",
-      "reasons": [
-        "members only"
-      ]
-    },
-    {
-      "title": "Early Morning Member Walks",
-      "source": "arboretum",
-      "reasons": [
-        "members only"
-      ]
-    },
-    {
-      "title": "Early Morning Member Walks",
-      "source": "arboretum",
-      "reasons": [
-        "members only"
       ]
     },
     {
@@ -2146,185 +1985,129 @@
       ]
     },
     {
-      "title": "The Market Happy Hours – The 2nd Tap",
-      "source": "farmers-market",
+      "title": "Early Morning Member Walks",
+      "source": "arboretum",
       "reasons": [
-        "out of scope"
+        "members only"
       ]
     },
     {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
+      "title": "Early Morning Member Walks",
+      "source": "arboretum",
       "reasons": [
-        "out of scope"
+        "members only"
       ]
     },
     {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
+      "title": "Early Morning Member Walks",
+      "source": "arboretum",
       "reasons": [
-        "out of scope"
+        "members only"
       ]
     },
     {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
+      "title": "Early Morning Member Walks",
+      "source": "arboretum",
       "reasons": [
-        "out of scope"
+        "members only"
       ]
     },
     {
-      "title": "The Market Happy Hours – The 2nd Tap",
-      "source": "farmers-market",
+      "title": "Early Morning Member Walks",
+      "source": "arboretum",
       "reasons": [
-        "out of scope"
+        "members only"
       ]
     },
     {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
+      "title": "Early Morning Member Walks",
+      "source": "arboretum",
       "reasons": [
-        "out of scope"
+        "members only"
       ]
     },
     {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
+      "title": "Early Morning Member Walks",
+      "source": "arboretum",
       "reasons": [
-        "out of scope"
+        "members only"
       ]
     },
     {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
+      "title": "Early Morning Member Walks",
+      "source": "arboretum",
       "reasons": [
-        "out of scope"
+        "members only"
       ]
     },
     {
-      "title": "The Market Happy Hours – The 2nd Tap",
-      "source": "farmers-market",
+      "title": "Early Morning Member Walks",
+      "source": "arboretum",
       "reasons": [
-        "out of scope"
+        "members only"
       ]
     },
     {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
+      "title": "Early Morning Member Walks",
+      "source": "arboretum-holiday",
       "reasons": [
-        "out of scope"
+        "members only"
       ]
     },
     {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
+      "title": "Early Morning Member Walks",
+      "source": "arboretum-holiday",
       "reasons": [
-        "out of scope"
+        "members only"
       ]
     },
     {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
+      "title": "Early Morning Member Walks",
+      "source": "arboretum-holiday",
       "reasons": [
-        "out of scope"
+        "members only"
       ]
     },
     {
-      "title": "The Market Happy Hours – The 2nd Tap",
-      "source": "farmers-market",
+      "title": "Early Morning Member Walks",
+      "source": "arboretum-holiday",
       "reasons": [
-        "out of scope"
+        "members only"
       ]
     },
     {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
+      "title": "Early Morning Member Walks",
+      "source": "arboretum-holiday",
       "reasons": [
-        "out of scope"
+        "members only"
       ]
     },
     {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
+      "title": "Early Morning Member Walks",
+      "source": "arboretum-holiday",
       "reasons": [
-        "out of scope"
+        "members only"
       ]
     },
     {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
+      "title": "Early Morning Member Walks",
+      "source": "arboretum-holiday",
       "reasons": [
-        "out of scope"
+        "members only"
       ]
     },
     {
-      "title": "The Market Happy Hours – The 2nd Tap",
-      "source": "farmers-market",
+      "title": "Early Morning Member Walks",
+      "source": "arboretum-holiday",
       "reasons": [
-        "out of scope"
+        "members only"
       ]
     },
     {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
+      "title": "Early Morning Member Walks",
+      "source": "arboretum-holiday",
       "reasons": [
-        "out of scope"
-      ]
-    },
-    {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
-      "reasons": [
-        "out of scope"
-      ]
-    },
-    {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
-      "reasons": [
-        "out of scope"
-      ]
-    },
-    {
-      "title": "The Market Happy Hours – The 2nd Tap",
-      "source": "farmers-market",
-      "reasons": [
-        "out of scope"
-      ]
-    },
-    {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
-      "reasons": [
-        "out of scope"
-      ]
-    },
-    {
-      "title": "Dallas Cowboys Watch Party: Cowboys vs Texans",
-      "source": "visit-plano",
-      "reasons": [
-        "watch party"
-      ]
-    },
-    {
-      "title": "Dallas Cowboys Watch Party: Buccaneers vs Cowboys",
-      "source": "visit-plano",
-      "reasons": [
-        "watch party"
-      ]
-    },
-    {
-      "title": "Poolside Brunch Sundays",
-      "source": "visit-plano",
-      "reasons": [
-        "out of scope"
-      ]
-    },
-    {
-      "title": "Dallas Cowboys Watch Party: Cowboys vs Texans",
-      "source": "visit-plano",
-      "reasons": [
-        "watch party"
+        "members only"
       ]
     },
     {
@@ -2428,68 +2211,24 @@
   ],
   "cut_for_volume": [
     {
-      "title": "Lotería Night at Taqueria La Ventana",
-      "event_date": "2026-10-07"
-    },
-    {
-      "title": "M.A.D.E. Dallas®",
-      "event_date": "2026-10-09"
-    },
-    {
-      "title": "Music Bingo at The 2nd Tap",
-      "event_date": "2026-10-07"
-    },
-    {
-      "title": "Sabor Puro",
-      "event_date": "2026-10-07"
-    },
-    {
-      "title": "Sip and Shop with Big Daddy Beard",
-      "event_date": "2026-10-09"
-    },
-    {
-      "title": "Sound Bath Meditation",
-      "event_date": "2026-10-07"
-    },
-    {
-      "title": "The Market (Open Daily)",
-      "event_date": "2026-10-04"
-    },
-    {
-      "title": "The Shed Saturday Farmers Market",
+      "title": "Jazz Under The Stars",
       "event_date": "2026-10-10"
     },
     {
-      "title": "The Shed Sunday Farmers Market",
+      "title": "Senior Sundays",
       "event_date": "2026-10-04"
     },
     {
-      "title": "The Storytellers Bookshop presents Pumpkin Chapter",
-      "event_date": "2026-10-10"
-    },
-    {
-      "title": "Community Yoga with V12 Yoga",
+      "title": "White, Rock & Mahj — Old Lake Highlands Neighborhood Association",
       "event_date": "2026-10-07"
-    },
-    {
-      "title": "Family Fest DFW Weekend: A Night of Worship",
-      "event_date": "2026-10-04"
     },
     {
       "title": "Fiesta de Santa Faustina",
       "event_date": "2026-10-05"
     },
     {
-      "title": "Legacy West Run Club at Nike 2026",
-      "event_date": "2026-10-04"
-    },
-    {
       "title": "Preschool Fall Open House in North Dallas",
       "event_date": "2026-10-05"
-    },
-    {
-      "title": "State Fair of Texas 2026",
-      "event_date": "2026-10-04"
     },
     {
       "title": "Hands-On: Tagliatelle with Fall Ragu",
@@ -2502,10 +2241,6 @@
     {
       "title": "The Mahjong Lunch Club: Fall, Friends & Mahj at 55 Seventy.",
       "event_date": "2026-10-05"
-    },
-    {
-      "title": "2026 TX/OU Texas Sized Tailgate @ State Fair Grounds",
-      "event_date": "2026-10-10"
     },
     {
       "title": "40th Annual Día de Muertos Exhibition",
@@ -2568,10 +2303,6 @@
       "event_date": "2026-10-05"
     },
     {
-      "title": "Jack White at The Bomb Factory",
-      "event_date": "2026-10-07"
-    },
-    {
       "title": "Klyde Warren Park Bash Before the Clash and Beat OU! Pep Rally",
       "event_date": "2026-10-09"
     },
@@ -2624,10 +2355,6 @@
       "event_date": "2026-10-05"
     },
     {
-      "title": "State Fair Of Texas 2026 in Dallas",
-      "event_date": "2026-10-05"
-    },
-    {
       "title": "Stereophonic",
       "event_date": "2026-10-05"
     },
@@ -2664,18 +2391,6 @@
       "event_date": "2026-10-10"
     },
     {
-      "title": "Día de los Muertos Festival & Exhibition",
-      "event_date": "2026-10-20"
-    },
-    {
-      "title": "26th Annual Nash Farm Fall Roundup",
-      "event_date": "2026-10-24"
-    },
-    {
-      "title": "Do Good Fest Texas!",
-      "event_date": "2026-10-24"
-    },
-    {
       "title": "Grand Prairie Main Street Fest",
       "event_date": "2026-10-23"
     },
@@ -2704,6 +2419,10 @@
       "event_date": "2026-10-17"
     },
     {
+      "title": "25th Annual Oktoberfest Southlake",
+      "event_date": "2026-10-16"
+    },
+    {
       "title": "DFW Fall Fest",
       "event_date": "2026-10-17"
     },
@@ -2717,20 +2436,24 @@
     }
   ],
   "cancelled": [],
-  "published": 137,
-  "reconfirmed": 31,
+  "published": 153,
+  "reconfirmed": 15,
   "marked_completed": 0,
   "stale": [],
   "review_lookups": 0,
   "review_errors": [],
   "notes": [
     {
-      "source": "dallas-library",
-      "note": "blocked by robots.txt"
+      "source": "arboretum-holiday",
+      "note": "detail page failed (https://www.dallasarboretum.org/events-activities/cooking-demos-events/recipes/): HTTP 404 fetching https://www.dallasarboretum.org/events-activities/cooking-demos-events/recipes/"
     },
     {
-      "source": "visit-plano",
-      "note": "tribe api: HTTP 404 fetching https://events.visitplano.com/wp-json/tribe/events/v1/events?start_date=2026-10-04&per_page=50&status=publish"
+      "source": "fort-worth-zoo",
+      "note": "detail page failed (https://www.fortworthzoo.org/tickets): HTTP 403 fetching https://www.fortworthzoo.org/tickets"
+    },
+    {
+      "source": "dallas-library",
+      "note": "blocked by robots.txt"
     },
     {
       "source": "banana-ball",
@@ -2739,12 +2462,25 @@
   ],
   "coverage_days": 30,
   "empty_days": [
+    "2026-10-21",
     "2026-10-26",
     "2026-11-02"
   ],
   "pruned": [],
-  "replaced": 28,
+  "replaced": 39,
   "collapsed_series": [
+    {
+      "title": "Storytime at the NorthPark Pumpkin Patch",
+      "occurrences": 5
+    },
+    {
+      "title": "The Dallas Opera: The Elixir of Love",
+      "occurrences": 4
+    },
+    {
+      "title": "The Dallas Opera: The Cunning Little Vixen",
+      "occurrences": 4
+    },
     {
       "title": "Autumn at the Arboretum",
       "occurrences": 9
@@ -2754,23 +2490,7 @@
       "occurrences": 9
     },
     {
-      "title": "The Market (Open Daily)",
-      "occurrences": 4
-    },
-    {
-      "title": "Dallas Farmers Market Daily Pumpkin Patch",
-      "occurrences": 4
-    },
-    {
-      "title": "The Dallas Opera: The Elixir of Love",
-      "occurrences": 4
-    },
-    {
-      "title": "Storytime at the NorthPark Pumpkin Patch",
-      "occurrences": 5
-    },
-    {
-      "title": "The Dallas Opera: The Cunning Little Vixen",
+      "title": "Senior Sundays",
       "occurrences": 4
     },
     {

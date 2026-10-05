@@ -5,32 +5,36 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "2cc9ae12ea6583b15370fa520c5ffa0f87c5fca3",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
       "id": "adolphus-tea",
       "etag": "\"2c8718841c8a546f66eb9e7de3967d8c\"",
-      "last_modified": "Mon, 05 Oct 2026 03:07:26 GMT",
+      "last_modified": "Mon, 05 Oct 2026 03:10:13 GMT",
       "content_hash": "3086718ba8b80703862e0f132f750286ed6e4449",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
       "id": "allevents-dallas-all",
       "etag": null,
       "last_modified": null,
-      "content_hash": "f947f8432e9c7924ca1a15974cfd7e61bf86543a",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "content_hash": "3c06269818a55d601817559a6d062e0a9460ae37",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -42,9 +46,9 @@
       "id": "allevents-dallas-month",
       "etag": null,
       "last_modified": null,
-      "content_hash": "2e23d3f2a9af0373126a9d87a300e890c4d01e12",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "content_hash": "0c45a4bb6ad69400f72497a2569339ccf76ca3dc",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -56,9 +60,9 @@
       "id": "allevents-dallas-month+1",
       "etag": null,
       "last_modified": null,
-      "content_hash": "bee867f8c4587cbe3780d79828009c2427a9417d",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "content_hash": "61acaba0977e8f941a8192072d75ced008cd7bbd",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -70,9 +74,9 @@
       "id": "arboretum",
       "etag": null,
       "last_modified": null,
-      "content_hash": "dd6ea9e193e7f932b9255303c3d0255f06540dcf",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "content_hash": "07bfc39230b32391de0fc62e46bb224cc69bf867",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -84,9 +88,9 @@
       "id": "arboretum-autumn",
       "etag": null,
       "last_modified": null,
-      "content_hash": "afd1102235fba1e9919d3dc1ebd32c9c0ed4dcf3",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "content_hash": "df955281498a8ffd7ef8c733599f7dca6d665dd4",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -98,21 +102,24 @@
       "id": "arboretum-holiday",
       "etag": null,
       "last_modified": null,
-      "content_hash": "546761b9f251f9684d5eb890882fb20c1d7f1cfb",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "content_hash": "1f9310945bd5dbaf6bf5667e87a25a7979f1258c",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
-      "last_event_count": 0
+      "last_feeders": [
+        "html_ai",
+        "jsonld"
+      ],
+      "last_event_count": 48
     },
     {
       "id": "attpac",
       "etag": null,
       "last_modified": null,
-      "content_hash": "e65510fd7ab1e62eb404173a8e673342d6756cee",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "content_hash": "b3171d8e20bf1270ee1313b47d54134c03231f52",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -125,20 +132,22 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "ec327338862d1ee21b30d346e01282d392c5ee0e",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
       "id": "cathdal",
       "etag": null,
-      "last_modified": "Mon, 05 Oct 2026 03:07:18 GMT",
+      "last_modified": "Mon, 05 Oct 2026 03:10:00 GMT",
       "content_hash": "354af38ab0f6310e66f185e4a0c0e5668130e15f",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -151,11 +160,13 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "502e8b173f9904da0185baa8349b69f2e77178f5",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -163,11 +174,13 @@
       "etag": "W/\"6bbc08e2b7bbc1cc0c7567b38e3e0abd\"",
       "last_modified": null,
       "content_hash": "7dc78104383bf711c2cd5ab5628ed734e3fc6915",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -175,11 +188,13 @@
       "etag": null,
       "last_modified": "Mon, 05 Oct 2026 03:07:36 GMT",
       "content_hash": "501ab71a71e9e950f03120ab99d2fcd05422263d",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -199,8 +214,8 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [],
@@ -237,11 +252,13 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "77002929991fe4712e918eb9dad9fbdf47ca3338",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -249,44 +266,53 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "41802d353d136cfcfeeb4d208eb884d836290ddd",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
-      "last_event_count": 0
+      "last_feeders": [
+        "html_ai",
+        "jsonld"
+      ],
+      "last_event_count": 13
     },
     {
       "id": "dallas-zoo-lights",
       "etag": null,
       "last_modified": null,
       "content_hash": "6ef7a11bd2a7485693ead3215847476cb1f8e521",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
-      "last_event_count": 0
+      "last_feeders": [
+        "html_ai",
+        "jsonld"
+      ],
+      "last_event_count": 10
     },
     {
       "id": "dallasites101-blog",
       "etag": null,
       "last_modified": null,
       "content_hash": "f18432b44719707ebf823e2dd9ab47b9e4179e63",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
-      "last_event_count": 0
+      "last_feeders": [
+        "html_ai",
+        "jsonld"
+      ],
+      "last_event_count": 6
     },
     {
       "id": "dallasites101-events",
       "etag": null,
       "last_modified": null,
       "content_hash": "eab2f2bb9d1f53ddd50c83394bb3897d4370c5cc",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -299,11 +325,13 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "3a513d097c85dd84402a3113c06ce9cbabb40b98",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -311,11 +339,13 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "c163db2186ae91c7a225c56fa47c54135911aa37",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -323,23 +353,27 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "8b2b263f336377072188a44d8d528a3dbad3d575",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
       "id": "dfwchild-annual",
       "etag": null,
-      "last_modified": "Sun, 04 Oct 2026 06:07:32 GMT",
+      "last_modified": "Mon, 05 Oct 2026 03:07:35 GMT",
       "content_hash": "5d5d91b5f83d68dfff7706e8fd06cb7d23f272de",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -347,11 +381,13 @@
       "etag": null,
       "last_modified": "Sun, 04 Oct 2026 05:21:02 GMT",
       "content_hash": "fa994dca90d713c51450ab9a24afa757fd33b8cf",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -359,23 +395,27 @@
       "etag": null,
       "last_modified": "Sun, 04 Oct 2026 16:59:08 GMT",
       "content_hash": "604eef36646006071952c0a4c46aefff5d6aa990",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
       "id": "dfwchild-trunk",
       "etag": null,
-      "last_modified": "Sun, 04 Oct 2026 07:58:36 GMT",
+      "last_modified": "Sun, 04 Oct 2026 06:00:46 GMT",
       "content_hash": "c62386455eec6f586f5ce023942025b64f8aadd8",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -393,10 +433,10 @@
     {
       "id": "dso-family",
       "etag": null,
-      "last_modified": "Mon, 05 Oct 2026 03:07:30 GMT",
+      "last_modified": "Mon, 05 Oct 2026 03:10:30 GMT",
       "content_hash": "612b29a717ae85015b3b73d8221b028c1ec05331",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -445,8 +485,8 @@
       "etag": null,
       "last_modified": "Mon, 05 Oct 2026 02:46:51 GMT",
       "content_hash": "8abc2d49fc297b51b609e5f3c667f7e44de75336",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -459,8 +499,8 @@
       "etag": null,
       "last_modified": "Mon, 05 Oct 2026 03:07:22 GMT",
       "content_hash": "ed81132bc205cfcbcc7736c9bd978ecee585713c",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -474,8 +514,8 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "fef54d9e0940befbca801c759df0145a9285f12b",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -488,11 +528,13 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "8960ed060f5620f98fbc001640270c9899a0aa25",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -500,23 +542,27 @@
       "etag": "W/\"6ac296d6-2204e\"",
       "last_modified": "Sun, 04 Oct 2026 18:11:34 GMT",
       "content_hash": "08c6116fc338835b29f9f720ff6f066e2c3a2572",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
       "id": "frisco-merry",
       "etag": null,
-      "last_modified": "Mon, 05 Oct 2026 03:07:28 GMT",
+      "last_modified": "Mon, 05 Oct 2026 03:10:22 GMT",
       "content_hash": "4131ef0fc31bf08dad981b0d54ecc3906909de75",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -524,11 +570,13 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "27e719ec61a738f13e443d38f10ba45859a42828",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -548,11 +596,13 @@
       "etag": null,
       "last_modified": "Thu, 01 Oct 2026 00:51:56 GMT",
       "content_hash": "3023676c37797fc6946ffa117c1797b024bb0455",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -728,8 +778,8 @@
       "etag": "\"1791169651-1\"",
       "last_modified": "Mon, 05 Oct 2026 03:07:31 GMT",
       "content_hash": "e38ea2973999bbbb7066e21fa2530aecb6d3e478",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -742,11 +792,13 @@
       "etag": "W/\"c5a695814ab6c251d31aec45c5122f9b\"",
       "last_modified": null,
       "content_hash": "1f19aeb0e3ae01279aed203eb2e7e7ba8964fe58",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -754,11 +806,13 @@
       "etag": "W/\"fb693e0cf93cbac3ca91a6771f41a1fd\"",
       "last_modified": null,
       "content_hash": "64c588c5d84670b50843a72dba8d6ffa977efaa9",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -766,11 +820,13 @@
       "etag": "\"13e40-65cfc57fbe9a1-gzip\"",
       "last_modified": "Sun, 04 Oct 2026 04:38:57 GMT",
       "content_hash": "e38164b03d6d1644c86d4ed934e66861563c4285",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -778,20 +834,22 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "84d9b121afe67b58be03ba487d251185992ab3e4",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
       "id": "live-love-local",
       "etag": null,
       "last_modified": null,
-      "content_hash": "1ad9eddbd74d8cca1d42ba44f6ce87e7f7ed7934",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "content_hash": "e8b0a77d686d8e5d65a4854a2086cbdf970ff88c",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -816,8 +874,8 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "5faf91f8f4996a79e1025d796484ffec495fa3a5",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -827,11 +885,11 @@
     },
     {
       "id": "mommypoppins-fall",
-      "etag": "W/\"1791169430\"",
-      "last_modified": "Mon, 05 Oct 2026 03:03:50 GMT",
+      "etag": "W/\"1791169834\"",
+      "last_modified": "Mon, 05 Oct 2026 03:10:34 GMT",
       "content_hash": "d3b143eb8adfe97bc7e1bfca0987e1520dd4f690",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -844,23 +902,27 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "5987eb72f36a4ef95fa9ea965fbf02c53e91ef2f",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
       "id": "northpark-trains",
       "etag": null,
-      "last_modified": "Mon, 05 Oct 2026 02:41:12 GMT",
+      "last_modified": "Sun, 04 Oct 2026 20:04:02 GMT",
       "content_hash": "26e7aa1c26a531c6ecd2bcbc438297494f9fc7f0",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -868,23 +930,28 @@
       "etag": "W/\"e3b144a86b61638458fef9205ab40256\"",
       "last_modified": null,
       "content_hash": "b7ccaabad7782467f1b09ed45031b5650ab0a73f",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
-      "last_event_count": 0
+      "last_feeders": [
+        "html_ai",
+        "jsonld"
+      ],
+      "last_event_count": 4
     },
     {
       "id": "perot",
       "etag": null,
       "last_modified": null,
       "content_hash": "2e4cbebefa0ee0333322c85a7697150fc67a56f9",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -892,11 +959,13 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "080710c0f0006dd42dc62390d3466c9bc8de9473",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -904,20 +973,22 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "32a566707d50f27f57e9ca8ac96ba82922cd0a1b",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
       "id": "planomoms-winter",
       "etag": null,
       "last_modified": null,
-      "content_hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "content_hash": "0eda466100fcaf33c8d6be80a1916b3264c1b031",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -930,8 +1001,8 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "cabea5b5065670021e481c01997076143da9ee21",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -944,11 +1015,13 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "de1538f0ad5375d8450c4098b00dfea3466ead52",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -1028,11 +1101,13 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "13f75855138b20a0e465193897a20e50714afbce",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -1052,11 +1127,13 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "2db48f6104e9f153ca89caa40a6c8bb53a917866",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -1088,23 +1165,27 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "787b9c3c59ec179c41d910a6aa0e51e4b12a4786",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
       "id": "the-open",
       "etag": null,
       "last_modified": "Fri, 02 Oct 2026 07:26:33 GMT",
-      "content_hash": "0f268f3f9cba400ae17c03f8f83e35586f723e67",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "content_hash": "742a747abcbc10b0a75aa3fc95c4b67dc7de1163",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -1112,11 +1193,13 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "bb37ee8a722d9e28bc67c2c92611a55d05c4ae29",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -1136,11 +1219,13 @@
       "etag": "W/\"dcbc72c6d6bd7074ea727dbdb98c8ef3\"",
       "last_modified": null,
       "content_hash": "71aff515ff17d93c13f44ea6459aecac63d47d62",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -1148,20 +1233,23 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "54fbd8bb2477d96ad65d4a52c07f764eeff1aa24",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
-      "last_event_count": 0
+      "last_feeders": [
+        "html_ai",
+        "jsonld"
+      ],
+      "last_event_count": 1
     },
     {
       "id": "visit-dallas-dia",
       "etag": null,
       "last_modified": null,
       "content_hash": "e7272cd30d610c342891cb71e9d51b1ddd6e6c3a",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -1174,11 +1262,13 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "eaf0da7f5537a7d0baa25cc7ea2ccdf0b5572cec",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -1186,11 +1276,13 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "b3daabd6dd10653e419935f735821ffa974ff74b",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -1198,8 +1290,8 @@
       "etag": "W/\"c6b459f09d5d210241877bb1a6f299e3-gzip\"",
       "last_modified": null,
       "content_hash": "72da9255496416ba7cfdaf8a41c382231e6c1534",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -1212,11 +1304,13 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "615c87052af5e1020516fe6f06aefdf3e79cbe1c",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     },
     {
@@ -1224,11 +1318,13 @@
       "etag": "\"1790956744-gzip\"",
       "last_modified": "Fri, 02 Oct 2026 15:59:04 GMT",
       "content_hash": "3d474bc46c5bad2bf60c094b9b09cc7621977990",
-      "last_run_at": "2026-10-05T03:07:14.472Z",
-      "last_success_at": "2026-10-05T03:07:14.472Z",
+      "last_run_at": "2026-10-05T03:09:57.058Z",
+      "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
       "last_error": null,
-      "last_feeders": [],
+      "last_feeders": [
+        "html_ai"
+      ],
       "last_event_count": 0
     }
   ]
