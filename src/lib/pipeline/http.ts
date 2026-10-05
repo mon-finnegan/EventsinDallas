@@ -102,7 +102,7 @@ export function createHttpClient(deps: { fetch?: typeof fetch; sleep?: (ms: numb
         if (res.status === 304) return { status: "not_modified", url };
         if (!res.ok) {
           const retryable = RETRYABLE_STATUS.has(res.status);
-          const err = new HttpError(`HTTP ${res.status} fetching ${url}`, res.status, retryable);
+          const err = new HttpError(`HTTP ${res.status} fetching ${redactUrl(url)}`, res.status, retryable);
           if (!retryable || attempt >= retries) throw err;
           await wait(retryDelay(attempt, res.headers.get("retry-after")));
           attempt++;
@@ -123,7 +123,7 @@ export function createHttpClient(deps: { fetch?: typeof fetch; sleep?: (ms: numb
       } catch (err) {
         if (err instanceof HttpError && !err.retryable) throw err;
         if (attempt >= retries) {
-          throw err instanceof HttpError ? err : new HttpError(`${(err as Error).message ?? err} fetching ${url}`, null, true);
+          throw err instanceof HttpError ? err : new HttpError(`${(err as Error).message ?? err} fetching ${redactUrl(url)}`, null, true);
         }
         await wait(retryDelay(attempt, null));
         attempt++;
@@ -194,4 +194,9 @@ export async function mapWithConcurrency<T, R>(items: T[], limit: number, fn: (i
   });
   await Promise.all(workers);
   return results;
+}
+
+/** Strip credentials from URLs before they reach logs or the committed run summary. */
+export function redactUrl(url: string): string {
+  return url.replace(/([?&](?:access_token|token|key|api_key|client_secret)=)[^&#]*/gi, "$1REDACTED");
 }

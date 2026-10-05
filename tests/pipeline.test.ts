@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { enforceEvidence, type Extractor } from "@/lib/pipeline/extract";
 import { htmlToText } from "@/lib/pipeline/fetch";
+import { redactUrl } from "@/lib/pipeline/http";
 import { runPipeline } from "@/lib/pipeline/run";
 import { MemoryStateStore } from "@/lib/pipeline/state";
 import { churchSource, extracted, FakeHttp, FALL_PAGE, MemoryRepo } from "./helpers";
@@ -273,5 +274,37 @@ describe("cost evidence", () => {
     const { event, dropped } = enforceEvidence(extracted({ cost: "$12 per person" }), page);
     expect(event.cost).toBeNull();
     expect(dropped).toContain("cost");
+  });
+});
+
+describe("adding an API key later", () => {
+  it("re-reads pages that were skipped while AI extraction was unavailable", async () => {
+    const state = new MemoryStateStore();
+    const repo = new MemoryRepo();
+    const http = () => new FakeHttp({ [churchSource.url]: FALL_PAGE });
+    const first = await runPipeline({ sources: [churchSource], extract: null, repo, state, http: http(), now: NOW });
+    expect(first.published).toBe(0);
+    expect((await state.getAll()).get("test-church")?.content_hash).toBeNull();
+
+    // Same page, next day, now with a key: it must be extracted, not skipped as unchanged.
+    const second = await runPipeline({
+      sources: [churchSource],
+      extract: async () => [extracted({})],
+      repo,
+      state,
+      http: http(),
+      now: new Date("2026-10-04T12:00:00Z"),
+    });
+    expect(second.sources_unchanged).toEqual([]);
+    expect(second.published).toBe(1);
+  });
+});
+
+describe("credential redaction", () => {
+  it("keeps tokens out of error messages and run summaries", () => {
+    expect(redactUrl("https://graph.facebook.com/v21.0/123?fields=x&access_token=SECRET123")).toBe(
+      "https://graph.facebook.com/v21.0/123?fields=x&access_token=REDACTED",
+    );
+    expect(redactUrl("https://example.com/events?page=2")).toBe("https://example.com/events?page=2");
   });
 });

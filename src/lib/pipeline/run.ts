@@ -192,7 +192,10 @@ export async function runPipeline(opts: PipelineOptions): Promise<RunSummary> {
   const collected: { source: Source; result: FeedResult }[] = [];
   await mapWithConcurrency(due, opts.concurrency ?? 4, async (source) => {
     const prior = states.get(source.id) ?? emptyState(source.id);
-    const fresh = !opts.force && isFresh(prior, today);
+    // A source that has never produced anything (e.g. it was read before AI extraction was
+    // configured) gets a full re-read instead of being skipped as unchanged.
+    const neverRead = Boolean(opts.extract) && prior.last_feeders.length === 0;
+    const fresh = !opts.force && !neverRead && isFresh(prior, today);
     summary.sources_attempted++;
     try {
       const result = await runFeeder(source, {
@@ -213,9 +216,10 @@ export async function runPipeline(opts: PipelineOptions): Promise<RunSummary> {
       collected.push({ source, result });
       nextStates.push({
         ...prior,
-        etag: result.etag ?? (result.unchanged ? prior.etag : null),
-        last_modified: result.lastModified ?? (result.unchanged ? prior.last_modified : null),
-        content_hash: result.contentHash ?? prior.content_hash,
+        // A page that still needs AI extraction is not "seen": keep no cache keys for it.
+        etag: result.skippedAi ? null : (result.etag ?? (result.unchanged ? prior.etag : null)),
+        last_modified: result.skippedAi ? null : (result.lastModified ?? (result.unchanged ? prior.last_modified : null)),
+        content_hash: result.skippedAi ? null : (result.contentHash ?? prior.content_hash),
         last_run_at: now,
         last_success_at: now,
         consecutive_failures: 0,

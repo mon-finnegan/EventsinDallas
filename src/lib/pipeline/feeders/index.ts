@@ -30,6 +30,8 @@ export interface FeedResult {
   feedersUsed: FeederKind[];
   pagesFetched: number;
   unchanged: boolean;
+  /** AI extraction was needed but no extractor was configured; the page must be re-read later. */
+  skippedAi: boolean;
   contentHash: string | null;
   etag: string | null;
   lastModified: string | null;
@@ -61,6 +63,7 @@ export async function runFeeder(source: Source, ctx: FeederContext): Promise<Fee
     feedersUsed: [],
     pagesFetched: 0,
     unchanged: false,
+    skippedAi: false,
     contentHash: null,
     etag: null,
     lastModified: null,
@@ -83,6 +86,7 @@ export async function runFeeder(source: Source, ctx: FeederContext): Promise<Fee
     }
     if (!ctx.extract) {
       result.notes.push("needs AI extraction (ANTHROPIC_API_KEY not set)");
+      result.skippedAi = true;
       return result;
     }
     const posts = await fetchInstagramPosts(ctx.http, ctx.instagram, source.instagram_username);
@@ -106,6 +110,7 @@ export async function runFeeder(source: Source, ctx: FeederContext): Promise<Fee
     }
     if (!ctx.extract) {
       result.notes.push("needs AI extraction (ANTHROPIC_API_KEY not set)");
+      result.skippedAi = true;
       return result;
     }
     const posts = await fetchRedditPosts(redditFetcher(ctx.http, await ctx.redditToken()), source.subreddit);
@@ -188,6 +193,7 @@ export async function runFeeder(source: Source, ctx: FeederContext): Promise<Fee
   }
   if (!ctx.extract) {
     result.notes.push("needs AI extraction (ANTHROPIC_API_KEY not set)");
+    result.skippedAi = true;
     return result;
   }
 
