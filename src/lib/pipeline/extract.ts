@@ -133,7 +133,11 @@ ${text}
     if (response.stop_reason === "max_tokens") {
       throw new Error(`Extraction truncated for ${source.url}`);
     }
-    return response.parsed_output?.events ?? [];
+    if (!response.parsed_output) {
+      const blocks = response.content.map((b) => b.type).join(",") || "none";
+      throw new Error(`Extraction returned no structured output for ${source.url} (stop: ${response.stop_reason}, blocks: ${blocks})`);
+    }
+    return response.parsed_output.events;
   };
 }
 

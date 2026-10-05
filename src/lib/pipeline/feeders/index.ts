@@ -242,6 +242,7 @@ async function collectTribe(
 async function extractWithAi(source: Source, text: string, pageUrl: string, ctx: FeederContext, result: FeedResult) {
   for (const chunk of chunkText(text, CHUNK_CHARS).slice(0, MAX_CHUNKS)) {
     const extracted = await ctx.extract!({ source, text: chunk, today: ctx.today });
+    if (extracted.length === 0) result.notes.push(`AI found no events in ${chunk.length} chars of ${pageUrl}`);
     for (const raw of extracted) {
       const { event, dropped } = enforceEvidence(raw, chunk);
       if (dropped.length) result.droppedFields.push({ title: raw.title, fields: dropped });
