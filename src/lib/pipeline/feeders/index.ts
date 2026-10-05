@@ -98,7 +98,7 @@ export async function runFeeder(source: Source, ctx: FeederContext): Promise<Fee
       result.unchanged = true;
       return result;
     }
-    for (const post of fresh) await extractWithAi(source, postText(post), post.permalink, ctx, result);
+    for (const post of fresh) await extractWithAi(source, postText(post), post.permalink, ctx, result, false);
     if (result.feedersUsed.includes("html_ai")) result.feedersUsed = ["instagram"];
     return result;
   }
@@ -122,7 +122,7 @@ export async function runFeeder(source: Source, ctx: FeederContext): Promise<Fee
       result.unchanged = true;
       return result;
     }
-    for (const post of fresh) await extractWithAi(source, redditPostText(post), post.permalink, ctx, result);
+    for (const post of fresh) await extractWithAi(source, redditPostText(post), post.permalink, ctx, result, false);
     if (result.feedersUsed.includes("html_ai")) result.feedersUsed = ["reddit"];
     return result;
   }
@@ -239,10 +239,18 @@ async function collectTribe(
   }
 }
 
-async function extractWithAi(source: Source, text: string, pageUrl: string, ctx: FeederContext, result: FeedResult) {
+async function extractWithAi(
+  source: Source,
+  text: string,
+  pageUrl: string,
+  ctx: FeederContext,
+  result: FeedResult,
+  // Most social posts aren't events, so an empty result there isn't worth a note.
+  noteEmpty = true,
+) {
   for (const chunk of chunkText(text, CHUNK_CHARS).slice(0, MAX_CHUNKS)) {
     const extracted = await ctx.extract!({ source, text: chunk, today: ctx.today });
-    if (extracted.length === 0) result.notes.push(`AI found no events in ${chunk.length} chars of ${pageUrl}`);
+    if (noteEmpty && extracted.length === 0) result.notes.push(`AI found no events in ${chunk.length} chars of ${pageUrl}`);
     for (const raw of extracted) {
       const { event, dropped } = enforceEvidence(raw, chunk);
       if (dropped.length) result.droppedFields.push({ title: raw.title, fields: dropped });
