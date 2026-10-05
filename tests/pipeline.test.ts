@@ -244,3 +244,24 @@ describe("standing programs", () => {
     expect(summary.collapsed_series).toEqual([{ title: "Daily Pumpkin Patch", occurrences: 5 }]);
   });
 });
+
+describe("source reconciliation", () => {
+  it("replaces a source's stale listings when it is re-read", async () => {
+    const repo = new MemoryRepo();
+    const state = new MemoryStateStore();
+    await runPipeline({ sources: [churchSource], extract: async () => [extracted({})], repo, state, http: new FakeHttp({ [churchSource.url]: FALL_PAGE }), now: NOW });
+    expect(repo.rows.map((r) => r.event_date)).toEqual(["2026-10-24"]);
+    // The church moves the festival a week later.
+    const moved = FALL_PAGE.replace("October 24", "October 31").replace("Saturday, October 31", "Saturday, October 31");
+    const summary = await runPipeline({
+      sources: [churchSource],
+      extract: async () => [extracted({ event_date: "2026-10-31", evidence: [{ field: "event_date", quote: "Saturday, October 31, 2026" }], start_time: null, end_time: null })],
+      repo,
+      state,
+      http: new FakeHttp({ [churchSource.url]: moved }),
+      now: NOW,
+    });
+    expect(summary.replaced).toBe(1);
+    expect(repo.rows.map((r) => r.event_date)).toEqual(["2026-10-31"]);
+  });
+});

@@ -47,6 +47,10 @@ export class MemoryRepo implements EventRepository {
     for (const e of events) byId.set(e.id, e);
     this.rows = [...byId.values()];
   }
+  async remove(ids: string[]) {
+    const drop = new Set(ids);
+    this.rows = this.rows.filter((r) => !drop.has(r.id));
+  }
   async logRun(summary: unknown) {
     this.runs.push(summary);
   }

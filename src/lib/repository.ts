@@ -10,6 +10,8 @@ import { validateForPublish } from "./validation";
 export interface EventRepository {
   list(): Promise<CalendarEvent[]>;
   upsert(events: CalendarEvent[]): Promise<void>;
+  /** Delete events that were pruned or replaced (optional; file stores rewrite in full). */
+  remove?(ids: string[]): Promise<void>;
   /** Persist a pipeline run summary for auditing (optional). */
   logRun?(summary: unknown): Promise<void>;
 }
@@ -50,6 +52,13 @@ class SupabaseRepository implements EventRepository {
     for (let i = 0; i < events.length; i += 500) {
       const { error } = await this.client.from("events").upsert(events.slice(i, i + 500), { onConflict: "id" });
       if (error) throw new Error(`Supabase upsert failed: ${error.message}`);
+    }
+  }
+
+  async remove(ids: string[]) {
+    for (let i = 0; i < ids.length; i += 200) {
+      const { error } = await this.client.from("events").delete().in("id", ids.slice(i, i + 200));
+      if (error) throw new Error(`Supabase delete failed: ${error.message}`);
     }
   }
 

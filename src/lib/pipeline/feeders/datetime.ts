@@ -13,6 +13,14 @@ export interface LocalDateTime {
  *  - other TZIDs                     → converted via that zone
  */
 export function normalizeDateTime(value: string, tzid?: string | null): LocalDateTime | null {
+  const result = normalizeRaw(value, tzid);
+  // A family/community event "starting" between midnight and 6 AM is almost always a feed
+  // artifact (placeholder or time-zone slip), so keep the date and drop the time.
+  if (result?.time && result.time < "06:00") return { ...result, time: null };
+  return result;
+}
+
+function normalizeRaw(value: string, tzid?: string | null): LocalDateTime | null {
   const v = value.trim();
   const dateOnly = v.match(/^(\d{4})-?(\d{2})-?(\d{2})$/);
   if (dateOnly) return { date: `${dateOnly[1]}-${dateOnly[2]}-${dateOnly[3]}`, time: null };
@@ -20,6 +28,12 @@ export function normalizeDateTime(value: string, tzid?: string | null): LocalDat
   const m = v.match(/^(\d{4})-?(\d{2})-?(\d{2})[T ](\d{2}):?(\d{2})(?::?(\d{2}))?(?:\.\d+)?(Z|[+-]\d{2}:?\d{2})?$/);
   if (!m) return null;
   const [, y, mo, d, h, mi, , offset] = m;
+
+  // Many sites serialize a plain date as midnight UTC ("2026-11-06T00:00:00Z"). Converting that
+  // to Dallas time would move the event to the previous evening, so treat it as date-only.
+  if (offset && /^(Z|[+-]00:?00)$/.test(offset) && h === "00" && mi === "00") {
+    return { date: `${y}-${mo}-${d}`, time: null };
+  }
 
   if (offset) {
     const iso = `${y}-${mo}-${d}T${h}:${mi}:00${offset === "Z" ? "Z" : offset.length === 5 ? `${offset.slice(0, 3)}:${offset.slice(3)}` : offset}`;

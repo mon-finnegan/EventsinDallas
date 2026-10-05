@@ -55,6 +55,8 @@ export interface RunSummary {
   empty_days: string[];
   /** Stored events dropped because they fail the current relevance rules. */
   pruned: { title: string; reasons: string[] }[];
+  /** Stored listings dropped because their source no longer lists them. */
+  replaced: number;
   /** Daily/weekly programs folded into a single upcoming entry. */
   collapsed_series: { title: string; occurrences: number }[];
 }
@@ -172,6 +174,7 @@ export async function runPipeline(opts: PipelineOptions): Promise<RunSummary> {
     coverage_days: opts.coverageDays ?? 30,
     empty_days: [],
     pruned: [],
+    replaced: 0,
     collapsed_series: [],
   };
 
@@ -262,10 +265,26 @@ export async function runPipeline(opts: PipelineOptions): Promise<RunSummary> {
   // Stored events are re-checked against today's rules, so tightening a filter also cleans
   // out anything it would now reject (signup alerts and cancellations are always kept).
   const stored = await opts.repo.list();
+  // A source that was fully re-read this run is the current truth for its events: drop its old
+  // listings that it no longer lists (moved dates, removed events). Seed events are re-added on
+  // read in file mode and are never deleted from Supabase.
+  const rereadSources = new Set(
+    collected.filter(({ result }) => !result.unchanged && result.feedersUsed.length > 0).map(({ source }) => source.name),
+  );
+  const acceptedIds = new Set(accepted.map((e) => e.id));
+  const removedIds: string[] = [];
   const existing = stored.filter((e) => {
+    if (rereadSources.has(e.source_name) && !acceptedIds.has(e.id) && !isExpired(e, today)) {
+      summary.replaced++;
+      removedIds.push(e.id);
+      return false;
+    }
     if (e.category === "SIGNUP_ALERT" || e.status === "CANCELLED" || e.signup_required) return true;
     const r = assessRelevance(e);
-    if (!r.include) summary.pruned.push({ title: e.title, reasons: r.reasons });
+    if (!r.include) {
+      summary.pruned.push({ title: e.title, reasons: r.reasons });
+      removedIds.push(e.id);
+    }
     return r.include;
   });
   const existingByKey = new Map(existing.map((e) => [dedupeKey(e), e]));
@@ -327,6 +346,9 @@ export async function runPipeline(opts: PipelineOptions): Promise<RunSummary> {
   summary.duration_ms = Date.now() - t0;
 
   if (!opts.dryRun) {
+    const writtenIds = new Set(toWrite.map((e) => e.id));
+    const toRemove = removedIds.filter((id) => !writtenIds.has(id));
+    if (toRemove.length) await opts.repo.remove?.(toRemove);
     await opts.repo.upsert(toWrite);
     await stateStore.putMany(nextStates, sources);
     await opts.repo.logRun?.(summary);

@@ -22,6 +22,11 @@ describe("datetime normalization", () => {
     expect(normalizeDateTime("2026-10-25T02:00:00Z")).toEqual({ date: "2026-10-24", time: "21:00" });
     expect(normalizeDateTime("2026-12-05T16:00:00-06:00")).toEqual({ date: "2026-12-05", time: "16:00" });
   });
+  it("does not shift midnight-UTC dates to the previous evening, and drops pre-dawn artifacts", () => {
+    expect(normalizeDateTime("2026-11-06T00:00:00Z")).toEqual({ date: "2026-11-06", time: null });
+    expect(normalizeDateTime("2026-11-06T00:00:00+00:00")).toEqual({ date: "2026-11-06", time: null });
+    expect(normalizeDateTime("2026-10-24T08:30:00Z")).toEqual({ date: "2026-10-24", time: null }); // 3:30 AM local
+  });
   it("keeps floating/Chicago wall time and converts other zones", () => {
     expect(normalizeDateTime("20261024T173000", "America/Chicago")).toEqual({ date: "2026-10-24", time: "17:30" });
     expect(normalizeDateTime("20261024T183000", "America/New_York")).toEqual({ date: "2026-10-24", time: "17:30" });
