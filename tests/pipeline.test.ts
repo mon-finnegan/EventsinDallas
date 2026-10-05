@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { AiBudgetExhausted, enforceEvidence, type Extractor } from "@/lib/pipeline/extract";
 import { htmlToText } from "@/lib/pipeline/fetch";
 import { redactUrl } from "@/lib/pipeline/http";
-import { runPipeline } from "@/lib/pipeline/run";
+import { isCredentialError, runPipeline } from "@/lib/pipeline/run";
 import { MemoryStateStore } from "@/lib/pipeline/state";
 import { churchSource, extracted, FakeHttp, FALL_PAGE, MemoryRepo } from "./helpers";
 
@@ -329,5 +329,13 @@ describe("AI budget", () => {
       now: new Date("2026-10-04T12:00:00Z"),
     });
     expect(second.published).toBe(1);
+  });
+});
+
+describe("credential errors", () => {
+  it("are recognized so sources aren't backed off for a bad key", () => {
+    expect(isCredentialError('401 {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"}}')).toBe(true);
+    expect(isCredentialError("Reddit token HTTP 401")).toBe(true);
+    expect(isCredentialError("HTTP 403 fetching https://example.com/")).toBe(false);
   });
 });

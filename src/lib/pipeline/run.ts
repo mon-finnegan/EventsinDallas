@@ -230,7 +230,8 @@ export async function runPipeline(opts: PipelineOptions): Promise<RunSummary> {
       log(`✓ ${source.id}: ${result.candidates.length} candidates${result.unchanged ? " (unchanged)" : ""}`);
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err);
-      const failures = prior.consecutive_failures + 1;
+      // A rejected API key is our configuration problem, not the source's: no backoff.
+      const failures = isCredentialError(message) ? prior.consecutive_failures : prior.consecutive_failures + 1;
       summary.sources_failed.push({ id: source.id, error: message, consecutive_failures: failures });
       nextStates.push({ ...prior, last_run_at: now, consecutive_failures: failures, last_error: message });
       log(`✗ ${source.id}: ${message}`);
@@ -403,4 +404,9 @@ export function collapseLongSeries(
     summary?.collapsed_series.push({ title: keep.title, occurrences: list.length });
   }
   return out;
+}
+
+/** Errors caused by a missing or wrong API credential (Anthropic, Reddit, Instagram). */
+export function isCredentialError(message: string): boolean {
+  return /authentication_error|invalid x-api-key|Reddit token HTTP 40[13]|OAuthException|Invalid OAuth access token/i.test(message);
 }
