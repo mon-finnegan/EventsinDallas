@@ -92,6 +92,9 @@ export function sameEvent(a: CalendarEvent, b: CalendarEvent): boolean {
   const placeA = normalizePlace(a.venue ?? a.city);
   const placeB = normalizePlace(b.venue ?? b.city);
   const samePlace = !placeA || !placeB || placeA.includes(placeB) || placeB.includes(placeA) || sharedRatio(tokens(placeA), tokens(placeB)) >= 0.5;
+  // An identical name on the same day is the same event even if two guides describe the venue
+  // differently ("52nd Annual Harambee Festival" in two listings).
+  if (squash(coreTitle(a.title)) === squash(coreTitle(b.title))) return true;
   return samePlace && sameTitle(a.title, b.title);
 }
 
