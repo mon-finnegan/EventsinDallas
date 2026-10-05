@@ -1,0 +1,2448 @@
+{
+  "started_at": "2026-10-05T02:35:07.369Z",
+  "finished_at": "2026-10-05T02:37:31.261Z",
+  "duration_ms": 143892,
+  "dry_run": false,
+  "sources_total": 99,
+  "sources_attempted": 99,
+  "sources_ok": 84,
+  "sources_unchanged": [],
+  "sources_empty": [
+    "first-umc-dallas",
+    "prestonwood",
+    "greek-fest",
+    "lebanese-fest",
+    "klyde-warren",
+    "klyde-warren-signature",
+    "arboretum-holiday",
+    "dallas-zoo",
+    "dallas-zoo-lights",
+    "fort-worth-zoo",
+    "perot",
+    "fair-park",
+    "northpark-trains",
+    "galleria",
+    "north-pole-express",
+    "adolphus-tea",
+    "dallas-library",
+    "visit-dallas",
+    "university-park",
+    "addison-events",
+    "frisco-merry",
+    "old-lake-highlands",
+    "ymca-turkey-trot",
+    "dct",
+    "attpac",
+    "dfwchild-trunk",
+    "dfwchild-calendar",
+    "kids-out-about",
+    "live-love-local",
+    "dallasites101-blog",
+    "dallasites101-holiday",
+    "dallasites101-hanukkah",
+    "resident-dallas",
+    "visit-dallas-month",
+    "culturemap-dallas",
+    "visit-dallas-winter",
+    "dfwchild-annual",
+    "dfwchild-nye",
+    "dallas-chamber",
+    "planomoms-winter",
+    "venture-dallas",
+    "cowboys-schedule",
+    "mavs-schedule",
+    "ig-dallasites101",
+    "ig-dallasmoms",
+    "ig-dfwchild",
+    "ig-visitdallas",
+    "ig-klydewarrenpark",
+    "ig-dallasarboretum",
+    "ig-dallaszoo",
+    "ig-perotmuseum",
+    "ig-do214",
+    "ig-dallasobserver",
+    "ig-dmagazine",
+    "ig-culturemapdallas",
+    "reddit-dallas",
+    "reddit-askdfw",
+    "reddit-dfw",
+    "reddit-fortworth",
+    "reddit-plano",
+    "stars-schedule",
+    "dallas-sports-commission",
+    "pga-championship",
+    "pga-registry",
+    "ryder-cup",
+    "the-open",
+    "la28",
+    "wimbledon",
+    "banana-ball"
+  ],
+  "sources_skipped_backoff": [],
+  "sources_failed": [
+    {
+      "id": "hpumc",
+      "error": "HTTP 404 fetching https://www.hpumc.org/christmas",
+      "consecutive_failures": 1
+    },
+    {
+      "id": "gaylord-ice",
+      "error": "HTTP 403 fetching https://www.christmasatgaylordtexan.com/ice",
+      "consecutive_failures": 1
+    },
+    {
+      "id": "richardson-santa",
+      "error": "HTTP 403 fetching https://www.cor.net/departments/parks-recreation/community-events/santa-s-village-at-huffhines-park",
+      "consecutive_failures": 1
+    },
+    {
+      "id": "heritage-village",
+      "error": "fetch failed fetching http://www.dallasheritagevillage.org/candlelight",
+      "consecutive_failures": 1
+    },
+    {
+      "id": "dallas-moms",
+      "error": "HTTP 403 fetching https://dallasmoms.com/dallas-moms-need-to-know-a-guide-to-the-month-of-october/",
+      "consecutive_failures": 1
+    },
+    {
+      "id": "scout-guide-dallas",
+      "error": "HTTP 403 fetching https://thescoutguide.com/dallas/editorial/the-best-things-to-do-in-dallas-this-october-2026/",
+      "consecutive_failures": 1
+    },
+    {
+      "id": "do214",
+      "error": "HTTP 403 fetching https://do214.com/",
+      "consecutive_failures": 1
+    },
+    {
+      "id": "eventbrite-dallas-month",
+      "error": "HTTP 405 fetching https://www.eventbrite.com/d/tx--dallas/october/",
+      "consecutive_failures": 1
+    },
+    {
+      "id": "eventbrite-dallas-month+1",
+      "error": "HTTP 405 fetching https://www.eventbrite.com/d/tx--dallas/november/",
+      "consecutive_failures": 1
+    },
+    {
+      "id": "dallas-innovates",
+      "error": "HTTP 403 fetching https://dallasinnovates.com/calendar/",
+      "consecutive_failures": 1
+    },
+    {
+      "id": "eventbrite-networking",
+      "error": "HTTP 405 fetching https://www.eventbrite.com/d/tx--dallas/networking/",
+      "consecutive_failures": 1
+    },
+    {
+      "id": "small-business-expo",
+      "error": "HTTP 403 fetching https://www.thesmallbusinessexpo.com/city/dallas/",
+      "consecutive_failures": 1
+    },
+    {
+      "id": "us-open",
+      "error": "HTTP 403 fetching https://www.usopen.com/2027/tickets.html",
+      "consecutive_failures": 1
+    },
+    {
+      "id": "prestonwood-goc",
+      "error": "fetch failed fetching https://prestonwoodgoc.org/",
+      "consecutive_failures": 1
+    },
+    {
+      "id": "masters",
+      "error": "The operation was aborted due to timeout fetching https://www.masters.com/en_US/tournament/tickets.html",
+      "consecutive_failures": 1
+    }
+  ],
+  "feeders_used": {
+    "jsonld": 12,
+    "ical": 1,
+    "tribe": 3
+  },
+  "pages_fetched": 84,
+  "extracted": 592,
+  "extracted_structured": 592,
+  "extracted_ai": 0,
+  "dropped_unsupported_fields": [],
+  "rejected_validation": [
+    {
+      "title": "Rachel's Vineyard Retreat",
+      "source": "cathdal",
+      "errors": [
+        "city: required for Dallas-scope events"
+      ]
+    },
+    {
+      "title": "Immaculate Conception-GP Parish Fall Festival",
+      "source": "cathdal",
+      "errors": [
+        "city: required for Dallas-scope events"
+      ]
+    },
+    {
+      "title": "CRS Trivia Night with Deacon Mike",
+      "source": "cathdal",
+      "errors": [
+        "city: required for Dallas-scope events"
+      ]
+    },
+    {
+      "title": "Bishop Dunne Presents 2026",
+      "source": "cathdal",
+      "errors": [
+        "city: required for Dallas-scope events"
+      ]
+    },
+    {
+      "title": "Solemn Rosary",
+      "source": "cathdal",
+      "errors": [
+        "city: required for Dallas-scope events"
+      ]
+    },
+    {
+      "title": "Hope for the Holiday’s",
+      "source": "cathdal",
+      "errors": [
+        "city: required for Dallas-scope events"
+      ]
+    },
+    {
+      "title": "Robyn & \"Friends\"",
+      "source": "visit-plano",
+      "errors": [
+        "age_min: Too big: expected number to be <=18"
+      ]
+    },
+    {
+      "title": "Psychic Medium Cindy Kaza",
+      "source": "visit-plano",
+      "errors": [
+        "age_min: Too big: expected number to be <=18"
+      ]
+    },
+    {
+      "title": "Paint Your Home 2026",
+      "source": "visit-plano",
+      "errors": [
+        "age_min: Too big: expected number to be <=18"
+      ]
+    },
+    {
+      "title": "Frost Richardson Coit State Fair Celebration",
+      "source": "dallas-moms+1",
+      "errors": [
+        "city: required for Dallas-scope events"
+      ]
+    },
+    {
+      "title": "Frost Medical District State Fair Celebration",
+      "source": "dallas-moms+1",
+      "errors": [
+        "city: required for Dallas-scope events"
+      ]
+    },
+    {
+      "title": "HOLLYDAYS MARKET OF PLANO",
+      "source": "dallas-moms+1",
+      "errors": [
+        "city: required for Dallas-scope events"
+      ]
+    },
+    {
+      "title": "HOLLYDAYS MARKET OF PLANO",
+      "source": "dallas-moms+1",
+      "errors": [
+        "city: required for Dallas-scope events"
+      ]
+    },
+    {
+      "title": "HOLLYDAYS MARKET OF PLANO",
+      "source": "dallas-moms+1",
+      "errors": [
+        "city: required for Dallas-scope events"
+      ]
+    }
+  ],
+  "rejected_relevance": [
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Forney Community Group",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Wednesday Night Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "The Garage",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Men's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Deaf Ministry Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Grapevine Community Group",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Sunnyvale Community Group",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Wednesday Night Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "The Garage",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Men's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Deaf Ministry Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Preteen Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Wednesday Night Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "The Garage",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Men's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Deaf Ministry Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Wednesday Night Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "The Garage",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Men's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Deaf Ministry Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Forney Community Group",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Wednesday Night Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "The Garage",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Men's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Deaf Ministry Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Grapevine Community Group",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Sunnyvale Community Group",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Wednesday Night Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "The Garage",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Men's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Deaf Ministry Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Wednesday Night Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Deaf Ministry Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Wednesday Night Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Deaf Ministry Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Wednesday Night Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Deaf Ministry Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Forney Community Group",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Wednesday Night Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Deaf Ministry Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Grapevine Community Group",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Sunnyvale Community Group",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Wednesday Night Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Deaf Ministry Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Wednesday Night Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Deaf Ministry Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Wednesday Night Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Deaf Ministry Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Grapevine Community Group",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Sunnyvale Community Group",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Men's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Men's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Men's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours – The 2nd Tap",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours – The 2nd Tap",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours – The 2nd Tap",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours – The 2nd Tap",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours – The 2nd Tap",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours – The 2nd Tap",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "Live Music",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "Poolside Brunch Sundays",
+      "source": "visit-plano",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "SET YOUR VECTOR://",
+      "source": "dallas-moms+1",
+      "reasons": [
+        "outside default radius",
+        "grown-up outing"
+      ]
+    },
+    {
+      "title": "Celebra Grapevine",
+      "source": "dallas-moms+1",
+      "reasons": [
+        "DFW metro"
+      ]
+    },
+    {
+      "title": "Frost State Fair Celebration",
+      "source": "dallas-moms+1",
+      "reasons": [
+        "DFW metro"
+      ]
+    },
+    {
+      "title": "Frost State Fair Celebration",
+      "source": "dallas-moms+1",
+      "reasons": [
+        "DFW metro"
+      ]
+    },
+    {
+      "title": "HOLLYDAYS MARKET OF WAXAHACHIE",
+      "source": "dallas-moms+1",
+      "reasons": [
+        "outside default radius",
+        "toddler relevant"
+      ]
+    },
+    {
+      "title": "Frost Denton State Fair Celebration",
+      "source": "dallas-moms+1",
+      "reasons": [
+        "outside default radius"
+      ]
+    },
+    {
+      "title": "HOLLYDAYS MARKET OF WAXAHACHIE",
+      "source": "dallas-moms+1",
+      "reasons": [
+        "outside default radius",
+        "toddler relevant"
+      ]
+    },
+    {
+      "title": "Scarborough's Hollow Fall Fantasy Festival",
+      "source": "dallas-moms+1",
+      "reasons": [
+        "outside default radius"
+      ]
+    },
+    {
+      "title": "HOLLYDAYS MARKET OF WAXAHACHIE",
+      "source": "dallas-moms+1",
+      "reasons": [
+        "outside default radius",
+        "toddler relevant"
+      ]
+    },
+    {
+      "title": "Gruene Music & Wine Fest’s Sunday All-Star Playlist",
+      "source": "dallas-moms+1",
+      "reasons": [
+        "outside default radius",
+        "grown-up outing"
+      ]
+    },
+    {
+      "title": "Frost Duncanville State Fair Celebration",
+      "source": "dallas-moms+1",
+      "reasons": [
+        "DFW metro"
+      ]
+    },
+    {
+      "title": "Scarborough's Hollow Fall Fantasy Festival",
+      "source": "dallas-moms+1",
+      "reasons": [
+        "outside default radius"
+      ]
+    },
+    {
+      "title": "Scarborough's Hollow Fall Fantasy Festival",
+      "source": "dallas-moms+1",
+      "reasons": [
+        "outside default radius"
+      ]
+    },
+    {
+      "title": "Día De Los Muertos",
+      "source": "dallas-moms+1",
+      "reasons": [
+        "DFW metro"
+      ]
+    },
+    {
+      "title": "Scarborough's Hollow Fall Fantasy Festival",
+      "source": "dallas-moms+1",
+      "reasons": [
+        "outside default radius"
+      ]
+    },
+    {
+      "title": "Scarborough's Hollow Fall Fantasy Festival",
+      "source": "dallas-moms+1",
+      "reasons": [
+        "outside default radius"
+      ]
+    },
+    {
+      "title": "25th Annual Oktoberfest Southlake",
+      "source": "mommypoppins-fall",
+      "reasons": [
+        "outside default radius",
+        "toddler relevant"
+      ]
+    },
+    {
+      "title": "The Great Indian Diwali Festival of Lights",
+      "source": "mommypoppins-fall",
+      "reasons": [
+        "DFW metro"
+      ]
+    }
+  ],
+  "cut_for_volume": [
+    {
+      "title": "Life Recovery Group",
+      "event_date": "2026-10-21"
+    },
+    {
+      "title": "Men's Softball",
+      "event_date": "2026-10-22"
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "event_date": "2026-10-18"
+    },
+    {
+      "title": "Rosario Familiar con el Obispo Burns",
+      "event_date": "2026-10-20"
+    },
+    {
+      "title": "Student Choir Jeffress Fountain Performance",
+      "event_date": "2026-10-18"
+    },
+    {
+      "title": "Sunday Evening Pickleball",
+      "event_date": "2026-10-18"
+    },
+    {
+      "title": "Sunday Night Date Night",
+      "event_date": "2026-10-18"
+    },
+    {
+      "title": "The Avenue",
+      "event_date": "2026-10-21"
+    },
+    {
+      "title": "Upward Volleyball",
+      "event_date": "2026-10-24"
+    },
+    {
+      "title": "Kids Worship",
+      "event_date": "2026-10-18"
+    },
+    {
+      "title": "Mommy &#038; Me",
+      "event_date": "2026-10-21"
+    },
+    {
+      "title": "Pray Worship Pray – Wednesday Night Prayer",
+      "event_date": "2026-10-21"
+    },
+    {
+      "title": "Oktoberfest Dallas",
+      "event_date": "2026-10-24"
+    },
+    {
+      "title": "ArmeniaFest 2026 – Oct 16, 17 & 18",
+      "event_date": "2026-10-18"
+    },
+    {
+      "title": "Dallas Mavericks vs. San Antonio Spurs",
+      "event_date": "2026-10-24"
+    },
+    {
+      "title": "Dying Fetus with Sanguisugabogg at The Bomb Factory",
+      "event_date": "2026-10-18"
+    },
+    {
+      "title": "INVASION #18 Car Show",
+      "event_date": "2026-10-24"
+    },
+    {
+      "title": "PlantCon Dallas 2026",
+      "event_date": "2026-10-24"
+    },
+    {
+      "title": "26th Annual Nash Farm Fall Roundup",
+      "event_date": "2026-10-24"
+    },
+    {
+      "title": "Día de los Muertos Festival & Exhibition",
+      "event_date": "2026-10-20"
+    },
+    {
+      "title": "Do Good Fest Texas!",
+      "event_date": "2026-10-24"
+    },
+    {
+      "title": "Grand Prairie Main Street Fest",
+      "event_date": "2026-10-22"
+    },
+    {
+      "title": "Pumpkins and Pints",
+      "event_date": "2026-10-09"
+    },
+    {
+      "title": "\"The Flight Risk\" Launch Party with Leslie McElroy!",
+      "event_date": "2026-10-06"
+    },
+    {
+      "title": "13 the Musical",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "17th Annual DFW Dragon Boat, Kite, and Lantern Festival",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "Addams Family the Musical",
+      "event_date": "2026-10-08"
+    },
+    {
+      "title": "AWANA",
+      "event_date": "2026-10-07"
+    },
+    {
+      "title": "Band-Led Cowboys Watch Party",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "Cruel Intentions the 90’s Musical",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "Dallas College Cooks",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Dallas Cowboys Watch Party: Buccaneers vs Cowboys",
+      "event_date": "2026-10-08"
+    },
+    {
+      "title": "Dallas Cowboys Watch Party: Cowboys vs Texans",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "DeGolyer House Historical Tours",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "DeGolyer House Historical Tours",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "DeGolyer House Historical Tours",
+      "event_date": "2026-10-06"
+    },
+    {
+      "title": "DeGolyer House Historical Tours",
+      "event_date": "2026-10-07"
+    },
+    {
+      "title": "DeGolyer House Historical Tours",
+      "event_date": "2026-10-08"
+    },
+    {
+      "title": "DeGolyer House Historical Tours",
+      "event_date": "2026-10-09"
+    },
+    {
+      "title": "DeGolyer House Historical Tours",
+      "event_date": "2026-10-10"
+    },
+    {
+      "title": "Early Morning Member Walks",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "Early Morning Member Walks",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Early Morning Member Walks",
+      "event_date": "2026-10-06"
+    },
+    {
+      "title": "Early Morning Member Walks",
+      "event_date": "2026-10-07"
+    },
+    {
+      "title": "Early Morning Member Walks",
+      "event_date": "2026-10-08"
+    },
+    {
+      "title": "Early Morning Member Walks",
+      "event_date": "2026-10-09"
+    },
+    {
+      "title": "Early Morning Member Walks",
+      "event_date": "2026-10-10"
+    },
+    {
+      "title": "Entertainment at Jeanne's Pavilion",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "Entertainment at Jeanne's Pavilion",
+      "event_date": "2026-10-10"
+    },
+    {
+      "title": "Estudio Bíblico del libro de Éxodo para Mujeres | WBS",
+      "event_date": "2026-10-07"
+    },
+    {
+      "title": "Kelly Willis",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "Let's Go... Somewhere Spooky!",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "Life Recovery Group",
+      "event_date": "2026-10-07"
+    },
+    {
+      "title": "Lotería Night at Taqueria La Ventana",
+      "event_date": "2026-10-07"
+    },
+    {
+      "title": "M.A.D.E. Dallas®",
+      "event_date": "2026-10-09"
+    },
+    {
+      "title": "Men's Softball",
+      "event_date": "2026-10-08"
+    },
+    {
+      "title": "Music Bingo at The 2nd Tap",
+      "event_date": "2026-10-07"
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "Sabor Puro",
+      "event_date": "2026-10-07"
+    },
+    {
+      "title": "Sip and Shop with Big Daddy Beard",
+      "event_date": "2026-10-09"
+    },
+    {
+      "title": "Sound Bath Meditation",
+      "event_date": "2026-10-07"
+    },
+    {
+      "title": "Sunday Evening Pickleball",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "Sunday Night Date Night",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "The Avenue",
+      "event_date": "2026-10-07"
+    },
+    {
+      "title": "The Market (Open Daily)",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "The Shed Saturday Farmers Market",
+      "event_date": "2026-10-10"
+    },
+    {
+      "title": "The Shed Sunday Farmers Market",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "The Storytellers Bookshop presents Pumpkin Chapter",
+      "event_date": "2026-10-10"
+    },
+    {
+      "title": "Upward Volleyball",
+      "event_date": "2026-10-10"
+    },
+    {
+      "title": "Bible Drill Kick-off",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "Community Yoga with V12 Yoga",
+      "event_date": "2026-10-07"
+    },
+    {
+      "title": "Family Fest DFW Weekend: A Night of Worship",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "Fiesta de Santa Faustina",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Kids Worship",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "Legacy West Run Club at Nike 2026",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "Momentum - for Catholic Single Mothers",
+      "event_date": "2026-10-09"
+    },
+    {
+      "title": "Persons with Disabilities: A Call and an Opportunity for a More Synodal and Inclusive Church.",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Pray Worship Pray – Wednesday Night Prayer",
+      "event_date": "2026-10-07"
+    },
+    {
+      "title": "Preschool Fall Open House in North Dallas",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "State Fair of Texas 2026",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "The Market (Open Daily)",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "The Market (Open Daily)",
+      "event_date": "2026-10-06"
+    },
+    {
+      "title": "The Market (Open Daily)",
+      "event_date": "2026-10-07"
+    },
+    {
+      "title": "Hands-On: Tagliatelle with Fall Ragu",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Monday Night Tiles MSD Fall League",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "The Mahjong Lunch Club: Fall, Friends & Mahj at 55 Seventy.",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "2026 TX/OU Texas Sized Tailgate @ State Fair Grounds",
+      "event_date": "2026-10-10"
+    },
+    {
+      "title": "40th Annual Día de Muertos Exhibition",
+      "event_date": "2026-10-10"
+    },
+    {
+      "title": "AACC TX - Fundraising Event for the Albanian School",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Arch Enemy & The Black Dahlia Murder",
+      "event_date": "2026-10-10"
+    },
+    {
+      "title": "Author Talk with Colin Kaepernick",
+      "event_date": "2026-10-06"
+    },
+    {
+      "title": "Bach",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Band-Maid at House of Blues Dallas",
+      "event_date": "2026-10-09"
+    },
+    {
+      "title": "Beethoven",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Candlelight: Queen vs. ABBA",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "Candlelight: The Best of Joe Hisaishi",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "Cash Money & No Limit Tour: Master P, Birdman, Juvenile & Mannie Fresh Tickets",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "Catalog Cupping - Counter Culture Coffee Dallas",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Chanel Beads at Club Dada",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Dallas Warehouse Tour - Render Event Decor",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Dementia Friend Information Session",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "DFW Italian Festival",
+      "event_date": "2026-10-09"
+    },
+    {
+      "title": "DMA FREE First Sundays: Access for All",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "Gavin Adcock (16 and Under with Parent or Legal Guardian)",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Homeschool Day: Charlotte’s Web",
+      "event_date": "2026-10-07"
+    },
+    {
+      "title": "Klyde Warren Park Bash Before the Clash and Beat OU! Pep Rally",
+      "event_date": "2026-10-09"
+    },
+    {
+      "title": "Latta' Momentum Co-Working Day Party",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Lauren Sanderson",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Lauren Sanderson - COME SAY SUM TOUR",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Masterpiece Monday Sip and Paint with music by KASS",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "MEAN GIRLS THEME MARKET",
+      "event_date": "2026-10-10"
+    },
+    {
+      "title": "Monday Prayer Vigil at ICE Office",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Monthly Meetup - Oct 5 - Spooky Piñatas 👻",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Mozart",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Musical Mondays presents The Phantom Of The Opera",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "My Hero Academia In Concert",
+      "event_date": "2026-10-06"
+    },
+    {
+      "title": "Official Boosie After Party — Hosted by Boosie + Bay Bay",
+      "event_date": "2026-10-04"
+    },
+    {
+      "title": "Red River Rivalry - Texas Longhorns vs Oklahoma Sooners Football at Cotton Bowl Stadium",
+      "event_date": "2026-10-10"
+    },
+    {
+      "title": "RIVALRY WEEKEND | TX vs. OU at Happiest Hour",
+      "event_date": "2026-10-10"
+    },
+    {
+      "title": "San Jose Sharks at Dallas Stars",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "San Jose Sharks at Dallas Stars at American Airlines Center - TX",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "SMART Recovery Oak Cliff",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "State Fair Of Texas 2026 in Dallas",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Stereophonic",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Steve Angello at SILO Dallas",
+      "event_date": "2026-10-09"
+    },
+    {
+      "title": "Suki Waterhouse",
+      "event_date": "2026-10-08"
+    },
+    {
+      "title": "Texas Longhorns at Oklahoma Sooners Football",
+      "event_date": "2026-10-10"
+    },
+    {
+      "title": "Texas Longhorns at Oklahoma Sooners Football at Cotton Bowl Stadium",
+      "event_date": "2026-10-10"
+    },
+    {
+      "title": "Texas Longhorns vs Oklahoma Sooners Football Tickets",
+      "event_date": "2026-10-10"
+    },
+    {
+      "title": "Thai Trattoria",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "The Annual Tx/OU Kickoff Party @ Candleroom",
+      "event_date": "2026-10-09"
+    },
+    {
+      "title": "The Dallas Pancakes & Booze Art Show",
+      "event_date": "2026-10-10"
+    },
+    {
+      "title": "THE Official OU/TX Watch Party hosted by OU National Black Alumni Society",
+      "event_date": "2026-10-10"
+    },
+    {
+      "title": "The Pope vs Bloody Mary vs Dracula Dallas",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Yo Dallas ... Hit the MTB Trails With Us!",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "Yoga class for all",
+      "event_date": "2026-10-05"
+    },
+    {
+      "title": "River Legacy Nature Center Fall Festival",
+      "event_date": "2026-10-10"
+    },
+    {
+      "title": "Estudio Bíblico del libro de Éxodo para Mujeres | WBS",
+      "event_date": "2026-10-14"
+    },
+    {
+      "title": "Life Recovery Group",
+      "event_date": "2026-10-14"
+    },
+    {
+      "title": "Men's Softball",
+      "event_date": "2026-10-15"
+    },
+    {
+      "title": "​​Mosaic Tile Candleholders​",
+      "event_date": "2026-10-13"
+    },
+    {
+      "title": "Pastor's Prayer Partners Men's Breakfast",
+      "event_date": "2026-10-17"
+    },
+    {
+      "title": "Pizza With The Pastors",
+      "event_date": "2026-10-16"
+    },
+    {
+      "title": "Sunday Evening Pickleball",
+      "event_date": "2026-10-11"
+    },
+    {
+      "title": "Sunday Night Date Night",
+      "event_date": "2026-10-11"
+    },
+    {
+      "title": "The Avenue",
+      "event_date": "2026-10-14"
+    },
+    {
+      "title": "Trunk or Treat",
+      "event_date": "2026-10-17"
+    },
+    {
+      "title": "Upward Volleyball",
+      "event_date": "2026-10-17"
+    },
+    {
+      "title": "Celebrators Conference Trip",
+      "event_date": "2026-10-12"
+    },
+    {
+      "title": "Family Rosary with Bishop Burns",
+      "event_date": "2026-10-13"
+    },
+    {
+      "title": "Huffhines Harvest Fest",
+      "event_date": "2026-10-16"
+    },
+    {
+      "title": "Kids Worship",
+      "event_date": "2026-10-11"
+    },
+    {
+      "title": "Parents Night Out",
+      "event_date": "2026-10-16"
+    },
+    {
+      "title": "Pray Worship Pray – Wednesday Night Prayer",
+      "event_date": "2026-10-14"
+    },
+    {
+      "title": "12th Annual Celebración del Día de Muertos",
+      "event_date": "2026-10-17"
+    },
+    {
+      "title": "31st Annual Armenia Fest",
+      "event_date": "2026-10-15"
+    },
+    {
+      "title": "Altar Servers Award Mass",
+      "event_date": "2026-10-17"
+    },
+    {
+      "title": "Arch Enemy & The Black Dahlia Murder Tickets",
+      "event_date": "2026-10-11"
+    },
+    {
+      "title": "ArmeniaFest 2026 – Oct 16, 17 & 18",
+      "event_date": "2026-10-16"
+    },
+    {
+      "title": "ArmeniaFest 2026 – Oct 16, 17 & 18",
+      "event_date": "2026-10-17"
+    },
+    {
+      "title": "Bob Moses",
+      "event_date": "2026-10-16"
+    },
+    {
+      "title": "Carlos Mencia",
+      "event_date": "2026-10-16"
+    },
+    {
+      "title": "Cavetown",
+      "event_date": "2026-10-11"
+    },
+    {
+      "title": "Cavetown Tickets",
+      "event_date": "2026-10-12"
+    },
+    {
+      "title": "Concert",
+      "event_date": "2026-10-11"
+    },
+    {
+      "title": "Dallas Stars vs. Colorado Avalanche",
+      "event_date": "2026-10-13"
+    },
+    {
+      "title": "DFW Fall Fest",
+      "event_date": "2026-10-17"
+    },
+    {
+      "title": "Frost Irving State Fair Celebration",
+      "event_date": "2026-10-17"
+    },
+    {
+      "title": "Kacey Musgraves Ticket",
+      "event_date": "2026-10-11"
+    },
+    {
+      "title": "NBA Preseason: Dallas Mavericks vs. Atlanta Hawks",
+      "event_date": "2026-10-16"
+    },
+    {
+      "title": "Randy Travis",
+      "event_date": "2026-10-14"
+    },
+    {
+      "title": "Snarky Puppy",
+      "event_date": "2026-10-16"
+    },
+    {
+      "title": "Tejas Brothers in Dallas",
+      "event_date": "2026-10-17"
+    },
+    {
+      "title": "UNITEA Presents: Bikini Bottom",
+      "event_date": "2026-10-16"
+    },
+    {
+      "title": "Weezer",
+      "event_date": "2026-10-17"
+    },
+    {
+      "title": "St. Jude Career Alliance Job Search Workshop",
+      "event_date": "2026-10-17"
+    },
+    {
+      "title": "McKinney's Día de los Muertos",
+      "event_date": "2026-10-17"
+    },
+    {
+      "title": "Steve O - Stephen Gilchrist Glover at Hyenas Comedy Night Club - Dallas",
+      "event_date": "2026-10-16"
+    },
+    {
+      "title": "Relay Family Financial Literacy Summit (FINLIT)",
+      "event_date": "2026-11-07"
+    },
+    {
+      "title": "Aviation Discovery Fest",
+      "event_date": "2026-11-05"
+    },
+    {
+      "title": "Raising Capable Kids with Sissy Goff and David Thomas",
+      "event_date": "2026-11-06"
+    },
+    {
+      "title": "Downtown Lancaster Fall Festival",
+      "event_date": "2026-11-01"
+    },
+    {
+      "title": "Upward Volleyball",
+      "event_date": "2026-10-31"
+    },
+    {
+      "title": "Día de los Muertos Concert — Dallas Symphony Orchestra",
+      "event_date": "2026-10-31"
+    },
+    {
+      "title": "Kids Worship",
+      "event_date": "2026-10-25"
+    },
+    {
+      "title": "Pray Worship Pray – Wednesday Night Prayer",
+      "event_date": "2026-10-28"
+    },
+    {
+      "title": "52nd Annual Harambee Festival",
+      "event_date": "2026-10-31"
+    },
+    {
+      "title": "52ND ANNUAL HARAMBEE FESTIVAL",
+      "event_date": "2026-10-31"
+    },
+    {
+      "title": "Avant Chamber Ballet Presents Phillip Glass's Dracula | October 30-31, 2026 | Moody Performance Hall",
+      "event_date": "2026-10-30"
+    },
+    {
+      "title": "Avant Chamber Ballet Presents Phillip Glass's Dracula | October 30-31, 2026 | Moody Performance Hall",
+      "event_date": "2026-10-31"
+    },
+    {
+      "title": "CHILLS AND THRILLS: Boogies & Boos",
+      "event_date": "2026-10-30"
+    },
+    {
+      "title": "7th Annual Dallas Día de los Muertos Parade & Festival",
+      "event_date": "2026-10-31"
+    },
+    {
+      "title": "BTS THEME MARKET",
+      "event_date": "2026-10-25"
+    },
+    {
+      "title": "NBA Cup: Dallas Mavericks vs. Houston Rockets",
+      "event_date": "2026-10-30"
+    },
+    {
+      "title": "Rockwall Philharmonic at Rockwall Concert By the Lake",
+      "event_date": "2026-10-29"
+    }
+  ],
+  "cancelled": [],
+  "published": 186,
+  "reconfirmed": 0,
+  "marked_completed": 2,
+  "stale": [],
+  "review_lookups": 0,
+  "review_errors": [],
+  "notes": [
+    {
+      "source": "first-umc-dallas",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "prestonwood",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "greek-fest",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "lebanese-fest",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "klyde-warren",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "klyde-warren-signature",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "arboretum-holiday",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "dallas-zoo",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "dallas-zoo-lights",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "fort-worth-zoo",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "perot",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "fair-park",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "northpark-trains",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "galleria",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "north-pole-express",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "adolphus-tea",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "dallas-library",
+      "note": "blocked by robots.txt"
+    },
+    {
+      "source": "visit-dallas",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "university-park",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "addison-events",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "frisco-merry",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "old-lake-highlands",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "ymca-turkey-trot",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "dct",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "visit-plano",
+      "note": "tribe api: HTTP 404 fetching https://events.visitplano.com/wp-json/tribe/events/v1/events?start_date=2026-10-04&per_page=50&status=publish"
+    },
+    {
+      "source": "attpac",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "dfwchild-trunk",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "dfwchild-calendar",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "kids-out-about",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "live-love-local",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "dallasites101-blog",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "dallasites101-holiday",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "dallasites101-hanukkah",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "resident-dallas",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "visit-dallas-month",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "culturemap-dallas",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "visit-dallas-winter",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "dfwchild-annual",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "dfwchild-nye",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "dallas-chamber",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "planomoms-winter",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "venture-dallas",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "cowboys-schedule",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "mavs-schedule",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "ig-dallasites101",
+      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
+    },
+    {
+      "source": "ig-dallasmoms",
+      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
+    },
+    {
+      "source": "ig-dfwchild",
+      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
+    },
+    {
+      "source": "ig-visitdallas",
+      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
+    },
+    {
+      "source": "ig-klydewarrenpark",
+      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
+    },
+    {
+      "source": "ig-dallasarboretum",
+      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
+    },
+    {
+      "source": "ig-dallaszoo",
+      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
+    },
+    {
+      "source": "ig-perotmuseum",
+      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
+    },
+    {
+      "source": "ig-do214",
+      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
+    },
+    {
+      "source": "ig-dallasobserver",
+      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
+    },
+    {
+      "source": "ig-dmagazine",
+      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
+    },
+    {
+      "source": "ig-culturemapdallas",
+      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
+    },
+    {
+      "source": "reddit-dallas",
+      "note": "reddit not configured (REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET)"
+    },
+    {
+      "source": "reddit-askdfw",
+      "note": "reddit not configured (REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET)"
+    },
+    {
+      "source": "reddit-dfw",
+      "note": "reddit not configured (REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET)"
+    },
+    {
+      "source": "reddit-fortworth",
+      "note": "reddit not configured (REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET)"
+    },
+    {
+      "source": "reddit-plano",
+      "note": "reddit not configured (REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET)"
+    },
+    {
+      "source": "stars-schedule",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "dallas-sports-commission",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "pga-championship",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "pga-registry",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "ryder-cup",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "the-open",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "la28",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "wimbledon",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    },
+    {
+      "source": "banana-ball",
+      "note": "tribe api: HTTP 404 fetching https://thesavannahbananas.com/wp-json/tribe/events/v1/events?start_date=2026-10-04&per_page=50&status=publish"
+    },
+    {
+      "source": "banana-ball",
+      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
+    }
+  ],
+  "coverage_days": 30,
+  "empty_days": [
+    "2026-11-02"
+  ]
+}
