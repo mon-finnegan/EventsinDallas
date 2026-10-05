@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-05T03:12:43.547Z",
+  "updated_at": "2026-10-05T03:16:47.846Z",
   "events": [
     {
       "description": "24-day run at Fair Park, Sept 25 – Oct 18 (closing day Sunday, Oct 18). Gates 10am–9pm Sun–Thu, 10am–10pm Fri–Sat. Kids 3–12 are $10 every day; $10 for everyone after 5pm on weekdays. Weekly deals: Thrilling Tuesdays (kiddie rides 3 coupons), Feed the Need Wednesdays ($7 with five canned goods), Thrifty Thursdays (Oct 8 & 15: discounted food; seniors 60+ $7).",
@@ -161,9 +161,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "264a8d75bf45eea0",
@@ -214,9 +214,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T03:07:14.472Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "288caabcc22f9149",
@@ -267,9 +267,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:49:53.463Z",
-      "updated_at": "2026-10-05T03:07:14.472Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "28f13129a108704d",
@@ -320,9 +320,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T03:07:14.472Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "4bf6ff6dddaf3696",
@@ -373,9 +373,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:07:14.472Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "6a7524c266eeb914",
@@ -426,9 +426,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:45:32.840Z",
-      "updated_at": "2026-10-05T03:07:14.472Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "832f009f62e271fa",
@@ -479,9 +479,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "8f83245decc2a00e",
@@ -532,9 +532,62 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
+    },
+    {
+      "id": "993bf2b02e4e4952",
+      "title": "Autumn at the Arboretum",
+      "description": "Recurring: listed on 9 dates through 2026-10-12.",
+      "category": "DALLAS_EVENT",
+      "subcategory": "fall",
+      "scope": "DALLAS",
+      "national_interest": null,
+      "event_date": "2026-10-04",
+      "end_date": null,
+      "open_daily": false,
+      "closed_dates": [],
+      "start_time": "09:00",
+      "end_time": "17:00",
+      "timezone": "America/Chicago",
+      "venue": "Dallas Arboretum:",
+      "address": "8525 Garland Road, Dallas, TX 75218",
+      "city": "Dallas",
+      "state": "TX",
+      "age_min": null,
+      "age_max": null,
+      "age_label": null,
+      "cost": null,
+      "activities": [],
+      "is_toddler_relevant": false,
+      "is_family_relevant": false,
+      "is_church_hosted": false,
+      "is_public_event": true,
+      "is_seasonal": true,
+      "signup_required": false,
+      "signup_type": null,
+      "signup_open_at": null,
+      "signup_close_at": null,
+      "lottery_open_at": null,
+      "lottery_close_at": null,
+      "ticket_release_at": null,
+      "action_note": null,
+      "event_url": "https://www.dallasarboretum.org/event/autumn-at-the-arboretum/",
+      "registration_url": null,
+      "ticket_url": null,
+      "source_name": "Dallas Arboretum",
+      "source_url": "https://www.dallasarboretum.org/events-activities/calendar/",
+      "source_type": "official_venue",
+      "verification_note": null,
+      "review_rating": null,
+      "review_count": null,
+      "review_source": null,
+      "review_url": null,
+      "status": "UPCOMING",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
+      "created_at": "2026-10-05T03:14:14.130Z",
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "bf53b4c89cd87e9b",
@@ -585,9 +638,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:07:14.472Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "cc5bc9707c6fde34",
@@ -638,9 +691,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:07:14.472Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "e91574169fa55444",
@@ -691,9 +744,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:07:14.472Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "52e7a05283eebb47",
@@ -744,9 +797,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "712a0bb69a6a5d12",
@@ -850,9 +903,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "419420dd89e36d79",
@@ -903,9 +956,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T03:07:14.472Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "daa6c506cbbdf11f",
@@ -956,9 +1009,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "f83dfa7f6b3bed80",
@@ -1062,62 +1115,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
-    },
-    {
-      "id": "jack-white-bomb-factory-2026",
-      "title": "Jack White at The Bomb Factory",
-      "description": null,
-      "category": "DALLAS_EVENT",
-      "subcategory": "music",
-      "scope": "DALLAS",
-      "national_interest": null,
-      "event_date": "2026-10-07",
-      "end_date": null,
-      "open_daily": false,
-      "closed_dates": [],
-      "start_time": null,
-      "end_time": null,
-      "timezone": "America/Chicago",
-      "venue": "The Bomb Factory",
-      "address": "2713 Canton St, Dallas, TX 75226, Dallas, TX",
-      "city": "Dallas",
-      "state": "TX",
-      "age_min": null,
-      "age_max": null,
-      "age_label": null,
-      "cost": null,
-      "activities": [],
-      "is_toddler_relevant": false,
-      "is_family_relevant": false,
-      "is_church_hosted": false,
-      "is_public_event": true,
-      "is_seasonal": false,
-      "signup_required": false,
-      "signup_type": null,
-      "signup_open_at": null,
-      "signup_close_at": null,
-      "lottery_open_at": null,
-      "lottery_close_at": null,
-      "ticket_release_at": null,
-      "action_note": null,
-      "event_url": "https://allevents.in/dallas/jack-white-at-the-bomb-factory/2400029940884514",
-      "registration_url": null,
-      "ticket_url": null,
-      "source_name": "AllEvents — Dallas this month",
-      "source_url": "https://allevents.in/dallas/october",
-      "source_type": "local_calendar",
-      "verification_note": "Found in a community or social post (see source link). Confirm details with the organizer before going.",
-      "review_rating": null,
-      "review_count": null,
-      "review_source": null,
-      "review_url": null,
-      "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
-      "created_at": "2026-10-03T18:45:00Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "description": null,
@@ -1221,9 +1221,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T03:07:14.472Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "7f14406dcb83601a",
@@ -1274,9 +1274,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:49:53.463Z",
-      "updated_at": "2026-10-05T03:07:14.472Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "7f2c81161673e7fa",
@@ -1380,12 +1380,12 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:45:32.840Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
-      "description": "Donizetti's comic opera at the Winspear. Performances Oct 9, 11, 14 and 17. Recurring: listed on 4 dates through 2026-10-17. Recurring: listed on 4 dates through 2026-10-17. Recurring: listed on 4 dates through 2026-10-17. Recurring: listed on 4 dates through 2026-10-17. Recurring: listed on 4 dates through 2026-10-17. Recurring: listed on 4 dates through 2026-10-17.",
+      "description": "Donizetti's comic opera at the Winspear. Performances Oct 9, 11, 14 and 17. Recurring: listed on 4 dates through 2026-10-17. Recurring: listed on 4 dates through 2026-10-17. Recurring: listed on 4 dates through 2026-10-17. Recurring: listed on 4 dates through 2026-10-17. Recurring: listed on 4 dates through 2026-10-17. Recurring: listed on 4 dates through 2026-10-17. Recurring: listed on 4 dates through 2026-10-17.",
       "subcategory": "theater",
       "scope": "DALLAS",
       "national_interest": null,
@@ -1596,12 +1596,12 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
-      "description": "Saturday-morning storytime in the garden at NorthPark's fall pumpkin display. Recurring: listed on 5 dates through 2026-10-31. Recurring: listed on 5 dates through 2026-10-31. Recurring: listed on 5 dates through 2026-10-31. Recurring: listed on 5 dates through 2026-10-31. Recurring: listed on 5 dates through 2026-10-31. Recurring: listed on 5 dates through 2026-10-31.",
+      "description": "Saturday-morning storytime in the garden at NorthPark's fall pumpkin display. Recurring: listed on 5 dates through 2026-10-31. Recurring: listed on 5 dates through 2026-10-31. Recurring: listed on 5 dates through 2026-10-31. Recurring: listed on 5 dates through 2026-10-31. Recurring: listed on 5 dates through 2026-10-31. Recurring: listed on 5 dates through 2026-10-31. Recurring: listed on 5 dates through 2026-10-31.",
       "subcategory": "storytime",
       "scope": "DALLAS",
       "national_interest": null,
@@ -1755,9 +1755,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "421dc9c87442770b",
@@ -1808,9 +1808,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:49:53.463Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "3026cfb0620c7f50",
@@ -1861,9 +1861,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "feb06cdf60c8fc22",
@@ -1914,9 +1914,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "844fbbd0ad2f3165",
@@ -1967,9 +1967,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "description": "Dallas Regional Chamber networking event.",
@@ -2073,65 +2073,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:49:53.463Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
-    },
-    {
-      "id": "3097d51634dc7dd6",
-      "title": "31st Annual Armenia Fest",
-      "description": "Enjoy festival fun like games, bounce houses, face painting, dance lessons, and performances, plus indulge in a wide variety of homemade Armenian dishes, including Baklava, kebabs, kufteh, and the most popular dish, Cheese Boereg, a puff pastry filled with three kinds of cheese.",
-      "category": "DALLAS_EVENT",
-      "subcategory": "festival",
-      "scope": "DALLAS",
-      "national_interest": null,
-      "event_date": "2026-10-16",
-      "end_date": "2026-10-18",
-      "open_daily": false,
-      "closed_dates": [],
-      "start_time": null,
-      "end_time": "18:59",
-      "timezone": "America/Chicago",
-      "venue": "St. Sarkis Armenian Church",
-      "address": "4421 Charles St., Carrollton, TX 75010",
-      "city": "Carrollton",
-      "state": "TX",
-      "age_min": null,
-      "age_max": null,
-      "age_label": null,
-      "cost": "Free",
-      "activities": [
-        "Armenian food",
-        "Free dance lessons"
-      ],
-      "is_toddler_relevant": false,
-      "is_family_relevant": true,
-      "is_church_hosted": false,
-      "is_public_event": true,
-      "is_seasonal": false,
-      "signup_required": false,
-      "signup_type": null,
-      "signup_open_at": null,
-      "signup_close_at": null,
-      "lottery_open_at": null,
-      "lottery_close_at": null,
-      "ticket_release_at": null,
-      "action_note": null,
-      "event_url": "https://mommypoppins.com/dallas-fort-worth-kids/event/events/31st-annual-armenia-fest",
-      "registration_url": null,
-      "ticket_url": null,
-      "source_name": "Mommy Poppins — DFW Fall Festivals",
-      "source_url": "https://mommypoppins.com/fall-festivals-dallas-fort-worth",
-      "source_type": "local_calendar",
-      "verification_note": "Verified 2026-10-03 from the source page's content as indexed by web search; re-confirm on the source before acting.",
-      "review_rating": null,
-      "review_count": null,
-      "review_source": null,
-      "review_url": null,
-      "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
-      "created_at": "2026-10-05T03:09:57.058Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "3a5bde51813e267d",
@@ -2182,9 +2126,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:49:53.463Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "42b27a164691630c",
@@ -2235,9 +2179,65 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
+    },
+    {
+      "id": "armenia-fest-2026",
+      "title": "ArmeniaFest 2026 – Oct 16, 17 & 18",
+      "description": "Our 31st annual ArmeniaFest — an annual festival weekend of culture, food, & fun! Experience Armenia in the heart of DFW! 🇦🇲 Join us for ArmeniaFest 2026, a three-day celebration of Armenian food, culture, music, dance and community at St. Sarkis Armenian Church in Carrollton. Come hungry for authentic Armenian favorites, enjoy live music and traditional dance, explore Armenian culture and history, and bring the whole family for activities and fun throughout the weekend. Whether you’re Armenian, know someone who is, or simply love discovering great food and new cultures, ArmeniaFest is for…",
+      "category": "DALLAS_EVENT",
+      "subcategory": "music",
+      "scope": "DALLAS",
+      "national_interest": null,
+      "event_date": "2026-10-16",
+      "end_date": "2026-10-18",
+      "open_daily": false,
+      "closed_dates": [],
+      "start_time": "17:00",
+      "end_time": "22:00",
+      "timezone": "America/Chicago",
+      "venue": "St. Sarkis Armenian Church",
+      "address": "4421 Charles Street, Carrollton, 75010",
+      "city": "Carrollton",
+      "state": "TX",
+      "age_min": null,
+      "age_max": null,
+      "age_label": null,
+      "cost": "Free",
+      "activities": [
+        "Armenian food",
+        "Free dance lessons"
+      ],
+      "is_toddler_relevant": false,
+      "is_family_relevant": true,
+      "is_church_hosted": false,
+      "is_public_event": true,
+      "is_seasonal": false,
+      "signup_required": false,
+      "signup_type": null,
+      "signup_open_at": null,
+      "signup_close_at": null,
+      "lottery_open_at": null,
+      "lottery_close_at": null,
+      "ticket_release_at": null,
+      "action_note": null,
+      "event_url": "https://dallasmoms.com/event/armeniafest-2026-oct-16-17-18/2026-10-16/",
+      "registration_url": null,
+      "ticket_url": null,
+      "source_name": "Dallas Moms — Monthly Guide",
+      "source_url": "https://dallasmoms.com/dallas-moms-need-to-know-a-guide-to-the-month-of-november/",
+      "source_type": "local_calendar",
+      "verification_note": "Verified 2026-10-03 from the source page's content as indexed by web search; re-confirm on the source before acting.",
+      "review_rating": null,
+      "review_count": null,
+      "review_source": null,
+      "review_url": null,
+      "status": "UPCOMING",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
+      "created_at": "2026-10-03T18:45:00Z",
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "description": "Thomas the Tank Engine train rides, live entertainment and hands-on activities in downtown Grapevine. Two weekends: Oct 9–11 and Oct 16–18.",
@@ -2297,6 +2297,59 @@
       "source_type": "local_calendar"
     },
     {
+      "id": "oktoberfest-southlake-2026",
+      "title": "25th Annual Oktoberfest Southlake",
+      "description": "Get ready to don your Lederhosen and Dirndls! Southlake Town Square will transform into a Bavarian village to welcome guests from all over the metroplex. Enjoy bratwursts, schnitzels, giant pretzels, roasted nuts, and sweet treats like strudel. The KidZone offers engaging activities: bounce houses, a petting zoo, face painting, arts and crafts, and more. Best of all, don't miss the wiener dog costume contest and races!",
+      "category": "TODDLER_EVENT",
+      "subcategory": "halloween",
+      "scope": "DALLAS",
+      "national_interest": null,
+      "event_date": "2026-10-16",
+      "end_date": "2026-10-18",
+      "open_daily": false,
+      "closed_dates": [],
+      "start_time": null,
+      "end_time": "18:59",
+      "timezone": "America/Chicago",
+      "venue": "Southlake Town Square",
+      "address": "285 Grand Ave., Southlake, TX 76092",
+      "city": "Southlake",
+      "state": "TX",
+      "age_min": null,
+      "age_max": null,
+      "age_label": null,
+      "cost": "Free",
+      "activities": [],
+      "is_toddler_relevant": true,
+      "is_family_relevant": true,
+      "is_church_hosted": false,
+      "is_public_event": true,
+      "is_seasonal": true,
+      "signup_required": false,
+      "signup_type": null,
+      "signup_open_at": null,
+      "signup_close_at": null,
+      "lottery_open_at": null,
+      "lottery_close_at": null,
+      "ticket_release_at": null,
+      "action_note": null,
+      "event_url": "https://mommypoppins.com/dallas-fort-worth-kids/event/events/25th-annual-oktoberfest-southlake",
+      "registration_url": null,
+      "ticket_url": null,
+      "source_name": "Mommy Poppins — DFW Fall Festivals",
+      "source_url": "https://mommypoppins.com/fall-festivals-dallas-fort-worth",
+      "source_type": "local_calendar",
+      "verification_note": "Verified 2026-10-03 from the source page's content as indexed by web search; re-confirm on the source before acting.",
+      "review_rating": null,
+      "review_count": null,
+      "review_source": null,
+      "review_url": null,
+      "status": "UPCOMING",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
+      "created_at": "2026-10-03T18:45:00Z",
+      "updated_at": "2026-10-05T03:14:14.130Z"
+    },
+    {
       "id": "133fdcd1cbf56d7f",
       "title": "Trunk or Treat",
       "description": "Join us for a fun-filled Trunk or Treat at The Learning Experience Plano on Saturday, October 17 from 10:00 AM to 12:00 PM. Families can enjoy decorated trunks, trick-or-treating, exciting games and activities, local vendors, raffles, giveaways, and plenty of candy. Children are encouraged to come dressed in their favorite costumes and bring a treat bag for all the goodies. Bubbles the Elephant will also make a special appearance for photos and Halloween fun with the kids. This event is open to the community, so bring your family, invite your friends, and come enjoy a festive morning of costu…",
@@ -2345,9 +2398,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T02:49:53.463Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T02:49:53.463Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "3f9c4cc2b7245d19",
@@ -2398,9 +2451,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:45:32.840Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "5bc74d1091f7fcc4",
@@ -2451,9 +2504,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "7dd7d26e99851231",
@@ -2504,9 +2557,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:45:32.840Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "c83523b5f4bf8c37",
@@ -2557,9 +2610,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:45:32.840Z",
-      "updated_at": "2026-10-05T03:07:14.472Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "da97ae7d00fc1722",
@@ -2663,9 +2716,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "0c3fd66f90642217",
@@ -2716,9 +2769,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:45:32.840Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "59f68831244756da",
@@ -2769,9 +2822,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "9a4f9fbb70fba97e",
@@ -2875,9 +2928,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T03:09:57.058Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "7feaa1d97a1b1d9c",
@@ -2955,11 +3008,7 @@
       "age_max": null,
       "age_label": null,
       "cost": null,
-      "activities": [
-        "Pumpkin Village after hours",
-        "Quiet zones",
-        "Hands-on fall activities"
-      ],
+      "activities": [],
       "is_toddler_relevant": true,
       "is_family_relevant": true,
       "is_church_hosted": false,
@@ -2979,15 +3028,15 @@
       "source_name": "Dallas Arboretum — Autumn",
       "source_url": "https://www.dallasarboretum.org/autumn-at-the-arboretum/",
       "source_type": "official_venue",
-      "verification_note": "Verified 2026-10-03 from the source page's content as indexed by web search; re-confirm on the source before acting.",
+      "verification_note": null,
       "review_rating": null,
       "review_count": null,
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "description": "Dallas Regional Chamber's annual women's business conference.",
@@ -3091,9 +3140,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "description": "Free neighborhood fall festival in East Dallas hosted by Eastminster Presbyterian Church.",
@@ -3203,9 +3252,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:45:32.840Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "7265932866bf0596",
@@ -3256,9 +3305,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "934f9a7faec533bb",
@@ -3309,9 +3358,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T03:07:14.472Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "a8f561518888171c",
@@ -3362,9 +3411,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T03:09:57.058Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "c8fcd42e92efdcff",
@@ -3415,9 +3464,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T03:09:57.058Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "description": null,
@@ -3523,9 +3572,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "description": null,
@@ -3629,9 +3678,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:45:32.840Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "4798640bbef6697b",
@@ -3735,9 +3784,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "description": null,
@@ -3841,9 +3890,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T02:49:53.463Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:45:32.840Z",
-      "updated_at": "2026-10-05T02:49:53.463Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "41e7374f9eda89b9",
@@ -3894,9 +3943,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:45:32.840Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "46eff284ac3f9108",
@@ -4000,9 +4049,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "81945f89500fb94b",
@@ -4044,7 +4093,7 @@
       "event_url": "https://www.dallasites101.com/event/chills-and-thrills%3a-boogies-%26-boos/17188/",
       "registration_url": null,
       "ticket_url": null,
-      "source_name": "Dallasites101 — Guides",
+      "source_name": "Dallasites101 — Events",
       "source_url": "https://www.dallasites101.com/calendar/",
       "source_type": "local_calendar",
       "verification_note": null,
@@ -4053,9 +4102,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:12:36.072Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T03:12:36.072Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "b593c17789245b4e",
@@ -4106,12 +4155,12 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T02:49:53.463Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T02:49:53.463Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
-      "description": "Janáček's opera in Barrie Kosky's production. Performances Oct 30, Nov 1, 4 and 7. Recurring: listed on 4 dates through 2026-11-07. Recurring: listed on 4 dates through 2026-11-07. Recurring: listed on 4 dates through 2026-11-07. Recurring: listed on 4 dates through 2026-11-07. Recurring: listed on 4 dates through 2026-11-07. Recurring: listed on 4 dates through 2026-11-07.",
+      "description": "Janáček's opera in Barrie Kosky's production. Performances Oct 30, Nov 1, 4 and 7. Recurring: listed on 4 dates through 2026-11-07. Recurring: listed on 4 dates through 2026-11-07. Recurring: listed on 4 dates through 2026-11-07. Recurring: listed on 4 dates through 2026-11-07. Recurring: listed on 4 dates through 2026-11-07. Recurring: listed on 4 dates through 2026-11-07. Recurring: listed on 4 dates through 2026-11-07.",
       "subcategory": "theater",
       "scope": "DALLAS",
       "national_interest": null,
@@ -4212,27 +4261,27 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T02:49:53.463Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T02:49:53.463Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "89bcd721f4d80c37",
-      "title": "52nd Annual Harambee Festival",
-      "description": "A cultural celebration like no other! Enjoy a custom car show, Watoto Village— candy and activity stations for all ages— a line dancing party, live music, a food truck park, vendor marketplace, community voting booth, pet costume contest, and so much more!",
+      "title": "52ND ANNUAL HARAMBEE FESTIVAL",
+      "description": "Harambee Festival Media Relations Email: elbminor@gmail.com Phone: 214-710-5407 Website: www.harambeedallas.org 52nd Annual Harambee Festival Brings Free, Family-Friendly Trick-or-Treat Alternative and Cultural Celebration to Dallas-Fort Worth Theme: “Harambee! One People One Purpose” DALLAS, TX — The Dallas-Fort Worth community is invited to gather for a day of unity, culture, and autumn fun at the 52nd Annual Harambee Festival. Taking place on Saturday, October 31, 2026, from 10:00 AM to 4:00 PM at the Dr. Martin Luther King Jr. Recreation Center in Dallas, this historic event offers a free…",
       "category": "DALLAS_EVENT",
-      "subcategory": "halloween",
+      "subcategory": "storytime",
       "scope": "DALLAS",
       "national_interest": null,
       "event_date": "2026-10-31",
       "end_date": null,
       "open_daily": false,
       "closed_dates": [],
-      "start_time": null,
-      "end_time": "11:00",
+      "start_time": "10:00",
+      "end_time": "16:00",
       "timezone": "America/Chicago",
-      "venue": "Martin Luther King Jr Community Center",
-      "address": "2922 Martin Luther King Jr Blvd, Dallas, TX 75215",
+      "venue": "MLK Jr Recreation Center",
+      "address": "2901 Pennsylvania Ave., Dallas, TX 75215",
       "city": "Dallas",
       "state": "TX",
       "age_min": null,
@@ -4253,11 +4302,11 @@
       "lottery_close_at": null,
       "ticket_release_at": null,
       "action_note": null,
-      "event_url": "https://mommypoppins.com/dallas-fort-worth-kids/event/events/52nd-annual-harambee-festival",
+      "event_url": "https://dallasmoms.com/event/52nd-annual-harambee-festival/",
       "registration_url": null,
       "ticket_url": null,
-      "source_name": "Mommy Poppins — DFW Fall Festivals",
-      "source_url": "https://mommypoppins.com/fall-festivals-dallas-fort-worth",
+      "source_name": "Dallas Moms — Monthly Guide",
+      "source_url": "https://dallasmoms.com/dallas-moms-need-to-know-a-guide-to-the-month-of-november/",
       "source_type": "local_calendar",
       "verification_note": null,
       "review_rating": null,
@@ -4265,9 +4314,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "74f8eb5b98d24187",
@@ -4318,9 +4367,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T02:49:53.463Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T02:49:53.463Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "82441a9e1dd5f6c9",
@@ -4371,9 +4420,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T02:49:53.463Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T02:49:53.463Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "d6cc5b45274ac80c",
@@ -4424,9 +4473,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:45:32.840Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "description": "Annual Greek food and culture festival at Holy Trinity Greek Orthodox Church. Hours: Fri & Sat 11am–10pm, Sun 11am–5pm.",
@@ -4534,9 +4583,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T02:49:53.463Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:40:58.187Z",
-      "updated_at": "2026-10-05T02:49:53.463Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "764189bdd5a0eda6",
@@ -4587,9 +4636,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "7c98c1ce0998db94",
@@ -4640,9 +4689,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "description": "Two million lights, lanterns, visits with Santa, igloos, a holiday maze and a Christmas tree farm. Open select nights 5:30–9pm through Jan 3.",
@@ -4751,9 +4800,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "description": "Miniature trains on 1,600 feet of track through Dallas and American cityscapes, benefiting Ronald McDonald House of Dallas. Runs through Jan 3, 2027. Mon–Sat 9am–8pm, Sun noon–6pm; closed Thanksgiving and Christmas Day; Christmas Eve 10am–4pm.",
@@ -4913,9 +4962,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "description": null,
@@ -5077,6 +5126,59 @@
       "source_type": "official_venue"
     },
     {
+      "description": "Ben Stevenson's Nutcracker at the Winspear (run Nov 27 – Dec 6). Performances this day: 8pm. Recurring: listed on 7 dates through 2026-12-06.",
+      "subcategory": "theater",
+      "scope": "DALLAS",
+      "national_interest": null,
+      "event_date": "2026-11-27",
+      "end_date": null,
+      "open_daily": false,
+      "closed_dates": [],
+      "start_time": "20:00",
+      "end_time": null,
+      "timezone": "America/Chicago",
+      "venue": "Winspear Opera House",
+      "address": null,
+      "city": "Dallas",
+      "state": "TX",
+      "age_min": null,
+      "age_max": null,
+      "age_label": null,
+      "cost": null,
+      "activities": [],
+      "is_toddler_relevant": false,
+      "is_family_relevant": true,
+      "is_church_hosted": false,
+      "is_public_event": true,
+      "is_seasonal": true,
+      "signup_required": false,
+      "signup_type": null,
+      "signup_open_at": null,
+      "signup_close_at": null,
+      "lottery_open_at": null,
+      "lottery_close_at": null,
+      "ticket_release_at": null,
+      "action_note": null,
+      "event_url": "https://attpac.org/event/texas-ballet-theater-nutcracker-2026",
+      "registration_url": null,
+      "ticket_url": "https://attpac.org/event/texas-ballet-theater-nutcracker-2026",
+      "verification_note": "Verified 2026-10-03 from the source page's content as indexed by web search; re-confirm on the source before acting.",
+      "review_rating": null,
+      "review_count": null,
+      "review_source": null,
+      "review_url": null,
+      "status": "UPCOMING",
+      "last_verified_at": "2026-10-03T18:45:00Z",
+      "created_at": "2026-10-03T18:45:00Z",
+      "updated_at": "2026-10-03T18:45:00Z",
+      "id": "tbt-nutcracker-2026-11-27",
+      "title": "Texas Ballet Theater: The Nutcracker",
+      "category": "DALLAS_EVENT",
+      "source_name": "AT&T Performing Arts Center",
+      "source_url": "https://attpac.org/event/texas-ballet-theater-nutcracker-2026",
+      "source_type": "official_venue"
+    },
+    {
       "description": null,
       "subcategory": "sports",
       "scope": "DALLAS",
@@ -5178,9 +5280,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T02:49:53.463Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T02:49:53.463Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "17b4a808ddd6f738",
@@ -5231,9 +5333,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "description": "Frisco's downtown holiday festival.",
@@ -5337,9 +5439,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T02:49:53.463Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T02:49:53.463Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "0b5d53f00145237b",
@@ -5390,9 +5492,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "17356bff93dc6bdb",
@@ -5443,12 +5545,12 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:09:57.058Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:09:57.058Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
-      "description": "Dallas Symphony Orchestra's holiday concert (run Dec 12–20). Recurring: listed on 4 dates through 2026-12-20. Recurring: listed on 4 dates through 2026-12-20. Recurring: listed on 4 dates through 2026-12-20. Recurring: listed on 4 dates through 2026-12-20. Recurring: listed on 4 dates through 2026-12-20. Recurring: listed on 4 dates through 2026-12-20.",
+      "description": "Dallas Symphony Orchestra's holiday concert (run Dec 12–20). Recurring: listed on 4 dates through 2026-12-20. Recurring: listed on 4 dates through 2026-12-20. Recurring: listed on 4 dates through 2026-12-20. Recurring: listed on 4 dates through 2026-12-20. Recurring: listed on 4 dates through 2026-12-20. Recurring: listed on 4 dates through 2026-12-20. Recurring: listed on 4 dates through 2026-12-20.",
       "subcategory": "music",
       "scope": "DALLAS",
       "national_interest": null,
@@ -5540,7 +5642,7 @@
       "event_url": "https://www.dallasites101.com/event/naughty-or-nice-forth-worth-stockyards-2026-crawl/17418/",
       "registration_url": null,
       "ticket_url": null,
-      "source_name": "Dallasites101 — Guides",
+      "source_name": "Dallasites101 — Events",
       "source_url": "https://www.dallasites101.com/calendar/",
       "source_type": "local_calendar",
       "verification_note": null,
@@ -5549,9 +5651,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T03:12:36.072Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T03:12:36.072Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "description": null,
@@ -5708,9 +5810,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T02:49:53.463Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T02:49:53.463Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "2080cadc5be28c8e",
@@ -5761,9 +5863,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T02:49:53.463Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:49:53.463Z",
-      "updated_at": "2026-10-05T02:49:53.463Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "b7b960fab06ae2df",
@@ -5814,9 +5916,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T02:49:53.463Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T02:49:53.463Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "09b96135d709ca0e",
@@ -5867,9 +5969,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T02:49:53.463Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T02:49:53.463Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "37731c41ae5f7d4f",
@@ -5920,9 +6022,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T02:49:53.463Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T02:49:53.463Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "3ded6d6b09819add",
@@ -5973,9 +6075,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T02:49:53.463Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T02:49:53.463Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "id": "a77a1a8b5674f28c",
@@ -6026,9 +6128,9 @@
       "review_source": null,
       "review_url": null,
       "status": "UPCOMING",
-      "last_verified_at": "2026-10-05T02:49:53.463Z",
+      "last_verified_at": "2026-10-05T03:14:14.130Z",
       "created_at": "2026-10-05T02:35:07.369Z",
-      "updated_at": "2026-10-05T02:49:53.463Z"
+      "updated_at": "2026-10-05T03:14:14.130Z"
     },
     {
       "description": null,
