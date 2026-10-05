@@ -5,6 +5,7 @@ import type { HttpClient } from "../http";
 import type { FeederKind, Source } from "../sources";
 import { classifyStructured, type StructuredInput } from "./classify";
 import { parseICal } from "./ical";
+import { eventLikePosts, fetchInstagramPosts, postText, type InstagramCredentials } from "./instagram";
 import { parseJsonLdEvents } from "./jsonld";
 import { parseTribePage, tribeEndpoint, type TribePage } from "./tribe";
 
@@ -39,6 +40,8 @@ export interface FeederContext {
   http: HttpClient;
   extract: Extractor | null;
   today: string;
+  /** Instagram Graph API credentials; Instagram feeders are skipped without them. */
+  instagram?: InstagramCredentials | null;
   /** Previously stored conditional-GET validators and content hash for the source page. */
   prior?: { etag: string | null; lastModified: string | null; contentHash: string | null; fresh: boolean };
 }
@@ -69,6 +72,29 @@ export async function runFeeder(source: Source, ctx: FeederContext): Promise<Fee
     }
     if (items.length && !result.feedersUsed.includes(kind)) result.feedersUsed.push(kind);
   };
+
+  if (feeder === "instagram") {
+    if (!ctx.instagram || !source.instagram_username) {
+      result.notes.push("instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)");
+      return result;
+    }
+    if (!ctx.extract) {
+      result.notes.push("needs AI extraction (ANTHROPIC_API_KEY not set)");
+      return result;
+    }
+    const posts = await fetchInstagramPosts(ctx.http, ctx.instagram, source.instagram_username);
+    result.pagesFetched++;
+    const fresh = eventLikePosts(posts, ctx.today);
+    const hash = sha1(fresh.map((p) => p.permalink).join("|"));
+    result.contentHash = hash;
+    if (ctx.prior?.fresh && ctx.prior.contentHash === hash) {
+      result.unchanged = true;
+      return result;
+    }
+    for (const post of fresh) await extractWithAi(source, postText(post), post.permalink, ctx, result);
+    if (result.feedersUsed.includes("html_ai")) result.feedersUsed = ["instagram"];
+    return result;
+  }
 
   // Explicit structured feeds need no page fetch.
   if (feeder === "ical") {

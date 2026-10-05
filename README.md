@@ -24,8 +24,9 @@ Without any environment variables the app serves the bundled seed dataset (`src/
 
 | Spec | Where |
 | --- | --- |
-| Month / Week / List / Don't Miss views (§13, §16, §17) | `src/components/views.tsx`, `CalendarApp.tsx` |
+| Month / Week / List / Don't Miss views (§13, §16, §17). Weeks run Sunday to Saturday. Each day lists its best events first, and the top pick gets a ★. | `src/components/views.tsx`, `CalendarApp.tsx` |
 | Click an event to open a detail panel; the calendar stays visible (§14, §15) | `src/components/DetailPanel.tsx` (side panel on desktop, bottom sheet on phones) |
+| Multi-week runs: shown as "First day: …" with the end date in the details. If the source confirms the run is open daily (`open_daily`, minus `closed_dates`), it also appears as "ongoing" on each later day. |  `buildCalendarItems` in `src/lib/calendar.ts` |
 | Reverse calendar: event date and action date tracked separately (§10, §11) | `buildCalendarItems` in `src/lib/calendar.ts` |
 | No guessing: unknown values are `null` and shown as "Date not yet announced" (§12) | `src/lib/validation.ts`, evidence check in `src/lib/pipeline/extract.ts` |
 | Church event filter: festivals in, Bible studies out (§5–7, §21) | `src/lib/relevance.ts` |
@@ -67,7 +68,14 @@ SOURCES (~50 feeders: churches, venues, cities, performing arts, aggregators, na
 - **Volume control.** `curateByWeek` keeps the calendar near the spec's 5–20 good events per week by internal score. Well-reviewed venues rank higher when review data is available.
 - **Observability.** Each run reports the sources that failed, were unchanged, or came back empty (often a site redesign), the feeders used, rejections with reasons, events cut for volume, and stale events (not re-verified in 14 days).
 
-**Running it:**
+**Rolling coverage.** Monthly guides (Dallas Moms, Eventbrite's month pages) use `{monthName}` URL templates that are read for this month and the next. Each run reports `empty_days`: days in the next 30 with nothing specific scheduled, so gaps show up before the month arrives.
+
+**Event guides and Instagram.** Running guides (Dallasites101, Resident, The Scout Guide, Visit Dallas, CultureMap, Do214, Mommy Poppins, Plano Moms, DFWChild) are read as lower-trust discovery sources. When the same event also appears on its official page, the official version wins.
+- Instagram accounts (@dallasites101, @dallasmoms, @dfwchild, @visitdallas, @klydewarrenpark, @dallasarboretum, @dallaszoo, @perotmuseum, @do214) are read through Instagram's official Graph API (Business Discovery). Scraping instagram.com is against Instagram's terms and blocked for bots.
+- The API needs `IG_USER_ID` and `IG_ACCESS_TOKEN` from an Instagram Business or Creator account.
+- Only recent posts that mention a date are sent to Claude. Every extracted date must quote the caption.
+
+
 
 - **Vercel Cron:** `vercel.json` calls `GET /api/cron/refresh` daily at 11:00 UTC. The route needs `Authorization: Bearer $CRON_SECRET`.
 - **GitHub Actions:** `.github/workflows/refresh.yml` runs daily and can be triggered by hand. It needs repo secrets and skips the run if they're missing.

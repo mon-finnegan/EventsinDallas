@@ -1,6 +1,6 @@
 import type { SourceType } from "../types";
 
-export type FeederKind = "auto" | "ical" | "jsonld" | "tribe" | "html_ai";
+export type FeederKind = "auto" | "ical" | "jsonld" | "tribe" | "html_ai" | "instagram";
 
 export type SourceGroup =
   | "church"
@@ -9,6 +9,9 @@ export type SourceGroup =
   | "performing_arts"
   | "seasonal"
   | "aggregator"
+  | "networking"
+  | "sports"
+  | "social"
   | "national";
 
 export interface Source {
@@ -29,6 +32,13 @@ export interface Source {
   default_city?: string;
   /** Event detail pages to follow from a listing page (AI path). */
   max_detail_pages?: number;
+  /**
+   * For month-specific guides: the URL contains {monthName} / {year}, and the source is read
+   * for this many months starting with the current one (rolling coverage).
+   */
+  rolling_months?: number;
+  /** For `instagram` feeders: the public Business/Creator account to read. */
+  instagram_username?: string;
 }
 
 type Def = Omit<Source, "is_church" | "is_national"> & Partial<Pick<Source, "is_church" | "is_national">>;
@@ -96,9 +106,53 @@ export const SOURCES: Source[] = [
   def({ id: "dfwchild-calendar", name: "DFWChild — Calendar", url: "https://dfwchild.com/calendar/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0 }),
   def({ id: "dfwchild-trunk", name: "DFWChild — Trunk-or-Treat Guide", url: "https://dfwchild.com/trunk-or-treat-dfw/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0 }),
   def({ id: "kids-out-about", name: "Kids Out and About — Dallas", url: "https://dallas.kidsoutandabout.com/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0 }),
-  def({ id: "dallas-moms", name: "Dallas Moms — Monthly Guide", url: "https://dallasmoms.com/dallas-moms-need-to-know-a-guide-to-the-month-of-october/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0 }),
+  def({ id: "dallas-moms", name: "Dallas Moms — Monthly Guide", url: "https://dallasmoms.com/dallas-moms-need-to-know-a-guide-to-the-month-of-{monthName}/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0, rolling_months: 2 }),
   def({ id: "live-love-local", name: "Live Love Local — Dallas Fall Events", url: "https://livelovelocalblog.com/the-ultimate-guide-to-dallas-fall-events-2026/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0 }),
   def({ id: "visit-dallas-dia", name: "Visit Dallas — Día de los Muertos", url: "https://www.visitdallas.com/blog/dia-de-los-muertos-dallas/", source_type: "official_municipal", group: "aggregator", default_city: "Dallas", max_detail_pages: 0 }),
+
+  // ── Running event guides & local media (discovery; official sources win on dedupe) ──
+  def({ id: "dallasites101-events", name: "Dallasites101 — Events", url: "https://www.dallasites101.com/events/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 8 }),
+  def({ id: "dallasites101-blog", name: "Dallasites101 — Guides", url: "https://www.dallasites101.com/blog/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 6 }),
+  def({ id: "dallasites101-holiday", name: "Dallasites101 — Holiday Events Around DFW", url: "https://www.dallasites101.com/blog/post/35-holiday-events-around-dfw/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0 }),
+  def({ id: "dallasites101-hanukkah", name: "Dallasites101 — Hanukkah Events", url: "https://www.dallasites101.com/blog/post/hanukkah-events-dallas/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0 }),
+  def({ id: "resident-dallas", name: "Resident — DFW Events This Month", url: "https://resident.com/dallas/2026/10/02/20-dallas-fort-worth-events-worth-planning-around-in-october-2026", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0 }),
+  def({ id: "scout-guide-dallas", name: "The Scout Guide Dallas — This Month", url: "https://thescoutguide.com/dallas/editorial/the-best-things-to-do-in-dallas-this-october-2026/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0 }),
+  def({ id: "visit-dallas-month", name: "Visit Dallas — This Month", url: "https://www.visitdallas.com/blog/what-to-do-october/", source_type: "official_municipal", group: "aggregator", default_city: "Dallas", max_detail_pages: 0 }),
+  def({ id: "visit-dallas-winter", name: "Visit Dallas — Winter Events", url: "https://www.visitdallas.com/events/seasonal-events/winter/", source_type: "official_municipal", group: "aggregator", default_city: "Dallas", max_detail_pages: 0 }),
+  def({ id: "culturemap-dallas", name: "CultureMap Dallas — Events", url: "https://dallas.culturemap.com/events/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0 }),
+  def({ id: "do214", name: "Do214", url: "https://do214.com/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0 }),
+  def({ id: "mommypoppins-fall", name: "Mommy Poppins — DFW Fall Festivals", url: "https://mommypoppins.com/fall-festivals-dallas-fort-worth", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0 }),
+  def({ id: "planomoms-winter", name: "Plano Moms — Winter Things To Do", url: "https://planomoms.com/winter-things-to-do-dfw/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0 }),
+  def({ id: "dfwchild-annual", name: "DFWChild — Annual Family Events by Month", url: "https://dfwchild.com/dallas-annual-family-events-month-by-month/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0 }),
+  def({ id: "dfwchild-nye", name: "DFWChild — New Year's Eve for Kids", url: "https://dfwchild.com/new-years-eve-for-the-kiddos/", source_type: "local_calendar", group: "aggregator", max_detail_pages: 0 }),
+  def({ id: "eventbrite-dallas-month", name: "Eventbrite — Dallas this month", url: "https://www.eventbrite.com/d/tx--dallas/{monthName}/", source_type: "official_ticketing", group: "aggregator", max_detail_pages: 0, rolling_months: 2 }),
+
+  // ── Networking & business ───────────────────────────────────────────────────
+  def({ id: "dallas-chamber", name: "Dallas Regional Chamber — Events", url: "https://www.dallaschamber.org/events/", source_type: "official_organization", group: "networking", default_city: "Dallas" }),
+  def({ id: "dallas-innovates", name: "Dallas Innovates — Calendar", url: "https://dallasinnovates.com/calendar/", source_type: "local_calendar", group: "networking", max_detail_pages: 4 }),
+  def({ id: "venture-dallas", name: "Venture Dallas", url: "https://www.venturedallas.org/", source_type: "official_event", group: "networking", default_city: "Dallas" }),
+  def({ id: "small-business-expo", name: "Small Business Expo — Dallas", url: "https://www.thesmallbusinessexpo.com/city/dallas/", source_type: "official_event", group: "networking", default_city: "Dallas" }),
+  def({ id: "eventbrite-networking", name: "Eventbrite — Dallas networking", url: "https://www.eventbrite.com/d/tx--dallas/networking/", source_type: "official_ticketing", group: "networking", max_detail_pages: 0 }),
+
+  // ── Pro & college sports (home games) ───────────────────────────────────────
+  def({ id: "cowboys-schedule", name: "Dallas Cowboys — Schedule", url: "https://www.dallascowboys.com/news/nfl-announces-cowboys-2026-complete-17-game-schedule", source_type: "official_event", group: "sports", default_city: "Arlington" }),
+  def({ id: "mavs-schedule", name: "Dallas Mavericks — Schedule", url: "https://www.nbcdfw.com/news/sports/dallas-mavericks/dallas-mavericks-release-full-schedule-for-2026-27-season/4062299/", source_type: "local_calendar", group: "sports", default_city: "Dallas" }),
+  def({ id: "stars-schedule", name: "Dallas Stars — Schedule", url: "https://www.nhl.com/stars/news/dallas-stars-announce-2026-27-regular-season-schedule-071626", source_type: "official_event", group: "sports", default_city: "Dallas" }),
+  def({ id: "dallas-sports-commission", name: "Dallas Sports Commission — Events", url: "https://www.dallassports.org/events/", source_type: "official_organization", group: "sports", default_city: "Dallas" }),
+
+  // ── Instagram (official Graph API Business Discovery; needs IG_USER_ID + IG_ACCESS_TOKEN) ──
+  ...["dallasites101", "dallasmoms", "dfwchild", "visitdallas", "klydewarrenpark", "dallasarboretum", "dallaszoo", "perotmuseum", "do214"].map((username) =>
+    def({
+      id: `ig-${username}`,
+      name: `Instagram @${username}`,
+      url: `https://www.instagram.com/${username}/`,
+      source_type: "local_calendar",
+      group: "social",
+      feeder: "instagram",
+      instagram_username: username,
+      max_detail_pages: 0,
+    }),
+  ),
 
   // ── National coveted experiences ────────────────────────────────────────────
   def({ id: "masters", name: "The Masters — Tickets", url: "https://www.masters.com/en_US/tournament/tickets.html", source_type: "official_event", group: "national" }),
@@ -114,4 +168,32 @@ export const SOURCES: Source[] = [
 
 export function sourceById(id: string): Source | undefined {
   return SOURCES.find((s) => s.id === id);
+}
+
+const MONTH_NAMES = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+
+/**
+ * Expand month-templated sources into one source per month of the rolling window, so monthly
+ * guides are always read for this month and the next ones without editing the registry.
+ */
+export function expandRollingSources(sources: Source[], today: string): Source[] {
+  const out: Source[] = [];
+  const [y, m] = today.split("-").map(Number);
+  for (const s of sources) {
+    if (!/\{monthName\}|\{year\}/.test(s.url)) {
+      out.push(s);
+      continue;
+    }
+    for (let i = 0; i < (s.rolling_months ?? 1); i++) {
+      const monthIndex = (m - 1 + i) % 12;
+      const year = y + Math.floor((m - 1 + i) / 12);
+      const name = MONTH_NAMES[monthIndex];
+      out.push({
+        ...s,
+        id: i === 0 ? s.id : `${s.id}+${i}`,
+        url: s.url.replaceAll("{monthName}", name).replaceAll("{year}", String(year)),
+      });
+    }
+  }
+  return out;
 }

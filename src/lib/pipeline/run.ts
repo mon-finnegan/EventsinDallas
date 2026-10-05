@@ -7,10 +7,13 @@ import type { EventRepository } from "../repository";
 import type { CalendarEvent, Category } from "../types";
 import { validateForPublish } from "../validation";
 import type { ExtractedEvent, Extractor } from "./extract";
+import type { InstagramCredentials } from "./feeders/instagram";
 import { runFeeder, type FeedCandidate, type FeedResult } from "./feeders";
 import { createHttpClient, mapWithConcurrency, type HttpClient } from "./http";
 import { enrichWithReviews, type ReviewLookup } from "./reviews";
-import type { FeederKind, Source } from "./sources";
+import { expandRollingSources, type FeederKind, type Source } from "./sources";
+import { buildCalendarItems, emptyDays } from "../calendar";
+import { addDays } from "../dates";
 import { emptyState, isDue, isFresh, MemoryStateStore, type SourceState, type SourceStateStore } from "./state";
 
 // Daily pipeline (spec §27):
@@ -47,6 +50,9 @@ export interface RunSummary {
   review_lookups: number;
   review_errors: string[];
   notes: { source: string; note: string }[];
+  /** Rolling coverage: days in the next `coverage_days` with nothing specific scheduled. */
+  coverage_days: number;
+  empty_days: string[];
 }
 
 export interface PipelineOptions {
@@ -56,6 +62,7 @@ export interface PipelineOptions {
   state?: SourceStateStore;
   http?: HttpClient;
   reviews?: ReviewLookup | null;
+  instagram?: InstagramCredentials | null;
   now?: Date;
   concurrency?: number;
   dryRun?: boolean;
@@ -64,6 +71,8 @@ export interface PipelineOptions {
   maxPerWeek?: number;
   /** Events not re-verified for this many days are reported as stale. */
   staleAfterDays?: number;
+  /** Rolling window checked for empty days (default 30). */
+  coverageDays?: number;
   log?: (msg: string) => void;
 }
 
@@ -88,6 +97,8 @@ export function toCalendarEvent(
   const event: CalendarEvent = {
     ...rest,
     id: "",
+    open_daily: false,
+    closed_dates: [],
     category: KIND_TO_CATEGORY[kind],
     scope: source.is_national ? "NATIONAL" : "DALLAS",
     national_interest: source.is_national ? x.national_interest : null,
@@ -150,11 +161,15 @@ export async function runPipeline(opts: PipelineOptions): Promise<RunSummary> {
     review_lookups: 0,
     review_errors: [],
     notes: [],
+    coverage_days: opts.coverageDays ?? 30,
+    empty_days: [],
   };
 
+  const sources = expandRollingSources(opts.sources, today);
+  summary.sources_total = sources.length;
   const states = await stateStore.getAll();
   const nextStates: SourceState[] = [];
-  const due = opts.sources.filter((s) => {
+  const due = sources.filter((s) => {
     const ok = opts.force || isDue(states.get(s.id), today);
     if (!ok) summary.sources_skipped_backoff.push(s.id);
     return ok;
@@ -170,6 +185,7 @@ export async function runPipeline(opts: PipelineOptions): Promise<RunSummary> {
       const result = await runFeeder(source, {
         http,
         extract: opts.extract,
+        instagram: opts.instagram ?? null,
         today,
         prior: { etag: prior.etag, lastModified: prior.last_modified, contentHash: prior.content_hash, fresh },
       });
@@ -284,13 +300,16 @@ export async function runPipeline(opts: PipelineOptions): Promise<RunSummary> {
     }
   }
 
+  const live = toWrite.filter((e) => !isExpired(e, today) && e.status !== "CANCELLED");
+  summary.empty_days = emptyDays(buildCalendarItems(live), today, addDays(today, summary.coverage_days - 1));
+
   summary.published = accepted.filter((e) => !cutNew.has(e.id)).length;
   summary.finished_at = new Date().toISOString();
   summary.duration_ms = Date.now() - t0;
 
   if (!opts.dryRun) {
     await opts.repo.upsert(toWrite);
-    await stateStore.putMany(nextStates, opts.sources);
+    await stateStore.putMany(nextStates, sources);
     await opts.repo.logRun?.(summary);
   }
   return summary;

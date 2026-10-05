@@ -13,6 +13,10 @@ export function productionOptions(overrides: Partial<PipelineOptions> & { source
     extract: process.env.ANTHROPIC_API_KEY ? createClaudeExtractor() : null,
     repo: getRepository({ write: true }),
     state: client ? new SupabaseStateStore(client) : new MemoryStateStore(),
+    instagram:
+      process.env.IG_USER_ID && process.env.IG_ACCESS_TOKEN
+        ? { userId: process.env.IG_USER_ID, accessToken: process.env.IG_ACCESS_TOKEN }
+        : null,
     reviews: process.env.GOOGLE_PLACES_API_KEY ? createGooglePlacesLookup(process.env.GOOGLE_PLACES_API_KEY) : null,
     ...overrides,
   };

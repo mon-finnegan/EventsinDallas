@@ -9,7 +9,8 @@ import { isDisallowed, parseRobots, retryDelay, createHttpClient } from "@/lib/p
 import { enrichWithReviews, namesMatch } from "@/lib/pipeline/reviews";
 import { backoffDays, isDue } from "@/lib/pipeline/state";
 import { SEED_EVENTS } from "@/data/seed";
-import { SOURCES } from "@/lib/pipeline/sources";
+import { expandRollingSources, SOURCES } from "@/lib/pipeline/sources";
+import { businessDiscoveryUrl, eventLikePosts, fetchInstagramPosts } from "@/lib/pipeline/feeders/instagram";
 import { churchSource, FakeHttp } from "./helpers";
 
 const TODAY = "2026-10-03";
@@ -269,11 +270,71 @@ describe("review enrichment", () => {
       calls++;
       return venue.includes("Arboretum") ? { rating: 4.8, review_count: 21000, source: "Google", url: null } : null;
     };
-    const events = SEED_EVENTS.filter((e) => e.venue?.includes("Arboretum"));
+    const events = SEED_EVENTS.filter((e) => e.venue === "Dallas Arboretum and Botanical Garden");
     const res = await enrichWithReviews(events, lookup);
     expect(calls).toBe(1);
     expect(res.events.every((e) => e.review_count === 21000)).toBe(true);
     expect(namesMatch("Dallas Arboretum and Botanical Garden", "Dallas Arboretum & Botanical Garden")).toBe(true);
     expect(namesMatch("First Baptist Dallas", "Starbucks")).toBe(false);
+  });
+});
+
+describe("rolling monthly sources", () => {
+  it("expands month-templated guides for the current and next month", () => {
+    const out = expandRollingSources(SOURCES.filter((s) => s.id === "eventbrite-dallas-month"), "2026-12-20");
+    expect(out.map((s) => [s.id, s.url])).toEqual([
+      ["eventbrite-dallas-month", "https://www.eventbrite.com/d/tx--dallas/december/"],
+      ["eventbrite-dallas-month+1", "https://www.eventbrite.com/d/tx--dallas/january/"],
+    ]);
+  });
+});
+
+describe("instagram feeder", () => {
+  const creds = { userId: "123", accessToken: "tok" };
+  const url = businessDiscoveryUrl(creds, "dallasites101");
+
+  it("reads public business posts and keeps recent ones with dates", async () => {
+    const http = new FakeHttp({
+      [url]: JSON.stringify({
+        business_discovery: {
+          media: {
+            data: [
+              { caption: "Fall fest Oct 24 at Klyde Warren! Free for families.", permalink: "https://instagram.com/p/a", timestamp: "2026-10-01T15:00:00+0000" },
+              { caption: "Our favorite tacos", permalink: "https://instagram.com/p/b", timestamp: "2026-10-02T15:00:00+0000" },
+              { caption: "Easter egg hunt April 4", permalink: "https://instagram.com/p/c", timestamp: "2026-04-01T15:00:00+0000" },
+            ],
+          },
+        },
+      }),
+    });
+    const posts = await fetchInstagramPosts(http, creds, "dallasites101");
+    expect(posts).toHaveLength(3);
+    expect(eventLikePosts(posts, "2026-10-05").map((p) => p.permalink)).toEqual(["https://instagram.com/p/a"]);
+  });
+
+  it("extracts events from posts with the post as the source link", async () => {
+    const http = new FakeHttp({
+      [url]: JSON.stringify({
+        business_discovery: { media: { data: [{ caption: "Pumpkin storytime Oct 17 at 10am", permalink: "https://instagram.com/p/x", timestamp: "2026-10-03T12:00:00+0000" }] } },
+      }),
+    });
+    const source = SOURCES.find((s) => s.id === "ig-dallasites101")!;
+    const res = await runFeeder(source, {
+      http,
+      instagram: creds,
+      today: "2026-10-05",
+      extract: async ({ text }) => {
+        expect(text).toContain("Pumpkin storytime Oct 17");
+        return [];
+      },
+    });
+    expect(res.pagesFetched).toBe(1);
+    expect(res.notes).toEqual([]);
+  });
+
+  it("skips quietly when not configured", async () => {
+    const source = SOURCES.find((s) => s.id === "ig-dallasites101")!;
+    const res = await runFeeder(source, { http: new FakeHttp({}), extract: null, today: "2026-10-05" });
+    expect(res.notes[0]).toContain("instagram not configured");
   });
 });

@@ -30,6 +30,8 @@ function fromRow(row: Record<string, unknown>): CalendarEvent {
     start_time: t(row.start_time),
     end_time: t(row.end_time),
     activities: (row.activities as string[] | null) ?? [],
+    open_daily: Boolean(row.open_daily),
+    closed_dates: (row.closed_dates as string[] | null) ?? [],
   };
 }
 

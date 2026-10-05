@@ -1,10 +1,11 @@
 "use client";
 
+import { compareBestFirst, topPick } from "@/lib/calendar";
 import { addDays, formatLongDate, formatShortDate, formatTime, monthGrid, monthKey } from "@/lib/dates";
 import type { CalendarEvent, CalendarItem } from "@/lib/types";
 import { COLOR_CLASSES, Dot, UnknownBadge, churchTag, nationalTag } from "./ui";
 
-const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 type OnSelect = (item: CalendarItem) => void;
 
@@ -18,7 +19,40 @@ function groupByDate(items: CalendarItem[]): Map<string, CalendarItem[]> {
   return map;
 }
 
-function ItemPill({ item, onSelect, selected }: { item: CalendarItem; onSelect: OnSelect; selected: boolean }) {
+function TopPickStar() {
+  return (
+    <span aria-label="Top pick" title="Top pick for this day" className="shrink-0 text-amber-500">
+      ★
+    </span>
+  );
+}
+
+function ItemPill({
+  item,
+  onSelect,
+  selected,
+  pick = false,
+}: {
+  item: CalendarItem;
+  onSelect: OnSelect;
+  selected: boolean;
+  pick?: boolean;
+}) {
+  if (item.isOngoing) {
+    return (
+      <button
+        onClick={(ev) => {
+          ev.stopPropagation();
+          onSelect(item);
+        }}
+        title={`Ongoing: ${item.event.title}`}
+        className="flex w-full items-center gap-1 truncate rounded border border-dashed border-zinc-300 px-1.5 py-0.5 text-left text-[11px] leading-tight text-zinc-600 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-400 dark:hover:bg-zinc-900"
+      >
+        <span aria-hidden className={`h-1.5 w-1.5 shrink-0 rounded-full ${COLOR_CLASSES[item.color].dot}`} />
+        <span className="truncate">{item.event.title}</span>
+      </button>
+    );
+  }
   return (
     <button
       onClick={(ev) => {
@@ -28,6 +62,7 @@ function ItemPill({ item, onSelect, selected }: { item: CalendarItem; onSelect: 
       title={item.label}
       className={`flex w-full items-center gap-1 truncate rounded border px-1.5 py-0.5 text-left text-[11px] leading-tight ${COLOR_CLASSES[item.color].pill} ${selected ? `ring-2 ${COLOR_CLASSES[item.color].ring}` : ""}`}
     >
+      {pick && <TopPickStar />}
       <span className="truncate">{item.action ? item.event.title : item.label}</span>
     </button>
   );
@@ -66,7 +101,11 @@ export function MonthView({
       <div className="grid grid-cols-7">
         {weeks.flat().map((date) => {
           const inMonth = monthKey(date) === month;
-          const dayItems = byDate.get(date) ?? [];
+          const all = [...(byDate.get(date) ?? [])].sort(compareBestFirst);
+          const specific = all.filter((it) => !it.isOngoing);
+          // Ongoing runs fill a cell only when nothing specific is scheduled that day.
+          const dayItems = specific.length ? specific : all;
+          const pick = topPick(all);
           const isToday = date === today;
           const isPast = date < today;
           return (
@@ -94,10 +133,18 @@ export function MonthView({
               </div>
               <div className="mt-1 hidden space-y-1 sm:block">
                 {dayItems.slice(0, MAX_PILLS).map((it) => (
-                  <ItemPill key={it.key} item={it} onSelect={onSelect} selected={it.key === selectedKey} />
+                  <ItemPill
+                    key={it.key}
+                    item={it}
+                    onSelect={onSelect}
+                    selected={it.key === selectedKey}
+                    pick={pick?.key === it.key}
+                  />
                 ))}
-                {dayItems.length > MAX_PILLS && (
-                  <div className="px-1 text-[11px] font-medium text-zinc-500">+{dayItems.length - MAX_PILLS} more</div>
+                {all.length > Math.min(dayItems.length, MAX_PILLS) && (
+                  <div className="px-1 text-[11px] font-medium text-zinc-500">
+                    +{all.length - Math.min(dayItems.length, MAX_PILLS)} more
+                  </div>
                 )}
               </div>
             </div>
@@ -128,7 +175,10 @@ export function WeekView({
   return (
     <div className="grid gap-2 md:grid-cols-7">
       {days.map((date, i) => {
-        const dayItems = byDate.get(date) ?? [];
+        const all = byDate.get(date) ?? [];
+        const dayItems = all.filter((it) => !it.isOngoing);
+        const ongoing = all.filter((it) => it.isOngoing);
+        const pick = topPick(all);
         return (
           <section
             key={date}
@@ -138,22 +188,45 @@ export function WeekView({
               {WEEKDAYS[i]} <span className="text-zinc-900 dark:text-zinc-100">{formatShortDate(date)}</span>
             </h3>
             <div className="space-y-1.5">
-              {dayItems.length === 0 && <p className="text-xs text-zinc-400">—</p>}
+              {all.length === 0 && <p className="text-xs text-zinc-400">—</p>}
               {dayItems.map((it) => (
                 <button
                   key={it.key}
                   onClick={() => onSelect(it)}
                   className={`block w-full rounded-lg border p-2 text-left text-xs ${COLOR_CLASSES[it.color].pill} ${it.key === selectedKey ? `ring-2 ${COLOR_CLASSES[it.color].ring}` : ""}`}
                 >
-                  <div className="font-semibold">{it.time ? formatTime(it.time) : it.action ? "Time TBA" : "All day"}</div>
+                  <div className="flex items-center gap-1 font-semibold">
+                    {pick?.key === it.key && <TopPickStar />}
+                    {it.time ? formatTime(it.time) : it.action ? "Time TBA" : "Time not listed"}
+                  </div>
                   <div className="mt-0.5 leading-snug">{it.label}</div>
                   {it.event.venue && !it.action && <div className="mt-0.5 truncate opacity-75">{it.event.venue}</div>}
                 </button>
               ))}
+              {ongoing.length > 0 && <AlsoRunning items={ongoing} onSelect={onSelect} />}
             </div>
           </section>
         );
       })}
+    </div>
+  );
+}
+
+/** Compact list of confirmed daily runs, under the day's specific events. */
+function AlsoRunning({ items, onSelect }: { items: CalendarItem[]; onSelect: OnSelect }) {
+  return (
+    <div className="pt-1">
+      <div className="text-[10px] font-bold uppercase tracking-wide text-zinc-400">Also running</div>
+      <ul className="mt-0.5 space-y-0.5">
+        {items.map((it) => (
+          <li key={it.key}>
+            <button onClick={() => onSelect(it)} className="flex items-center gap-1.5 text-left text-xs text-zinc-600 hover:underline dark:text-zinc-400">
+              <span aria-hidden className={`h-1.5 w-1.5 shrink-0 rounded-full ${COLOR_CLASSES[it.color].dot}`} />
+              {it.event.title}
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -176,11 +249,16 @@ export function ListView({
   if (upcoming.length === 0) return <Empty>No upcoming events match your filters.</Empty>;
   return (
     <div className="space-y-5">
-      {[...byDate.entries()].map(([date, dayItems]) => (
+      {[...byDate.entries()].map(([date, all]) => {
+        const dayItems = all.filter((it) => !it.isOngoing);
+        const ongoing = all.filter((it) => it.isOngoing);
+        const pick = topPick(all);
+        return (
         <section key={date}>
           <h3 className="sticky top-0 z-10 bg-white/90 py-1 text-xs font-bold uppercase tracking-wide text-zinc-500 backdrop-blur dark:bg-zinc-950/90">
             {date === today ? "Today" : formatLongDate(date)}
           </h3>
+          {dayItems.length > 0 && (
           <ul className="mt-1 divide-y divide-zinc-100 rounded-xl border border-zinc-200 dark:divide-zinc-800 dark:border-zinc-800">
             {dayItems.map((it) => (
               <li key={it.key}>
@@ -190,7 +268,10 @@ export function ListView({
                 >
                   <Dot color={it.color} className="mt-1.5" />
                   <div className="min-w-0 flex-1">
-                    <div className="font-medium leading-snug">{it.label}</div>
+                    <div className="flex items-start gap-1 font-medium leading-snug">
+                      {pick?.key === it.key && <TopPickStar />}
+                      {it.label}
+                    </div>
                     <div className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-zinc-500">
                       <span>{it.time ? formatTime(it.time) : it.action ? "Time TBA" : "Time not listed"}</span>
                       {it.event.venue && <span>· {it.event.venue}</span>}
@@ -203,8 +284,15 @@ export function ListView({
               </li>
             ))}
           </ul>
+          )}
+          {ongoing.length > 0 && (
+            <div className="mt-2 px-1">
+              <AlsoRunning items={ongoing} onSelect={onSelect} />
+            </div>
+          )}
         </section>
-      ))}
+        );
+      })}
     </div>
   );
 }

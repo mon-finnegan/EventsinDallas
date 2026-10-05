@@ -1,4 +1,5 @@
 import { addDays, daysBetween, splitActionAt } from "./dates";
+import { assessRelevance } from "./relevance";
 import type { ActionKind, CalendarEvent, CalendarItem, ItemColor, SignupType } from "./types";
 
 /** Runs longer than this are shown only on their opening day (spec §25). */
@@ -72,25 +73,34 @@ export function buildCalendarItems(events: CalendarEvent[]): CalendarItem[] {
 
   for (const event of events) {
     if (event.status === "CANCELLED") continue;
+    const score = assessRelevance(event).score;
 
     if (event.event_date && event.category !== "SIGNUP_ALERT") {
       const color = eventColor(event);
       const end = event.end_date ?? event.event_date;
       const span = daysBetween(event.event_date, end) + 1;
+      const longRun = span > MAX_DAILY_SPAN_DAYS;
+      const closed = new Set(event.closed_dates);
+      // Short events appear every day. Long runs appear on their first day, and — only when the
+      // source confirms they are open daily — as quiet "ongoing" entries on the following days.
       const days =
-        span <= MAX_DAILY_SPAN_DAYS
+        !longRun || event.open_daily
           ? Array.from({ length: span }, (_, i) => addDays(event.event_date!, i))
           : [event.event_date];
       for (const date of days) {
+        if (closed.has(date)) continue;
+        const first = date === event.event_date;
         items.push({
           key: `${event.id}:event:${date}`,
           date,
-          time: date === event.event_date ? event.start_time : null,
+          time: first ? event.start_time : null,
           color,
-          label: span > MAX_DAILY_SPAN_DAYS ? `${event.title} (opens)` : event.title,
+          label: longRun && first ? `First day: ${event.title}` : event.title,
           event,
           action: null,
-          isOpeningDay: span > MAX_DAILY_SPAN_DAYS,
+          isOpeningDay: longRun && first,
+          isOngoing: longRun && !first,
+          score,
         });
       }
     }
@@ -106,6 +116,8 @@ export function buildCalendarItems(events: CalendarEvent[]): CalendarItem[] {
         event,
         action: kind,
         isOpeningDay: false,
+        isOngoing: false,
+        score,
       });
     }
   }
@@ -113,10 +125,37 @@ export function buildCalendarItems(events: CalendarEvent[]): CalendarItem[] {
   return items.sort(compareItems);
 }
 
+/**
+ * Best-first ordering for a single day: actions, then specific events by score, then ongoing
+ * runs. Used where space is tight (month cells).
+ */
+export function compareBestFirst(a: CalendarItem, b: CalendarItem): number {
+  if ((a.color === "red") !== (b.color === "red")) return a.color === "red" ? -1 : 1;
+  if (a.isOngoing !== b.isOngoing) return a.isOngoing ? 1 : -1;
+  if (a.score !== b.score) return b.score - a.score;
+  return compareItems(a, b);
+}
+
+/** The single best non-action, non-ongoing item for a day ("Top pick"). */
+export function topPick(dayItems: CalendarItem[]): CalendarItem | null {
+  const candidates = dayItems.filter((i) => i.color !== "red" && !i.isOngoing);
+  if (candidates.length < 2) return null;
+  return [...candidates].sort(compareBestFirst)[0];
+}
+
+/** Days in [from, to] with no specific (non-ongoing) item — the rolling coverage check. */
+export function emptyDays(items: CalendarItem[], from: string, to: string): string[] {
+  const have = new Set(items.filter((i) => !i.isOngoing).map((i) => i.date));
+  const out: string[] = [];
+  for (let d = from; d <= to; d = addDays(d, 1)) if (!have.has(d)) out.push(d);
+  return out;
+}
+
 export function compareItems(a: CalendarItem, b: CalendarItem): number {
   if (a.date !== b.date) return a.date < b.date ? -1 : 1;
   // Red (action) items first within a day, then by time (unknown times last).
   if ((a.color === "red") !== (b.color === "red")) return a.color === "red" ? -1 : 1;
+  if (a.isOngoing !== b.isOngoing) return a.isOngoing ? 1 : -1;
   const ta = a.time ?? "99:99";
   const tb = b.time ?? "99:99";
   if (ta !== tb) return ta < tb ? -1 : 1;

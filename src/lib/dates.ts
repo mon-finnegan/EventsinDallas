@@ -49,13 +49,13 @@ export function daysBetween(a: string, b: string): number {
   return Math.round((utc(b).getTime() - utc(a).getTime()) / 86_400_000);
 }
 
-/** Monday = 0 … Sunday = 6 (spec §13 grid starts on Monday). */
-export function weekdayMon0(date: string): number {
-  return (utc(date).getUTCDay() + 6) % 7;
+/** Sunday = 0 … Saturday = 6 — weeks run Sunday through Saturday. */
+export function weekdaySun0(date: string): number {
+  return utc(date).getUTCDay();
 }
 
 export function startOfWeek(date: string): string {
-  return addDays(date, -weekdayMon0(date));
+  return addDays(date, -weekdaySun0(date));
 }
 
 export function monthKey(date: string): string {
@@ -68,7 +68,7 @@ export function addMonths(month: string, n: number): string {
   return d.toISOString().slice(0, 7);
 }
 
-/** 6×7 (or 5×7) grid of dates covering the month, Monday-first. */
+/** 6×7 (or 5×7) grid of dates covering the month, Sunday-first. */
 export function monthGrid(month: string): string[][] {
   const first = `${month}-01`;
   let cursor = startOfWeek(first);

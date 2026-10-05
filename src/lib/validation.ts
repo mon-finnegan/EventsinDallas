@@ -36,6 +36,8 @@ export const CalendarEventSchema = z
 
     event_date: date,
     end_date: date,
+    open_daily: z.boolean(),
+    closed_dates: z.array(z.string().regex(DATE_RE)),
     start_time: time,
     end_time: time,
     timezone: z.string().min(1),
@@ -120,6 +122,7 @@ export function validateForPublish(input: unknown): ValidationResult {
     errors.push("event_date: a specific verified date is required");
   }
   if (e.end_date && !e.event_date) errors.push("end_date: set without event_date");
+  if (e.open_daily && !e.end_date) errors.push("open_daily: requires an end_date");
   if (e.event_date && e.end_date && e.end_date < e.event_date) {
     errors.push("end_date: before event_date");
   }

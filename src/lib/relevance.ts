@@ -151,7 +151,7 @@ export function assessRelevance(e: CalendarEvent): RelevanceResult {
 export const MAX_EVENTS_PER_WEEK = 20;
 
 /**
- * Keep the calendar curated as feeders multiply: per Monday-start week, keep the highest
+ * Keep the calendar curated as feeders multiply: per Sunday-start week, keep the highest
  * scoring events. Signup alerts and events with action dates are never cut — missing an
  * action date is the costliest failure.
  */
@@ -184,6 +184,6 @@ export function curateByWeek(
 
 function weekStart(date: string): string {
   const d = new Date(`${date}T00:00:00Z`);
-  d.setUTCDate(d.getUTCDate() - ((d.getUTCDay() + 6) % 7));
+  d.setUTCDate(d.getUTCDate() - d.getUTCDay());
   return d.toISOString().slice(0, 10);
 }

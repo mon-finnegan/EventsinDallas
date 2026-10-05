@@ -113,6 +113,22 @@ export function DetailPanel({ selection, onClose }: { selection: Selection; onCl
           </div>
         )}
 
+        {item && (item.isOpeningDay || item.isOngoing) && e.end_date && (
+          <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-3 text-sm dark:border-zinc-800 dark:bg-zinc-950">
+            {item.isOpeningDay ? (
+              <>
+                <span className="font-semibold">First day.</span> Runs through {formatLongDate(e.end_date)}
+                {e.open_daily ? ", open daily" : " — see the source for which days it's open"}.
+              </>
+            ) : (
+              <>
+                <span className="font-semibold">Ongoing</span> ({formatShortDate(e.event_date!)} – {formatShortDate(e.end_date)}). The source
+                confirms it&apos;s open daily{e.closed_dates.length ? ` except ${e.closed_dates.map(formatShortDate).join(", ")}` : ""}.
+              </>
+            )}
+          </div>
+        )}
+
         <dl className="space-y-3">
           <Row label={isAction ? "Event date" : "Date"}>
             <div className="flex flex-wrap items-center gap-2">

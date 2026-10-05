@@ -84,6 +84,10 @@ ticket lotteries, applications or release dates.
 Skip: regular worship services, Bible studies, small groups, routine ministry or classes; concerts,
 nightlife and generic ticket sales; ordinary restaurant reservations; undated or "ongoing" listings.
 
+Favor the best and most distinctive options: signature annual events, top venues, well-loved
+traditions, and things a family would plan a day around. Business networking events from major
+organizations (chambers, innovation groups, large expos) and pro or college home games also qualify.
+
 Accuracy rules — these matter more than coverage:
 - Never infer, estimate or carry forward dates, times, prices, ages or URLs. If the page does not
   state it explicitly for this occurrence, use null.

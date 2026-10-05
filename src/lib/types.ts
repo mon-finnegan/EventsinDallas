@@ -32,6 +32,7 @@ export const SUBCATEGORIES = [
   "application",
   "olympics",
   "special_experience",
+  "networking",
 ] as const;
 export type Subcategory = (typeof SUBCATEGORIES)[number];
 
@@ -92,6 +93,13 @@ export interface CalendarEvent {
 
   event_date: string | null;
   end_date: string | null;
+  /**
+   * True only when the source confirms the run is open every day between event_date and
+   * end_date (minus closed_dates). Lets the calendar show it as "ongoing" on each of those days.
+   */
+  open_daily: boolean;
+  /** Days inside the run when it is confirmed closed. */
+  closed_dates: string[];
   start_time: string | null;
   end_time: string | null;
   timezone: string;
@@ -162,6 +170,10 @@ export interface CalendarItem {
   label: string;
   event: CalendarEvent;
   action: ActionKind | null;
-  /** True when this occurrence is the opening day of a long run (spec §25). */
+  /** True when this occurrence is the first day of a long run (spec §25). */
   isOpeningDay: boolean;
+  /** A later day of a confirmed daily run; shown quietly as "also running". */
+  isOngoing: boolean;
+  /** Internal relevance score — orders each day best-first. Never shown. */
+  score: number;
 }
