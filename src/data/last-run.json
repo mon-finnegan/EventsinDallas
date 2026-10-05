@@ -1,30 +1,27 @@
 {
-  "started_at": "2026-10-05T02:49:53.463Z",
-  "finished_at": "2026-10-05T02:52:17.309Z",
-  "duration_ms": 143846,
+  "started_at": "2026-10-05T03:07:14.472Z",
+  "finished_at": "2026-10-05T03:07:45.449Z",
+  "duration_ms": 30977,
   "dry_run": false,
   "sources_total": 99,
-  "sources_attempted": 99,
-  "sources_ok": 84,
-  "sources_unchanged": [],
-  "sources_empty": [
+  "sources_attempted": 84,
+  "sources_ok": 66,
+  "sources_unchanged": [
     "first-umc-dallas",
-    "prestonwood",
     "greek-fest",
     "lebanese-fest",
     "klyde-warren",
+    "prestonwood",
     "klyde-warren-signature",
     "arboretum-holiday",
     "fort-worth-zoo",
     "dallas-zoo",
-    "dallas-zoo-lights",
     "perot",
-    "fair-park",
+    "dallas-zoo-lights",
     "northpark-trains",
     "galleria",
     "north-pole-express",
     "adolphus-tea",
-    "dallas-library",
     "visit-dallas",
     "university-park",
     "addison-events",
@@ -32,138 +29,157 @@
     "old-lake-highlands",
     "ymca-turkey-trot",
     "dct",
-    "attpac",
     "dfwchild-calendar",
     "dfwchild-trunk",
-    "kids-out-about",
-    "live-love-local",
-    "dallasites101-blog",
     "dallasites101-holiday",
-    "dallasites101-hanukkah",
+    "dallasites101-blog",
     "visit-dallas-month",
+    "dallasites101-hanukkah",
     "resident-dallas",
     "culturemap-dallas",
-    "visit-dallas-winter",
     "dfwchild-annual",
-    "planomoms-winter",
+    "visit-dallas-winter",
     "dfwchild-nye",
     "dallas-chamber",
     "venture-dallas",
     "cowboys-schedule",
     "stars-schedule",
-    "ig-dallasites101",
-    "ig-dallasmoms",
-    "ig-dfwchild",
-    "ig-visitdallas",
-    "ig-klydewarrenpark",
-    "ig-dallasarboretum",
-    "ig-dallaszoo",
-    "ig-perotmuseum",
-    "ig-do214",
-    "ig-dallasobserver",
-    "ig-dmagazine",
-    "ig-culturemapdallas",
-    "reddit-dallas",
-    "reddit-askdfw",
-    "reddit-dfw",
-    "reddit-fortworth",
-    "reddit-plano",
     "dallas-sports-commission",
-    "mavs-schedule",
-    "pga-registry",
     "pga-championship",
+    "pga-registry",
+    "la28",
     "ryder-cup",
     "the-open",
-    "la28",
     "wimbledon",
     "banana-ball"
   ],
-  "sources_skipped_backoff": [],
+  "sources_empty": [
+    "dallas-library",
+    "fair-park",
+    "kids-out-about",
+    "live-love-local",
+    "planomoms-winter",
+    "attpac",
+    "mavs-schedule"
+  ],
+  "sources_skipped_backoff": [
+    "hpumc",
+    "prestonwood-goc",
+    "heritage-village",
+    "gaylord-ice",
+    "richardson-santa",
+    "dallas-moms",
+    "scout-guide-dallas",
+    "do214",
+    "eventbrite-dallas-month",
+    "eventbrite-dallas-month+1",
+    "dallas-innovates",
+    "small-business-expo",
+    "eventbrite-networking",
+    "masters",
+    "us-open"
+  ],
   "sources_failed": [
     {
-      "id": "hpumc",
-      "error": "HTTP 404 fetching https://www.hpumc.org/christmas",
-      "consecutive_failures": 4
+      "id": "dallas-moms+1",
+      "error": "HTTP 403 fetching https://dallasmoms.com/dallas-moms-need-to-know-a-guide-to-the-month-of-november/",
+      "consecutive_failures": 1
     },
     {
-      "id": "gaylord-ice",
-      "error": "HTTP 403 fetching https://www.christmasatgaylordtexan.com/ice",
-      "consecutive_failures": 4
+      "id": "ig-dallasites101",
+      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(dallasites101)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
+      "consecutive_failures": 1
     },
     {
-      "id": "richardson-santa",
-      "error": "HTTP 403 fetching https://www.cor.net/departments/parks-recreation/community-events/santa-s-village-at-huffhines-park",
-      "consecutive_failures": 4
+      "id": "ig-dallasmoms",
+      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(dallasmoms)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
+      "consecutive_failures": 1
     },
     {
-      "id": "heritage-village",
-      "error": "fetch failed fetching http://www.dallasheritagevillage.org/candlelight",
-      "consecutive_failures": 4
+      "id": "ig-visitdallas",
+      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(visitdallas)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
+      "consecutive_failures": 1
     },
     {
-      "id": "dallas-moms",
-      "error": "HTTP 403 fetching https://dallasmoms.com/dallas-moms-need-to-know-a-guide-to-the-month-of-october/",
-      "consecutive_failures": 4
+      "id": "ig-dfwchild",
+      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(dfwchild)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
+      "consecutive_failures": 1
     },
     {
-      "id": "scout-guide-dallas",
-      "error": "HTTP 403 fetching https://thescoutguide.com/dallas/editorial/the-best-things-to-do-in-dallas-this-october-2026/",
-      "consecutive_failures": 4
+      "id": "ig-dallasarboretum",
+      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(dallasarboretum)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
+      "consecutive_failures": 1
     },
     {
-      "id": "do214",
-      "error": "HTTP 403 fetching https://do214.com/",
-      "consecutive_failures": 4
+      "id": "ig-klydewarrenpark",
+      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(klydewarrenpark)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
+      "consecutive_failures": 1
     },
     {
-      "id": "eventbrite-dallas-month",
-      "error": "HTTP 405 fetching https://www.eventbrite.com/d/tx--dallas/october/",
-      "consecutive_failures": 4
+      "id": "ig-dallaszoo",
+      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(dallaszoo)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
+      "consecutive_failures": 1
     },
     {
-      "id": "eventbrite-dallas-month+1",
-      "error": "HTTP 405 fetching https://www.eventbrite.com/d/tx--dallas/november/",
-      "consecutive_failures": 4
+      "id": "ig-perotmuseum",
+      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(perotmuseum)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
+      "consecutive_failures": 1
     },
     {
-      "id": "dallas-innovates",
-      "error": "HTTP 403 fetching https://dallasinnovates.com/calendar/",
-      "consecutive_failures": 4
+      "id": "ig-do214",
+      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(do214)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
+      "consecutive_failures": 1
     },
     {
-      "id": "eventbrite-networking",
-      "error": "HTTP 405 fetching https://www.eventbrite.com/d/tx--dallas/networking/",
-      "consecutive_failures": 4
+      "id": "ig-dmagazine",
+      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(dmagazine)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
+      "consecutive_failures": 1
     },
     {
-      "id": "small-business-expo",
-      "error": "HTTP 403 fetching https://www.thesmallbusinessexpo.com/city/dallas/",
-      "consecutive_failures": 4
+      "id": "ig-culturemapdallas",
+      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(culturemapdallas)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
+      "consecutive_failures": 1
     },
     {
-      "id": "us-open",
-      "error": "HTTP 403 fetching https://www.usopen.com/2027/tickets.html",
-      "consecutive_failures": 4
+      "id": "ig-dallasobserver",
+      "error": "HTTP 400 fetching https://graph.facebook.com/v21.0/IG_USER_ID?fields=business_discovery.username(dallasobserver)%7Bmedia.limit(25)%7Bcaption%2Cpermalink%2Ctimestamp%7D%7D&access_token=IG_ACCESS_TOKEN",
+      "consecutive_failures": 1
     },
     {
-      "id": "prestonwood-goc",
-      "error": "fetch failed fetching https://prestonwoodgoc.org/",
-      "consecutive_failures": 4
+      "id": "reddit-fortworth",
+      "error": "Reddit token HTTP 401",
+      "consecutive_failures": 1
     },
     {
-      "id": "masters",
-      "error": "The operation was aborted due to timeout fetching https://www.masters.com/en_US/tournament/tickets.html",
-      "consecutive_failures": 4
+      "id": "reddit-dfw",
+      "error": "Reddit token HTTP 401",
+      "consecutive_failures": 1
+    },
+    {
+      "id": "reddit-askdfw",
+      "error": "Reddit token HTTP 401",
+      "consecutive_failures": 1
+    },
+    {
+      "id": "reddit-dallas",
+      "error": "Reddit token HTTP 401",
+      "consecutive_failures": 1
+    },
+    {
+      "id": "reddit-plano",
+      "error": "Reddit token HTTP 401",
+      "consecutive_failures": 1
     }
   ],
   "feeders_used": {
     "jsonld": 12,
-    "tribe": 3,
-    "ical": 1
+    "ical": 1,
+    "tribe": 2,
+    "html_ai": 6
   },
-  "pages_fetched": 84,
-  "extracted": 592,
-  "extracted_structured": 592,
+  "pages_fetched": 90,
+  "extracted": 548,
+  "extracted_structured": 548,
   "extracted_ai": 0,
   "dropped_unsupported_fields": [],
   "rejected_validation": [
@@ -229,41 +245,6 @@
       "errors": [
         "age_min: Too big: expected number to be <=18"
       ]
-    },
-    {
-      "title": "Frost Richardson Coit State Fair Celebration",
-      "source": "dallas-moms+1",
-      "errors": [
-        "city: required for Dallas-scope events"
-      ]
-    },
-    {
-      "title": "Frost Medical District State Fair Celebration",
-      "source": "dallas-moms+1",
-      "errors": [
-        "city: required for Dallas-scope events"
-      ]
-    },
-    {
-      "title": "HOLLYDAYS MARKET OF PLANO",
-      "source": "dallas-moms+1",
-      "errors": [
-        "city: required for Dallas-scope events"
-      ]
-    },
-    {
-      "title": "HOLLYDAYS MARKET OF PLANO",
-      "source": "dallas-moms+1",
-      "errors": [
-        "city: required for Dallas-scope events"
-      ]
-    },
-    {
-      "title": "HOLLYDAYS MARKET OF PLANO",
-      "source": "dallas-moms+1",
-      "errors": [
-        "city: required for Dallas-scope events"
-      ]
     }
   ],
   "rejected_relevance": [
@@ -272,6 +253,153 @@
       "source": "prestoncrest",
       "reasons": [
         "no community-event signal"
+      ]
+    },
+    {
+      "title": "Early Morning Member Walks",
+      "source": "arboretum",
+      "reasons": [
+        "members only"
+      ]
+    },
+    {
+      "title": "Early Morning Member Walks",
+      "source": "arboretum",
+      "reasons": [
+        "members only"
+      ]
+    },
+    {
+      "title": "Early Morning Member Walks",
+      "source": "arboretum",
+      "reasons": [
+        "members only"
+      ]
+    },
+    {
+      "title": "Early Morning Member Walks",
+      "source": "arboretum",
+      "reasons": [
+        "members only"
+      ]
+    },
+    {
+      "title": "Early Morning Member Walks",
+      "source": "arboretum",
+      "reasons": [
+        "members only"
+      ]
+    },
+    {
+      "title": "Early Morning Member Walks",
+      "source": "arboretum",
+      "reasons": [
+        "members only"
+      ]
+    },
+    {
+      "title": "Early Morning Member Walks",
+      "source": "arboretum",
+      "reasons": [
+        "members only"
+      ]
+    },
+    {
+      "title": "Early Morning Member Walks",
+      "source": "arboretum",
+      "reasons": [
+        "members only"
+      ]
+    },
+    {
+      "title": "Early Morning Member Walks",
+      "source": "arboretum",
+      "reasons": [
+        "members only"
+      ]
+    },
+    {
+      "title": "Persons with Disabilities: A Call and an Opportunity for a More Synodal and Inclusive Church.",
+      "source": "cathdal",
+      "reasons": [
+        "no community-event signal"
+      ]
+    },
+    {
+      "title": "Momentum - for Catholic Single Mothers",
+      "source": "cathdal",
+      "reasons": [
+        "no community-event signal"
+      ]
+    },
+    {
+      "title": "Family Rosary with Bishop Burns",
+      "source": "cathdal",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "St. Jude Career Alliance Job Search Workshop",
+      "source": "cathdal",
+      "reasons": [
+        "no community-event signal"
+      ]
+    },
+    {
+      "title": "Altar Servers Award Mass",
+      "source": "cathdal",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Rosario Familiar con el Obispo Burns",
+      "source": "cathdal",
+      "reasons": [
+        "no community-event signal"
+      ]
+    },
+    {
+      "title": "Breakfast with the Bishop",
+      "source": "cathdal",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "St. Andrew's Dinner",
+      "source": "cathdal",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "John Paul II High School Open House 2026",
+      "source": "cathdal",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Ecce Adsum \"Behold, Here I am.\"",
+      "source": "cathdal",
+      "reasons": [
+        "no community-event signal"
+      ]
+    },
+    {
+      "title": "SMC Speaker Series 2027",
+      "source": "cathdal",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Bishop’s Gala",
+      "source": "cathdal",
+      "reasons": [
+        "ordinary church programming"
       ]
     },
     {
@@ -2018,153 +2146,6 @@
       ]
     },
     {
-      "title": "Persons with Disabilities: A Call and an Opportunity for a More Synodal and Inclusive Church.",
-      "source": "cathdal",
-      "reasons": [
-        "no community-event signal"
-      ]
-    },
-    {
-      "title": "Momentum - for Catholic Single Mothers",
-      "source": "cathdal",
-      "reasons": [
-        "no community-event signal"
-      ]
-    },
-    {
-      "title": "Family Rosary with Bishop Burns",
-      "source": "cathdal",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "St. Jude Career Alliance Job Search Workshop",
-      "source": "cathdal",
-      "reasons": [
-        "no community-event signal"
-      ]
-    },
-    {
-      "title": "Altar Servers Award Mass",
-      "source": "cathdal",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Rosario Familiar con el Obispo Burns",
-      "source": "cathdal",
-      "reasons": [
-        "no community-event signal"
-      ]
-    },
-    {
-      "title": "Breakfast with the Bishop",
-      "source": "cathdal",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "St. Andrew's Dinner",
-      "source": "cathdal",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "John Paul II High School Open House 2026",
-      "source": "cathdal",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Ecce Adsum \"Behold, Here I am.\"",
-      "source": "cathdal",
-      "reasons": [
-        "no community-event signal"
-      ]
-    },
-    {
-      "title": "SMC Speaker Series 2027",
-      "source": "cathdal",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Bishop’s Gala",
-      "source": "cathdal",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Early Morning Member Walks",
-      "source": "arboretum",
-      "reasons": [
-        "members only"
-      ]
-    },
-    {
-      "title": "Early Morning Member Walks",
-      "source": "arboretum",
-      "reasons": [
-        "members only"
-      ]
-    },
-    {
-      "title": "Early Morning Member Walks",
-      "source": "arboretum",
-      "reasons": [
-        "members only"
-      ]
-    },
-    {
-      "title": "Early Morning Member Walks",
-      "source": "arboretum",
-      "reasons": [
-        "members only"
-      ]
-    },
-    {
-      "title": "Early Morning Member Walks",
-      "source": "arboretum",
-      "reasons": [
-        "members only"
-      ]
-    },
-    {
-      "title": "Early Morning Member Walks",
-      "source": "arboretum",
-      "reasons": [
-        "members only"
-      ]
-    },
-    {
-      "title": "Early Morning Member Walks",
-      "source": "arboretum",
-      "reasons": [
-        "members only"
-      ]
-    },
-    {
-      "title": "Early Morning Member Walks",
-      "source": "arboretum",
-      "reasons": [
-        "members only"
-      ]
-    },
-    {
-      "title": "Early Morning Member Walks",
-      "source": "arboretum",
-      "reasons": [
-        "members only"
-      ]
-    },
-    {
       "title": "The Market Happy Hours – The 2nd Tap",
       "source": "farmers-market",
       "reasons": [
@@ -2347,116 +2328,6 @@
       ]
     },
     {
-      "title": "SET YOUR VECTOR://",
-      "source": "dallas-moms+1",
-      "reasons": [
-        "outside default radius",
-        "grown-up outing"
-      ]
-    },
-    {
-      "title": "Frost State Fair Celebration",
-      "source": "dallas-moms+1",
-      "reasons": [
-        "DFW metro"
-      ]
-    },
-    {
-      "title": "Frost State Fair Celebration",
-      "source": "dallas-moms+1",
-      "reasons": [
-        "DFW metro"
-      ]
-    },
-    {
-      "title": "HOLLYDAYS MARKET OF WAXAHACHIE",
-      "source": "dallas-moms+1",
-      "reasons": [
-        "outside default radius",
-        "toddler relevant"
-      ]
-    },
-    {
-      "title": "Frost Denton State Fair Celebration",
-      "source": "dallas-moms+1",
-      "reasons": [
-        "DFW metro"
-      ]
-    },
-    {
-      "title": "HOLLYDAYS MARKET OF WAXAHACHIE",
-      "source": "dallas-moms+1",
-      "reasons": [
-        "outside default radius",
-        "toddler relevant"
-      ]
-    },
-    {
-      "title": "Scarborough's Hollow Fall Fantasy Festival",
-      "source": "dallas-moms+1",
-      "reasons": [
-        "outside default radius"
-      ]
-    },
-    {
-      "title": "HOLLYDAYS MARKET OF WAXAHACHIE",
-      "source": "dallas-moms+1",
-      "reasons": [
-        "outside default radius",
-        "toddler relevant"
-      ]
-    },
-    {
-      "title": "Gruene Music & Wine Fest’s Sunday All-Star Playlist",
-      "source": "dallas-moms+1",
-      "reasons": [
-        "outside default radius",
-        "grown-up outing"
-      ]
-    },
-    {
-      "title": "Frost Duncanville State Fair Celebration",
-      "source": "dallas-moms+1",
-      "reasons": [
-        "DFW metro"
-      ]
-    },
-    {
-      "title": "Scarborough's Hollow Fall Fantasy Festival",
-      "source": "dallas-moms+1",
-      "reasons": [
-        "outside default radius"
-      ]
-    },
-    {
-      "title": "Scarborough's Hollow Fall Fantasy Festival",
-      "source": "dallas-moms+1",
-      "reasons": [
-        "outside default radius"
-      ]
-    },
-    {
-      "title": "Día De Los Muertos",
-      "source": "dallas-moms+1",
-      "reasons": [
-        "DFW metro"
-      ]
-    },
-    {
-      "title": "Scarborough's Hollow Fall Fantasy Festival",
-      "source": "dallas-moms+1",
-      "reasons": [
-        "outside default radius"
-      ]
-    },
-    {
-      "title": "Scarborough's Hollow Fall Fantasy Festival",
-      "source": "dallas-moms+1",
-      "reasons": [
-        "outside default radius"
-      ]
-    },
-    {
       "title": "River Legacy Nature Center Fall Festival",
       "source": "mommypoppins-fall",
       "reasons": [
@@ -2617,6 +2488,10 @@
       "event_date": "2026-10-05"
     },
     {
+      "title": "State Fair of Texas 2026",
+      "event_date": "2026-10-04"
+    },
+    {
       "title": "Hands-On: Tagliatelle with Fall Ragu",
       "event_date": "2026-10-05"
     },
@@ -2627,6 +2502,10 @@
     {
       "title": "The Mahjong Lunch Club: Fall, Friends & Mahj at 55 Seventy.",
       "event_date": "2026-10-05"
+    },
+    {
+      "title": "2026 TX/OU Texas Sized Tailgate @ State Fair Grounds",
+      "event_date": "2026-10-10"
     },
     {
       "title": "40th Annual Día de Muertos Exhibition",
@@ -2689,7 +2568,7 @@
       "event_date": "2026-10-05"
     },
     {
-      "title": "Homeschool Day: Charlotte’s Web",
+      "title": "Jack White at The Bomb Factory",
       "event_date": "2026-10-07"
     },
     {
@@ -2745,6 +2624,10 @@
       "event_date": "2026-10-05"
     },
     {
+      "title": "State Fair Of Texas 2026 in Dallas",
+      "event_date": "2026-10-05"
+    },
+    {
       "title": "Stereophonic",
       "event_date": "2026-10-05"
     },
@@ -2781,10 +2664,6 @@
       "event_date": "2026-10-10"
     },
     {
-      "title": "Celebra Grapevine",
-      "event_date": "2026-10-04"
-    },
-    {
       "title": "Día de los Muertos Festival & Exhibition",
       "event_date": "2026-10-20"
     },
@@ -2799,10 +2678,6 @@
     {
       "title": "Grand Prairie Main Street Fest",
       "event_date": "2026-10-23"
-    },
-    {
-      "title": "Frost Irving State Fair Celebration",
-      "event_date": "2026-10-17"
     },
     {
       "title": "Kacey Musgraves Ticket",
@@ -2829,10 +2704,6 @@
       "event_date": "2026-10-17"
     },
     {
-      "title": "25th Annual Oktoberfest Southlake",
-      "event_date": "2026-10-16"
-    },
-    {
       "title": "DFW Fall Fest",
       "event_date": "2026-10-17"
     },
@@ -2846,296 +2717,24 @@
     }
   ],
   "cancelled": [],
-  "published": 163,
-  "reconfirmed": 0,
+  "published": 137,
+  "reconfirmed": 31,
   "marked_completed": 0,
   "stale": [],
   "review_lookups": 0,
   "review_errors": [],
   "notes": [
     {
-      "source": "first-umc-dallas",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "prestonwood",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "greek-fest",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "lebanese-fest",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "klyde-warren",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "klyde-warren-signature",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "arboretum-holiday",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "fort-worth-zoo",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "dallas-zoo",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "dallas-zoo-lights",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "perot",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "fair-park",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "northpark-trains",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "galleria",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "north-pole-express",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "adolphus-tea",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
       "source": "dallas-library",
       "note": "blocked by robots.txt"
-    },
-    {
-      "source": "visit-dallas",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "university-park",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "addison-events",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "frisco-merry",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "old-lake-highlands",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "ymca-turkey-trot",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "dct",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     },
     {
       "source": "visit-plano",
       "note": "tribe api: HTTP 404 fetching https://events.visitplano.com/wp-json/tribe/events/v1/events?start_date=2026-10-04&per_page=50&status=publish"
     },
     {
-      "source": "attpac",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "dfwchild-calendar",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "dfwchild-trunk",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "kids-out-about",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "live-love-local",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "dallasites101-blog",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "dallasites101-holiday",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "dallasites101-hanukkah",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "visit-dallas-month",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "resident-dallas",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "culturemap-dallas",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "visit-dallas-winter",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "dfwchild-annual",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "planomoms-winter",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "dfwchild-nye",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "dallas-chamber",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "venture-dallas",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "cowboys-schedule",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "stars-schedule",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "ig-dallasites101",
-      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
-    },
-    {
-      "source": "ig-dallasmoms",
-      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
-    },
-    {
-      "source": "ig-dfwchild",
-      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
-    },
-    {
-      "source": "ig-visitdallas",
-      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
-    },
-    {
-      "source": "ig-klydewarrenpark",
-      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
-    },
-    {
-      "source": "ig-dallasarboretum",
-      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
-    },
-    {
-      "source": "ig-dallaszoo",
-      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
-    },
-    {
-      "source": "ig-perotmuseum",
-      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
-    },
-    {
-      "source": "ig-do214",
-      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
-    },
-    {
-      "source": "ig-dallasobserver",
-      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
-    },
-    {
-      "source": "ig-dmagazine",
-      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
-    },
-    {
-      "source": "ig-culturemapdallas",
-      "note": "instagram not configured (IG_USER_ID / IG_ACCESS_TOKEN)"
-    },
-    {
-      "source": "reddit-dallas",
-      "note": "reddit not configured (REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET)"
-    },
-    {
-      "source": "reddit-askdfw",
-      "note": "reddit not configured (REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET)"
-    },
-    {
-      "source": "reddit-dfw",
-      "note": "reddit not configured (REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET)"
-    },
-    {
-      "source": "reddit-fortworth",
-      "note": "reddit not configured (REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET)"
-    },
-    {
-      "source": "reddit-plano",
-      "note": "reddit not configured (REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET)"
-    },
-    {
-      "source": "dallas-sports-commission",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "mavs-schedule",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "pga-registry",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "pga-championship",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "ryder-cup",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "the-open",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "la28",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
-      "source": "wimbledon",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
-    },
-    {
       "source": "banana-ball",
       "note": "tribe api: HTTP 404 fetching https://thesavannahbananas.com/wp-json/tribe/events/v1/events?start_date=2026-10-04&per_page=50&status=publish"
-    },
-    {
-      "source": "banana-ball",
-      "note": "needs AI extraction (ANTHROPIC_API_KEY not set)"
     }
   ],
   "coverage_days": 30,
@@ -3144,20 +2743,8 @@
     "2026-11-02"
   ],
   "pruned": [],
-  "replaced": 22,
+  "replaced": 28,
   "collapsed_series": [
-    {
-      "title": "The Dallas Opera: The Cunning Little Vixen",
-      "occurrences": 4
-    },
-    {
-      "title": "Storytime at the NorthPark Pumpkin Patch",
-      "occurrences": 5
-    },
-    {
-      "title": "The Dallas Opera: The Elixir of Love",
-      "occurrences": 4
-    },
     {
       "title": "Autumn at the Arboretum",
       "occurrences": 9
@@ -3175,8 +2762,16 @@
       "occurrences": 4
     },
     {
-      "title": "Texas Ballet Theater: The Nutcracker",
-      "occurrences": 7
+      "title": "The Dallas Opera: The Elixir of Love",
+      "occurrences": 4
+    },
+    {
+      "title": "Storytime at the NorthPark Pumpkin Patch",
+      "occurrences": 5
+    },
+    {
+      "title": "The Dallas Opera: The Cunning Little Vixen",
+      "occurrences": 4
     },
     {
       "title": "Holidays with the DSO",
