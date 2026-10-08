@@ -6,7 +6,7 @@ const display = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-bric
 const sans = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Dallas Family Calendar",
+  title: "Mon's Dallas List",
   description:
     "A curated Dallas calendar for families with toddlers: worthwhile events, church and community festivals, and the signup dates you can't miss.",
 };

@@ -51,7 +51,7 @@ execFileSync("npx", ["@tailwindcss/cli", "-i", "src/app/globals.css", "-o", "dis
 const css = readFileSync("dist/app.css", "utf8");
 const script = js.outputFiles[0].text.replace(/<\/script/gi, "<\\/script");
 
-const html = `<title>Dallas Family Calendar</title>
+const html = `<title>Mon's Dallas List</title>
 <style>${css}</style>
 <div id="root" class="flex min-h-full flex-col"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/${REACT}/umd/react.production.min.js"></script>

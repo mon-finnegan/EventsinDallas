@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { admissionChip, buildCalendarItems, collapseRepeats, compareBestFirst, isExpired, pendingActions } from "@/lib/calendar";
+import { buildCalendarItems, collapseRepeats, isExpired, pendingActions } from "@/lib/calendar";
 import { addDays, addMonths, formatLongDate, formatMonthTitle, formatShortDate, monthKey, startOfWeek } from "@/lib/dates";
 import { DEFAULT_PREFERENCES, matchesPreferences, type Preferences } from "@/lib/filters";
 import type { CalendarEvent, CalendarItem, NationalInterest } from "@/lib/types";
 import { DetailPanel, type Selection } from "./DetailPanel";
-import { CARD, COLOR_CLASSES, COLOR_LABEL, Dot, eventEmoji, priceTag } from "./ui";
+import { CARD, COLOR_CLASSES, COLOR_LABEL, Dot, eventEmoji } from "./ui";
 import { DontMissView, ListView, MonthView, WeekView } from "./views";
 
 type View = "month" | "week" | "list" | "dontmiss";
@@ -112,8 +112,8 @@ export function CalendarApp({ events, today }: { events: CalendarEvent[]; today:
             Updated daily · {formatLongDate(today)}
           </p>
           <h1 className="mt-3 font-display text-4xl font-extrabold leading-[0.95] tracking-tight sm:text-6xl">
-            Dallas,{" "}
-            <span className="bg-gradient-to-r from-rose-500 via-orange-400 to-violet-500 bg-clip-text text-transparent">curated.</span>
+            Mon&apos;s{" "}
+            <span className="bg-gradient-to-r from-rose-500 via-orange-400 to-violet-500 bg-clip-text text-transparent">Dallas List</span>
           </h1>
           <p className="mt-3 max-w-xl text-base text-stone-600 dark:text-stone-400">
             The best family outings, grown-up nights and community festivals in DFW — plus every signup date you can&apos;t afford to miss.
@@ -144,8 +144,6 @@ export function CalendarApp({ events, today }: { events: CalendarEvent[]; today:
 
       <QuickFilters prefs={prefs} onChange={updatePrefs} showMore={showFilters} onToggleMore={() => setShowFilters((s) => !s)} />
       {showFilters && <FilterBar prefs={prefs} onChange={updatePrefs} />}
-
-      {view !== "dontmiss" && <TopPicks items={items} today={today} onSelect={selectItem} selectedKey={selectedKey} />}
 
       <div className="mt-6 flex flex-1 gap-5">
         <main className="@container min-w-0 flex-1">
@@ -263,70 +261,6 @@ function Stat({ value, label, accent = false }: { value: number; label: string; 
       <span className="text-xs font-medium">{label}</span>
     </span>
   );
-}
-
-/** The best pick for each of the next seven days, as a swipeable strip. */
-function TopPicks({
-  items,
-  today,
-  onSelect,
-  selectedKey,
-}: {
-  items: CalendarItem[];
-  today: string;
-  onSelect: (it: CalendarItem) => void;
-  selectedKey: string | null;
-}) {
-  const picks = useMemo(() => {
-    const out: CalendarItem[] = [];
-    for (let i = 0; i < 7; i++) {
-      const date = addDays(today, i);
-      const day = items.filter((it) => it.date === date && it.color !== "red").sort(compareBestFirst);
-      if (day[0]) out.push(day[0]);
-    }
-    return out;
-  }, [items, today]);
-  if (picks.length === 0) return null;
-  return (
-    <section className="mt-7" aria-label="Top picks this week">
-      <div className="mb-3 flex items-baseline justify-between">
-        <h2 className="font-display text-xl font-bold tracking-tight">Top picks this week</h2>
-        <span className="text-xs text-stone-500 dark:text-stone-400">Swipe →</span>
-      </div>
-      <div className="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:px-6">
-        {picks.map((it) => {
-          const price = admissionChip(it.event.cost);
-          return (
-            <button
-              key={it.key}
-              onClick={() => onSelect(it)}
-              className={`group w-60 shrink-0 snap-start overflow-hidden text-left transition-transform hover:-translate-y-1 ${CARD} ${it.key === selectedKey ? `ring-2 ${COLOR_CLASSES[it.color].ring}` : ""}`}
-            >
-              <div className={`relative flex h-24 items-end justify-between bg-gradient-to-br p-3 ${COLOR_CLASSES[it.color].cover}`}>
-                <span className="rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-stone-900">
-                  {it.date === today ? "Today" : weekdayShort(it.date)} · {formatShortDate(it.date)}
-                </span>
-                <span className="text-4xl drop-shadow-sm transition-transform group-hover:scale-110" aria-hidden>
-                  {eventEmoji(it.event, it.color)}
-                </span>
-              </div>
-              <div className="p-3.5">
-                <div className="line-clamp-2 font-semibold leading-snug">{it.label}</div>
-                <div className="mt-1.5 flex items-center gap-1.5 text-xs text-stone-500 dark:text-stone-400">
-                  <span className="truncate">{it.event.venue ?? it.event.city ?? "Dallas"}</span>
-                  {priceTag(price)}
-                </div>
-              </div>
-            </button>
-          );
-        })}
-      </div>
-    </section>
-  );
-}
-
-function weekdayShort(date: string): string {
-  return new Date(`${date}T12:00:00Z`).toLocaleDateString("en-US", { weekday: "short", timeZone: "UTC" });
 }
 
 function DaySheet({
