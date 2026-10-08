@@ -211,7 +211,7 @@ export const SOURCES: Source[] = [
   // Bucket-list sports and spectacles with limited tickets.
   def({ id: "kentucky-derby", name: "Kentucky Derby — 2027 Tickets", url: "https://www.kentuckyderby.com/tickets/2027/", source_type: "official_event", group: "national" }),
   def({ id: "pga-2027-frisco", name: "2027 PGA Championship (PGA Frisco) — Tickets", url: "https://www.pgachampionship.com/tickets-2027", source_type: "official_event", group: "national" }),
-  def({ id: "rose-bowl", name: "Rose Bowl Game — News", url: "https://rosebowlgame.com/news", source_type: "official_event", group: "national", max_detail_pages: 4 }),
+  def({ id: "rose-bowl", name: "Rose Bowl Game — News", url: "https://rosebowlgame.com/news/2026/9/1/general-the-pasadena-tournament-of-roses-announces-public-ticket-sale-for-the-2027-cfp-quarterfinal-at-the-rose-bowl-game-presented-by-prudential.aspx", source_type: "official_event", group: "national" }),
   def({ id: "nfl-draft", name: "NFL Draft 2027 (Washington, D.C.)", url: "https://www.nfl.com/news/nfl-announces-dates-for-2027-draft-in-washington-d-c", source_type: "official_organization", group: "national" }),
 ];
 
