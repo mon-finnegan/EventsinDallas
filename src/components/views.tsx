@@ -3,7 +3,7 @@
 import { admissionChip, compareBestFirst, topPick } from "@/lib/calendar";
 import { addDays, formatLongDate, formatShortDate, formatTime, monthGrid, monthKey } from "@/lib/dates";
 import type { CalendarEvent, CalendarItem } from "@/lib/types";
-import { COLOR_CLASSES, Dot, UnknownBadge, churchTag, nationalTag } from "./ui";
+import { CARD, COLOR_CLASSES, Dot, UnknownBadge, churchTag, eventEmoji, nationalTag, priceTag } from "./ui";
 
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
@@ -21,7 +21,7 @@ function groupByDate(items: CalendarItem[]): Map<string, CalendarItem[]> {
 
 function TopPickStar() {
   return (
-    <span aria-label="Top pick" title="Top pick for this day" className="shrink-0 text-amber-500">
+    <span aria-label="Top pick" title="Top pick for this day" className="shrink-0 text-amber-400 drop-shadow-[0_0_4px_rgba(251,191,36,0.6)]">
       ★
     </span>
   );
@@ -45,8 +45,9 @@ function ItemPill({
         onSelect(item);
       }}
       title={item.label}
-      className={`flex w-full items-center gap-1 truncate rounded border px-1.5 py-0.5 text-left text-[11px] leading-tight ${COLOR_CLASSES[item.color].pill} ${selected ? `ring-2 ${COLOR_CLASSES[item.color].ring}` : ""}`}
+      className={`flex w-full items-center gap-1.5 truncate rounded-lg px-1.5 py-1 text-left text-[11px] font-medium leading-tight transition-colors ${COLOR_CLASSES[item.color].pill} ${selected ? `ring-2 ${COLOR_CLASSES[item.color].ring}` : ""}`}
     >
+      <span aria-hidden className={`h-3 w-1 shrink-0 rounded-full ${COLOR_CLASSES[item.color].bar}`} />
       {pick && <TopPickStar />}
       <span className="truncate">{item.action ? item.event.title : item.label}</span>
     </button>
@@ -75,15 +76,15 @@ export function MonthView({
   const MAX_PILLS = 3;
 
   return (
-    <div className="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800">
-      <div className="grid grid-cols-7 border-b border-zinc-200 bg-zinc-50 text-center text-[11px] font-semibold uppercase tracking-wide text-zinc-500 dark:border-zinc-800 dark:bg-zinc-900">
+    <div className={`overflow-hidden p-1.5 sm:p-2 ${CARD}`}>
+      <div className="grid grid-cols-7 text-center text-[11px] font-bold uppercase tracking-widest text-stone-400">
         {WEEKDAYS.map((d) => (
           <div key={d} className="py-2">
             {d}
           </div>
         ))}
       </div>
-      <div className="grid grid-cols-7">
+      <div className="grid grid-cols-7 gap-1 sm:gap-1.5">
         {weeks.flat().map((date) => {
           const inMonth = monthKey(date) === month;
           const all = [...(byDate.get(date) ?? [])].sort(compareBestFirst);
@@ -99,11 +100,11 @@ export function MonthView({
               onClick={() => onSelectDay(date)}
               onKeyDown={(ev) => (ev.key === "Enter" || ev.key === " ") && onSelectDay(date)}
               aria-label={`${formatLongDate(date)}, ${dayItems.length} item${dayItems.length === 1 ? "" : "s"}`}
-              className={`min-h-16 cursor-pointer border-b border-r border-zinc-100 p-1 align-top transition-colors hover:bg-zinc-50 sm:min-h-28 sm:p-1.5 dark:border-zinc-800 dark:hover:bg-zinc-900 [&:nth-child(7n)]:border-r-0 ${inMonth ? "" : "bg-zinc-50/60 dark:bg-zinc-950"} ${isPast ? "opacity-60" : ""}`}
+              className={`min-h-16 cursor-pointer rounded-2xl p-1 align-top transition-all hover:bg-white hover:shadow-md sm:min-h-32 sm:p-1.5 dark:hover:bg-white/10 ${inMonth ? "bg-white/50 dark:bg-white/[0.03]" : "opacity-40"} ${isPast && inMonth ? "opacity-55" : ""} ${isToday ? "bg-white shadow-md ring-2 ring-violet-500/60 dark:bg-white/10" : ""}`}
             >
               <div className="flex items-center justify-between">
                 <span
-                  className={`inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-semibold ${isToday ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900" : inMonth ? "" : "text-zinc-400"}`}
+                  className={`inline-flex h-7 w-7 items-center justify-center rounded-full font-display text-sm font-bold ${isToday ? "bg-gradient-to-br from-violet-500 to-rose-500 text-white shadow" : inMonth ? "" : "text-stone-400"}`}
                 >
                   {Number(date.slice(8))}
                 </span>
@@ -125,7 +126,7 @@ export function MonthView({
                   />
                 ))}
                 {all.length > Math.min(dayItems.length, MAX_PILLS) && (
-                  <div className="px-1 text-[11px] font-medium text-zinc-500">
+                  <div className="px-1.5 text-[11px] font-semibold text-violet-600 dark:text-violet-300">
                     +{all.length - Math.min(dayItems.length, MAX_PILLS)} more
                   </div>
                 )}
@@ -156,32 +157,33 @@ export function WeekView({
   const byDate = groupByDate(items);
   const days = Array.from({ length: 7 }, (_, i) => addDays(weekStart, i));
   return (
-    <div className="grid gap-2 md:grid-cols-7">
+    <div className="grid gap-2 @lg:grid-cols-2 @3xl:grid-cols-4 @6xl:grid-cols-7">
       {days.map((date, i) => {
         const all = byDate.get(date) ?? [];
         const dayItems = all;
         const pick = topPick(all);
         return (
-          <section
-            key={date}
-            className={`rounded-xl border p-2 ${date === today ? "border-zinc-900 dark:border-zinc-100" : "border-zinc-200 dark:border-zinc-800"}`}
-          >
-            <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-zinc-500">
-              {WEEKDAYS[i]} <span className="text-zinc-900 dark:text-zinc-100">{formatShortDate(date)}</span>
+          <section key={date} className={`p-2.5 ${CARD} ${date === today ? "ring-2 ring-violet-500/60" : ""}`}>
+            <h3 className="mb-2.5 flex items-baseline gap-2 px-1">
+              <span className="text-[11px] font-bold uppercase tracking-widest text-stone-400">{WEEKDAYS[i]}</span>
+              <span className={`font-display text-xl font-bold ${date === today ? "bg-gradient-to-r from-violet-500 to-rose-500 bg-clip-text text-transparent" : ""}`}>
+                {Number(date.slice(8))}
+              </span>
             </h3>
             <div className="space-y-1.5">
-              {all.length === 0 && <p className="text-xs text-zinc-400">—</p>}
+              {all.length === 0 && <p className="px-1 text-xs text-stone-400">Nothing yet</p>}
               {dayItems.map((it) => (
                 <button
                   key={it.key}
                   onClick={() => onSelect(it)}
-                  className={`block w-full rounded-lg border p-2 text-left text-xs ${COLOR_CLASSES[it.color].pill} ${it.key === selectedKey ? `ring-2 ${COLOR_CLASSES[it.color].ring}` : ""}`}
+                  className={`block w-full rounded-2xl p-2.5 text-left text-xs transition-all hover:-translate-y-0.5 ${COLOR_CLASSES[it.color].pill} ${it.key === selectedKey ? `ring-2 ${COLOR_CLASSES[it.color].ring}` : ""}`}
                 >
-                  <div className="flex items-center gap-1 font-semibold">
+                  <div className="flex items-center gap-1 font-semibold opacity-80">
+                    <span aria-hidden>{eventEmoji(it.event, it.color)}</span>
                     {pick?.key === it.key && <TopPickStar />}
                     {it.time ? formatTime(it.time) : it.action ? "Time TBA" : "Time not listed"}
                   </div>
-                  <div className="mt-0.5 leading-snug">{it.label}</div>
+                  <div className="mt-1 text-[13px] font-semibold leading-snug">{it.label}</div>
                   {it.event.venue && !it.action && <div className="mt-0.5 truncate opacity-75">{it.event.venue}</div>}
                 </button>
               ))}
@@ -216,32 +218,31 @@ export function ListView({
         const pick = topPick(all);
         return (
         <section key={date}>
-          <h3 className="sticky top-0 z-10 bg-white/90 py-1 text-xs font-bold uppercase tracking-wide text-zinc-500 backdrop-blur dark:bg-zinc-950/90">
-            {date === today ? "Today" : formatLongDate(date)}
+          <h3 className="sticky top-0 z-10 -mx-1 flex items-baseline gap-2 bg-background/80 px-1 py-2 backdrop-blur-md">
+            <span className="font-display text-lg font-bold">{date === today ? "Today" : formatLongDate(date).split(",")[0]}</span>
+            <span className="text-sm text-stone-500 dark:text-stone-400">{formatShortDate(date)}</span>
           </h3>
           {dayItems.length > 0 && (
-          <ul className="mt-1 divide-y divide-zinc-100 rounded-xl border border-zinc-200 dark:divide-zinc-800 dark:border-zinc-800">
+          <ul className="mt-1 grid gap-2.5 @xl:grid-cols-2 @5xl:grid-cols-3">
             {dayItems.map((it) => (
               <li key={it.key}>
                 <button
                   onClick={() => onSelect(it)}
-                  className={`flex w-full items-start gap-3 p-3 text-left hover:bg-zinc-50 dark:hover:bg-zinc-900 ${it.key === selectedKey ? "bg-zinc-50 dark:bg-zinc-900" : ""}`}
+                  className={`flex h-full w-full items-start gap-3 p-3 text-left transition-all hover:-translate-y-0.5 ${CARD} ${it.key === selectedKey ? `ring-2 ${COLOR_CLASSES[it.color].ring}` : ""}`}
                 >
-                  <Dot color={it.color} className="mt-1.5" />
+                  <span aria-hidden className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br text-2xl shadow-sm ${COLOR_CLASSES[it.color].cover}`}>
+                    {eventEmoji(it.event, it.color)}
+                  </span>
                   <div className="min-w-0 flex-1">
-                    <div className="flex items-start gap-1 font-medium leading-snug">
+                    <div className="flex items-start gap-1 font-semibold leading-snug">
                       {pick?.key === it.key && <TopPickStar />}
                       {it.label}
                     </div>
-                    <div className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-zinc-500">
+                    <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-stone-500 dark:text-stone-400">
                       <span>{it.time ? formatTime(it.time) : it.action ? "Time TBA" : "Time not listed"}</span>
                       {it.event.venue && <span>· {it.event.venue}</span>}
                       {it.event.city && !it.event.venue && <span>· {it.event.city}</span>}
-                      {admissionChip(it.event.cost) && (
-                        <span className="rounded bg-zinc-100 px-1.5 py-0.5 font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
-                          {admissionChip(it.event.cost)}
-                        </span>
-                      )}
+                      {priceTag(admissionChip(it.event.cost))}
                       {churchTag(it.event)}
                       {nationalTag(it.event)}
                     </div>
@@ -284,27 +285,30 @@ export function DontMissView({
   return (
     <div className="space-y-8">
       <section>
-        <h2 className="text-sm font-bold uppercase tracking-wide text-red-700 dark:text-red-400">What do I need to do?</h2>
+        <h2 className="font-display text-3xl font-bold tracking-tight">
+          What do I need to{" "}
+          <span className="bg-gradient-to-r from-rose-500 to-orange-400 bg-clip-text text-transparent">do?</span>
+        </h2>
         {actions.length === 0 ? (
           <Empty>No dated actions coming up.</Empty>
         ) : (
           <div className="mt-3 space-y-4">
             {[...byDate.entries()].map(([date, list]) => (
               <div key={date}>
-                <h3 className="border-b border-red-200 pb-1 text-xs font-bold uppercase tracking-wide text-zinc-600 dark:border-red-900 dark:text-zinc-300">
+                <h3 className="px-1 pb-1.5 text-xs font-bold uppercase tracking-widest text-stone-500 dark:text-stone-400">
                   {date === today ? "Today" : formatLongDate(date)}
                 </h3>
-                <ul className="mt-1">
+                <ul className={`p-1.5 ${CARD}`}>
                   {list.map((it) => (
                     <li key={it.key}>
                       <button
                         onClick={() => onSelect(it)}
-                        className={`flex w-full items-baseline gap-3 rounded-lg px-2 py-2 text-left hover:bg-red-50 dark:hover:bg-red-950 ${it.key === selectedKey ? "bg-red-50 dark:bg-red-950" : ""}`}
+                        className={`flex w-full items-center gap-3 rounded-2xl px-3 py-2.5 text-left hover:bg-rose-500/5 ${it.key === selectedKey ? "bg-rose-500/10" : ""}`}
                       >
-                        <span className="w-20 shrink-0 text-sm font-semibold tabular-nums text-red-700 dark:text-red-300">
+                        <span className="w-20 shrink-0 rounded-full bg-rose-500/10 px-2 py-1 text-center text-xs font-bold tabular-nums text-rose-700 dark:text-rose-200">
                           {it.time ? formatTime(it.time) : "Time TBA"}
                         </span>
-                        <span className="text-sm font-medium">{it.label}</span>
+                        <span className="text-sm font-semibold">{it.label}</span>
                       </button>
                     </li>
                   ))}
@@ -317,14 +321,14 @@ export function DontMissView({
 
       {openNow.length > 0 && (
         <section>
-          <h2 className="text-sm font-bold uppercase tracking-wide text-zinc-600 dark:text-zinc-300">Open now</h2>
+          <h2 className="font-display text-xl font-bold tracking-tight">Open now</h2>
           <EventList events={openNow} onSelectEvent={onSelectEvent} />
         </section>
       )}
 
       <section>
-        <h2 className="text-sm font-bold uppercase tracking-wide text-zinc-600 dark:text-zinc-300">Watching — date not yet announced</h2>
-        <p className="mt-1 text-xs text-zinc-500">
+        <h2 className="font-display text-xl font-bold tracking-tight">Watching — date not yet announced</h2>
+        <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
           These need a signup, but the opening date hasn&apos;t been confirmed by the source. They&apos;ll move up the moment it is.
         </p>
         {pending.length === 0 ? <Empty>Nothing pending.</Empty> : <EventList events={pending} onSelectEvent={onSelectEvent} showUnknown />}
@@ -343,17 +347,17 @@ function EventList({
   showUnknown?: boolean;
 }) {
   return (
-    <ul className="mt-2 divide-y divide-zinc-100 rounded-xl border border-zinc-200 dark:divide-zinc-800 dark:border-zinc-800">
+    <ul className={`mt-3 divide-y divide-stone-900/5 overflow-hidden dark:divide-white/5 ${CARD}`}>
       {events.map((e) => (
         <li key={e.id}>
-          <button onClick={() => onSelectEvent(e)} className="flex w-full items-start gap-3 p-3 text-left hover:bg-zinc-50 dark:hover:bg-zinc-900">
+          <button onClick={() => onSelectEvent(e)} className="flex w-full items-start gap-3 p-3.5 text-left hover:bg-white/60 dark:hover:bg-white/5">
             <Dot color="red" className="mt-1.5" />
             <div className="min-w-0 flex-1">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="font-medium">{e.title}</span>
+                <span className="font-semibold">{e.title}</span>
                 {nationalTag(e)}
               </div>
-              {e.action_note && <p className="mt-0.5 text-xs text-zinc-500">{e.action_note}</p>}
+              {e.action_note && <p className="mt-0.5 text-xs text-stone-500 dark:text-stone-400">{e.action_note}</p>}
               {showUnknown && (
                 <div className="mt-1">
                   <UnknownBadge />
@@ -368,5 +372,9 @@ function EventList({
 }
 
 function Empty({ children }: { children: React.ReactNode }) {
-  return <p className="mt-3 rounded-xl border border-dashed border-zinc-300 p-6 text-center text-sm text-zinc-500 dark:border-zinc-700">{children}</p>;
+  return (
+    <p className="mt-3 rounded-3xl border border-dashed border-stone-900/15 bg-white/40 p-8 text-center text-sm text-stone-500 dark:border-white/15 dark:bg-white/[0.02]">
+      {children}
+    </p>
+  );
 }

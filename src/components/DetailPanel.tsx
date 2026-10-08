@@ -3,15 +3,15 @@
 import { actionDates, actionLabel, eventColor } from "@/lib/calendar";
 import { formatLongDate, formatShortDate, formatTime, splitActionAt } from "@/lib/dates";
 import type { CalendarEvent, CalendarItem } from "@/lib/types";
-import { COLOR_CLASSES, COLOR_LABEL, ConfirmedBadge, Dot, UnknownBadge, churchTag, nationalTag } from "./ui";
+import { COLOR_CLASSES, COLOR_LABEL, ConfirmedBadge, UnknownBadge, churchTag, eventEmoji, nationalTag } from "./ui";
 
 export type Selection = { kind: "item"; item: CalendarItem } | { kind: "event"; event: CalendarEvent };
 
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div>
-      <dt className="text-xs font-semibold uppercase tracking-wide text-zinc-500">{label}</dt>
-      <dd className="mt-0.5 text-sm">{children}</dd>
+    <div className="rounded-2xl bg-stone-900/[0.03] px-3.5 py-3 dark:bg-white/[0.04]">
+      <dt className="text-[11px] font-bold uppercase tracking-widest text-stone-400">{label}</dt>
+      <dd className="mt-1 text-sm leading-relaxed">{children}</dd>
     </div>
   );
 }
@@ -53,7 +53,7 @@ function actionButtonLabel(e: CalendarEvent): string {
 }
 
 const btn =
-  "inline-flex items-center justify-center rounded-lg px-3 py-2 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2";
+  "inline-flex flex-1 items-center justify-center rounded-full px-4 py-2.5 text-sm font-semibold transition-all hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2";
 
 export function DetailPanel({ selection, onClose }: { selection: Selection; onClose: () => void }) {
   const item = selection.kind === "item" ? selection.item : null;
@@ -71,30 +71,32 @@ export function DetailPanel({ selection, onClose }: { selection: Selection; onCl
   return (
     <aside
       aria-label="Event details"
-      className="flex h-full flex-col overflow-hidden bg-white dark:bg-zinc-900"
+      className="flex h-full min-h-0 flex-1 flex-col overflow-hidden"
     >
-      <div className="flex items-start justify-between gap-3 border-b border-zinc-200 p-4 dark:border-zinc-800">
-        <div className="min-w-0">
-          <div className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wide ${COLOR_CLASSES[color].text}`}>
-            <Dot color={color} />
+      <div className={`relative shrink-0 overflow-hidden bg-gradient-to-br p-5 pb-4 text-white ${COLOR_CLASSES[color].cover}`}>
+        <span aria-hidden className="pointer-events-none absolute -right-3 -top-4 text-[7rem] leading-none opacity-30">
+          {eventEmoji(e, color)}
+        </span>
+        <div className="relative min-w-0 pr-10">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-white/25 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide backdrop-blur">
             {isAction ? "Don't miss" : COLOR_LABEL[color]}
           </div>
-          <h2 className="mt-1 text-lg font-bold leading-snug">{title}</h2>
-          {item?.action && <p className="text-sm text-zinc-600 dark:text-zinc-400">{e.title}</p>}
-          <div className="mt-2 flex flex-wrap gap-1.5">
+          <h2 className="mt-2 font-display text-2xl font-bold leading-tight drop-shadow-sm">{title}</h2>
+          {item?.action && <p className="mt-0.5 text-sm text-white/85">{e.title}</p>}
+          <div className="mt-2.5 flex flex-wrap gap-1.5 [&>span]:bg-white/90">
             {churchTag(e)}
             {nationalTag(e)}
             {e.status === "REGISTRATION_OPEN" && (
-              <span className="rounded bg-red-600 px-1.5 py-0.5 text-[11px] font-bold text-white">Open now</span>
+              <span className="rounded-full px-2 py-0.5 text-[11px] font-bold text-rose-700">Open now</span>
             )}
             {e.status === "SOLD_OUT" && (
-              <span className="rounded bg-zinc-700 px-1.5 py-0.5 text-[11px] font-bold text-white">Sold out</span>
+              <span className="rounded-full px-2 py-0.5 text-[11px] font-bold text-stone-800">Sold out</span>
             )}
           </div>
         </div>
         <button
           onClick={onClose}
-          className="rounded-md p-1.5 text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
+          className="absolute right-4 top-4 rounded-full bg-white/25 p-1.5 text-white backdrop-blur hover:bg-white/40"
           aria-label="Close details"
         >
           <svg viewBox="0 0 20 20" className="h-5 w-5" fill="currentColor" aria-hidden>
@@ -105,16 +107,16 @@ export function DetailPanel({ selection, onClose }: { selection: Selection; onCl
 
       <div className="flex-1 space-y-4 overflow-y-auto p-4">
         {item?.action && (
-          <div className="rounded-lg border border-red-200 bg-red-50 p-3 dark:border-red-900 dark:bg-red-950">
-            <div className="text-sm font-semibold text-red-900 dark:text-red-100">{formatLongDate(item.date)}</div>
-            <div className="text-sm text-red-800 dark:text-red-200">
+          <div className="rounded-2xl bg-rose-500/10 p-3.5 ring-1 ring-inset ring-rose-500/20">
+            <div className="text-sm font-semibold text-rose-900 dark:text-rose-100">{formatLongDate(item.date)}</div>
+            <div className="text-sm text-rose-800 dark:text-rose-200">
               {item.time ? formatTime(item.time) : "Time not yet announced"}
             </div>
           </div>
         )}
 
         {item?.isOpeningDay && e.end_date && (
-          <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-3 text-sm dark:border-zinc-800 dark:bg-zinc-950">
+          <div className="rounded-2xl bg-violet-500/10 p-3.5 text-sm ring-1 ring-inset ring-violet-500/20">
             <span className="font-semibold">First day.</span> Runs {formatShortDate(e.event_date!)} – {formatLongDate(e.end_date)}
             {e.open_daily
               ? `, open daily${e.closed_dates.length ? ` except ${e.closed_dates.map(formatShortDate).join(", ")}` : ""}.`
@@ -122,12 +124,12 @@ export function DetailPanel({ selection, onClose }: { selection: Selection; onCl
           </div>
         )}
         {item && item.otherDates.length > 0 && (
-          <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-3 text-sm dark:border-zinc-800 dark:bg-zinc-950">
+          <div className="rounded-2xl bg-violet-500/10 p-3.5 text-sm ring-1 ring-inset ring-violet-500/20">
             <span className="font-semibold">Also on:</span> {item.otherDates.map(formatShortDate).join(", ")}
           </div>
         )}
 
-        <dl className="space-y-3">
+        <dl className="space-y-2">
           <Row label={isAction ? "Event date" : "Date"}>
             <div className="flex flex-wrap items-center gap-2">
               {eventDateText(e)}
@@ -151,7 +153,7 @@ export function DetailPanel({ selection, onClose }: { selection: Selection; onCl
             {e.cost ? (
               e.cost
             ) : (
-              <span className="text-zinc-500">Not listed by the source — check the official site before you go.</span>
+              <span className="text-stone-500 dark:text-stone-400">Not listed by the source — check the official site before you go.</span>
             )}
           </Row>
           {e.review_rating !== null && e.review_count !== null && (
@@ -187,7 +189,7 @@ export function DetailPanel({ selection, onClose }: { selection: Selection; onCl
                     );
                   })
                 )}
-                {e.action_note && <p className="text-zinc-600 dark:text-zinc-400">{e.action_note}</p>}
+                {e.action_note && <p className="text-stone-600 dark:text-stone-400">{e.action_note}</p>}
               </div>
             </Row>
           )}
@@ -199,7 +201,7 @@ export function DetailPanel({ selection, onClose }: { selection: Selection; onCl
               href={signupUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${btn} bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-400`}
+              className={`${btn} bg-gradient-to-r from-rose-500 to-orange-400 text-white shadow-lg shadow-rose-500/25 focus-visible:ring-rose-400`}
             >
               {actionButtonLabel(e)}
             </a>
@@ -209,17 +211,17 @@ export function DetailPanel({ selection, onClose }: { selection: Selection; onCl
               href={e.event_url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${btn} bg-zinc-900 text-white hover:bg-zinc-700 focus-visible:ring-zinc-400 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white`}
+              className={`${btn} bg-stone-900 text-white hover:bg-stone-800 focus-visible:ring-stone-400 dark:bg-white dark:text-stone-900`}
             >
               Official website
             </a>
           )}
         </div>
 
-        <div className="border-t border-zinc-200 pt-3 text-xs text-zinc-500 dark:border-zinc-800">
+        <div className="border-t border-stone-900/10 pt-3 text-xs text-stone-500 dark:border-white/10 dark:text-stone-400">
           <p>
             Source:{" "}
-            <a href={e.source_url} target="_blank" rel="noopener noreferrer" className="underline hover:text-zinc-800 dark:hover:text-zinc-200">
+            <a href={e.source_url} target="_blank" rel="noopener noreferrer" className="font-medium underline decoration-stone-300 underline-offset-2 hover:text-stone-800 dark:hover:text-stone-200">
               {e.source_name}
             </a>
           </p>
