@@ -137,9 +137,22 @@ describe("relevance", () => {
 });
 
 describe("preferences", () => {
-  it("church toggle hides church-hosted events", () => {
+  it("shows an event when any of its categories is on", () => {
+    // `base` is a church-hosted toddler festival: reachable from either filter.
     expect(matchesPreferences(base, DEFAULT_PREFERENCES)).toBe(true);
-    expect(matchesPreferences(base, { ...DEFAULT_PREFERENCES, church: false })).toBe(false);
+    expect(matchesPreferences(base, { ...DEFAULT_PREFERENCES, church: false })).toBe(true);
+    expect(matchesPreferences(base, { ...DEFAULT_PREFERENCES, church: false, toddler: false })).toBe(false);
+  });
+
+  it("networking and 30+ filters work on their own", () => {
+    const none = Object.fromEntries(Object.keys(DEFAULT_PREFERENCES).map((k) => [k, false])) as unknown as typeof DEFAULT_PREFERENCES;
+    const only = (k: keyof typeof DEFAULT_PREFERENCES) => ({ ...none, nationalInterests: DEFAULT_PREFERENCES.nationalInterests, [k]: true });
+    const networking = SEED_EVENTS.filter((e) => e.subcategory === "networking");
+    expect(networking.length).toBeGreaterThan(0);
+    for (const e of networking) expect(matchesPreferences(e, only("networking"))).toBe(true);
+    const whiskey = SEED_EVENTS.find((e) => isThirtyPlusActivity(e))!;
+    expect(matchesPreferences(whiskey, only("thirtyPlus"))).toBe(true);
+    expect(matchesPreferences(whiskey, only("toddler"))).toBe(false);
   });
 
   it("national interest toggles filter national items", () => {

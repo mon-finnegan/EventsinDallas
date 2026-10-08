@@ -15,6 +15,7 @@ const SIGNUP = /\b(registration (is )?required|register (now|here|today)|rsvp re
 // Format beats theme: a "Pumpkin Storytime" is a storytime first.
 const SUBCATEGORY_RULES: [RegExp, Subcategory][] = [
   [/\b(mavericks|mavs|dallas stars|cowboys|texas rangers|fc dallas|dallas wings|longhorns|sooners|smu mustangs|tcu horned frogs)\b|\bvs\.?\s/i, "sports"],
+  [/\b(networking|mixer|young professionals|entrepreneurs?|founders?|startups?|pitch (night|competition)|business expo|chamber of commerce|dealmakers)\b/i, "networking"],
   [/\b(story ?time|storytelling|read(ing)? aloud)/i, "storytime"],
   [/\b(trunk[- ]or[- ]treat|halloween|costume|boo\b|spooky)/i, "halloween"],
   [/\b(christmas|santa|nativity|tree lighting|holiday lights|nutcracker|carol)/i, "christmas"],
@@ -89,7 +90,7 @@ export function classifyStructured(input: StructuredInput, source: Source): Extr
     title: cleanText(input.title),
     description: input.description ? truncate(input.description, 600) : null,
     kind: toddler ? "toddler_family_event" : "dallas_event",
-    subcategory: guessSubcategory(text, source.is_church),
+    subcategory: guessSubcategory(text, source.is_church) ?? (source.group === "networking" ? "networking" : null),
     national_interest: source.is_national ? guessNationalInterest(text) : null,
     event_date: input.event_date,
     end_date: input.end_date && input.end_date !== input.event_date ? input.end_date : null,

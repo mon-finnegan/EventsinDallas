@@ -406,3 +406,13 @@ describe("stated admission", () => {
     expect(statedAdmission("Bring the whole family for games and food trucks.")).toBeNull();
   });
 });
+
+describe("networking classification", () => {
+  it("recognizes mixers and founder events from structured feeds", () => {
+    const src = SOURCES.find((s) => s.id === "allevents-dallas-business")!;
+    const base = { description: null, event_date: "2026-11-18", end_date: null, start_time: "18:00", end_time: null, venue: "Will Call", address: null, city: "Dallas", state: "TX", cost: null, url: null };
+    expect(classifyStructured({ ...base, title: "Young Professionals Mixer" }, src).subcategory).toBe("networking");
+    // A networking source's events default to networking when nothing more specific matches.
+    expect(classifyStructured({ ...base, title: "Quarterly Meetup" }, src).subcategory).toBe("networking");
+  });
+});

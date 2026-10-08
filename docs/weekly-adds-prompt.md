@@ -33,7 +33,11 @@ run: research and add the best new events for the next ~3 months, then ship.
       events, with one-off DFW events: toddler/family (ages 1–3), activities for 30+ year-olds
       (food & wine, live music, comedy, culture nights), top-tier networking, and
       community/church festivals open to the public (never ordinary church programming).
-   c. Major DFW sports only (openers, rivalries, holiday/national-TV games, championships, bowls).
+   c. Networking for professionals in their 30s — aim for at least two per week: young
+      professionals groups (chamber YP, Bush Center YP, D Magazine Young Leaders), founder/startup
+      and AI/tech mixers (DEC Network, The AI Collective, Startup Grind, Capital Factory), women in
+      business events and industry happy hours. Use `subcategory: "networking"`.
+   d. Major DFW sports only (openers, rivalries, holiday/national-TV games, championships, bowls).
    Prefer sources with lots of reviews or attendance data; mention review counts in
    `verification_note` when you find them.
 

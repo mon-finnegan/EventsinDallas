@@ -187,6 +187,13 @@ export const SOURCES: Source[] = [
   // ── Public Facebook events (via AllEvents, which indexes public Facebook event pages) ──
   def({ id: "allevents-dallas-month", name: "AllEvents — Dallas this month", url: "https://allevents.in/dallas/{monthName}", source_type: "local_calendar", group: "social", max_detail_pages: 0, rolling_months: 2 }),
   def({ id: "allevents-dallas-all", name: "AllEvents — Dallas", url: "https://allevents.in/dallas/all", source_type: "local_calendar", group: "social", max_detail_pages: 0 }),
+  // Networking for professionals in their 30s: AllEvents category pages carry schema.org data (free, no AI).
+  def({ id: "allevents-dallas-business", name: "AllEvents — Dallas business & networking", url: "https://allevents.in/dallas/business", source_type: "local_calendar", group: "networking", max_detail_pages: 0 }),
+  def({ id: "allevents-plano-business", name: "AllEvents — Plano business & networking", url: "https://allevents.in/plano/business", source_type: "local_calendar", group: "networking", default_city: "Plano", max_detail_pages: 0 }),
+  def({ id: "allevents-dallas-networking", name: "AllEvents — Dallas networking", url: "https://allevents.in/dallas/networking", source_type: "local_calendar", group: "networking", max_detail_pages: 0 }),
+  def({ id: "ai-collective-dallas", name: "The AI Collective — Dallas", url: "https://luma.com/aict-dallas", source_type: "official_organization", group: "networking", default_city: "Dallas" }),
+  def({ id: "global-ai-dallas", name: "Global AI Dallas", url: "https://globalai.community/chapters/dallas/", source_type: "official_organization", group: "networking", default_city: "Dallas" }),
+  def({ id: "bush-center-events", name: "George W. Bush Presidential Center — Events", url: "https://www.bushcenter.org/events-and-exhibits", source_type: "official_venue", group: "networking", default_city: "Dallas", max_detail_pages: 4 }),
 
   // ── National coveted experiences ────────────────────────────────────────────
   def({ id: "masters", name: "The Masters — Tickets", url: "https://www.masters.com/en_US/tournament/tickets.html", source_type: "official_event", group: "national" }),

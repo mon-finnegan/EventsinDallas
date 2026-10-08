@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { buildCalendarItems, collapseRepeats, isExpired, pendingActions } from "@/lib/calendar";
 import { addDays, addMonths, formatLongDate, formatMonthTitle, formatShortDate, monthKey, startOfWeek } from "@/lib/dates";
-import { DEFAULT_PREFERENCES, matchesPreferences, type Preferences } from "@/lib/filters";
+import { DEFAULT_PREFERENCES, matchesPreferences, type CategoryKey, type Preferences } from "@/lib/filters";
 import type { CalendarEvent, CalendarItem, NationalInterest } from "@/lib/types";
 import { DetailPanel, type Selection } from "./DetailPanel";
 import { CARD, COLOR_CLASSES, COLOR_LABEL, Dot, eventEmoji } from "./ui";
@@ -351,7 +351,7 @@ function FilterBar({ prefs, onChange }: { prefs: Preferences; onChange: (p: Pref
   );
 }
 
-const QUICK: { key: Exclude<keyof Preferences, "nationalInterests">; label: string; emoji: string }[] = [
+const QUICK: { key: CategoryKey; label: string; emoji: string }[] = [
   { key: "toddler", label: "Little ones", emoji: "🧸" },
   { key: "dallas", label: "Around Dallas", emoji: "📍" },
   { key: "thirtyPlus", label: "Activities for 30+", emoji: "🍷" },
@@ -373,20 +373,27 @@ function QuickFilters({
   showMore: boolean;
   onToggleMore: () => void;
 }) {
+  // All on = "All". Tapping a category from "All" shows just that one; further taps add or remove
+  // categories, and clearing the last one returns to "All".
+  const allOn = QUICK.every(({ key }) => prefs[key]);
+  const setAll = (value: boolean) => Object.fromEntries(QUICK.map(({ key }) => [key, value])) as Pick<Preferences, CategoryKey>;
+  const pick = (key: CategoryKey) => {
+    if (allOn) return onChange({ ...prefs, ...setAll(false), [key]: true });
+    const next = { ...prefs, [key]: !prefs[key] };
+    onChange(QUICK.some(({ key: k }) => next[k]) ? next : { ...next, ...setAll(true) });
+  };
+  const chip = (selected: boolean) =>
+    `inline-flex shrink-0 items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-semibold ring-1 transition-all ${selected ? "bg-stone-900 text-white ring-stone-900 dark:bg-white dark:text-stone-900 dark:ring-white" : "bg-white/60 text-stone-600 ring-stone-900/10 backdrop-blur hover:text-stone-900 dark:bg-white/5 dark:text-stone-300 dark:ring-white/10 dark:hover:text-white"}`;
   return (
     <div className="no-scrollbar -mx-4 mt-6 flex gap-2 overflow-x-auto px-4 sm:-mx-6 sm:px-6" role="group" aria-label="Quick filters">
+      <button onClick={() => onChange({ ...prefs, ...setAll(true) })} aria-pressed={allOn} className={chip(allOn)}>
+        All
+      </button>
       {QUICK.map(({ key, label, emoji }) => {
-        const on = prefs[key];
+        const selected = !allOn && prefs[key];
         return (
-          <button
-            key={key}
-            onClick={() => onChange({ ...prefs, [key]: !on })}
-            aria-pressed={on}
-            className={`inline-flex shrink-0 items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-semibold ring-1 transition-all ${on ? "bg-stone-900 text-white ring-stone-900 dark:bg-white dark:text-stone-900 dark:ring-white" : "bg-white/60 text-stone-500 ring-stone-900/10 backdrop-blur hover:text-stone-900 dark:bg-white/5 dark:text-stone-400 dark:ring-white/10 dark:hover:text-white"}`}
-          >
-            <span aria-hidden className={on ? "" : "grayscale"}>
-              {emoji}
-            </span>
+          <button key={key} onClick={() => pick(key)} aria-pressed={selected} className={chip(selected)}>
+            <span aria-hidden>{emoji}</span>
             {label}
           </button>
         );
