@@ -7,11 +7,16 @@ seed, so no Anthropic API key or credits are needed.
 ---
 
 You are maintaining "Mon's Dallas List" (repo mon-finnegan/EventsinDallas, branch
-`claude/dallas-family-calendar-spec-8jf0o2`; Vercel redeploys on every push to it). Read AGENTS.md
-first. Your job this run: research and add the best new events for the next ~3 months, then ship.
+`claude/dallas-family-calendar-spec-8jf0o2`; Vercel redeploys on every push to it). Your job this
+run: research and add the best new events for the next ~3 months, then ship.
+
+0. Get the repo: if the working directory is not already a checkout of mon-finnegan/EventsinDallas,
+   call the `add_repo` tool (claude-code-remote) with owner "mon-finnegan", repo "EventsinDallas",
+   access "push", run the clone command it returns, and work inside that clone. Then read AGENTS.md.
 
 1. Get oriented (today's date matters):
-   - `git checkout claude/dallas-family-calendar-spec-8jf0o2 && git pull`
+   - `git checkout claude/dallas-family-calendar-spec-8jf0o2 && git pull origin claude/dallas-family-calendar-spec-8jf0o2`,
+     then `npm ci`
    - Read `src/data/seed.ts` (the `ev({...})` pattern and existing ids/titles) and
      `src/data/last-run.json` (`empty_days` = upcoming days with nothing on the calendar).
    - Never add something already present in `seed.ts` or `src/data/collected.json` (match by title,
@@ -22,7 +27,8 @@ first. Your job this run: research and add the best new events for the next ~3 m
       holiday tours via Congress, National Christmas Tree lottery, Easter Egg Roll lottery), Capitol
       and landmark tree lightings, candlelight estate tours, public launch viewings, golf majors,
       Olympics, CFP/bowl games, Super Bowl, Derby, Masters/Wimbledon ballots, NFL Draft, Rose Parade.
-      Capture lottery/ticket windows as SIGNUP_ALERT records with signup dates when announced.
+      Capture lottery/ticket windows as SIGNUP_ALERT records with signup dates when announced;
+      update existing SIGNUP_ALERT records whose dates have since been announced.
    b. Fill every date listed in `empty_days`, then any day in the next 30 days with fewer than two
       events, with one-off DFW events: toddler/family (ages 1–3), grown-up outings a 30-something
       couple would love (food & wine, live music, comedy, culture nights), top-tier networking, and
@@ -50,9 +56,11 @@ first. Your job this run: research and add the best new events for the next ~3 m
      anything you broke; if a test caps counts (e.g. local sports), stay within it rather than
      editing the test.
    - Commit with a message listing what was added, then `git push origin
-     claude/dallas-family-calendar-spec-8jf0o2`.
+     claude/dallas-family-calendar-spec-8jf0o2` (if the push is rejected because the daily data
+     refresh pushed first, `git pull --rebase origin claude/dallas-family-calendar-spec-8jf0o2` and
+     push again).
 
 5. Finish with a short summary: a table of what you added (date, event, how to get in) with
    markdown source links, anything you skipped and why, and which `empty_days` are still empty.
 
-Do not change secrets, workflows or app code in this run — data only.
+Do not change secrets, workflows or app code in this run — data only. Do not open a pull request.
