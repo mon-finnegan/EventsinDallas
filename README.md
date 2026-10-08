@@ -79,7 +79,7 @@ SOURCES (~50 feeders: churches, venues, cities, performing arts, aggregators, na
 - **Reddit:** r/Dallas, r/askdfw, r/dfw, r/FortWorth and r/Plano are read through Reddit's official API (application-only OAuth; `REDDIT_CLIENT_ID` / `REDDIT_CLIENT_SECRET`). Only posts from the last week that name a date and have a few upvotes go to Claude, and events found there are labeled as coming from a community post.
 - **Facebook:** Facebook groups can't be read programmatically. The Groups API was retired, most groups are private, and scraping is against Facebook's terms. Public Facebook events reach the calendar through AllEvents, which indexes them, as a rolling monthly source.
 
-**Audience.** Besides family picks, the calendar includes grown-up outings for a couple in their 30s: food and wine festivals, whiskey tastings, headline concerts, opera and Halloween bar crawls. They have their own filter. Sports are limited to major games (home openers, rivalries, holiday and national-TV games, bowls), and the relevance filter drops regular-season games from every feed.
+**Audience.** Besides family picks, the calendar includes activities for 30+ year-olds: food and wine festivals, whiskey tastings, headline concerts, opera and Halloween bar crawls. They have their own filter. Sports are limited to major games (home openers, rivalries, holiday and national-TV games, bowls), and the relevance filter drops regular-season games from every feed.
 
 **Running it (the daily batch):**
 

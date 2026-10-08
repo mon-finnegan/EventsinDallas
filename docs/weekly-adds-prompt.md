@@ -30,8 +30,8 @@ run: research and add the best new events for the next ~3 months, then ship.
       Capture lottery/ticket windows as SIGNUP_ALERT records with signup dates when announced;
       update existing SIGNUP_ALERT records whose dates have since been announced.
    b. Fill every date listed in `empty_days`, then any day in the next 30 days with fewer than two
-      events, with one-off DFW events: toddler/family (ages 1–3), grown-up outings a 30-something
-      couple would love (food & wine, live music, comedy, culture nights), top-tier networking, and
+      events, with one-off DFW events: toddler/family (ages 1–3), activities for 30+ year-olds
+      (food & wine, live music, comedy, culture nights), top-tier networking, and
       community/church festivals open to the public (never ordinary church programming).
    c. Major DFW sports only (openers, rivalries, holiday/national-TV games, championships, bowls).
    Prefer sources with lots of reviews or attendance data; mention review counts in
@@ -64,3 +64,5 @@ run: research and add the best new events for the next ~3 months, then ship.
    markdown source links, anything you skipped and why, and which `empty_days` are still empty.
 
 Do not change secrets, workflows or app code in this run — data only. Do not open a pull request.
+
+Wording: never call anything "grown-up"; say "activities for 30+ year-olds".

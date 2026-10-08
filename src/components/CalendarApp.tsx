@@ -116,7 +116,7 @@ export function CalendarApp({ events, today }: { events: CalendarEvent[]; today:
             <span className="bg-gradient-to-r from-rose-500 via-orange-400 to-violet-500 bg-clip-text text-transparent">Dallas List</span>
           </h1>
           <p className="mt-3 max-w-xl text-base text-stone-600 dark:text-stone-400">
-            The best family outings, grown-up nights and community festivals in DFW — plus every signup date you can&apos;t afford to miss.
+            The best family outings, activities for 30+ year-olds and community festivals in DFW — plus every signup date you can&apos;t afford to miss.
           </p>
           <div className="mt-4 flex flex-wrap gap-2 text-sm">
             <Stat value={weekAhead} label="this week" />
@@ -330,7 +330,7 @@ function FilterBar({ prefs, onChange }: { prefs: Preferences; onChange: (p: Pref
         <Toggle checked={prefs.church} onChange={(v) => set({ church: v })}>Church & community events</Toggle>
         <Toggle checked={prefs.signup} onChange={(v) => set({ signup: v })}>Signup alerts</Toggle>
         <Toggle checked={prefs.national} onChange={(v) => set({ national: v })}>National coveted experiences</Toggle>
-        <Toggle checked={prefs.grownup} onChange={(v) => set({ grownup: v })}>Grown-up outings (food, drinks, live music)</Toggle>
+        <Toggle checked={prefs.thirtyPlus} onChange={(v) => set({ thirtyPlus: v })}>Activities for 30+ year-olds (food, drinks, live music)</Toggle>
         <Toggle checked={prefs.sports} onChange={(v) => set({ sports: v })}>Major sports games</Toggle>
         <Toggle checked={prefs.networking} onChange={(v) => set({ networking: v })}>Networking &amp; business</Toggle>
       </fieldset>
@@ -354,7 +354,7 @@ function FilterBar({ prefs, onChange }: { prefs: Preferences; onChange: (p: Pref
 const QUICK: { key: Exclude<keyof Preferences, "nationalInterests">; label: string; emoji: string }[] = [
   { key: "toddler", label: "Little ones", emoji: "🧸" },
   { key: "dallas", label: "Around Dallas", emoji: "📍" },
-  { key: "grownup", label: "Date night", emoji: "🍷" },
+  { key: "thirtyPlus", label: "Activities for 30+", emoji: "🍷" },
   { key: "church", label: "Community", emoji: "⛪" },
   { key: "networking", label: "Networking", emoji: "🤝" },
   { key: "sports", label: "Big games", emoji: "🏟️" },

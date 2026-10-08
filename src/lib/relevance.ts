@@ -71,8 +71,8 @@ const WATCH_PARTY = /\bwatch party\b/i;
 export const MAJOR_SPORTS =
   /\b(home opener|season opener|opening night|rivalry|thanksgiving|christmas|new year'?s|playoffs?|championship|bowl|finals?|all-star|thursday night football|sunday night football|monday night football|national tv|espn|tnt|abc|derby|classic|world series|stanley cup|nba cup|in-season tournament)\b/i;
 
-/** Outings aimed at adults (a couple in their 30s): food & drink, live music, culture nights. */
-export function isGrownUpOuting(e: CalendarEvent): boolean {
+/** Activities for 30+ year-olds: food & drink, live music, culture nights. */
+export function isThirtyPlusActivity(e: CalendarEvent): boolean {
   return (
     !e.is_family_relevant &&
     !e.is_toddler_relevant &&
@@ -142,9 +142,9 @@ export function assessRelevance(e: CalendarEvent): RelevanceResult {
     reasons.push("major networking event");
   }
   if (e.subcategory === "festival" || e.subcategory === "parade") score += 0.5;
-  if (isGrownUpOuting(e)) {
+  if (isThirtyPlusActivity(e)) {
     score += 1.5;
-    reasons.push("grown-up outing");
+    reasons.push("activity for 30+ year-olds");
   }
 
   // Sports: only major games (openers, rivalries, holiday and national-TV games, bowls, finals).

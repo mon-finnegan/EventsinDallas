@@ -1,4 +1,4 @@
-import { isGrownUpOuting } from "./relevance";
+import { isThirtyPlusActivity } from "./relevance";
 import type { CalendarEvent, NationalInterest } from "./types";
 
 /** User preferences (spec §33). */
@@ -10,7 +10,7 @@ export interface Preferences {
   national: boolean;
   networking: boolean;
   sports: boolean;
-  grownup: boolean;
+  thirtyPlus: boolean;
   nationalInterests: Record<NationalInterest, boolean>;
 }
 
@@ -22,7 +22,7 @@ export const DEFAULT_PREFERENCES: Preferences = {
   national: true,
   networking: true,
   sports: true,
-  grownup: true,
+  thirtyPlus: true,
   nationalInterests: { golf: true, major_sports: true, olympics: true, special_experiences: true, exclusive_access: true },
 };
 
@@ -35,7 +35,7 @@ export function matchesPreferences(e: CalendarEvent, p: Preferences): boolean {
   if (e.is_church_hosted && !p.church) return false;
   if (e.subcategory === "networking" && !p.networking) return false;
   if (e.subcategory === "sports" && !p.sports) return false;
-  if (isGrownUpOuting(e) && !p.grownup) return false;
+  if (isThirtyPlusActivity(e) && !p.thirtyPlus) return false;
   switch (e.category) {
     case "DALLAS_EVENT":
       return p.dallas || (e.is_church_hosted && p.church);

@@ -4,7 +4,7 @@ import { admissionChip, buildCalendarItems, collapseRepeats, emptyDays, isExpire
 import { monthGrid, splitActionAt, todayInDallas } from "@/lib/dates";
 import { dedupe, normalizeTitle } from "@/lib/dedupe";
 import { DEFAULT_PREFERENCES, matchesPreferences } from "@/lib/filters";
-import { assessRelevance, isGrownUpOuting } from "@/lib/relevance";
+import { assessRelevance, isThirtyPlusActivity } from "@/lib/relevance";
 import type { CalendarEvent } from "@/lib/types";
 import { validateForPublish } from "@/lib/validation";
 
@@ -222,13 +222,13 @@ describe("audience and sports", () => {
     expect(SEED_EVENTS.filter((e) => e.subcategory === "sports" && e.scope === "DALLAS").length).toBeLessThanOrEqual(12);
   });
 
-  it("treats adults-only food and music nights as grown-up outings, not kids' events", () => {
+  it("treats adults-only food and music nights as activities for 30+ year-olds, not kids' events", () => {
     const whiskey = SEED_EVENTS.find((e) => e.id === "whiskey-washback-dallas-2026")!;
-    expect(isGrownUpOuting(whiskey)).toBe(true);
+    expect(isThirtyPlusActivity(whiskey)).toBe(true);
     const r = assessRelevance(whiskey);
     expect(r.include).toBe(true);
     expect(r.reasons).not.toContain("designed for older children");
-    expect(matchesPreferences(whiskey, { ...DEFAULT_PREFERENCES, grownup: false })).toBe(false);
+    expect(matchesPreferences(whiskey, { ...DEFAULT_PREFERENCES, thirtyPlus: false })).toBe(false);
   });
 
   it("still excludes programs for older kids", () => {

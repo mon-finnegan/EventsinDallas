@@ -1733,7 +1733,7 @@ export const SEED_EVENTS: CalendarEvent[] = [
     source_url: "https://www.digitalsummit.com/dallas",
     source_type: "official_event",
   }),
-  // ───────────── Added 2026-10-05 (third pass): one-off picks for grown-ups ─────────────
+  // ───────────── Added 2026-10-05 (third pass): one-off activities for 30+ year-olds ─────────────
   ev({
     id: "jack-white-bomb-factory-2026",
     title: "Jack White at The Bomb Factory",
