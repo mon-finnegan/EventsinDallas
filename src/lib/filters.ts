@@ -23,13 +23,14 @@ export const DEFAULT_PREFERENCES: Preferences = {
   networking: true,
   sports: true,
   grownup: true,
-  nationalInterests: { golf: true, major_sports: true, olympics: true, special_experiences: true },
+  nationalInterests: { golf: true, major_sports: true, olympics: true, special_experiences: true, exclusive_access: true },
 };
 
 export function matchesPreferences(e: CalendarEvent, p: Preferences): boolean {
   if (e.scope === "NATIONAL") {
     if (!p.national) return false;
-    if (e.national_interest && !p.nationalInterests[e.national_interest]) return false;
+    // Interests added after a viewer saved preferences are on until they turn them off.
+    if (e.national_interest && p.nationalInterests[e.national_interest] === false) return false;
   }
   if (e.is_church_hosted && !p.church) return false;
   if (e.subcategory === "networking" && !p.networking) return false;

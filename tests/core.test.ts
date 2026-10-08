@@ -218,7 +218,8 @@ describe("audience and sports", () => {
     const tnf = SEED_EVENTS.find((e) => e.id === "cowboys-2026-10-08")!;
     expect(assessRelevance(tnf).include).toBe(true);
     expect(assessRelevance({ ...tnf, title: "Cowboys vs. Arizona Cardinals" }).include).toBe(false);
-    expect(SEED_EVENTS.filter((e) => e.subcategory === "sports").length).toBeLessThanOrEqual(12);
+    // Local games stay limited to marquee dates (national bowls and the Super Bowl are counted separately).
+    expect(SEED_EVENTS.filter((e) => e.subcategory === "sports" && e.scope === "DALLAS").length).toBeLessThanOrEqual(12);
   });
 
   it("treats adults-only food and music nights as grown-up outings, not kids' events", () => {

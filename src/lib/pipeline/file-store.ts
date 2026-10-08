@@ -69,3 +69,34 @@ export class FileStateStore implements SourceStateStore {
     writeJson(this.dir, this.file, { states: [...merged.values()].sort((a, b) => a.id.localeCompare(b.id)) });
   }
 }
+
+/** Pages found by national discovery, kept so later runs keep re-verifying them. */
+export interface DiscoveredEntry {
+  source: Source;
+  discovered_at: string;
+}
+
+const DISCOVERY_TTL_DAYS = 90;
+
+/** Add newly found pages and drop ones older than the retention window. */
+export function mergeDiscovered(existing: DiscoveredEntry[], found: Source[], today: string): DiscoveredEntry[] {
+  const cutoff = new Date(`${today}T00:00:00Z`);
+  cutoff.setUTCDate(cutoff.getUTCDate() - DISCOVERY_TTL_DAYS);
+  const keep = existing.filter((e) => e.discovered_at >= cutoff.toISOString().slice(0, 10));
+  const have = new Set(keep.map((e) => e.source.url));
+  for (const s of found) if (!have.has(s.url)) keep.push({ source: s, discovered_at: today });
+  return keep;
+}
+
+export class DiscoveredSourceStore {
+  constructor(
+    private dir = DATA_DIR,
+    private file = "discovered-sources.json",
+  ) {}
+  load(): DiscoveredEntry[] {
+    return readJson<{ sources: DiscoveredEntry[] }>(this.dir, this.file, { sources: [] }).sources;
+  }
+  save(entries: DiscoveredEntry[]) {
+    writeJson(this.dir, this.file, { sources: entries });
+  }
+}

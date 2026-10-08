@@ -69,7 +69,8 @@ export const SOURCE_TYPES = [
 ] as const;
 export type SourceType = (typeof SOURCE_TYPES)[number];
 
-export const NATIONAL_INTERESTS = ["golf", "major_sports", "olympics", "special_experiences"] as const;
+/** exclusive_access: selectively opened places and moments (White House tours, ticket lotteries for landmark events). */
+export const NATIONAL_INTERESTS = ["golf", "major_sports", "olympics", "special_experiences", "exclusive_access"] as const;
 export type NationalInterest = (typeof NATIONAL_INTERESTS)[number];
 
 export type Scope = "DALLAS" | "NATIONAL";

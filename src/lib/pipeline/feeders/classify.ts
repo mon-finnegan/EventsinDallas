@@ -37,9 +37,14 @@ export function guessSubcategory(text: string, isChurch: boolean): Subcategory |
   return isChurch ? "church_community" : null;
 }
 
+/** Selectively opened places and moments: tours by request, lotteries, ballots, timed public openings. */
+const EXCLUSIVE_ACCESS =
+  /\b(white house|capitol|president'?s park|national christmas tree|easter egg roll|garden tours?|state dinner|ticket lottery|lottery|ballot|by request|member of congress|open house|candlelight tours?|launch viewing)\b/i;
+
 export function guessNationalInterest(text: string): NationalInterest {
   if (/\b(golf|masters|pga|u\.?s\.? open|ryder cup|the open)\b/i.test(text)) return "golf";
   if (/\b(olympic|paralympic|la28)\b/i.test(text)) return "olympics";
+  if (EXCLUSIVE_ACCESS.test(text)) return "exclusive_access";
   if (/\b(banana ball|experience|tour)\b/i.test(text)) return "special_experiences";
   return "major_sports";
 }

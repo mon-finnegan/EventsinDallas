@@ -85,8 +85,13 @@ Return only specific, dated, public events that a Dallas family would genuinely 
 festivals, parades, seasonal and holiday celebrations, toddler/family programming, church- or
 congregation-hosted community events open to the public (fall festivals, trunk-or-treats, egg hunts,
 Christmas festivals, cultural food festivals), distinctive experiences that require advance
-reservations, and — for national sources — golf majors, Olympics and other coveted experiences with
-ticket lotteries, applications or release dates.
+reservations, and — for national sources — bucket-list experiences worth travelling for: golf majors,
+Olympics, championship games and other coveted events with ticket lotteries, ballots, applications or
+release dates, plus places and moments opened to the public only selectively (White House garden
+tours and holiday tours, the National Christmas Tree lighting lottery, the Easter Egg Roll, Capitol
+and landmark tree lightings, candlelight tours of historic estates, public launch viewings). Use
+national_interest "exclusive_access" for those selective openings. Put how to get in (lottery,
+request through a member of Congress, same-day timed tickets) in action_note.
 
 Skip: regular worship services, Bible studies, small groups, routine ministry or classes; concerts,
 nightlife and generic ticket sales; ordinary restaurant reservations; undated or "ongoing" listings.

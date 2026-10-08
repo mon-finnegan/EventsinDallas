@@ -141,6 +141,7 @@ export const SOURCES: Source[] = [
   def({ id: "mavs-schedule", name: "Dallas Mavericks — Schedule", url: "https://www.nbcdfw.com/news/sports/dallas-mavericks/dallas-mavericks-release-full-schedule-for-2026-27-season/4062299/", source_type: "local_calendar", group: "sports", default_city: "Dallas" }),
   def({ id: "stars-schedule", name: "Dallas Stars — Schedule", url: "https://www.nhl.com/stars/news/dallas-stars-announce-2026-27-regular-season-schedule-071626", source_type: "official_event", group: "sports", default_city: "Dallas" }),
   def({ id: "dallas-sports-commission", name: "Dallas Sports Commission — Events", url: "https://www.dallassports.org/events/", source_type: "official_organization", group: "sports", default_city: "Dallas" }),
+  def({ id: "cotton-bowl", name: "Goodyear Cotton Bowl Classic — News", url: "https://www.cottonbowl.com/news", source_type: "official_event", group: "sports", default_city: "Arlington", max_detail_pages: 4 }),
 
   // ── Instagram (official Graph API Business Discovery; needs IG_USER_ID + IG_ACCESS_TOKEN) ──
   ...[
@@ -197,6 +198,21 @@ export const SOURCES: Source[] = [
   def({ id: "la28", name: "LA28 Tickets", url: "https://la28.org/en/faqs/how-can-I-buy-tickets-to-the-la28-olympic-and-paralympic-games.html", source_type: "official_event", group: "national" }),
   def({ id: "wimbledon", name: "Wimbledon Ballot (LTA)", url: "https://www.lta.org.uk/fan-zone/grand-slam/wimbledon-championships/ballots/", source_type: "official_organization", group: "national" }),
   def({ id: "banana-ball", name: "Savannah Bananas — Tickets", url: "https://thesavannahbananas.com/tickets/", source_type: "official_ticketing", group: "national" }),
+  // Selective public access: White House, Capitol and landmark openings (lotteries, request-only tours).
+  def({ id: "nps-whho-calendar", name: "President's Park (NPS) — Calendar", url: "https://www.nps.gov/whho/planyourvisit/calendar.htm", source_type: "official_municipal", group: "national", max_detail_pages: 6 }),
+  def({ id: "nps-wh-garden-tours", name: "White House Garden Tours (NPS)", url: "https://www.nps.gov/whho/planyourvisit/white-house-garden-tours.htm", source_type: "official_municipal", group: "national" }),
+  def({ id: "nps-national-christmas-tree", name: "National Christmas Tree (NPS)", url: "https://www.nps.gov/whho/planyourvisit/national-christmas-tree.htm", source_type: "official_municipal", group: "national" }),
+  def({ id: "whitehouse-visit", name: "The White House — Visit", url: "https://www.whitehouse.gov/visit/", source_type: "official_organization", group: "national" }),
+  def({ id: "aoc-capitol-tree", name: "U.S. Capitol Christmas Tree (Architect of the Capitol)", url: "https://www.aoc.gov/about-us/news-notices/capitol-christmas-tree", source_type: "official_organization", group: "national" }),
+  def({ id: "rockefeller-tree", name: "Rockefeller Center Christmas Tree", url: "https://www.rockefellercenter.com/holidays/rockefeller-center-christmas-tree/", source_type: "official_venue", group: "national" }),
+  def({ id: "mount-vernon", name: "George Washington's Mount Vernon — Calendar", url: "https://www.mountvernon.org/plan-your-visit/calendar", source_type: "official_venue", group: "national" }),
+  def({ id: "biltmore-candlelight", name: "Biltmore — Candlelight Christmas Evenings", url: "https://www.biltmore.com/candlelight-christmas-evenings", source_type: "official_venue", group: "national" }),
+  def({ id: "ksc-launch-viewing", name: "Kennedy Space Center — Launch Viewing", url: "https://www.kennedyspacecenter.com/launches-and-events/see-a-launch/launch-viewing/", source_type: "official_venue", group: "national" }),
+  // Bucket-list sports and spectacles with limited tickets.
+  def({ id: "kentucky-derby", name: "Kentucky Derby — 2027 Tickets", url: "https://www.kentuckyderby.com/tickets/2027/", source_type: "official_event", group: "national" }),
+  def({ id: "pga-2027-frisco", name: "2027 PGA Championship (PGA Frisco) — Tickets", url: "https://www.pgachampionship.com/tickets-2027", source_type: "official_event", group: "national" }),
+  def({ id: "rose-bowl", name: "Rose Bowl Game — News", url: "https://rosebowlgame.com/news", source_type: "official_event", group: "national", max_detail_pages: 4 }),
+  def({ id: "nfl-draft", name: "NFL Draft 2027 (Washington, D.C.)", url: "https://www.nfl.com/news/nfl-announces-dates-for-2027-draft-in-washington-d-c", source_type: "official_organization", group: "national" }),
 ];
 
 export function sourceById(id: string): Source | undefined {

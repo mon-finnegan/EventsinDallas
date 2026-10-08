@@ -17,7 +17,7 @@ on:
   workflow_dispatch:
     inputs:
       args:
-        description: "Extra args, e.g. --force or --group church"
+        description: "Extra args, e.g. --force, --discover or --group national"
         required: false
 
 permissions:
@@ -77,7 +77,7 @@ jobs:
         run: |
           git config user.name "dallas-calendar-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/collected.json src/data/source-state.json src/data/last-run.json
+          git add src/data/collected.json src/data/source-state.json src/data/last-run.json $(ls src/data/discovered-sources.json 2>/dev/null)
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0

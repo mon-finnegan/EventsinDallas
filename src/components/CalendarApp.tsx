@@ -307,6 +307,7 @@ const NATIONAL_LABELS: Record<NationalInterest, string> = {
   major_sports: "Major sports",
   olympics: "Olympics",
   special_experiences: "Special experiences",
+  exclusive_access: "Exclusive access (White House, landmark lotteries)",
 };
 
 function Toggle({ checked, onChange, children }: { checked: boolean; onChange: (v: boolean) => void; children: React.ReactNode }) {

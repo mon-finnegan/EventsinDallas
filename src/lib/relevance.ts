@@ -177,6 +177,10 @@ export function assessRelevance(e: CalendarEvent): RelevanceResult {
   }
   if (e.is_seasonal) score += 0.5;
   if (e.subcategory === "special_experience") score += 1;
+  if (e.national_interest === "exclusive_access") {
+    score += 1;
+    reasons.push("selective public access");
+  }
 
   // Well-reviewed venues are tried-and-true (only when a verified review lookup exists).
   if (e.review_count !== null && e.review_rating !== null) {
@@ -204,8 +208,8 @@ export const MAX_EVENTS_PER_WEEK = 20;
 
 /**
  * Keep the calendar curated as feeders multiply: per Sunday-start week, keep the highest
- * scoring events. Signup alerts and events with action dates are never cut — missing an
- * action date is the costliest failure.
+ * scoring events. Signup alerts, events with action dates and national items are never cut —
+ * missing an action date is the costliest failure.
  */
 export function curateByWeek(
   events: CalendarEvent[],
@@ -215,7 +219,8 @@ export function curateByWeek(
   const keep: CalendarEvent[] = [];
   const byWeek = new Map<string, CalendarEvent[]>();
   for (const e of events) {
-    const hasAction = e.category === "SIGNUP_ALERT" || e.signup_required;
+    // National bucket-list items are few and planned far ahead, so the local volume cap skips them.
+    const hasAction = e.category === "SIGNUP_ALERT" || e.signup_required || e.scope === "NATIONAL";
     if (hasAction || !e.event_date) {
       keep.push(e);
       continue;

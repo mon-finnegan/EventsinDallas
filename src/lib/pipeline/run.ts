@@ -75,6 +75,8 @@ export interface PipelineOptions {
   dryRun?: boolean;
   /** Ignore backoff and cached validators (manual re-crawl). */
   force?: boolean;
+  /** Notes from work done before the run (e.g. national discovery), carried into the summary. */
+  notes?: { source: string; note: string }[];
   maxPerWeek?: number;
   /** Events not re-verified for this many days are reported as stale. */
   staleAfterDays?: number;
@@ -170,7 +172,7 @@ export async function runPipeline(opts: PipelineOptions): Promise<RunSummary> {
     stale: [],
     review_lookups: 0,
     review_errors: [],
-    notes: [],
+    notes: [...(opts.notes ?? [])],
     coverage_days: opts.coverageDays ?? 30,
     empty_days: [],
     pruned: [],
