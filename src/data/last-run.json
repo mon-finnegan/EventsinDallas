@@ -1,37 +1,25 @@
 {
-  "started_at": "2026-11-01T11:55:24.569Z",
-  "finished_at": "2026-11-01T11:55:58.362Z",
-  "duration_ms": 33793,
+  "started_at": "2026-11-02T12:13:27.846Z",
+  "finished_at": "2026-11-02T12:15:46.524Z",
+  "duration_ms": 138678,
   "dry_run": false,
   "sources_total": 119,
-  "sources_attempted": 88,
+  "sources_attempted": 102,
   "sources_ok": 24,
   "sources_unchanged": [
     "lebanese-fest",
     "north-pole-express",
     "university-park",
     "venture-dallas",
-    "pga-registry",
-    "pga-championship"
+    "pga-championship",
+    "pga-registry"
   ],
   "sources_empty": [
     "dallas-library"
   ],
   "sources_skipped_backoff": [
-    "hpumc",
-    "prestonwood-goc",
-    "heritage-village",
-    "gaylord-ice",
-    "richardson-santa",
-    "dallas-moms",
+    "galleria",
     "dallas-moms+1",
-    "scout-guide-dallas",
-    "do214",
-    "eventbrite-dallas-month",
-    "eventbrite-dallas-month+1",
-    "dallas-innovates",
-    "small-business-expo",
-    "eventbrite-networking",
     "cotton-bowl",
     "ig-dallasites101",
     "ig-dallasmoms",
@@ -45,205 +33,253 @@
     "ig-dallasobserver",
     "ig-dmagazine",
     "ig-culturemapdallas",
-    "masters",
-    "us-open",
     "rockefeller-tree",
     "mount-vernon"
   ],
   "sources_failed": [
     {
+      "id": "hpumc",
+      "error": "HTTP 404 fetching https://www.hpumc.org/christmas",
+      "consecutive_failures": 7
+    },
+    {
       "id": "first-umc-dallas",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAWmqr4JJyQKuxQdd5X\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5hZZQFMMVtwK7oVMie\"}",
+      "consecutive_failures": 0
+    },
+    {
+      "id": "prestonwood-goc",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5hdcjFHQPrYsTAyeFs\"}",
+      "consecutive_failures": 5
+    },
+    {
+      "id": "greek-fest",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5heLPDjTiA97LN793o\"}",
       "consecutive_failures": 0
     },
     {
       "id": "prestonwood",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAWoUKUkxKa4dFd8k1m\"}",
-      "consecutive_failures": 0
-    },
-    {
-      "id": "greek-fest",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAWri3Ccb7uFH7qBDgx\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5hff1g1VVkPgRH2Qew\"}",
       "consecutive_failures": 0
     },
     {
       "id": "klyde-warren",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAWx6UsJRQC7zWGwGiU\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5hkyygzsnvknPWkuUb\"}",
       "consecutive_failures": 0
     },
     {
       "id": "klyde-warren-signature",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAWxY2UT2RJTjwrmfaR\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5hmG7GS2JTfxJNhJdv\"}",
       "consecutive_failures": 0
     },
     {
       "id": "dallas-zoo",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAXCa87Tog9KyW4ynRW\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5i2C2af3KDwrdJJ2fB\"}",
       "consecutive_failures": 0
     },
     {
       "id": "dallas-zoo-lights",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAXDddYTcVdFNvRFNKf\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5i2yQLSHezm8C8a665\"}",
       "consecutive_failures": 0
     },
     {
       "id": "fort-worth-zoo",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAXF9ub3ktyTagLfri2\"}",
-      "consecutive_failures": 0
-    },
-    {
-      "id": "fair-park",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAXKwdtjYSyPJRkv4Gb\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5i3J15SwAaJJWHLwZU\"}",
       "consecutive_failures": 0
     },
     {
       "id": "perot",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAXNtjsnxMvhMAcT3Y5\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5iCsiFF2kwXyYyZWY3\"}",
+      "consecutive_failures": 0
+    },
+    {
+      "id": "fair-park",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5iHgwGfGreUf8C2Bcr\"}",
       "consecutive_failures": 0
     },
     {
       "id": "northpark-trains",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAXQrp6DcyDr6TnqWgU\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5iNhKRjNQ48Mfj4DZg\"}",
       "consecutive_failures": 0
+    },
+    {
+      "id": "gaylord-ice",
+      "error": "HTTP 403 fetching https://www.christmasatgaylordtexan.com/ice",
+      "consecutive_failures": 7
     },
     {
       "id": "adolphus-tea",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAXaheMfB6vifog39rF\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5iUb2EK5wpkTM5oudh\"}",
       "consecutive_failures": 0
-    },
-    {
-      "id": "galleria",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAXb7CbWnbgswEvTGFm\"}",
-      "consecutive_failures": 3
     },
     {
       "id": "visit-dallas",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAXf7p1uvnQrM92RSHL\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5idtNJVk6fYKymj7Et\"}",
       "consecutive_failures": 0
+    },
+    {
+      "id": "richardson-santa",
+      "error": "HTTP 403 fetching https://www.cor.net/departments/parks-recreation/community-events/santa-s-village-at-huffhines-park",
+      "consecutive_failures": 7
     },
     {
       "id": "addison-events",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAXm5UehADWZxrrkdg9\"}",
-      "consecutive_failures": 0
-    },
-    {
-      "id": "old-lake-highlands",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAXmjvXc6Ww8agnais3\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5ikiP7gNZm7GJTqKZ8\"}",
       "consecutive_failures": 0
     },
     {
       "id": "frisco-merry",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAXodGgK3wKJWyEE7Py\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5ikzFwX2qe38RQt6VQ\"}",
       "consecutive_failures": 0
     },
     {
       "id": "ymca-turkey-trot",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAXrVfS36A5oA949SNK\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5irMU7sVsVTDo8yFo6\"}",
       "consecutive_failures": 0
     },
     {
+      "id": "old-lake-highlands",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5irk2b7SvuAp17hktd\"}",
+      "consecutive_failures": 0
+    },
+    {
+      "id": "heritage-village",
+      "error": "fetch failed fetching http://www.dallasheritagevillage.org/candlelight",
+      "consecutive_failures": 7
+    },
+    {
       "id": "dct",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAXsA6fPHijRgUvDPFE\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5iweTiukppXa7w7ELb\"}",
+      "consecutive_failures": 0
+    },
+    {
+      "id": "dfwchild-calendar",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5iyhFAWFEu2do9icvy\"}",
       "consecutive_failures": 0
     },
     {
       "id": "attpac",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAXvUXmcaoD2biPmDTJ\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5iyjiqSAqTQAY5UHu6\"}",
       "consecutive_failures": 1
     },
     {
-      "id": "dfwchild-calendar",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAXxVpmJW3Feeukpaw4\"}",
-      "consecutive_failures": 0
-    },
-    {
       "id": "dfwchild-trunk",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAXxhE4oyjv5sMaRq57\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5izdYLHFgiCmWzjfee\"}",
       "consecutive_failures": 0
     },
     {
       "id": "kids-out-about",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAY1n1wKUNNns3ysL9v\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5j3HXrCUNorE6zF4AQ\"}",
       "consecutive_failures": 0
     },
     {
       "id": "live-love-local",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAY3KYTPiXbgDjf2nfQ\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5j5bwcstLdtFQzsGK1\"}",
       "consecutive_failures": 0
     },
     {
       "id": "dallasites101-holiday",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAY3ZBC1x8oZJTrJFc9\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5j8SMQHtZxFSWexJ17\"}",
       "consecutive_failures": 0
     },
     {
       "id": "dallasites101-blog",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAY4issPPtNENaC4cSX\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5j9d3RusMkzKtwznUB\"}",
+      "consecutive_failures": 0
+    },
+    {
+      "id": "dallas-moms",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5jBUAGMyjTvUbs5Kmy\"}",
+      "consecutive_failures": 6
+    },
+    {
+      "id": "dallasites101-hanukkah",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5jEC7kiTm5VyCQL8hT\"}",
       "consecutive_failures": 0
     },
     {
       "id": "visit-dallas-month",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAY7dzcYjSA7dr3MhyF\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5jEgQ84qwz15hhsM2b\"}",
       "consecutive_failures": 0
     },
     {
       "id": "resident-dallas",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAY8kUDbd5cnpCs8iXT\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5jErokxZ4kd8gTJQEX\"}",
       "consecutive_failures": 0
     },
     {
-      "id": "dallasites101-hanukkah",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAY9FEakMQXMuiybjig\"}",
-      "consecutive_failures": 0
+      "id": "scout-guide-dallas",
+      "error": "HTTP 403 fetching https://thescoutguide.com/dallas/editorial/the-best-things-to-do-in-dallas-this-october-2026/",
+      "consecutive_failures": 7
     },
     {
       "id": "culturemap-dallas",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYCjqEeiar2GZFSJTB\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5jKgmGHQSCtXeR1f9T\"}",
       "consecutive_failures": 0
     },
     {
-      "id": "planomoms-winter",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYDxzjfVTZ6vHSy4Uj\"}",
-      "consecutive_failures": 0
+      "id": "do214",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5jLojoypTDjoShkE1z\"}",
+      "consecutive_failures": 6
     },
     {
       "id": "visit-dallas-winter",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYEH6MGgTEvD2MSDKZ\"}",
-      "consecutive_failures": 0
-    },
-    {
-      "id": "dfwchild-annual",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYJxswqRSWjdFePcSr\"}",
-      "consecutive_failures": 0
-    },
-    {
-      "id": "dallas-chamber",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYKCGkhKTAofLY3gHp\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5jN68aQ7ope5ngcoxE\"}",
       "consecutive_failures": 0
     },
     {
       "id": "dfwchild-nye",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYKNBs5Phyf6RdpeDZ\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5jSXmgiAvsxXX4ofR6\"}",
       "consecutive_failures": 0
     },
     {
+      "id": "eventbrite-dallas-month",
+      "error": "HTTP 405 fetching https://www.eventbrite.com/d/tx--dallas/november/",
+      "consecutive_failures": 7
+    },
+    {
+      "id": "eventbrite-dallas-month+1",
+      "error": "HTTP 405 fetching https://www.eventbrite.com/d/tx--dallas/december/",
+      "consecutive_failures": 7
+    },
+    {
+      "id": "dfwchild-annual",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5jTRc9rYcoseqH8Hs7\"}",
+      "consecutive_failures": 0
+    },
+    {
+      "id": "dallas-innovates",
+      "error": "HTTP 403 fetching https://dallasinnovates.com/calendar/",
+      "consecutive_failures": 7
+    },
+    {
+      "id": "dallas-chamber",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5jXvUXQTG9hP5kNn58\"}",
+      "consecutive_failures": 0
+    },
+    {
+      "id": "eventbrite-networking",
+      "error": "HTTP 405 fetching https://www.eventbrite.com/d/tx--dallas/networking/",
+      "consecutive_failures": 7
+    },
+    {
+      "id": "small-business-expo",
+      "error": "HTTP 403 fetching https://www.thesmallbusinessexpo.com/city/dallas/",
+      "consecutive_failures": 7
+    },
+    {
       "id": "mavs-schedule",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYPnbuiiMUaRjjJTAV\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5jcp9ySeJp2bAGYAfz\"}",
+      "consecutive_failures": 0
+    },
+    {
+      "id": "cowboys-schedule",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5jd8Fz6HSWaHCovGbR\"}",
       "consecutive_failures": 0
     },
     {
       "id": "reddit-dallas",
       "error": "Reddit token HTTP 401",
-      "consecutive_failures": 0
-    },
-    {
-      "id": "stars-schedule",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYQfgWfohXudhLZ8Gk\"}",
-      "consecutive_failures": 0
-    },
-    {
-      "id": "cowboys-schedule",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYQk91nJt9AggxAbbs\"}",
       "consecutive_failures": 0
     },
     {
@@ -267,109 +303,129 @@
       "consecutive_failures": 0
     },
     {
+      "id": "stars-schedule",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5jh3AJ64QugziSxhVp\"}",
+      "consecutive_failures": 0
+    },
+    {
       "id": "dallas-sports-commission",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYRotQGj6QugDLcYcB\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5jjw3FuhyQzZfFSgFk\"}",
       "consecutive_failures": 0
     },
     {
       "id": "allevents-dallas-networking",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYbGQxSNsjRRFdaN8i\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5jv3VXJZ2pWDavtmFy\"}",
       "consecutive_failures": 0
     },
     {
       "id": "ai-collective-dallas",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYcmTL2dBk89FsQiiH\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5jwGAheshdHf3K7Ckk\"}",
       "consecutive_failures": 0
     },
     {
       "id": "global-ai-dallas",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYhWxRE8cVa91yjYM5\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5k1n2wHehL2Y64xNwe\"}",
       "consecutive_failures": 0
     },
     {
       "id": "bush-center-events",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYiQXZQGSRFJcyAvDT\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5k3FLPreqwUEVy8CUK\"}",
       "consecutive_failures": 0
+    },
+    {
+      "id": "us-open",
+      "error": "HTTP 403 fetching https://www.usopen.com/2027/tickets.html",
+      "consecutive_failures": 7
     },
     {
       "id": "ryder-cup",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYp9YzhYEZL4VPDdbh\"}",
-      "consecutive_failures": 0
-    },
-    {
-      "id": "wimbledon",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYpQgJ1PJq8sw56sHU\"}",
-      "consecutive_failures": 0
-    },
-    {
-      "id": "la28",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYpho1kTfXAmq6fASu\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5kFcUxBYUkZaqgCuqq\"}",
       "consecutive_failures": 0
     },
     {
       "id": "the-open",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYqJ1nFYfYaud8iMRU\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5kHJvYRJSJHvBwwcGG\"}",
       "consecutive_failures": 0
     },
     {
-      "id": "nps-wh-garden-tours",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYu7T68x6697WjR5m2\"}",
+      "id": "la28",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5kLuipwjL3X8LNtaeR\"}",
+      "consecutive_failures": 0
+    },
+    {
+      "id": "wimbledon",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5kNp5HHDSxzo6HWPHf\"}",
       "consecutive_failures": 0
     },
     {
       "id": "banana-ball",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYu8xAfe1LjVLqUTP2\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5kRq9KCyMPYAFRuXxi\"}",
       "consecutive_failures": 0
     },
     {
-      "id": "nps-national-christmas-tree",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYuDQCPXB6wEK9cXeb\"}",
+      "id": "nps-wh-garden-tours",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5kTSsMC4Ei8HQUdwAL\"}",
       "consecutive_failures": 0
     },
     {
       "id": "nps-whho-calendar",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYuYkAZF9MFGrA5L3e\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5kTc487nUSuR8tNCBL\"}",
+      "consecutive_failures": 0
+    },
+    {
+      "id": "nps-national-christmas-tree",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5kXibY8XwYFj44bnFL\"}",
       "consecutive_failures": 0
     },
     {
       "id": "whitehouse-visit",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYypyispZawxeH9ask\"}",
-      "consecutive_failures": 0
-    },
-    {
-      "id": "biltmore-candlelight",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYzXtaYW8chV1HoJoe\"}",
-      "consecutive_failures": 0
-    },
-    {
-      "id": "ksc-launch-viewing",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAYzd6Xan95DLysGdh9\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5kYQX5vxnmFda6C7BG\"}",
       "consecutive_failures": 0
     },
     {
       "id": "aoc-capitol-tree",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAZ1pXZ6duWS4jUDf1r\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5kdZpuX7anC5eDqruc\"}",
       "consecutive_failures": 0
     },
     {
-      "id": "pga-2027-frisco",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAZ24fhwW6v9upEKLPV\"}",
+      "id": "biltmore-candlelight",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5kdiWbVAG8UDsmpRUP\"}",
       "consecutive_failures": 0
     },
     {
       "id": "kentucky-derby",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAZ4wJdVYKJNxxCUxsS\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5kioby4Cv2x8XtL9Yd\"}",
+      "consecutive_failures": 0
+    },
+    {
+      "id": "ksc-launch-viewing",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5kjBfxf8LTuKpqXwxq\"}",
+      "consecutive_failures": 0
+    },
+    {
+      "id": "pga-2027-frisco",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5km7WAGzn4eKY9KNA7\"}",
       "consecutive_failures": 0
     },
     {
       "id": "nfl-draft",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAZ7LRWWGuDk9XSCESa\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5krEqMeyfJs7KJjvp2\"}",
       "consecutive_failures": 0
     },
     {
       "id": "rose-bowl",
-      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAZ9D339fHMXJJAjKbG\"}",
+      "error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cge5kruFpXiJ7NtXPaptq\"}",
       "consecutive_failures": 0
+    },
+    {
+      "id": "planomoms-winter",
+      "error": "fetch failed fetching https://planomoms.com/winter-things-to-do-dfw/",
+      "consecutive_failures": 1
+    },
+    {
+      "id": "masters",
+      "error": "The operation was aborted due to timeout fetching https://www.masters.com/en_US/tournament/tickets.html",
+      "consecutive_failures": 7
     }
   ],
   "feeders_used": {
@@ -378,8 +434,8 @@
     "tribe": 2
   },
   "pages_fetched": 37,
-  "extracted": 526,
-  "extracted_structured": 526,
+  "extracted": 532,
+  "extracted_structured": 532,
   "extracted_ai": 0,
   "dropped_unsupported_fields": [],
   "rejected_validation": [
@@ -412,13 +468,6 @@
       ]
     },
     {
-      "title": "That Fudgin Comedy Show: Slink Johnson",
-      "source": "visit-plano",
-      "errors": [
-        "age_min: Too big: expected number to be <=18"
-      ]
-    },
-    {
       "title": "Greg Romero Wilson",
       "source": "visit-plano",
       "errors": [
@@ -426,14 +475,7 @@
       ]
     },
     {
-      "title": "Paint Your Home 2026",
-      "source": "visit-plano",
-      "errors": [
-        "age_min: Too big: expected number to be <=18"
-      ]
-    },
-    {
-      "title": "Paint Your Pet 2026",
+      "title": "Bee Funny",
       "source": "visit-plano",
       "errors": [
         "age_min: Too big: expected number to be <=18"
@@ -495,48 +537,6 @@
       "source": "cathdal",
       "reasons": [
         "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Pastor's Prayer Partners | Women",
-      "source": "first-dallas",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Pastor's Prayer Partners | Women",
-      "source": "first-dallas",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Kids Worship Night of Praise",
-      "source": "first-dallas",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Sunday Evening Pickleball",
-      "source": "first-dallas",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Discipleship University",
-      "source": "first-dallas",
-      "reasons": [
-        "ordinary church programming"
-      ]
-    },
-    {
-      "title": "Sunday Night Date Night",
-      "source": "first-dallas",
-      "reasons": [
-        "no community-event signal"
       ]
     },
     {
@@ -2220,7 +2220,63 @@
       ]
     },
     {
-      "title": "The Market Happy Hours – The 2nd Tap",
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Women's Bible Study",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Life Recovery Group",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pray Worship Pray – Wednesday Night Prayer",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "Pastor's Prayer Partners | Women",
+      "source": "first-dallas",
+      "reasons": [
+        "ordinary church programming"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
       "source": "farmers-market",
       "reasons": [
         "out of scope"
@@ -2248,7 +2304,21 @@
       ]
     },
     {
-      "title": "The Market Happy Hours – The 2nd Tap",
+      "title": "The Market Happy Hours",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
+      "source": "farmers-market",
+      "reasons": [
+        "out of scope"
+      ]
+    },
+    {
+      "title": "The Market Happy Hours",
       "source": "farmers-market",
       "reasons": [
         "out of scope"
@@ -2276,35 +2346,7 @@
       ]
     },
     {
-      "title": "The Market Happy Hours – The 2nd Tap",
-      "source": "farmers-market",
-      "reasons": [
-        "out of scope"
-      ]
-    },
-    {
       "title": "The Market Happy Hours",
-      "source": "farmers-market",
-      "reasons": [
-        "out of scope"
-      ]
-    },
-    {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
-      "reasons": [
-        "out of scope"
-      ]
-    },
-    {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
-      "reasons": [
-        "out of scope"
-      ]
-    },
-    {
-      "title": "The Market Happy Hours – The 2nd Tap",
       "source": "farmers-market",
       "reasons": [
         "out of scope"
@@ -2332,63 +2374,7 @@
       ]
     },
     {
-      "title": "The Market Happy Hours – The 2nd Tap",
-      "source": "farmers-market",
-      "reasons": [
-        "out of scope"
-      ]
-    },
-    {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
-      "reasons": [
-        "out of scope"
-      ]
-    },
-    {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
-      "reasons": [
-        "out of scope"
-      ]
-    },
-    {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
-      "reasons": [
-        "out of scope"
-      ]
-    },
-    {
-      "title": "The Market Happy Hours – The 2nd Tap",
-      "source": "farmers-market",
-      "reasons": [
-        "out of scope"
-      ]
-    },
-    {
-      "title": "The Market Happy Hours",
-      "source": "farmers-market",
-      "reasons": [
-        "out of scope"
-      ]
-    },
-    {
-      "title": "Dallas Cowboys Watch Party: Cardinals vs Cowboys",
-      "source": "visit-plano",
-      "reasons": [
-        "watch party"
-      ]
-    },
-    {
-      "title": "Dallas Cowboys Watch Party: Cardinals vs Cowboys",
-      "source": "visit-plano",
-      "reasons": [
-        "watch party"
-      ]
-    },
-    {
-      "title": "The Rocky Horror Show",
+      "title": "Thank Goodness It’s Craft Night (TGIC)",
       "source": "visit-plano",
       "reasons": [
         "core Dallas area",
@@ -2398,13 +2384,6 @@
     },
     {
       "title": "Golden State Warriors at Dallas Mavericks Tickets",
-      "source": "allevents-dallas-month",
-      "reasons": [
-        "regular-season game"
-      ]
-    },
-    {
-      "title": "SMU Mustangs Mens Basketball vs. Virginia Military Institute Mens Basketball",
       "source": "allevents-dallas-month",
       "reasons": [
         "regular-season game"
@@ -2425,56 +2404,28 @@
       ]
     },
     {
-      "title": "Golden State Warriors at Dallas Mavericks Tickets",
+      "title": "Southern Methodist (SMU) Mustangs vs. Southern Jaguars",
       "source": "allevents-dallas-all",
       "reasons": [
         "regular-season game"
       ]
     },
     {
-      "title": "SMU Mustangs Mens Basketball vs. Virginia Military Institute Mens Basketball",
+      "title": "SMU Mustangs Mens Basketball vs. Southern Jaguars Basketball",
       "source": "allevents-dallas-all",
       "reasons": [
         "regular-season game"
       ]
     },
     {
-      "title": "Candlelight: Mozart vs Beethoven",
+      "title": "Sacramento Kings at Dallas Mavericks Tickets",
       "source": "allevents-dallas-all",
       "reasons": [
         "regular-season game"
       ]
     },
     {
-      "title": "Southern Methodist (SMU) Mustangs vs. Wake Forest Demon Deacons",
-      "source": "allevents-dallas-all",
-      "reasons": [
-        "regular-season game"
-      ]
-    },
-    {
-      "title": "SMU Mustangs Football vs. Wake Forest Demon Deacons Football",
-      "source": "allevents-dallas-all",
-      "reasons": [
-        "regular-season game"
-      ]
-    },
-    {
-      "title": "Dallas Stars vs. San Jose Sharks",
-      "source": "allevents-dallas-all",
-      "reasons": [
-        "regular-season game"
-      ]
-    },
-    {
-      "title": "ELECTION NIGHT WATCH PARTY: Ken Paxton for U.S. Senate",
-      "source": "allevents-dallas-all",
-      "reasons": [
-        "watch party"
-      ]
-    },
-    {
-      "title": "Southern Methodist (SMU) Mustangs vs. Virginia Tech Hokies (Date: TBD)",
+      "title": "Dallas Mavericks vs. Sacramento Kings",
       "source": "allevents-dallas-all",
       "reasons": [
         "regular-season game"
@@ -2483,24 +2434,20 @@
   ],
   "cut_for_volume": [
     {
-      "title": "The Shed Saturday Farmers Market",
-      "event_date": "2026-11-07"
+      "title": "The Market (Open Daily)",
+      "event_date": "2026-11-02"
     },
     {
-      "title": "The Shed Sunday Farmers Market",
-      "event_date": "2026-11-01"
+      "title": "The Shed Saturday Farmers Market",
+      "event_date": "2026-11-07"
     },
     {
       "title": "An Evening with N.T. Wright",
       "event_date": "2026-11-04"
     },
     {
-      "title": "Annie KIDS",
-      "event_date": "2026-11-01"
-    },
-    {
-      "title": "Eli Howard & the Greater Good",
-      "event_date": "2026-11-01"
+      "title": "Experience \"SOAR\", A Unique Origami Art Installation",
+      "event_date": "2026-11-05"
     },
     {
       "title": "Gilmore Girls Market",
@@ -2508,70 +2455,190 @@
     },
     {
       "title": "Infinite Minds",
-      "event_date": "2026-11-01"
+      "event_date": "2026-11-02"
     },
     {
-      "title": "Legacy West Run Club at Nike 2026",
-      "event_date": "2026-11-01"
+      "title": "Spoon Ring Workshops",
+      "event_date": "2026-11-03"
     },
     {
-      "title": "HER Chapter One: A Crowned Celebration 👑",
+      "title": "Infant Red Cross BLS CPR and AED Class in Dallas.",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "Relay Family Financial Literacy Summit (FINLIT)",
       "event_date": "2026-11-07"
     },
     {
-      "title": "2026 Annual Symposium",
-      "event_date": "2026-11-07"
+      "title": "The Secret Garden: Spring Edition - Youth Auditions",
+      "event_date": "2026-11-02"
     },
     {
-      "title": "Celebrity Sundays Featuring Slim Thug + Bay Bay at Encore Park",
-      "event_date": "2026-11-01"
+      "title": "11/2 Open House",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "Advanced Improv: Ultimate Character Workout!",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "African Drum Circle",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "Catalog Cupping - Counter Culture Coffee Dallas",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "Dallas Dash Scavenger Hunt",
+      "event_date": "2026-11-02"
     },
     {
       "title": "Dallas Symphony Orchestra: Ellington Strayhorn & Gershwin",
       "event_date": "2026-11-05"
     },
     {
+      "title": "Dallas Trivia Night | The Playwright Irish Pub",
+      "event_date": "2026-11-02"
+    },
+    {
       "title": "Dance Now: Haddaway Real McCoy & No Mercy",
       "event_date": "2026-11-06"
     },
     {
-      "title": "David Koechner at Hyenas Comedy Night Club - Dallas",
-      "event_date": "2026-11-05"
+      "title": "Danger Jones Vinyl Interstate Tour Live in Dallas",
+      "event_date": "2026-11-02"
     },
     {
       "title": "David Sedaris",
       "event_date": "2026-11-06"
     },
     {
+      "title": "Dementia Friend Information Session",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "DFW Holistic Guild November Meetup",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "Discover Dallas’s treasures with a scavenger hunt by World City Trail!",
+      "event_date": "2026-11-02"
+    },
+    {
       "title": "DIY Con",
       "event_date": "2026-11-06"
     },
     {
-      "title": "Jonathan Van Ness at Winspear Opera House",
-      "event_date": "2026-11-06"
+      "title": "Girl Dinner at Leela's Uptown",
+      "event_date": "2026-11-02"
     },
     {
-      "title": "Pan-Pot",
-      "event_date": "2026-11-01"
+      "title": "Hands-On: Pasta alla Carbonara",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "Havok at AM/FM Dinner and Lounge - Backyard Dallas",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "Industry Night at Bite",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "Knox - Artist",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "Latta' Momentum Co-Working Day",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "Make It Monday - first MONDAY",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "⁠Mindful Wellness Walk in Dallas",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "Monday FREE Social Run by Braindead Running @ Westlake Brewing, Deep Ellum",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "Monday Prayer Vigil at ICE Office",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "Mood Mondays At Spatch",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "Musical Mondays presents Meet Me In St. Louis",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "Next Level Sewins Entrepreneurship CTE Hair Program",
+      "event_date": "2026-11-02"
     },
     {
       "title": "Pop Evil in Dallas",
       "event_date": "2026-11-06"
     },
     {
-      "title": "Tailgating Deserves Pepsi",
-      "event_date": "2026-11-01"
+      "title": "Private Party with Pottery Class PLUS - Dallas",
+      "event_date": "2026-11-02"
     },
     {
-      "title": "The Damned in Dallas",
-      "event_date": "2026-11-05"
+      "title": "R&B Monday Game Night",
+      "event_date": "2026-11-02"
     },
     {
-      "title": "UB40",
-      "event_date": "2026-11-06"
+      "title": "REFIT® Dance Fitness Aerobics Class",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "San Antonio Alamo Secrets Quest",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "SMART Recovery Oak Cliff",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "The 1923 Club",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "The Flip Side - 5 Weeks to Investor Ready",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "Top Secret Cinema: November 2",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "Uncover Dallas’s mysteries with a thrilling escape game!",
+      "event_date": "2026-11-02"
     },
     {
       "title": "Victoria Monet",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "White Rock American Mah Jongg Group",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "Yo Dallas ... Hit the MTB Trails With Us!",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "Yoga class for all",
+      "event_date": "2026-11-02"
+    },
+    {
+      "title": "༻ Join our online Meditation Community!",
       "event_date": "2026-11-02"
     },
     {
@@ -2583,15 +2650,23 @@
       "event_date": "2026-11-05"
     },
     {
+      "title": "Become a Travel Professional and Earn Extra Income",
+      "event_date": "2026-11-04"
+    },
+    {
       "title": "BEYOND THE BUSINESS CARD",
       "event_date": "2026-11-05"
     },
     {
-      "title": "BLAZERS, BRUNCH & BUSINESS...",
-      "event_date": "2026-11-07"
+      "title": "BNI Dallas Professionals Visitor Day: Grow Your Business Through Referrals",
+      "event_date": "2026-11-04"
     },
     {
-      "title": "BNI Dallas Professionals Visitor Day: Grow Your Business Through Referrals",
+      "title": "Brewing Up Business Dallas",
+      "event_date": "2026-11-05"
+    },
+    {
+      "title": "Business Opportunity",
       "event_date": "2026-11-04"
     },
     {
@@ -2599,24 +2674,28 @@
       "event_date": "2026-11-05"
     },
     {
-      "title": "Empowered EA Connection: Executive Assistant Networking Dinner - Plano",
+      "title": "DALLAS WINNING WEDNESDAY",
+      "event_date": "2026-11-04"
+    },
+    {
+      "title": "Dallas, TX : Create Income Around Your Lifestyle (In Person)",
+      "event_date": "2026-11-04"
+    },
+    {
+      "title": "DFWNC Business Overtime",
       "event_date": "2026-11-05"
     },
     {
-      "title": "Financial Education & Business Opportunity Workshop",
-      "event_date": "2026-11-03"
+      "title": "Empowered EA Connection: Executive Assistant Networking Dinner - Plano",
+      "event_date": "2026-11-05"
     },
     {
       "title": "HGTV Page Turner Presents: Love It. Build It. Live It.",
       "event_date": "2026-11-07"
     },
     {
-      "title": "Legacy Session: Money Moves Business & Financial Literacy Workshop",
-      "event_date": "2026-11-07"
-    },
-    {
-      "title": "Love Travel? Why Keep Planning Trips for Free? (Virtual Plano, TX )",
-      "event_date": "2026-11-01"
+      "title": "Master Your Mind, Elevate Your Performance, and Boost Your Energy Levels: T",
+      "event_date": "2026-11-04"
     },
     {
       "title": "Merge, Acquire, Refer, Share (MARS): An Attorney Growth Event",
@@ -2632,7 +2711,7 @@
     },
     {
       "title": "Priority Pass",
-      "event_date": "2026-11-01"
+      "event_date": "2026-11-03"
     },
     {
       "title": "Realtor Roundtable : The Smart Mortgage Advantage | DFW",
@@ -2659,16 +2738,12 @@
       "event_date": "2026-11-04"
     },
     {
-      "title": "The Mindset of a Millionaire Real Estate Agent",
-      "event_date": "2026-11-04"
-    },
-    {
-      "title": "The Wealthsgiving Experience",
-      "event_date": "2026-11-01"
-    },
-    {
       "title": "UPCI Single Adult Ministries - Summit 2026",
       "event_date": "2026-11-05"
+    },
+    {
+      "title": "Wealth Wednesday Momentum Mixer Luncheon - Dallas Galleria",
+      "event_date": "2026-11-04"
     },
     {
       "title": "Weekly BNI Meeting-Professional Business Alliance",
@@ -2679,46 +2754,14 @@
       "event_date": "2026-11-04"
     },
     {
-      "title": "Periphery at The Studio at The Bomb Factory",
-      "event_date": "2026-11-14"
-    },
-    {
-      "title": "RENAISSANCE | 45th Annual Black Tie Dinner",
-      "event_date": "2026-11-14"
-    },
-    {
-      "title": "Switchfoot & Anberlin",
-      "event_date": "2026-11-14"
-    },
-    {
-      "title": "They Might Be Giants (16+)",
-      "event_date": "2026-11-13"
-    },
-    {
-      "title": "Arizona DFW Alumni Event: Why DFW? Careers, Growth & What’s Ahead",
-      "event_date": "2026-11-12"
-    },
-    {
       "title": "Negotiations In Action with Amr Omar",
       "event_date": "2026-11-12"
-    },
-    {
-      "title": "November 9 - Executives in Transition!",
-      "event_date": "2026-11-09"
-    },
-    {
-      "title": "PMP® Certification Training in Dallas -Canstead Learning",
-      "event_date": "2026-11-09"
-    },
-    {
-      "title": "Wealth Building Touchdown!!!",
-      "event_date": "2026-11-08"
     }
   ],
   "cancelled": [],
-  "published": 145,
+  "published": 138,
   "reconfirmed": 0,
-  "marked_completed": 22,
+  "marked_completed": 9,
   "stale": [
     {
       "id": "french-room-holiday-tea-2026",
@@ -2748,6 +2791,11 @@
     {
       "id": "stars-2026-12-31",
       "title": "Stars vs. New York Rangers (New Year's Eve)",
+      "last_verified_at": "2026-10-05T03:07:14.472Z"
+    },
+    {
+      "id": "stars-2026-11-28",
+      "title": "Stars vs. Utah (Thanksgiving weekend)",
       "last_verified_at": "2026-10-05T03:07:14.472Z"
     },
     {
@@ -2786,11 +2834,6 @@
       "last_verified_at": "2026-10-05T11:40:12.243Z"
     },
     {
-      "id": "stars-2026-11-28",
-      "title": "Stars vs. Utah (Thanksgiving weekend)",
-      "last_verified_at": "2026-10-05T03:07:14.472Z"
-    },
-    {
       "id": "cowboys-2026-12-27",
       "title": "Cowboys vs. Jacksonville Jaguars (Sunday Night Football)",
       "last_verified_at": "2026-10-05T11:40:12.243Z"
@@ -2801,16 +2844,6 @@
       "last_verified_at": "2026-10-03T18:45:00Z"
     },
     {
-      "id": "dallas-opera-vixen-2026-11-01",
-      "title": "The Dallas Opera: The Cunning Little Vixen",
-      "last_verified_at": "2026-10-03T18:45:00Z"
-    },
-    {
-      "id": "74f8eb5b98d24187",
-      "title": "Downtown Lancaster Fall Festival",
-      "last_verified_at": "2026-10-05T03:14:14.130Z"
-    },
-    {
       "id": "kwp-kidlinks-music-2026-11-05",
       "title": "Therapeutic Music & Movement with KidLinks",
       "last_verified_at": "2026-10-05T11:40:12.243Z"
@@ -2819,6 +2852,11 @@
       "id": "startup-economics-101-summit-2026",
       "title": "Startup Economics 101 Summit",
       "last_verified_at": "2026-10-08T17:00:00Z"
+    },
+    {
+      "id": "dallas-opera-vixen-2026-11-04",
+      "title": "The Dallas Opera: The Cunning Little Vixen",
+      "last_verified_at": "2026-10-03T18:45:00Z"
     },
     {
       "id": "datasecai-dallas-2026",
@@ -2834,6 +2872,11 @@
       "id": "trains-at-northpark-2026",
       "title": "The Trains at NorthPark",
       "last_verified_at": "2026-10-13T11:41:08.259Z"
+    },
+    {
+      "id": "dct-rudolph-2026",
+      "title": "Rudolph the Red-Nosed Reindeer",
+      "last_verified_at": "2026-10-18T11:45:56.098Z"
     },
     {
       "id": "tbt-nutcracker-2026-11-27",
@@ -2941,11 +2984,6 @@
       "last_verified_at": "2026-10-08T17:00:00Z"
     },
     {
-      "id": "dallas-marathon-expo-2026",
-      "title": "Dallas Marathon Health & Fitness Expo",
-      "last_verified_at": "2026-10-03T18:45:00Z"
-    },
-    {
       "id": "galleria-tree-lighting-2026",
       "title": "Grand Tree Lighting Celebration at Galleria Dallas",
       "last_verified_at": "2026-10-08T11:38:40.342Z"
@@ -2998,6 +3036,11 @@
     {
       "id": "perot-winter-discovery-camp-2026",
       "title": "Perot Museum Winter Discovery Camp",
+      "last_verified_at": "2026-10-03T18:45:00Z"
+    },
+    {
+      "id": "dallas-marathon-expo-2026",
+      "title": "Dallas Marathon Health & Fitness Expo",
       "last_verified_at": "2026-10-03T18:45:00Z"
     },
     {
@@ -3055,32 +3098,28 @@
   "review_errors": [],
   "notes": [
     {
-      "source": "national-discovery",
-      "note": "failed: 401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcAWfHCU1JSGYcRAdb8k\"}"
-    },
-    {
       "source": "dallas-library",
       "note": "blocked by robots.txt"
     },
     {
       "source": "visit-plano",
-      "note": "tribe api: HTTP 404 fetching https://events.visitplano.com/wp-json/tribe/events/v1/events?start_date=2026-11-01&per_page=50&status=publish"
+      "note": "tribe api: HTTP 404 fetching https://events.visitplano.com/wp-json/tribe/events/v1/events?start_date=2026-11-02&per_page=50&status=publish"
     }
   ],
   "coverage_days": 30,
   "empty_days": [
-    "2026-11-20",
+    "2026-11-15",
     "2026-11-22",
     "2026-11-23",
     "2026-11-24",
     "2026-11-25",
-    "2026-11-30"
+    "2026-12-01"
   ],
   "pruned": [],
   "replaced": 14,
   "collapsed_series": [
     {
-      "title": "Entertainment at Jeanne's Pavilion",
+      "title": "Little Adventurers",
       "occurrences": 4
     },
     {
@@ -3088,19 +3127,7 @@
       "occurrences": 4
     },
     {
-      "title": "Fluid Art Workshops 2026",
-      "occurrences": 4
-    },
-    {
       "title": "The Dallas Opera: The Cunning Little Vixen",
-      "occurrences": 4
-    },
-    {
-      "title": "Little Adventurers",
-      "occurrences": 4
-    },
-    {
-      "title": "Dallas College Cooks",
       "occurrences": 4
     },
     {
@@ -3113,6 +3140,10 @@
     },
     {
       "title": "The Dallas Opera: The Elixir of Love",
+      "occurrences": 4
+    },
+    {
+      "title": "Little Adventurers: Storytime with Dallas Public Library",
       "occurrences": 4
     },
     {
