@@ -5,10 +5,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "2cc9ae12ea6583b15370fa520c5ffa0f87c5fca3",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T11:40:12.243Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHVfqkfKaMuNAd7Hb8W\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn833e92KDawk9rBVDd5\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -19,10 +19,10 @@
       "etag": "\"2c8718841c8a546f66eb9e7de3967d8c\"",
       "last_modified": "Mon, 05 Oct 2026 03:10:13 GMT",
       "content_hash": "3086718ba8b80703862e0f132f750286ed6e4449",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHVVHzbi75498fYmHXX\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn82vv4km9Fju8G7f5Ji\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -33,10 +33,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": null,
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWcvRKL1FhgYFKv9wt\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn84PqM4UPtGTKSHP9Cs\"}",
       "last_feeders": [],
       "last_event_count": null
     },
@@ -44,9 +44,9 @@
       "id": "allevents-dallas-all",
       "etag": null,
       "last_modified": null,
-      "content_hash": "f16e47ff3e2c9435fa047801875c93dd04e19ddb",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "content_hash": "d1df05049f3c586b5f5f597bc0336d7c773f4d59",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -58,23 +58,23 @@
       "id": "allevents-dallas-business",
       "etag": null,
       "last_modified": null,
-      "content_hash": "1b911779724bbd5a78bde23ca6d092f44b1da279",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "content_hash": "c7a2a69ccca65da832c3bca975afe16be9e396b3",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
         "jsonld"
       ],
-      "last_event_count": 15
+      "last_event_count": 30
     },
     {
       "id": "allevents-dallas-month",
       "etag": null,
       "last_modified": null,
-      "content_hash": "9e7d2c02ea5ca341dfa616452711932123c1fc4e",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "content_hash": "f5d6f92b116ecb01894f6effff5db0be08057c0f",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -86,9 +86,9 @@
       "id": "allevents-dallas-month+1",
       "etag": null,
       "last_modified": null,
-      "content_hash": "d01ec9f02fce2c0b8ca9e4d8716110b60310a2d3",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "content_hash": "d85ee14b3090ee1a820d2cbb71e033e6cacca6f6",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -101,10 +101,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": null,
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWahxVr9vUAfBDnZ6K\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn84GP8VD7QKbZxc3RaU\"}",
       "last_feeders": [],
       "last_event_count": null
     },
@@ -112,9 +112,9 @@
       "id": "allevents-plano-business",
       "etag": null,
       "last_modified": null,
-      "content_hash": "7b3830f6ddd31742d3d808131f951e8490b40384",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "content_hash": "437872c03eb87812cf1ca3cce0217dc25ce7a6b4",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -127,10 +127,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": null,
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWw45ZzVz5bmvPE1Tb\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn84p4sMzmCqMNjLXw4b\"}",
       "last_feeders": [],
       "last_event_count": null
     },
@@ -138,23 +138,23 @@
       "id": "arboretum",
       "etag": null,
       "last_modified": null,
-      "content_hash": "4b797acf9b6f25f6d1013837b4bfa0c961e23386",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "content_hash": "6a245d3b2362abbbade18767f688b2336f0ec95d",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
         "jsonld"
       ],
-      "last_event_count": 15
+      "last_event_count": 18
     },
     {
       "id": "arboretum-autumn",
       "etag": null,
       "last_modified": null,
-      "content_hash": "765fda006da7489d21e51e9ad7cb9499bc203e7e",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "content_hash": "6f0f2702af89277593540c2cdd49f5bf386f53e7",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -166,9 +166,9 @@
       "id": "arboretum-holiday",
       "etag": null,
       "last_modified": null,
-      "content_hash": "95773b61b9864e635de4bd20088844ca77aadf03",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "content_hash": "22abb3f6cb3436c9833db28aaaf288d1b52d83c1",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -181,10 +181,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "d1b66126abb58aef1d2eb213f4b14c4aad4fa95b",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T03:12:36.072Z",
       "consecutive_failures": 1,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHVrmaEsq3AyEGFQPkb\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn83LHVnWCqDY8Kd23PG\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -195,10 +195,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "ec327338862d1ee21b30d346e01282d392c5ee0e",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-14T11:55:05.734Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWrKZu2dWX25e3y3pY\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn84f49ST38FEZupFDzu\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -209,10 +209,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": null,
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWzQzNw184BYVHBpPF\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn84tgvfm3xJ2pEvf29a\"}",
       "last_feeders": [],
       "last_event_count": null
     },
@@ -221,35 +221,35 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": null,
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWgFLmtNhsiZ7K3nXQ\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn84TKCLsFNTBUzJnVQd\"}",
       "last_feeders": [],
       "last_event_count": null
     },
     {
       "id": "cathdal",
       "etag": null,
-      "last_modified": "Thu, 05 Nov 2026 18:51:34 GMT",
+      "last_modified": "Fri, 06 Nov 2026 18:08:44 GMT",
       "content_hash": "9ddb2a2b11902eb964888c848f3c9151a4e9ea6a",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
         "ical"
       ],
-      "last_event_count": 17
+      "last_event_count": 18
     },
     {
       "id": "cotton-bowl",
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-10-23T11:56:01.656Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": null,
-      "consecutive_failures": 5,
+      "consecutive_failures": 6,
       "last_error": "HTTP 404 fetching https://www.cottonbowl.com/news",
       "last_feeders": [],
       "last_event_count": null
@@ -259,10 +259,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "502e8b173f9904da0185baa8349b69f2e77178f5",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T11:40:12.243Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWNAu2pGyASoDajFc6\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn8416s5F1Le6f9SqxDe\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -273,10 +273,10 @@
       "etag": "W/\"657d4347e302a9cdba3c22f69d720f90\"",
       "last_modified": null,
       "content_hash": "7dc78104383bf711c2cd5ab5628ed734e3fc6915",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-08T11:38:40.342Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWBAsGr3Ej9w84hGon\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn83oDVHKLNzNf9cMype\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -287,10 +287,10 @@
       "etag": null,
       "last_modified": "Mon, 05 Oct 2026 11:40:33 GMT",
       "content_hash": "501ab71a71e9e950f03120ab99d2fcd05422263d",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T11:40:12.243Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWN6C7VMWFW5Q7Zyod\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn83vRpxYtAowhd7QEL1\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -313,8 +313,8 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [],
@@ -351,10 +351,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "77002929991fe4712e918eb9dad9fbdf47ca3338",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWVF4Mk1DanAhtquWZ\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn849TuhX9ZLuZ1fVXVh\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -365,10 +365,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "41802d353d136cfcfeeb4d208eb884d836290ddd",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T11:40:12.243Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHV9QfSjGr9bvKscLDT\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn82araT5kSFUUy8piKG\"}",
       "last_feeders": [
         "html_ai",
         "jsonld"
@@ -380,10 +380,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "6ef7a11bd2a7485693ead3215847476cb1f8e521",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-12T11:42:39.902Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHVDkMpJJhuKjWPNDHz\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn82av3MxciKHkNxdft7\"}",
       "last_feeders": [
         "html_ai",
         "jsonld"
@@ -395,10 +395,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "f18432b44719707ebf823e2dd9ab47b9e4179e63",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-06T11:36:47.204Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHW2SFibWtnCBcEgVsW\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn83eQAczHu4uuC6Gpk1\"}",
       "last_feeders": [
         "html_ai",
         "jsonld"
@@ -410,8 +410,8 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "fa9d28fb25a8583af5959d2b5308426902d664ac",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -424,10 +424,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "3a513d097c85dd84402a3113c06ce9cbabb40b98",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-27T11:56:08.488Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHW6fkaB4cr8vfgZLMg\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn83iXUF8iUnpXT3QFkE\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -438,10 +438,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "c163db2186ae91c7a225c56fa47c54135911aa37",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-27T11:56:08.488Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHW6M9PK8rutCKYHitC\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn83eGV3JEVdeZ7NpZQh\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -452,10 +452,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "8b2b263f336377072188a44d8d528a3dbad3d575",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-18T11:45:56.098Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHVqi5e9buGDxfCUSkD\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn83JBFnJiBhGPxL6tk6\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -466,10 +466,10 @@
       "etag": null,
       "last_modified": "Mon, 05 Oct 2026 08:41:48 GMT",
       "content_hash": "5d5d91b5f83d68dfff7706e8fd06cb7d23f272de",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T11:40:12.243Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWDJrdpCySq8Fe5WE3\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn83qJFedFVwia88LaKQ\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -480,10 +480,10 @@
       "etag": null,
       "last_modified": "Mon, 05 Oct 2026 05:26:47 GMT",
       "content_hash": "fa994dca90d713c51450ab9a24afa757fd33b8cf",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-06T11:36:47.204Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHVvvbz4xfn618LNpSn\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn83PWxufA9SwpzdQPYU\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -494,10 +494,10 @@
       "etag": null,
       "last_modified": "Sun, 04 Oct 2026 16:59:08 GMT",
       "content_hash": "604eef36646006071952c0a4c46aefff5d6aa990",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T11:40:12.243Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWHdYne7xd7nMu3NJ3\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn842wF2mnsnEKxmPiZR\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -508,10 +508,10 @@
       "etag": null,
       "last_modified": "Sun, 04 Oct 2026 06:00:46 GMT",
       "content_hash": "c62386455eec6f586f5ce023942025b64f8aadd8",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T11:40:12.243Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHVvTLKXaFPk2AdiCja\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn83ZZDmLa5viQa5gMQn\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -532,10 +532,10 @@
     {
       "id": "dso-family",
       "etag": null,
-      "last_modified": "Thu, 05 Nov 2026 18:51:47 GMT",
+      "last_modified": "Fri, 06 Nov 2026 18:08:58 GMT",
       "content_hash": "92f15ad779622d39a6bc8b0b956d9f9fbfa47037",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -584,10 +584,10 @@
       "etag": null,
       "last_modified": "Mon, 05 Oct 2026 02:46:51 GMT",
       "content_hash": "8abc2d49fc297b51b609e5f3c667f7e44de75336",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHVJqDHVUgDW9RYVVwi\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn82kdSZYo9J2LGjJxiw\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -596,10 +596,10 @@
     {
       "id": "farmers-market",
       "etag": null,
-      "last_modified": "Thu, 05 Nov 2026 18:51:38 GMT",
-      "content_hash": "efd7eaad1677e957ca21621b67f46cc33a406a5c",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "last_modified": "Fri, 06 Nov 2026 18:08:48 GMT",
+      "content_hash": "6b45a8da2a4a0997a60262aaa45650cb2642bf52",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -613,8 +613,8 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "4fbb10172a602731c0590a9078c21aba2aecaabc",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -627,10 +627,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "8960ed060f5620f98fbc001640270c9899a0aa25",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-07T11:38:00.180Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHUmcjmKeAk2FLYrXBv\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn82BpELZZ3u1SYL5n2e\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -641,10 +641,10 @@
       "etag": "W/\"6ac5d275-2204e\"",
       "last_modified": "Wed, 07 Oct 2026 05:02:45 GMT",
       "content_hash": "08c6116fc338835b29f9f720ff6f066e2c3a2572",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-07T11:38:00.180Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHVECekyAg7TGfyQhEY\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn82fvvLohRY9FMdNYya\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -655,10 +655,10 @@
       "etag": null,
       "last_modified": "Fri, 16 Oct 2026 11:54:06 GMT",
       "content_hash": "4131ef0fc31bf08dad981b0d54ecc3906909de75",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-16T11:53:50.073Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHVm14a9zAMrnEBiDTG\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn83BYdxcLc7quFMUeHq\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -695,10 +695,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": null,
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWhTGHapWS1EfQzJvu\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn84T6JSJHaUSK2Pp1QU\"}",
       "last_feeders": [],
       "last_event_count": null
     },
@@ -707,10 +707,10 @@
       "etag": null,
       "last_modified": "Wed, 28 Oct 2026 23:07:23 GMT",
       "content_hash": "3023676c37797fc6946ffa117c1797b024bb0455",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-31T11:56:32.297Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHUqgpPRigzcgDSBZYF\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn82GbySwEVoC9av9WkW\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -889,10 +889,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": null,
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHX1DbsvmmhaRkAiL9y\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn84tm9tBLVrt3fJCaib\"}",
       "last_feeders": [],
       "last_event_count": null
     },
@@ -901,10 +901,10 @@
       "etag": "\"1791169651-1\"",
       "last_modified": "Mon, 05 Oct 2026 03:07:31 GMT",
       "content_hash": "e38ea2973999bbbb7066e21fa2530aecb6d3e478",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T11:40:12.243Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHVwCVB4Ydahx2SDMzi\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn83U7YC6L1ne9xvtcQg\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -915,10 +915,10 @@
       "etag": "W/\"c5a695814ab6c251d31aec45c5122f9b\"",
       "last_modified": null,
       "content_hash": "1f19aeb0e3ae01279aed203eb2e7e7ba8964fe58",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T11:40:12.243Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHUvQ5HAGnki7DGdd72\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn82MSBRYs9qF8dHzfjj\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -929,10 +929,10 @@
       "etag": "W/\"5ca88c7274b56cedc4409e9f363a0877\"",
       "last_modified": null,
       "content_hash": "64c588c5d84670b50843a72dba8d6ffa977efaa9",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-13T11:41:08.259Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHUx1KufQ9vJGZtqCNe\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn82MXdTDvCPuFikbi92\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -943,10 +943,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": null,
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWwrTDGsvdB8u8BFAe\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn84uH9QQJbPd1U7DXtW\"}",
       "last_feeders": [],
       "last_event_count": null
     },
@@ -955,10 +955,10 @@
       "etag": "\"13ec3-65d385903030f-gzip\"",
       "last_modified": "Wed, 07 Oct 2026 04:14:13 GMT",
       "content_hash": "e38164b03d6d1644c86d4ed934e66861563c4285",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-07T11:38:00.180Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWoF297rKQEmnBXgw7\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn84aRqEJnKoj5wWe1ir\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -969,8 +969,8 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "84d9b121afe67b58be03ba487d251185992ab3e4",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -983,10 +983,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "349db5954af73477a2a9bff6952a4b0d5fea3117",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T03:12:36.072Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHW2J5CoBoLzyrSRakW\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn83a1zT4xiioTC7ob92\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -1009,10 +1009,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "5faf91f8f4996a79e1025d796484ffec495fa3a5",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWSv9hy4qJhjPcLGFF\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn843kc3HQQjidg7qW1P\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -1020,11 +1020,11 @@
     },
     {
       "id": "mommypoppins-fall",
-      "etag": "W/\"1793904711\"",
-      "last_modified": "Thu, 05 Nov 2026 18:51:51 GMT",
-      "content_hash": "df666a118e52a926880f7413803a1f0d66bfba7c",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "etag": "W/\"1793988531\"",
+      "last_modified": "Fri, 06 Nov 2026 18:08:51 GMT",
+      "content_hash": "9d1357ba84e9352c4e5e7a2b817d57a6909741f1",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -1037,9 +1037,9 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-10-23T11:56:01.656Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": null,
-      "consecutive_failures": 5,
+      "consecutive_failures": 6,
       "last_error": "HTTP 403 fetching https://www.mountvernon.org/plan-your-visit/calendar",
       "last_feeders": [],
       "last_event_count": null
@@ -1049,10 +1049,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": null,
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHX2zXATV6iTBaMLkFy\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn84zds5byBQYk6EFQzV\"}",
       "last_feeders": [],
       "last_event_count": null
     },
@@ -1061,8 +1061,8 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "5987eb72f36a4ef95fa9ea965fbf02c53e91ef2f",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -1075,10 +1075,10 @@
       "etag": null,
       "last_modified": "Tue, 13 Oct 2026 01:30:09 GMT",
       "content_hash": "26e7aa1c26a531c6ecd2bcbc438297494f9fc7f0",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-13T11:41:08.259Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHVPNoBJZ6igxqWqUso\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn82qPgn5yNWDeWkxGoj\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -1089,10 +1089,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": null,
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWritAtdNhVjiNqrcP\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn84jSp2XdC3q7EYENTZ\"}",
       "last_feeders": [],
       "last_event_count": null
     },
@@ -1101,10 +1101,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": null,
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWrh9Yr9CjDxRmZvAk\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn84jTK1xrvwBWiQkkQy\"}",
       "last_feeders": [],
       "last_event_count": null
     },
@@ -1113,10 +1113,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": null,
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWrcBFv8UKhC3wWKLM\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn84fDKBjA4SYUzBnHf1\"}",
       "last_feeders": [],
       "last_event_count": null
     },
@@ -1125,10 +1125,10 @@
       "etag": "W/\"e3b144a86b61638458fef9205ab40256\"",
       "last_modified": null,
       "content_hash": "b7ccaabad7782467f1b09ed45031b5650ab0a73f",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T11:40:12.243Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHVkU4JQURuuekrjBRo\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn83CRigpDQ28T4aaHxc\"}",
       "last_feeders": [
         "html_ai",
         "jsonld"
@@ -1140,10 +1140,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "2e4cbebefa0ee0333322c85a7697150fc67a56f9",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-11T11:36:24.101Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHVKWdzhcyoxyJQi63b\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn82mDArKnrJuS2X6PpU\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -1154,10 +1154,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": null,
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWwvRHzrm27coNTNhj\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn84uqeHzvVRXxsvdHVv\"}",
       "last_feeders": [],
       "last_event_count": null
     },
@@ -1166,10 +1166,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "080710c0f0006dd42dc62390d3466c9bc8de9473",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-11-04T18:43:39.453Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWhzGDpYR3KpjJvYDk\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn84VJzwpH3H2LqBczRu\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -1180,8 +1180,8 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "32a566707d50f27f57e9ca8ac96ba82922cd0a1b",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -1194,10 +1194,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "0eda466100fcaf33c8d6be80a1916b3264c1b031",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-07T11:38:00.180Z",
       "consecutive_failures": 1,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWHVsTqvAym1dxGpHZ\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn83sqZYCvm7yuXocegm\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -1208,8 +1208,8 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "e398ad60103a84fefc55ef2773c68187ec81e766",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -1222,10 +1222,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "de1538f0ad5375d8450c4098b00dfea3466ead52",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T11:40:12.243Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHUm6z3HVNp3Rsty6md\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn82FD8LYo8Cv9YKqevN\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -1248,7 +1248,7 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T02:49:53.463Z",
       "consecutive_failures": 0,
       "last_error": "Reddit token HTTP 401",
@@ -1260,7 +1260,7 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T02:49:53.463Z",
       "consecutive_failures": 0,
       "last_error": "Reddit token HTTP 401",
@@ -1272,7 +1272,7 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T02:49:53.463Z",
       "consecutive_failures": 0,
       "last_error": "Reddit token HTTP 401",
@@ -1284,7 +1284,7 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T02:49:53.463Z",
       "consecutive_failures": 0,
       "last_error": "Reddit token HTTP 401",
@@ -1296,7 +1296,7 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T02:49:53.463Z",
       "consecutive_failures": 0,
       "last_error": "Reddit token HTTP 401",
@@ -1308,10 +1308,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "13f75855138b20a0e465193897a20e50714afbce",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-06T11:36:47.204Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHW8QvDaXhPt2tM3W8M\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn83jCtmb8fygqThaHaM\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -1334,9 +1334,9 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-10-23T11:56:01.656Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": null,
-      "consecutive_failures": 5,
+      "consecutive_failures": 6,
       "last_error": "HTTP 403 fetching https://www.rockefellercenter.com/holidays/rockefeller-center-christmas-tree/",
       "last_feeders": [],
       "last_event_count": null
@@ -1346,10 +1346,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": null,
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHX5hEJbEFaNTD9gUkU\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn852vHX3m73XeMCgBmV\"}",
       "last_feeders": [],
       "last_event_count": null
     },
@@ -1358,10 +1358,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "2db48f6104e9f153ca89caa40a6c8bb53a917866",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWnCGzZyDJ1KcAKxFS\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn84ZgCBE5suzFvu8qq4\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -1396,10 +1396,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "787b9c3c59ec179c41d910a6aa0e51e4b12a4786",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWT1bz8LjfQuxzZyPq\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn846EBmkeLWaDhgsLem\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -1410,10 +1410,10 @@
       "etag": null,
       "last_modified": "Fri, 02 Oct 2026 07:26:33 GMT",
       "content_hash": "742a747abcbc10b0a75aa3fc95c4b67dc7de1163",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWmijzHAyqmGDJ2VGa\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn84aZH2FUTTGWvzUoxe\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -1424,10 +1424,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "bb37ee8a722d9e28bc67c2c92611a55d05c4ae29",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-11-05T18:51:30.511Z",
-      "consecutive_failures": 0,
-      "last_error": null,
+      "consecutive_failures": 1,
+      "last_error": "fetch failed fetching https://www.uptexas.org/378/Special-Events",
       "last_feeders": [
         "html_ai"
       ],
@@ -1450,8 +1450,8 @@
       "etag": "W/\"7ac5ca23cedbf0c3bf8f52cb90a522d8\"",
       "last_modified": null,
       "content_hash": "71aff515ff17d93c13f44ea6459aecac63d47d62",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -1464,10 +1464,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "54fbd8bb2477d96ad65d4a52c07f764eeff1aa24",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHVerTv1rgwvhTeLDXn\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn82yhFnHePv1ZMMV2yH\"}",
       "last_feeders": [
         "html_ai",
         "jsonld"
@@ -1478,9 +1478,9 @@
       "id": "visit-dallas-dia",
       "etag": null,
       "last_modified": null,
-      "content_hash": "725a64de935fd4004f177ad864a0119c71c3bb1e",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "content_hash": "900b5b1dc16ebeee1422e811c98be4377cb8d481",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -1493,10 +1493,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "eaf0da7f5537a7d0baa25cc7ea2ccdf0b5572cec",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWByjRvdzmmebt92Fw\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn83hna7zP3wam55xwHm\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -1507,10 +1507,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "b3daabd6dd10653e419935f735821ffa974ff74b",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-05T03:09:57.058Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWHU8qBzhYyXVXQuyM\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn83qccLDoodp1MChY8U\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -1518,11 +1518,11 @@
     },
     {
       "id": "visit-plano",
-      "etag": "W/\"44f445e80856c2cae518fa642238142e-gzip\"",
+      "etag": "W/\"affb4904271bb2041f2b0299e015d53c-gzip\"",
       "last_modified": null,
-      "content_hash": "867f2b953db8353d515fea2e7ef1af74083d5dbc",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
-      "last_success_at": "2026-11-05T18:51:30.511Z",
+      "content_hash": "d3c27d938b11467d3209e479f6cc1f681c0ad78b",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
+      "last_success_at": "2026-11-06T18:08:39.769Z",
       "consecutive_failures": 0,
       "last_error": null,
       "last_feeders": [
@@ -1535,10 +1535,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": null,
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": null,
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWvmDLfFX9zpDSJdt4\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn84jpPZzvfEWcXkLmEd\"}",
       "last_feeders": [],
       "last_event_count": null
     },
@@ -1547,10 +1547,10 @@
       "etag": null,
       "last_modified": null,
       "content_hash": "615c87052af5e1020516fe6f06aefdf3e79cbe1c",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-06T11:36:47.204Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHWoc6e57aospAWCeJ6\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn84f2uAvkpQ5oPekdwM\"}",
       "last_feeders": [
         "html_ai"
       ],
@@ -1561,10 +1561,10 @@
       "etag": "\"1791226538-gzip\"",
       "last_modified": "Mon, 05 Oct 2026 18:55:38 GMT",
       "content_hash": "3d474bc46c5bad2bf60c094b9b09cc7621977990",
-      "last_run_at": "2026-11-05T18:51:30.511Z",
+      "last_run_at": "2026-11-06T18:08:39.769Z",
       "last_success_at": "2026-10-06T11:36:47.204Z",
       "consecutive_failures": 0,
-      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgkHVkbk2vvvScpYeHfPG\"}",
+      "last_error": "401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cgn83GEBJjkHP28vDmvNU\"}",
       "last_feeders": [
         "html_ai"
       ],
